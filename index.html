@@ -341,6 +341,26 @@
     Latest Changes
   </a>
   
+    <nav class="md-nav" aria-label="Latest Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v114-11-september-2022" class="md-nav__link">
+    v1.14 (11 September 2022)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#v113-3-september-2022" class="md-nav__link">
+    v1.13 (3 September 2022
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -436,6 +456,20 @@
     <li class="md-nav__item">
       <a href="features/CLI/" class="md-nav__link">
         CLI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="features/EMBIGGEN/" class="md-nav__link">
+        **Embiggen -- upscale your images on limited memory machines**
       </a>
     </li>
   
@@ -750,6 +784,14 @@
 
 
 
+<!--
+  The Docs you find here (/docs/*) are built and deployed via mkdocs. If you want to do so from local it is pretty strait forward:
+
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>pip install -r requirements-mkdocs.txt
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>mkdocs serve -a localhost:8080
+</code></pre></div>
+-->
+
 <h1 align='center'><b>Stable Diffusion Dream Script</b></h1>
 
 <p align='center'>
@@ -771,18 +813,6 @@ GPU cards with as little as 4 GB or RAM.</p>
 <p><em>Note: This fork is rapidly evolving. Please use the
 <a href="https://github.com/lstein/stable-diffusion/issues">Issues</a> tab to report bugs and make feature
 requests. Be sure to use the provided templates. They will help aid diagnose issues faster.</em></p>
-<p><strong>Table of Contents</strong></p>
-<ol>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#hardware-requirements">Hardware Requirements</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#latest-changes">Latest Changes</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-<li><a href="#contributing">Contributing</a></li>
-<li><a href="#contributors">Contributors</a></li>
-<li><a href="#support">Support</a></li>
-<li><a href="#further-reading">Further Reading</a></li>
-</ol>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <p>This fork is supported across multiple platforms. You can find individual installation instructions
 below.</p>
@@ -811,7 +841,7 @@ below.</p>
 full-precision mode as shown below.</p>
 <p>Similarly, specify full-precision mode on Apple M1 hardware.</p>
 <p>To run in full-precision mode, start <code>dream.py</code> with the <code>--full_precision</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python scripts/dream.py --full_precision
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python scripts/dream.py --full_precision
 </code></pre></div>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
 <h3 id="major-features">Major Features<a class="headerlink" href="#major-features" title="Permanent link">#</a></h3>
@@ -836,37 +866,28 @@ full-precision mode as shown below.</p>
 <li><a href="features/OTHER/#preload-models">Preload Models</a></li>
 </ul>
 <h2 id="latest-changes">Latest Changes<a class="headerlink" href="#latest-changes" title="Permanent link">#</a></h2>
+<h3 id="v114-11-september-2022">v1.14 <small>(11 September 2022)</small><a class="headerlink" href="#v114-11-september-2022" title="Permanent link">#</a></h3>
 <ul>
-<li>
-<p>v1.14 (11 September 2022)</p>
-</li>
-<li>
-<p>Memory optimizations for small-RAM cards. 512x512 now possible on 4 GB GPUs.</p>
-</li>
+<li>Memory optimizations for small-RAM cards. 512x512 now possible on 4 GB GPUs.</li>
 <li>Full support for Apple hardware with M1 or M2 chips.</li>
 <li>Add "seamless mode" for circular tiling of image. Generates beautiful effects.
-    (<a href="https://github.com/prixt">prixt</a>).</li>
+  (<a href="https://github.com/prixt">prixt</a>).</li>
 <li>Inpainting support.</li>
 <li>Improved web server GUI.</li>
-<li>
-<p>Lots of code and documentation cleanups.</p>
-</li>
-<li>
-<p>v1.13 (3 September 2022</p>
-</li>
-<li>
-<p>Support image variations (see <a href="features/VARIATIONS/">VARIATIONS</a>
-    (<a href="https://github.com/bakkot">Kevin Gibbons</a> and many contributors and reviewers)</p>
-</li>
+<li>Lots of code and documentation cleanups.</li>
+</ul>
+<h3 id="v113-3-september-2022">v1.13 <small>(3 September 2022</small><a class="headerlink" href="#v113-3-september-2022" title="Permanent link">#</a></h3>
+<ul>
+<li>Support image variations (see <a href="features/VARIATIONS/">VARIATIONS</a>
+  (<a href="https://github.com/bakkot">Kevin Gibbons</a> and many contributors and reviewers)</li>
 <li>Supports a Google Colab notebook for a standalone server running on Google hardware
-    <a href="https://github.com/artmen1516">Arturo Mendivil</a></li>
+  <a href="https://github.com/artmen1516">Arturo Mendivil</a></li>
 <li>WebUI supports GFPGAN/ESRGAN facial reconstruction and upscaling
-    <a href="https://github.com/bakkot">Kevin Gibbons</a></li>
+  <a href="https://github.com/bakkot">Kevin Gibbons</a></li>
 <li>WebUI supports incremental display of in-progress images during generation
-    <a href="https://github.com/bakkot">Kevin Gibbons</a></li>
-<li>A new configuration file scheme that allows new models (including upcoming
-    stable-diffusion-v1.5) to be added without altering the code.
-    (<a href="https://github.com/maddavid12">David Wager</a>)</li>
+  <a href="https://github.com/bakkot">Kevin Gibbons</a></li>
+<li>A new configuration file scheme that allows new models (including upcoming stable-diffusion-v1.5)
+  to be added without altering the code. (<a href="https://github.com/maddavid12">David Wager</a>)</li>
 <li>Can specify --grid on dream.py command line as the default.</li>
 <li>Miscellaneous internal bug and stability fixes.</li>
 <li>Works on M1 Apple hardware.</li>

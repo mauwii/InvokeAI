@@ -303,6 +303,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../EMBIGGEN/" class="md-nav__link">
+        **Embiggen -- upscale your images on limited memory machines**
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../IMG2IMG/" class="md-nav__link">
         Image-to-Image
       </a>
@@ -727,7 +741,7 @@ the armor on her shoulder in the second one (subseed 1614299449). Can we combine
 them to get the best of both worlds?</p>
 <p>We combine the two variations using <code>-V</code> (--with_variations). Again, we must
 provide the seed for the originally-chosen image in order for this to work.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>dream&gt; <span class="s2">&quot;prompt&quot;</span>  -S3357757885 -V3647897225,0.1<span class="p">;</span><span class="m">1614299449</span>,0.1
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>dream&gt; <span class="s2">&quot;prompt&quot;</span>  -S3357757885 -V3647897225:0.1,1614299449:0.1
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a>Outputs:
 <a id="__codelineno-2-3" name="__codelineno-2-3"></a>./outputs/Xena/000003.1614299449.png: <span class="s2">&quot;prompt&quot;</span> -s50 -W512 -H512 -C7.5 -Ak_lms -V <span class="m">3647897225</span>:0.1,1614299449:0.1 -S3357757885
 </code></pre></div>
@@ -738,7 +752,7 @@ resulting image is close, but not exactly what I wanted:</p>
 generate more variations around the almost-but-not-quite image. We do the
 latter, using both the <code>-V</code> (combining) and <code>-v</code> (variation strength) options.
 Note that we use <code>-n6</code> to generate 6 variations:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>dream&gt; <span class="s2">&quot;prompt&quot;</span> -S3357757885 -V3647897225,0.1<span class="p">;</span><span class="m">1614299449</span>,0.1 -v0.05 -n6
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>dream&gt; <span class="s2">&quot;prompt&quot;</span> -S3357757885 -V3647897225,0.1,1614299449,0.1 -v0.05 -n6
 <a id="__codelineno-3-2" name="__codelineno-3-2"></a>Outputs:
 <a id="__codelineno-3-3" name="__codelineno-3-3"></a>./outputs/Xena/000004.3279757577.png: <span class="s2">&quot;prompt&quot;</span> -s50 -W512 -H512 -C7.5 -Ak_lms -V <span class="m">3647897225</span>:0.1,1614299449:0.1,3279757577:0.05 -S3357757885
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a>./outputs/Xena/000004.2853129515.png: <span class="s2">&quot;prompt&quot;</span> -s50 -W512 -H512 -C7.5 -Ak_lms -V <span class="m">3647897225</span>:0.1,1614299449:0.1,2853129515:0.05 -S3357757885
