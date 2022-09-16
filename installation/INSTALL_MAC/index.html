@@ -995,7 +995,7 @@ time.</p>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1"># NOW EITHER DO</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1"># 1. Installing alongside pyenv</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>brew install pyenv-virtualenv <span class="c1"># (1)!</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>brew install pyenv-virtualenv <span class="c1"># (1)</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>pyenv install anaconda3-2022.05
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>pyenv virtualenv anaconda3-2022.05
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
@@ -1024,7 +1024,7 @@ time.</p>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="c1"># create symlink to checkpoint</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>mkdir -p models/ldm/stable-diffusion-v1/
 <a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="nv">PATH_TO_CKPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Downloads&quot;</span> <span class="c1"># (2)!</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="nv">PATH_TO_CKPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Downloads&quot;</span> <span class="c1"># (2)</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>ln -s <span class="s2">&quot;</span><span class="nv">$PATH_TO_CKPT</span><span class="s2">/sd-v1-4.ckpt&quot;</span> <span class="se">\</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a>  models/ldm/stable-diffusion-v1/model.ckpt
@@ -1042,7 +1042,7 @@ time.</p>
 <a id="__codelineno-0-60" name="__codelineno-0-60"></a>
 <a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="c1"># run SD</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62"></a>python scripts/dream.py <span class="se">\</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>  --full_precision <span class="c1"># (3)!</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>  --full_precision <span class="c1"># (3)</span>
 </code></pre></div>
 <ol>
 <li>you might have this from before, no problem</li>
