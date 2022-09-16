@@ -956,10 +956,8 @@
 <li>macOS 12.3 Monterey or later</li>
 <li>Python</li>
 <li>Patience</li>
-<li>Apple Silicon *</li>
+<li>Apple Silicon or Intel Mac</li>
 </ul>
-<p>*II haven't tested any of this on Intel Macs but I have read that one person
-got it to work, so Apple Silicon might not be requried.</p>
 <p>Things have moved really fast and so these instructions change often which makes
 them outdated pretty fast. One of the problems is that there are so many
 different ways to run this.</p>
@@ -1006,43 +1004,52 @@ time.</p>
 <a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="c1"># install cmake and rust:</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a>brew install cmake rust
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="c1"># install miniconda (M1 arm64 version):</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh <span class="se">\</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>  -o Miniconda3-latest-MacOSX-arm64.sh
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="c1"># install miniconda for M1 arm64:</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh -o Miniconda3-latest-MacOSX-arm64.sh
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>/bin/bash Miniconda3-latest-MacOSX-arm64.sh
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>/bin/bash Miniconda3-latest-MacOSX-arm64.sh
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="c1"># EITHER WAY,</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="c1"># continue from here</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="c1"># clone the repo</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>git clone https://github.com/lstein/stable-diffusion.git
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="nb">cd</span> stable-diffusion
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="c1"># OR install miniconda for Intel:</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o Miniconda3-latest-MacOSX-x86_64.sh
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>/bin/bash Miniconda3-latest-MacOSX-x86_64.sh
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>/bin/bash Miniconda3-latest-MacOSX-arm64.sh
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="c1"># EITHER WAY,</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="c1"># continue from here</span>
 <a id="__codelineno-0-39" name="__codelineno-0-39"></a>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="c1"># wait until the checkpoint file has downloaded, then proceed</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="c1"># create symlink to checkpoint</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>mkdir -p models/ldm/stable-diffusion-v1/
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="nv">PATH_TO_CKPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Downloads&quot;</span> <span class="c1"># (2)</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>ln -s <span class="s2">&quot;</span><span class="nv">$PATH_TO_CKPT</span><span class="s2">/sd-v1-4.ckpt&quot;</span> <span class="se">\</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>  models/ldm/stable-diffusion-v1/model.ckpt
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="c1"># install packages</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>env <span class="nv">PIP_EXISTS_ACTION</span><span class="o">=</span>w <span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-arm64 <span class="se">\</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>  conda env create <span class="se">\</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>  -f environment-mac.yaml
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="c1"># activate environment</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="c1"># clone the repo</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>git clone https://github.com/lstein/stable-diffusion.git
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="nb">cd</span> stable-diffusion
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="c1"># wait until the checkpoint file has downloaded, then proceed</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="c1"># create symlink to checkpoint</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>mkdir -p models/ldm/stable-diffusion-v1/
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="nv">PATH_TO_CKPT</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/Downloads&quot;</span> <span class="c1"># (2)</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>ln -s <span class="s2">&quot;</span><span class="nv">$PATH_TO_CKPT</span><span class="s2">/sd-v1-4.ckpt&quot;</span> <span class="se">\</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>  models/ldm/stable-diffusion-v1/model.ckpt
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="c1"># install packages for arm64</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="nv">PIP_EXISTS_ACTION</span><span class="o">=</span>w <span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-arm64 conda env create -f environment-mac.yaml
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>conda activate ldm
 <a id="__codelineno-0-57" name="__codelineno-0-57"></a>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="c1"># only need to do this after installing the environment</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>python scripts/preload_models.py
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="c1"># run SD</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>python scripts/dream.py <span class="se">\</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>  --full_precision <span class="c1"># (3)</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="c1"># OR install packages for x86_64</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="nv">PIP_EXISTS_ACTION</span><span class="o">=</span>w <span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-x86_64 conda env create -f environment-mac.yaml
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>conda activate ldm
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="c1"># activate environment</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>conda activate ldm
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="c1"># only need to do this after installing the environment</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>python scripts/preload_models.py
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="c1"># run SD!</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>python scripts/dream.py --full_precision  <span class="c1"># (3)</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="c1"># or run the web interface!</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>python scripts/dream.py --web
 </code></pre></div>
 <ol>
 <li>you might have this from before, no problem</li>
@@ -1122,25 +1129,26 @@ solution please
 <!-- I could not find out where the error is, otherwise would have marked it as a footnote -->
 </li>
 <li>
-<p>if it says you're missing taming you need to rebuild your virtual
-   environment.</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>conda env remove <span class="se">\</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>  -n ldm <span class="se">\</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  -f environment-mac.yaml
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>conda env create <span class="se">\</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a>  -f environment-mac.yaml
+<p>If it says you're missing taming you need to rebuild your virtual environment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>conda deactivate
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>conda env remove <span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  -n ldm
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>emv <span class="nv">PIP_EXISTS_ACTION</span><span class="o">=</span>w <span class="se">\</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>  <span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-arm64 <span class="se">\</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  conda env create <span class="se">\</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>  -f environment-mac.yaml
 </code></pre></div>
-<ol>
-<li>If you have activated the ldm virtual environment and tried rebuilding it,
+</li>
+<li>
+<p>If you have activated the ldm virtual environment and tried rebuilding it,
    maybe the problem could be that I have something installed that you don't and
    you'll just need to manually install it. Make sure you activate the virtual
-   environment so it installs there instead of globally.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a> conda activate ldm
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a> pip install &lt;package name&gt;
+   environment so it installs there instead of globally.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>  conda activate ldm
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>  pip install &lt;package name&gt;
 </code></pre></div>
+</li>
+</ol>
 <p>You might also need to install Rust (I mention this again below).</p>
 <hr />
 <h3 id="how-many-snakes-are-living-in-your-computer">How many snakes are living in your computer?<a class="headerlink" href="#how-many-snakes-are-living-in-your-computer" title="Permanent link">#</a></h3>
@@ -1338,7 +1346,7 @@ use ARM packages, and use <code>nomkl</code> as described above.</p>
   <small>
     
       Last update:
-      2022-09-16
+      2022-09-17
     
   </small>
 </div>
