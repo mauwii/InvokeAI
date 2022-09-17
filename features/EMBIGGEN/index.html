@@ -15,7 +15,7 @@
     
     
       
-        <title>**Embiggen -- upscale your images on limited memory machines** - Dream Script Docs</title>
+        <title>Embiggen - Dream Script Docs</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#embiggen-upscale-your-images-on-limited-memory-machines" class="md-skip">
+        <a href="#embiggen" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              **Embiggen -- upscale your images on limited memory machines**
+              Embiggen
             
           </span>
         </div>
@@ -307,16 +307,14 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          **Embiggen -- upscale your images on limited memory machines**
+          Embiggen
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        **Embiggen -- upscale your images on limited memory machines**
+        Embiggen
       </a>
       
         
@@ -324,8 +322,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -337,6 +333,27 @@
         <li class="md-nav__item">
   <a href="#embiggen" class="md-nav__link">
     Embiggen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    Example Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
   </a>
   
 </li>
@@ -657,8 +674,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -669,6 +684,27 @@
         <li class="md-nav__item">
   <a href="#embiggen" class="md-nav__link">
     Embiggen
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-usage" class="md-nav__link">
+    Example Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#note" class="md-nav__link">
+    Note
   </a>
   
 </li>
@@ -691,7 +727,9 @@
 
 
 
-<h1 id="embiggen-upscale-your-images-on-limited-memory-machines"><strong>Embiggen -- upscale your images on limited memory machines</strong><a class="headerlink" href="#embiggen-upscale-your-images-on-limited-memory-machines" title="Permanent link">#</a></h1>
+  <h1>Embiggen</h1>
+
+<p><strong>upscale your images on limited memory machines</strong></p>
 <p>GFPGAN and Real-ESRGAN are both memory intensive. In order to avoid
 crashes and memory overloads during the Stable Diffusion process,
 these effects are applied after Stable Diffusion has completed its
@@ -721,7 +759,7 @@ it's similar to that, except it can work up to an arbitrarily large size
 (instead of just 2x), with tile overlaps configurable as a ratio, and
 has extra logic to re-run any number of the tile sub-sections of the image
 if for example a small part of a huge run got messed up.</p>
-<p><strong>Usage</strong></p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p><code>-embiggen &lt;scaling_factor&gt; &lt;esrgan_strength&gt; &lt;overlap_ratio OR overlap_pixels&gt;</code></p>
 <p>Takes a scaling factor relative to the size of the <code>--init_img</code> (<code>-I</code>), followed by
 ESRGAN upscaling strength (0 - 1.0), followed by minimum amount of overlap
@@ -766,20 +804,20 @@ coherency reasons.</p>
 <p>Tiles are numbered starting with one, and left-to-right,
 top-to-bottom.  So, if you are generating a 3x3 tiled image, the
 middle row would be <code>4 5 6</code>.</p>
-<p><strong>Example Usage</strong></p>
+<h2 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">#</a></h2>
 <p>Running Embiggen with 512x512 tiles on an existing image, scaling up by a factor of 2.5x;
 and doing the same again (default ESRGAN strength is 0.75, default overlap between tiles is 0.25):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>dream &gt; a photo of a forest at sunset -s 100 -W 512 -H 512 -I outputs/forest.png -f 0.4 -embiggen 2.5
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>dream &gt; a photo of a forest at sunset -s 100 -W 512 -H 512 -I outputs/forest.png -f 0.4 -embiggen 2.5 0.75 0.25
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>dream &gt; a photo of a forest at sunset -s <span class="m">100</span> -W <span class="m">512</span> -H <span class="m">512</span> -I outputs/forest.png -f <span class="m">0</span>.4 -embiggen <span class="m">2</span>.5
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>dream &gt; a photo of a forest at sunset -s <span class="m">100</span> -W <span class="m">512</span> -H <span class="m">512</span> -I outputs/forest.png -f <span class="m">0</span>.4 -embiggen <span class="m">2</span>.5 <span class="m">0</span>.75 <span class="m">0</span>.25
 </code></pre></div>
 <p>If your starting image was also 512x512 this should have taken 9 tiles.</p>
 <p>If there weren't enough clouds in the sky of that forest you just made
 (and that image is about 1280 pixels (512*2.5) wide A.K.A. three
 512x512 tiles with 0.25 overlaps wide) we can replace that top row of
 tiles:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>dream&gt; a photo of puffy clouds over a forest at sunset -s 100 -W 512 -H 512 -I outputs/000002.seed.png -f 0.5 -embiggen_tiles 1 2 3
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>dream&gt; a photo of puffy clouds over a forest at sunset -s <span class="m">100</span> -W <span class="m">512</span> -H <span class="m">512</span> -I outputs/000002.seed.png -f <span class="m">0</span>.5 -embiggen_tiles <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
 </code></pre></div>
-<p><strong>Note</strong></p>
+<h2 id="note">Note<a class="headerlink" href="#note" title="Permanent link">#</a></h2>
 <p>Because the same prompt is used on all the tiled images, and the model
 doesn't have the context of anything outside the tile being run - it
 can end up creating repeated pattern (also called 'motifs') across all
