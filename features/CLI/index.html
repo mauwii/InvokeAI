@@ -191,6 +191,8 @@
           
             
               
+                
+              
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -337,6 +339,13 @@
   
     <nav class="md-nav" aria-label="List of arguments recognized at the command line">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deprecated" class="md-nav__link">
+    deprecated
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#a-note-on-path-names" class="md-nav__link">
@@ -706,7 +715,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -743,6 +754,13 @@
   
     <nav class="md-nav" aria-label="List of arguments recognized at the command line">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deprecated" class="md-nav__link">
+    deprecated
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#a-note-on-path-names" class="md-nav__link">
@@ -847,10 +865,7 @@ currently rudimentary, but a much better replacement is on its way.</p>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="m">00010</span>.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -s150 -S <span class="m">1362479620</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="m">00011</span>.png: <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g -S <span class="m">2685670268</span>
 </code></pre></div>
-<p align='center'>
-<img src="../assets/dream-py-demo.png"/>
-</p>
-
+<p><img alt="dream-py-demo" src="../../assets/dream-py-demo.png" /></p>
 <p>The <code>dream&gt;</code> prompt's arguments are pretty much identical to those used in the Discord bot, except
 you don't need to type "!dream" (it doesn't hurt if you do). A significant change is that creation
 of individual images is now the default unless --grid (-g) is given. A full list is given in [List
@@ -859,129 +874,131 @@ of prompt arguments] (#list-of-prompt-arguments).</p>
 <p>The script itself also recognizes a series of command-line switches that will change important
 global defaults, such as the directory for image outputs and the location of the model weight files.</p>
 <h2 id="list-of-arguments-recognized-at-the-command-line">List of arguments recognized at the command line<a class="headerlink" href="#list-of-arguments-recognized-at-the-command-line" title="Permanent link">#</a></h2>
-<p>These command-line arguments can be passed to dream.py when you first run it from the Windows, Mac
+<p>These command-line arguments can be passed to dream.py when you first run it from the Windows, Mac◊
 or Linux command line. Some set defaults that can be overridden on a per-prompt basis (see [List of
 prompt arguments] (#list-of-prompt-arguments). Others</p>
 <table>
 <thead>
 <tr>
-<th align="left">Argument</th>
-<th align="center">Shortcut</th>
+<th>Argument</th>
+<th>Shortcut</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">--help</td>
-<td align="center">-h</td>
+<td><code>--help</code></td>
+<td><code>-h</code></td>
 <td></td>
 <td>Print a concise help message.</td>
 </tr>
 <tr>
-<td align="left">--outdir <path></td>
-<td align="center">-o<path></td>
-<td>outputs/img_samples</td>
+<td><code>--outdir &lt;path&gt;</code></td>
+<td><code>-o&lt;path&gt;</code></td>
+<td><code>outputs/img_samples</code></td>
 <td>Location for generated images.</td>
 </tr>
 <tr>
-<td align="left">--prompt_as_dir</td>
-<td align="center">-p</td>
-<td>False</td>
+<td><code>--prompt_as_dir</code></td>
+<td><code>-p</code></td>
+<td><code>False</code></td>
 <td>Name output directories using the prompt text.</td>
 </tr>
 <tr>
-<td align="left">--from_file <path></td>
-<td align="center"></td>
-<td>None</td>
-<td>Read list of prompts from a file. Use "-" to read from standard input</td>
+<td><code>--from_file &lt;path&gt;</code></td>
+<td></td>
+<td><code>None</code></td>
+<td>Read list of prompts from a file. Use "-" to read from<br>standard input</td>
 </tr>
 <tr>
-<td align="left">--model <modelname></td>
-<td align="center"></td>
-<td>stable-diffusion-1.4</td>
-<td>Loads model specified in configs/models.yaml. Currently one of "stable-diffusion-1.4" or "laion400m"</td>
+<td><code>--model &lt;modelname&gt;</code></td>
+<td></td>
+<td><code>stable-diffusion-1.4</code></td>
+<td>Loads model specified in configs/models.yaml. Currently<br>one of "stable-diffusion-1.4" or "laion400m"</td>
 </tr>
 <tr>
-<td align="left">--full_precision</td>
-<td align="center">-F</td>
-<td>False</td>
-<td>Run in slower full-precision mode. Needed for Macintosh M1/M2 hardware and some older video cards.</td>
+<td><code>--full_precision</code></td>
+<td><code>-F</code></td>
+<td><code>False</code></td>
+<td>Run in slower full-precision mode. Needed for Macintosh<br>M1/M2 hardware and some older video cards.</td>
 </tr>
 <tr>
-<td align="left">--web</td>
-<td align="center"></td>
-<td>False</td>
+<td><code>--web</code></td>
+<td></td>
+<td><code>False</code></td>
 <td>Start in web server mode</td>
 </tr>
 <tr>
-<td align="left">--host <ip addr></td>
-<td align="center"></td>
-<td>localhost</td>
-<td>Which network interface web server should listen on. Set to 0.0.0.0 to listen on any.</td>
+<td><code>--host &lt;ip addr&gt;</code></td>
+<td></td>
+<td><code>localhost</code></td>
+<td>Which network interface web server should listen on.<br>Set to 0.0.0.0 to listen on any.</td>
 </tr>
 <tr>
-<td align="left">--port <port></td>
-<td align="center"></td>
-<td>9090</td>
+<td><code>--port &lt;port&gt;</code></td>
+<td></td>
+<td><code>9090</code></td>
 <td>Which port web server should listen for requests on.</td>
 </tr>
 <tr>
-<td align="left">--config <path></td>
-<td align="center"></td>
-<td>configs/models.yaml</td>
+<td><code>--config &lt;path&gt;</code></td>
+<td></td>
+<td><code>configs/models.yaml</code></td>
 <td>Configuration file for models and their weights.</td>
 </tr>
 <tr>
-<td align="left">--iterations <int></td>
-<td align="center">-n<int></td>
-<td>1</td>
+<td><code>--iterations &lt;int&gt;</code></td>
+<td><code>-n&lt;int&gt;</code></td>
+<td><code>1</code></td>
 <td>How many images to generate per prompt.</td>
 </tr>
 <tr>
-<td align="left">--grid</td>
-<td align="center">-g</td>
-<td>False</td>
+<td><code>--grid</code></td>
+<td><code>-g</code></td>
+<td><code>False</code></td>
 <td>Save all image series as a grid rather than individually.</td>
 </tr>
 <tr>
-<td align="left">--sampler <sampler></td>
-<td align="center">-A<sampler></td>
-<td>k_lms</td>
+<td><code>--sampler &lt;sampler&gt;</code></td>
+<td><code>-A&lt;sampler&gt;</code></td>
+<td><code>k_lms</code></td>
 <td>Sampler to use. Use -h to get list of available samplers.</td>
 </tr>
 <tr>
-<td align="left">--seamless</td>
-<td align="center"></td>
-<td>False</td>
+<td><code>--seamless</code></td>
+<td></td>
+<td><code>False</code></td>
 <td>Create interesting effects by tiling elements of the image.</td>
 </tr>
 <tr>
-<td align="left">--embedding_path <path></td>
-<td align="center"></td>
-<td>None</td>
-<td>Path to pre-trained embedding manager checkpoints, for custom models</td>
+<td><code>--embedding_path &lt;path&gt;</code></td>
+<td></td>
+<td><code>None</code></td>
+<td>Path to pre-trained embedding manager checkpoints,<br>for custom models</td>
 </tr>
 <tr>
-<td align="left">--gfpgan_dir</td>
-<td align="center"></td>
-<td>src/gfpgan</td>
+<td><code>--gfpgan_dir</code></td>
+<td></td>
+<td><code>src/gfpgan</code></td>
 <td>Path to where GFPGAN is installed.</td>
 </tr>
 <tr>
-<td align="left">--gfpgan_model_path</td>
-<td align="center"></td>
-<td>experiments/pretrained_models<br>/GFPGANv1.3.pth</td>
-<td>Path to GFPGAN model file, relative to --gfpgan_dir.</td>
+<td><code>--gfpgan_model_path</code></td>
+<td></td>
+<td>see bellow*</td>
+<td>Path to GFPGAN model file, relative to <code>--gfpgan_dir</code>.</td>
 </tr>
 <tr>
-<td align="left">--device <device></td>
-<td align="center">-d<device></td>
-<td>torch.cuda.current_device()</td>
+<td><code>--device &lt;device&gt;</code></td>
+<td><code>-d&lt;device&gt;</code></td>
+<td><code>torch.cuda.current_device()</code></td>
 <td>Device to run SD on, e.g. "cuda:0"</td>
 </tr>
 </tbody>
 </table>
+<p>*<code>experiments/pretrained_models/GFPGANv1.3.pth</code></p>
+<h3 id="deprecated">deprecated<a class="headerlink" href="#deprecated" title="Permanent link">#</a></h3>
 <p>These arguments are deprecated but still work:</p>
 <table>
 <thead>
@@ -994,15 +1011,15 @@ prompt arguments] (#list-of-prompt-arguments). Others</p>
 </thead>
 <tbody>
 <tr>
-<td>--weights <path></td>
+<td><code>--weights &lt;path&gt;</code></td>
 <td></td>
-<td>None</td>
+<td><code>None</code></td>
 <td>Pth to weights file; use <code>--model stable-diffusion-1.4</code> instead</td>
 </tr>
 <tr>
-<td>--laion400m</td>
-<td>-l</td>
-<td>False</td>
+<td><code>--laion400m</code></td>
+<td><code>-l</code></td>
+<td><code>False</code></td>
 <td>Use older LAION400m weights; use <code>--model=laion400m</code> instead</td>
 </tr>
 </tbody>
@@ -1013,7 +1030,7 @@ path names because the Python interpreter treats "\" as an escape. You can eithe
 slashes (ick): <code>C:\\\\path\\\\to\\\\my\\\\file</code>, or use Linux/Mac style forward slashes (better):
 <code>C:/path/to/my/file</code>.</p>
 <h3 id="list-of-prompt-arguments">List of prompt arguments<a class="headerlink" href="#list-of-prompt-arguments" title="Permanent link">#</a></h3>
-<p>After the dream.py script initializes, it will present you with a <strong>dream&gt;</strong> prompt. Here you can
+<p>After the dream.py script initializes, it will present you with a <strong><code>dream&gt;</code></strong> prompt. Here you can
 enter information to generate images from text (txt2img), to embellish an existing image or sketch
 (img2img), or to selectively alter chosen regions of the image (inpainting).</p>
 <h3 id="this-is-an-example-of-txt2img">This is an example of txt2img<a class="headerlink" href="#this-is-an-example-of-txt2img" title="Permanent link">#</a></h3>
@@ -1032,118 +1049,118 @@ enter information to generate images from text (txt2img), to embellish an existi
 </thead>
 <tbody>
 <tr>
-<td>"my prompt"</td>
+<td><code>"my prompt"</code></td>
 <td></td>
 <td></td>
 <td>Text prompt to use. The quotation marks are optional.</td>
 </tr>
 <tr>
-<td>--width <int></td>
-<td>-W<int></td>
-<td>512</td>
+<td><code>--width &lt;int&gt;</code></td>
+<td><code>-W&lt;int&gt;</code></td>
+<td><code>512</code></td>
 <td>Width of generated image</td>
 </tr>
 <tr>
-<td>--height <int></td>
-<td>-H<int></td>
-<td>512</td>
+<td><code>--height &lt;int&gt;</code></td>
+<td><code>-H&lt;int&gt;</code></td>
+<td><code>512</code></td>
 <td>Height of generated image</td>
 </tr>
 <tr>
-<td>--iterations <int></td>
-<td>-n<int></td>
-<td>1</td>
+<td><code>--iterations &lt;int&gt;</code></td>
+<td><code>-n&lt;int&gt;</code></td>
+<td><code>1</code></td>
 <td>How many images to generate from this prompt</td>
 </tr>
 <tr>
-<td>--steps <int></td>
-<td>-s<int></td>
-<td>50</td>
+<td><code>--steps &lt;int&gt;</code></td>
+<td><code>-s&lt;int&gt;</code></td>
+<td><code>50</code></td>
 <td>How many steps of refinement to apply</td>
 </tr>
 <tr>
-<td>--cfg_scale <float></td>
-<td>-C<float></td>
-<td>7.5</td>
-<td>How hard to try to match the prompt to the generated image; any number greater than 0.0 works, but the useful range is roughly 5.0 to 20.0</td>
+<td><code>--cfg_scale &lt;float&gt;</code></td>
+<td><code>-C&lt;float&gt;</code></td>
+<td><code>7.5</code></td>
+<td>How hard to try to match the prompt to the generated<br>image; any number greater than 0.0<br>works, but the useful range is roughly 5.0 to 20.0</td>
 </tr>
 <tr>
-<td>--seed <int></td>
-<td>-S<int></td>
-<td>None</td>
-<td>Set the random seed for the next series of images. This can be used to recreate an image generated previously.</td>
+<td><code>--seed &lt;int&gt;</code></td>
+<td><code>-S&lt;int&gt;</code></td>
+<td><code>None</code></td>
+<td>Set the random seed for the next series of images.<br>This can be used to recreate an image generated previously.</td>
 </tr>
 <tr>
-<td>--sampler <sampler></td>
-<td>-A<sampler></td>
-<td>k_lms</td>
+<td><code>--sampler &lt;sampler&gt;</code></td>
+<td><code>-A&lt;sampler&gt;</code></td>
+<td><code>k_lms</code></td>
 <td>Sampler to use. Use -h to get list of available samplers.</td>
 </tr>
 <tr>
-<td>--grid</td>
-<td>-g</td>
-<td>False</td>
-<td>Turn on grid mode to return a single image combining all the images generated by this prompt</td>
+<td><code>--grid</code></td>
+<td><code>-g</code></td>
+<td><code>False</code></td>
+<td>Turn on grid mode to return a single image combining<br>all the images generated by this prompt</td>
 </tr>
 <tr>
-<td>--individual</td>
-<td>-i</td>
-<td>True</td>
+<td><code>--individual</code></td>
+<td><code>-i</code></td>
+<td><code>True</code></td>
 <td>Turn off grid mode (deprecated; leave off --grid instead)</td>
 </tr>
 <tr>
-<td>--outdir <path></td>
-<td>-o<path></td>
-<td>outputs/img_samples</td>
+<td><code>--outdir &lt;path&gt;</code></td>
+<td><code>-o&lt;path&gt;</code></td>
+<td><code>outputs/img_samples</code></td>
 <td>Temporarily change the location of these images</td>
 </tr>
 <tr>
-<td>--seamless</td>
+<td><code>--seamless</code></td>
 <td></td>
-<td>False</td>
+<td><code>False</code></td>
 <td>Activate seamless tiling for interesting effects</td>
 </tr>
 <tr>
-<td>--log_tokenization</td>
-<td>-t</td>
-<td>False</td>
-<td>Display a color-coded list of the parsed tokens derived from the prompt</td>
+<td><code>--log_tokenization</code></td>
+<td><code>-t</code></td>
+<td><code>False</code></td>
+<td>Display a color-coded list of the parsed tokens<br>derived from the prompt</td>
 </tr>
 <tr>
-<td>--skip_normalization</td>
-<td>-x</td>
-<td>False</td>
-<td>Weighted subprompts will not be normalized. See <a href="../OTHER/#weighted-prompts">Weighted Prompts</a></td>
+<td><code>--skip_normalization</code></td>
+<td><code>-x</code></td>
+<td><code>False</code></td>
+<td>Weighted subprompts will not be normalized. See<br><a href="../OTHER/#weighted-prompts">Weighted Prompts</a></td>
 </tr>
 <tr>
-<td>--upscale <int> <float></td>
-<td>-U <int> <float></td>
-<td>-U 1 0.75</td>
-<td>Upscale image by magnification factor (2, 4), and set strength of upscaling (0.0-1.0). If strength not set, will default to 0.75.</td>
+<td><code>--upscale &lt;int&gt; &lt;float&gt;</code></td>
+<td><code>-U &lt;int&gt; &lt;float&gt;</code></td>
+<td><code>-U 1 0.75</code></td>
+<td>Upscale image by magnification factor (2, 4), and<br>set strength of upscaling (0.0-1.0).<br>If strength not set, will default to 0.75.</td>
 </tr>
 <tr>
-<td>--gfpgan_strength <float></td>
-<td>-G <float></td>
-<td>-G0</td>
-<td>Fix faces using the GFPGAN algorithm; argument indicates how hard the algorithm should try (0.0-1.0)</td>
+<td><code>--gfpgan_strength &lt;float&gt;</code></td>
+<td><code>-G &lt;float&gt;</code></td>
+<td><code>-G0</code></td>
+<td>Fix faces using the GFPGAN algorithm; argument<br>indicates how hard the algorithm should try (0.0-1.0)</td>
 </tr>
 <tr>
-<td>--save_original</td>
-<td>-save_orig</td>
-<td>False</td>
-<td>When upscaling or fixing faces, this will cause the original image to be saved rather than replaced.</td>
+<td><code>--save_original</code></td>
+<td><code>-save_orig</code></td>
+<td><code>False</code></td>
+<td>When upscaling or fixing faces, this will cause<br>the original image to be saved rather than replaced.</td>
 </tr>
 <tr>
-<td>--variation <float></td>
-<td>-v<float></td>
-<td>0.0</td>
-<td>Add a bit of noise (0.0=none, 1.0=high) to the image in order to generate a series of variations. Usually used in combination with -S<seed> and -n<int> to generate a series a riffs on a starting image. See <a href="../VARIATIONS/">Variations</a>.</td>
+<td><code>--variation &lt;float&gt;</code></td>
+<td><code>-v&lt;float&gt;</code></td>
+<td><code>0.0</code></td>
+<td>Add a bit of noise (0.0=none, 1.0=high) to the image<br>in order to generate a series of variations. Usually<br>used in combination with <code>-S&lt;seed&gt;</code> and <code>-n&lt;int&gt;</code><br>to generate a series a riffs on a starting image.<br>See <a href="../VARIATIONS/">Variations</a>.</td>
 </tr>
 <tr>
-<td>--with_variations <pattern></td>
-<td>-V<pattern></td>
-<td>None</td>
-<td>Combine two or more variations. See <a href="../VARIATIONS/">Variations</a> for now to use this.</td>
+<td><code>--with_variations &lt;pattern&gt;</code></td>
+<td><code>-V&lt;pattern&gt;</code></td>
+<td><code>None</code></td>
+<td>Combine two or more variations. See <a href="../VARIATIONS/">Variations</a><br>for now to use this.</td>
 </tr>
 </tbody>
 </table>
@@ -1168,22 +1185,22 @@ of memory if it is large.</p>
 </thead>
 <tbody>
 <tr>
-<td>--init_img <path></td>
-<td>-I<path></td>
-<td>None</td>
+<td><code>--init_img &lt;path&gt;</code></td>
+<td><code>-I&lt;path&gt;</code></td>
+<td><code>None</code></td>
 <td>Path to the initialization image</td>
 </tr>
 <tr>
-<td>--fit</td>
-<td>-F</td>
-<td>False</td>
+<td><code>--fit</code></td>
+<td><code>-F</code></td>
+<td><code>False</code></td>
 <td>Scale the image to fit into the specified -H and -W dimensions</td>
 </tr>
 <tr>
-<td>--strength <float></td>
-<td>-s<float></td>
-<td>0.75</td>
-<td>How hard to try to match the prompt to the initial image. Ranges from 0.0-0.99, with higher values replacing the initial image completely.</td>
+<td><code>--strength &lt;float&gt;</code></td>
+<td><code>-s&lt;float&gt;</code></td>
+<td><code>0.75</code></td>
+<td>How hard to try to match the prompt to the initial image. Ranges from 0.0-0.99,<br>with higher values replacing the initial image completely.</td>
 </tr>
 </tbody>
 </table>
@@ -1207,10 +1224,10 @@ argument:</p>
 </thead>
 <tbody>
 <tr>
-<td>--init_mask <path></td>
-<td>-M<path></td>
-<td>None</td>
-<td>Path to an image the same size as the initial_image, with areas for inpainting made transparent.</td>
+<td><code>--init_mask &lt;path&gt;</code></td>
+<td><code>-M&lt;path&gt;</code></td>
+<td><code>None</code></td>
+<td>Path to an image the same size as the initial_image, with areas for<br>inpainting made transparent.</td>
 </tr>
 </tbody>
 </table>
@@ -1230,7 +1247,7 @@ editing, and command completion.</p>
 </ul>
 <p>Windows users can get similar, but more limited, functionality if they launch dream.py with the
 "winpty" program:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>&gt; winpty python scripts\dream.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>winpty python scripts\dream.py
 </code></pre></div>
 <p>On the Mac and Linux platforms, when you exit dream.py, the last 1000 lines of your command-line
 history will be saved. When you restart dream.py, you can access the saved history using the
@@ -1253,7 +1270,7 @@ completion, start the path with a slash ("/") or "./". For example:</p>
   <small>
     
       Last update:
-      2022-09-17
+      2022-09-18
     
   </small>
 </div>
