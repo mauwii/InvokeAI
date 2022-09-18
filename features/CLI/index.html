@@ -348,13 +348,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-note-on-path-names" class="md-nav__link">
-    A note on path names:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#list-of-prompt-arguments" class="md-nav__link">
     List of prompt arguments
   </a>
@@ -763,13 +756,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#a-note-on-path-names" class="md-nav__link">
-    A note on path names:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#list-of-prompt-arguments" class="md-nav__link">
     List of prompt arguments
   </a>
@@ -841,8 +827,11 @@ script writes a log file of image names and prompts to the selected output direc
 <p>In addition, as of version 1.02, it also writes the prompt into the PNG file's metadata where it can
 be retrieved using scripts/images2prompt.py</p>
 <p>The script is confirmed to work on Linux, Windows and Mac systems.</p>
-<p><em>Note:</em> This script runs from the command-line or can be used as a Web application. The Web GUI is
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script runs from the command-line or can be used as a Web application. The Web GUI is
 currently rudimentary, but a much better replacement is on its way.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python3 ./scripts/dream.py
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>* Initializing, be patient...
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>Loading model from models/ldm/text2img-large/model.ckpt
@@ -1024,11 +1013,13 @@ prompt arguments] (#list-of-prompt-arguments). Others</p>
 </tr>
 </tbody>
 </table>
-<h3 id="a-note-on-path-names"><strong>A note on path names:</strong><a class="headerlink" href="#a-note-on-path-names" title="Permanent link">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>On Windows systems, you may run into problems when passing the dream script standard backslashed
-path names because the Python interpreter treats "\" as an escape. You can either double your
+path names because the Python interpreter treats <code>\</code> as an escape. You can either double your
 slashes (ick): <code>C:\\\\path\\\\to\\\\my\\\\file</code>, or use Linux/Mac style forward slashes (better):
 <code>C:/path/to/my/file</code>.</p>
+</div>
 <h3 id="list-of-prompt-arguments">List of prompt arguments<a class="headerlink" href="#list-of-prompt-arguments" title="Permanent link">#</a></h3>
 <p>After the dream.py script initializes, it will present you with a <strong><code>dream&gt;</code></strong> prompt. Here you can
 enter information to generate images from text (txt2img), to embellish an existing image or sketch
@@ -1164,8 +1155,11 @@ enter information to generate images from text (txt2img), to embellish an existi
 </tr>
 </tbody>
 </table>
-<p>Note that the width and height of the image must be multiples of 64. You can provide different
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The width and height of the image must be multiples of 64. You can provide different
 values, but they will be rounded down to the nearest multiple of 64.</p>
+</div>
 <h3 id="this-is-an-example-of-img2img">This is an example of img2img<a class="headerlink" href="#this-is-an-example-of-img2img" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>dream&gt; waterfall and rainbow -I./vacation-photo.png -W640 -H480 --fit
 </code></pre></div>

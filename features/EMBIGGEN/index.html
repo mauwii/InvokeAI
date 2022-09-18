@@ -351,13 +351,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -702,13 +695,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -817,7 +803,8 @@ and doing the same again (default ESRGAN strength is 0.75, default overlap betwe
 tiles:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>dream&gt; a photo of puffy clouds over a forest at sunset -s <span class="m">100</span> -W <span class="m">512</span> -H <span class="m">512</span> -I outputs/000002.seed.png -f <span class="m">0</span>.5 -embiggen_tiles <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
 </code></pre></div>
-<h2 id="note">Note<a class="headerlink" href="#note" title="Permanent link">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Because the same prompt is used on all the tiled images, and the model
 doesn't have the context of anything outside the tile being run - it
 can end up creating repeated pattern (also called 'motifs') across all
@@ -830,6 +817,7 @@ the <code>--strength</code> set high for patterns, landscapes, or subjects that
 are more abstract. Because this is (relatively) fast, you can also
 always create a few Embiggen'ed images and manually composite them to
 preserve the best parts from each.</p>
+</div>
 <p>Author: <a href="https://github.com/travco">Travco</a></p>
 
   <hr>

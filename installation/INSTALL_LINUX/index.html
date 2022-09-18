@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#updating-to-newer-versions-of-the-script" class="md-skip">
+        <a href="#installation" class="md-skip">
           Skip to content
         </a>
       
@@ -525,6 +525,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#updating-to-newer-versions-of-the-script" class="md-nav__link">
     Updating to newer versions of the script
   </a>
@@ -661,6 +668,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#updating-to-newer-versions-of-the-script" class="md-nav__link">
     Updating to newer versions of the script
   </a>
@@ -687,6 +701,7 @@
 
   <h1>Linux</h1>
 
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <ol>
 <li>
 <p>You will need to install the following prerequisites if they are not already
@@ -734,9 +749,12 @@ above.</p>
 <p>Load a couple of small machine-learning models required by stable diffusion:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python3 scripts/preload_models.py
 </code></pre></div>
-<p>Note that this step is necessary because I modified the original just-in-time
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step is necessary because I modified the original just-in-time
 model loading scheme to allow the script to work on GPU machines that are not
 internet connected. See <a href="../../features/OTHER/#preload-models">Preload Models</a></p>
+</div>
 </li>
 <li>
 <p>Now you need to install the weights for the stable diffusion model.</p>
@@ -773,7 +791,9 @@ internet connected. See <a href="../../features/OTHER/#preload-models">Preload M
    (step 5, second command), enter the <code>stable-diffusion</code> directory, and then
    launch the dream script (step 8). If you forget to activate the ldm
    environment, the script will fail with multiple <code>ModuleNotFound</code> errors.</p>
-<h3 id="updating-to-newer-versions-of-the-script">Updating to newer versions of the script<a class="headerlink" href="#updating-to-newer-versions-of-the-script" title="Permanent link">#</a></h3>
+</li>
+</ol>
+<h2 id="updating-to-newer-versions-of-the-script">Updating to newer versions of the script<a class="headerlink" href="#updating-to-newer-versions-of-the-script" title="Permanent link">#</a></h2>
 <p>This distribution is changing rapidly. If you used the <code>git clone</code> method
 (step 5) to download the stable-diffusion directory, then to update to the
 latest and greatest version, launch the Anaconda window, enter
@@ -781,8 +801,6 @@ latest and greatest version, launch the Anaconda window, enter
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ git pull
 </code></pre></div>
 <p>This will bring your local copy into sync with the remote one.</p>
-</li>
-</ol>
 
   <hr>
 <div class="md-source-file">

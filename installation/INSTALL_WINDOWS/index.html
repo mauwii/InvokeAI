@@ -581,15 +581,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#updating-to-newer-versions-of-the-script" class="md-nav__link">
     Updating to newer versions of the script
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -723,15 +723,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#updating-to-newer-versions-of-the-script" class="md-nav__link">
     Updating to newer versions of the script
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -775,11 +775,10 @@ in the wiki</p>
 <h3 id="conda"><strong>Conda</strong><a class="headerlink" href="#conda" title="Permanent link">#</a></h3>
 <ol>
 <li>
-<p>Install Anaconda3 (miniconda3 version) from here:
-   <a href="https://docs.anaconda.com/anaconda/install/windows/">https://docs.anaconda.com/anaconda/install/windows/</a></p>
+<p>Install Anaconda3 (miniconda3 version) from <a href="https://docs.anaconda.com/anaconda/install/windows/">here</a></p>
 </li>
 <li>
-<p>Install Git from here: <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></p>
+<p>Install Git from <a href="https://git-scm.com/download/win">here</a></p>
 </li>
 <li>
 <p>Launch Anaconda from the Windows Start menu. This will bring up a command
@@ -795,20 +794,20 @@ the steps.</p>
 <li>
 <p>Enter the newly-created stable-diffusion folder. From this step forward make
    sure that you are working in the stable-diffusion directory!</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">cd</span> stable-diffusion
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">cd</span> stable-diffusion
 </code></pre></div>
 </li>
 <li>
 <p>Run the following two commands:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>conda env create -f environment.yaml    <span class="o">(</span>step 6a<span class="o">)</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>conda activate ldm                      <span class="o">(</span>step 6b<span class="o">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>conda env create -f environment.yaml
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>conda activate ldm
 </code></pre></div>
 <p>This will install all python requirements and activate the "ldm" environment
 which sets PATH and other environment variables properly.</p>
 </li>
 <li>
 <p>Run the command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>python scripts<span class="se">\p</span>reload_models.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>python scripts\preload_models.py
 </code></pre></div>
 <p>This installs several machine learning models that stable diffusion requires.</p>
 <p>Note: This step is required. This was done because some users may might be
@@ -819,7 +818,7 @@ be downloaded just-in-time.</p>
 <p>Now you need to install the weights for the big stable diffusion model.</p>
 <ul>
 <li>For running with the released weights, you will first need to set up an
-    acount with Hugging Face (<a href="https://huggingface.co">https://huggingface.co</a>).</li>
+    acount with <a href="https://huggingface.co">Hugging Face</a>.</li>
 <li>Use your credentials to log in, and then point your browser at
     <a href="https://huggingface.co/CompVis/stable-diffusion-v-1-4-original">https://huggingface.co/CompVis/stable-diffusion-v-1-4-original</a>.</li>
 <li>You may be asked to sign a license agreement at this point.</li>
@@ -831,8 +830,8 @@ be downloaded just-in-time.</p>
 </ul>
 <p>Now run the following commands from <strong>within the stable-diffusion directory</strong>
   to copy the weights file to the right place:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>mkdir -p models<span class="se">\l</span>dm<span class="se">\s</span>table-diffusion-v1
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>copy C:<span class="se">\p</span>ath<span class="se">\t</span>o<span class="se">\s</span>d-v1-4.ckpt models<span class="se">\l</span>dm<span class="se">\s</span>table-diffusion-v1<span class="se">\m</span>odel.ckpt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">mkdir</span> -p models\ldm\stable-diffusion-v1
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="k">copy</span> C:\path\to\sd-v1-4.ckpt models\ldm\stable-diffusion-v1\model.ckpt
 </code></pre></div>
 <p>Please replace <code>C:\path\to\sd-v1.4.ckpt</code> with the correct path to wherever
 you stashed this file. If you prefer not to copy or move the .ckpt file, you
@@ -841,11 +840,11 @@ may instead create a shortcut to it from within
 </li>
 <li>
 <p>Start generating images!</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># for the pre-release weights</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>python scripts<span class="se">\d</span>ream.py -l
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a># for the pre-release weights
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>python scripts\dream.py -l
 <a id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># for the post-release weights</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>python scripts<span class="se">\d</span>ream.py
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a># for the post-release weights
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>python scripts\dream.py
 </code></pre></div>
 </li>
 <li>
@@ -860,7 +859,7 @@ Anaconda on Windows, give this a try (or try it first!)</p>
 </li>
 </ol>
 <hr />
-<h3 id="updating-to-newer-versions-of-the-script">Updating to newer versions of the script<a class="headerlink" href="#updating-to-newer-versions-of-the-script" title="Permanent link">#</a></h3>
+<h2 id="updating-to-newer-versions-of-the-script">Updating to newer versions of the script<a class="headerlink" href="#updating-to-newer-versions-of-the-script" title="Permanent link">#</a></h2>
 <p>This distribution is changing rapidly. If you used the <code>git clone</code> method
 (step 5) to download the stable-diffusion directory, then to update to the
 latest and greatest version, launch the Anaconda window, enter

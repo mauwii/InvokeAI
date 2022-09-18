@@ -436,13 +436,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -737,13 +730,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -789,11 +775,14 @@ using <strong>wget</strong>:</p>
 this package which asked you to install GFPGAN in a sibling directory, you may use the
 <code>--gfpgan_dir</code> argument with <code>dream.py</code> to set a custom path to your GFPGAN directory. <em>There are
 other GFPGAN related boot arguments if you wish to customize further.</em></p>
-<p><strong>Note: Internet connection needed:</strong> Users whose GPU machines are isolated from the Internet (e.g.
+<div class="admonition warning">
+<p class="admonition-title">Internet connection needed</p>
+<p>Users whose GPU machines are isolated from the Internet (e.g.
 on a University cluster) should be aware that the first time you run dream.py with GFPGAN and
 Real-ESRGAN turned on, it will try to download model files from the Internet. To rectify this, you
 may run <code>python3 scripts/preload_models.py</code> after you have installed GFPGAN and all its
 dependencies.</p>
+</div>
 <h2 id="usage"><strong>Usage</strong><a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>You will now have access to two new prompt arguments.</p>
 <h3 id="upscaling"><strong>Upscaling</strong><a class="headerlink" href="#upscaling" title="Permanent link">#</a></h3>
@@ -822,7 +811,8 @@ save the original unaffected version too.</p>
 <p>This also works with img2img:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>dream&gt; a man wearing a pineapple hat -I path/to/your/file.png -U <span class="m">2</span> <span class="m">0</span>.5 -G <span class="m">0</span>.6
 </code></pre></div>
-<h3 id="note"><strong>Note</strong><a class="headerlink" href="#note" title="Permanent link">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>GFPGAN and Real-ESRGAN are both memory intensive. In order to avoid crashes and memory overloads
 during the Stable Diffusion process, these effects are applied after Stable Diffusion has completed
 its work.</p>
@@ -833,6 +823,7 @@ the base images.</p>
 <p>If you wish to stop during the image generation but want to upscale or face restore a particular
 generated image, pass it again with the same prompt and generated seed along with the <code>-U</code> and <code>-G</code>
 prompt arguments to perform those actions.</p>
+</div>
 
   <hr>
 <div class="md-source-file">

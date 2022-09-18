@@ -295,13 +295,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -824,13 +817,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -973,9 +959,12 @@
 source text-to-image generator. It provides a streamlined process with various new features and
 options to aid the image generation process. It runs on Windows, Mac and Linux machines, and runs on
 GPU cards with as little as 4 GB or RAM.</p>
-<p><em>Note: This fork is rapidly evolving. Please use the
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This fork is rapidly evolving. Please use the
 <a href="https://github.com/lstein/stable-diffusion/issues">Issues</a> tab to report bugs and make feature
-requests. Be sure to use the provided templates. They will help aid diagnose issues faster.</em></p>
+requests. Be sure to use the provided templates. They will help aid diagnose issues faster.</p>
+</div>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
 <p>This fork is supported across multiple platforms. You can find individual installation instructions
 below.</p>
@@ -999,13 +988,15 @@ below.</p>
 <ul>
 <li>At least 6 GB of free disk space for the machine learning model, Python, and all its dependencies.</li>
 </ul>
-<h3 id="note">Note<a class="headerlink" href="#note" title="Permanent link">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>If you are have a Nvidia 10xx series card (e.g. the 1080ti), please run the dream script in
 full-precision mode as shown below.</p>
 <p>Similarly, specify full-precision mode on Apple M1 hardware.</p>
 <p>To run in full-precision mode, start <code>dream.py</code> with the <code>--full_precision</code> flag:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python scripts/dream.py --full_precision
 </code></pre></div>
+</div>
 <h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">#</a></h2>
 <h3 id="major-features">Major Features<a class="headerlink" href="#major-features" title="Permanent link">#</a></h3>
 <ul>
