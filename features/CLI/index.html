@@ -475,6 +475,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../PROMPTS/" class="md-nav__link">
+        Prompting Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../TEXTUAL_INVERSION/" class="md-nav__link">
         TEXTUAL_INVERSION
       </a>
@@ -1204,6 +1218,10 @@ vary greatly depending on what is in the image. We also ask to --fit the image i
 than 640x480. Otherwise the image size will be identical to the provided photo and you may run out
 of memory if it is large.</p>
 </div>
+<p>Repeated chaining of img2img on an image can result in significant color shifts
+in the output, especially if run with lower strength. Color correction can be
+run against a reference image to fix this issue. Use the original input image to the
+chain as the the reference image for each step in the chain.</p>
 <p>In addition to the command-line options recognized by txt2img, img2img accepts additional options:</p>
 <table>
 <thead>
@@ -1222,6 +1240,12 @@ of memory if it is large.</p>
 <td>Path to the initialization image</td>
 </tr>
 <tr>
+<td><code>--init_color &lt;path&gt;</code></td>
+<td></td>
+<td><code>None</code></td>
+<td>Path to reference image for color correction</td>
+</tr>
+<tr>
 <td><code>--fit</code></td>
 <td><code>-F</code></td>
 <td><code>False</code></td>
@@ -1229,9 +1253,9 @@ of memory if it is large.</p>
 </tr>
 <tr>
 <td><code>--strength &lt;float&gt;</code></td>
-<td><code>-s&lt;float&gt;</code></td>
+<td><code>-f&lt;float&gt;</code></td>
 <td><code>0.75</code></td>
-<td>How hard to try to match the prompt to the initial image. Ranges from 0.0-0.99,<br>with higher values replacing the initial image completely.</td>
+<td>How hard to try to match the prompt to the initial image. Ranges from 0.0-0.99, with higher values replacing the initial image completely.</td>
 </tr>
 </tbody>
 </table>
@@ -1296,7 +1320,7 @@ completion, start the path with a slash ("/") or "./". For example:</p>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>-I./test-pictures/Lincoln-and-Parrot.png  -I./test-pictures/zebra.jpg        -I./test-pictures/madonna.png
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>-I./test-pictures/bad-sketch.png          -I./test-pictures/man_with_eagle/
 </code></pre></div>
-<p>You can then type "z", hit tab again, and it will autofill to "zebra.jpg".</p>
+<p>You can then type "z", hit <span class="keys"><kbd class="key-tab">Tab</kbd></span> again, and it will autofill to "zebra.jpg".</p>
 <p>More text completion features (such as autocompleting seeds) are on their way.</p>
 
   <hr>

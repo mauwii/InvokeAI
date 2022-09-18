@@ -36,6 +36,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mauwii.github.io/stable-diffusion/features/PROMPTS/</loc>
+         <lastmod>2022-09-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mauwii.github.io/stable-diffusion/features/TEXTUAL_INVERSION/</loc>
          <lastmod>2022-09-18</lastmod>
          <changefreq>daily</changefreq>
