@@ -1012,47 +1012,61 @@ some time:</p>
    and note where you have saved it (probably the Downloads folder)</li>
 </ol>
 <p>While that is downloading, open a Terminal and run the following commands:</p>
+<div class="admonition todo">
+<p class="admonition-title">Homebrew</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">no brew installation yet</label><label for="__tabbed_1_2">brew is already installed</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><span class="filename">install brew (and Xcode command line tools)</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash -c <span class="se">\</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Only if you installed protobuf in a previous version of this tutorial, otherwise skip</p>
+<p><code class="highlight">brew uninstall protobuf</code></p>
+</div>
+</div>
+</div>
+</div>
 <div class="admonition todo">
 <p class="admonition-title">Conda Installation</p>
 <p>Now there are two different ways to set up the Python (miniconda) environment:
 1. Standalone
 2. with pyenv
 If you don't know what we are talking about, choose Standalone</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Standalone</label><label for="__tabbed_1_2">with pyenv</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Standalone</label><label for="__tabbed_2_2">with pyenv</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># install cmake and rust:</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>brew install cmake rust
 </code></pre></div>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">M1 arm64</label><label for="__tabbed_2_2">Intel x86_64</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">M1 arm64</label><label for="__tabbed_3_2">Intel x86_64</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># install miniconda for M1 arm64:</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh <span class="se">\</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  -o Miniconda3-latest-MacOSX-arm64.sh
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>/bin/bash Miniconda3-latest-MacOSX-arm64.sh
+<div class="highlight"><span class="filename">Install miniconda for M1 arm64</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh <span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  -o Miniconda3-latest-MacOSX-arm64.sh
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>/bin/bash Miniconda3-latest-MacOSX-arm64.sh
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># OR install miniconda for Intel:</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh <span class="se">\</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>  -o Miniconda3-latest-MacOSX-x86_64.sh
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>/bin/bash Miniconda3-latest-MacOSX-x86_64.sh
+<div class="highlight"><span class="filename">Install miniconda for Intel</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>curl https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh <span class="se">\</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>  -o Miniconda3-latest-MacOSX-x86_64.sh
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>/bin/bash Miniconda3-latest-MacOSX-x86_64.sh
 </code></pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>brew install pyenv-virtualenv <span class="c1"># you might already have this installed, no problem</span>
+<div class="annotate highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>brew install rust pyenv-virtualenv <span class="c1"># (1)</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pyenv install anaconda3-2022.05
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>pyenv virtualenv anaconda3-2022.05
 <a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
 <a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>pyenv activate anaconda3-2022.05
 </code></pre></div>
+<ol>
+<li>you might already have this installed, no problem</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1076,7 +1090,7 @@ If you don't know what we are talking about, choose Standalone</p>
 </ol>
 <div class="admonition todo">
 <p class="admonition-title">create Conda Environment</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">M1 arm64</label><label for="__tabbed_3_2">Intel x86_64</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">M1 arm64</label><label for="__tabbed_4_2">Intel x86_64</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">PIP_EXISTS_ACTION</span><span class="o">=</span>w <span class="nv">CONDA_SUBDIR</span><span class="o">=</span>osx-arm64 <span class="se">\</span>

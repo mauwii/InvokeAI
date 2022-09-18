@@ -772,29 +772,27 @@ combination of integers and floating point numbers, and they do not need to add 
 </code></pre></div>
 <p>In the above statement, the words 'not really cool` will be ignored by Stable Diffusion.</p>
 <p>Here's a prompt that depicts what it does.</p>
-<p>original prompt: </p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span>
-</code></pre></div>
+<p>original prompt:</p>
+<p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
 <p><img alt="step1" src="../../assets/negative_prompt_walkthru/step1.png" /></p>
 <p>That image has a woman, so if we want the horse without a rider, we can influence the image not to have a woman by putting [woman] in the prompt, like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span>
-</code></pre></div>
+<p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
 <p><img alt="step2" src="../../assets/negative_prompt_walkthru/step2.png" /></p>
 <p>That's nice - but say we also don't want the image to be quite so blue. We can add "blue" to the list of negative prompts, so it's now [woman blue]:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span>
-</code></pre></div>
+<p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
 <p><img alt="step3" src="../../assets/negative_prompt_walkthru/step3.png" /></p>
 <p>Getting close - but there's no sense in having a saddle when our horse doesn't have a rider, so we'll add one more negative prompt: [woman blue saddle].</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue saddle]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span>
-</code></pre></div>
+<p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue saddle]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
 <p><img alt="step4" src="../../assets/negative_prompt_walkthru/step4.png" /></p>
-<p>Notes about this feature:</p>
+<div class="admonition notes">
+<p class="admonition-title">Notes about this feature:</p>
 <ul>
 <li>The only requirement for words to be ignored is that they are in between a pair of square brackets.</li>
 <li>You can provide multiple words within the same bracket.</li>
 <li>You can provide multiple brackets with multiple words in different places of your prompt. That works just fine.</li>
-<li>To improve typical anatomy problems, you can add negative prompts like [bad anatomy, extra legs, extra arms, extra fingers, poorly drawn hands, poorly drawn feet, disfigured, out of frame, tiling, bad art, deformed, mutated].</li>
+<li>To improve typical anatomy problems, you can add negative prompts like <code>[bad anatomy, extra legs, extra arms, extra fingers, poorly drawn hands, poorly drawn feet, disfigured, out of frame, tiling, bad art, deformed, mutated]</code>.</li>
 </ul>
+</div>
 
   <hr>
 <div class="md-source-file">
