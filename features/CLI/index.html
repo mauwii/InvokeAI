@@ -7,11 +7,13 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="mauwii">
       
-        <link rel="canonical" href="https://mauwii.github.io/stable-diffusion/features/CLI/">
+      
+        <link rel="canonical" href="https://lstein.github.io/stable-diffusion/features/CLI/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.1">
     
     
       
@@ -19,12 +21,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2e8b5541.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
+      
+
     
     
     
@@ -37,10 +41,11 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -53,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     
@@ -109,7 +114,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -118,7 +123,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="dark-blue" data-md-color-accent="white"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -143,7 +148,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -167,7 +172,7 @@
         <a href="https://github.com/mauwii/stable-diffusion" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     mauwii/stable-diffusion
@@ -214,7 +219,7 @@
       <a href="https://github.com/mauwii/stable-diffusion" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     mauwii/stable-diffusion
@@ -330,9 +335,10 @@
     Arguments
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#list-of-arguments-recognized-at-the-command-line" class="md-nav__link">
     List of arguments recognized at the command line
   </a>
@@ -347,31 +353,42 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#list-of-prompt-arguments" class="md-nav__link">
     List of prompt arguments
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="List of prompt arguments">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#this-is-an-example-of-txt2img" class="md-nav__link">
-    This is an example of txt2img
+  <a href="#txt2img" class="md-nav__link">
+    txt2img
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#this-is-an-example-of-img2img" class="md-nav__link">
-    This is an example of img2img
+  <a href="#img2img" class="md-nav__link">
+    img2img
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#this-is-an-example-of-inpainting" class="md-nav__link">
-    This is an example of inpainting
+  <a href="#inpainting" class="md-nav__link">
+    inpainting
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -738,9 +755,10 @@
     Arguments
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#list-of-arguments-recognized-at-the-command-line" class="md-nav__link">
     List of arguments recognized at the command line
   </a>
@@ -755,31 +773,42 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
   <a href="#list-of-prompt-arguments" class="md-nav__link">
     List of prompt arguments
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="List of prompt arguments">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#this-is-an-example-of-txt2img" class="md-nav__link">
-    This is an example of txt2img
+  <a href="#txt2img" class="md-nav__link">
+    txt2img
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#this-is-an-example-of-img2img" class="md-nav__link">
-    This is an example of img2img
+  <a href="#img2img" class="md-nav__link">
+    img2img
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#this-is-an-example-of-inpainting" class="md-nav__link">
-    This is an example of inpainting
+  <a href="#inpainting" class="md-nav__link">
+    inpainting
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -803,14 +832,16 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-  <a href="https://github.com/mauwii/stable-diffusion/edit/main/docs/features/CLI.md" title="Edit this page" class="md-content__button md-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+                  
 
+  <a href="https://github.com/mauwii/stable-diffusion/edit/main/docs/features/CLI.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 12h8v2H8v-2m2 8H6V4h7v5h5v3.1l2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4v-2m-2-2h4.1l.9-.9V16H8v2m12.2-5c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+  </a>
 
 
   <h1>CLI</h1>
@@ -818,52 +849,52 @@
 <h2 id="interactive-command-line-interface"><strong>Interactive Command Line Interface</strong><a class="headerlink" href="#interactive-command-line-interface" title="Permanent link">#</a></h2>
 <p>The <code>dream.py</code> script, located in <code>scripts/dream.py</code>, provides an interactive interface to image
 generation similar to the "dream mothership" bot that Stable AI provided on its Discord server.</p>
-<p>Unlike the txt2img.py and img2img.py scripts provided in the original CompViz/stable-diffusion
+<p>Unlike the <code>txt2img.py</code> and <code>img2img.py</code> scripts provided in the original <a href="https://github.com/CompVis/stable-diffusion">CompVis/stable-diffusion</a>
 source code repository, the time-consuming initialization of the AI model initialization only
 happens once. After that image generation from the command-line interface is very fast.</p>
-<p>The script uses the readline library to allow for in-line editing, command history (up and down
-arrows), autocompletion, and more. To help keep track of which prompts generated which images, the
+<p>The script uses the readline library to allow for in-line editing, command history (<span class="keys"><kbd class="key-arrow-up">Up</kbd></span> and
+<span class="keys"><kbd class="key-arrow-down">Down</kbd></span>), autocompletion, and more. To help keep track of which prompts generated which images, the
 script writes a log file of image names and prompts to the selected output directory.</p>
 <p>In addition, as of version 1.02, it also writes the prompt into the PNG file's metadata where it can
-be retrieved using scripts/images2prompt.py</p>
+be retrieved using <code>scripts/images2prompt.py</code></p>
 <p>The script is confirmed to work on Linux, Windows and Mac systems.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This script runs from the command-line or can be used as a Web application. The Web GUI is
 currently rudimentary, but a much better replacement is on its way.</p>
 </div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python3 ./scripts/dream.py
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>* Initializing, be patient...
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>Loading model from models/ldm/text2img-large/model.ckpt
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="o">(</span>...more initialization messages...<span class="o">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>* Initialization <span class="k">done</span>! Awaiting your command...
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>dream&gt; ashley judd riding a camel -n2 -s150
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>Outputs:
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>   outputs/img-samples/00009.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -n2 -s150 -S <span class="m">416354203</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>   outputs/img-samples/00010.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -n2 -s150 -S <span class="m">1362479620</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>dream&gt; <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    outputs/img-samples/00011.png: <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g -S <span class="m">2685670268</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    seeds <span class="k">for</span> individual rows: <span class="o">[</span><span class="m">2685670268</span>, <span class="m">1216708065</span>, <span class="m">2335773498</span>, <span class="m">822223658</span>, <span class="m">714542046</span>, <span class="m">3395302430</span><span class="o">]</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>dream&gt; q
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># this shows how to retrieve the prompt stored in the saved image&#39;s metadata</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python ./scripts/images2prompt.py outputs/img_samples/*.png
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="m">00009</span>.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -s150 -S <span class="m">416354203</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="m">00010</span>.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -s150 -S <span class="m">1362479620</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="m">00011</span>.png: <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g -S <span class="m">2685670268</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python3 ./scripts/dream.py
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>* Initializing, be patient...
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Loading model from models/ldm/text2img-large/model.ckpt
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">(</span>...more initialization messages...<span class="o">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>* Initialization <span class="k">done</span>! Awaiting your command...
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>dream&gt; ashley judd riding a camel -n2 -s150
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>Outputs:
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>   outputs/img-samples/00009.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -n2 -s150 -S <span class="m">416354203</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>   outputs/img-samples/00010.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -n2 -s150 -S <span class="m">1362479620</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>dream&gt; <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    outputs/img-samples/00011.png: <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g -S <span class="m">2685670268</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    seeds <span class="k">for</span> individual rows: <span class="o">[</span><span class="m">2685670268</span>, <span class="m">1216708065</span>, <span class="m">2335773498</span>, <span class="m">822223658</span>, <span class="m">714542046</span>, <span class="m">3395302430</span><span class="o">]</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>dream&gt; q
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="c1"># this shows how to retrieve the prompt stored in the saved image&#39;s metadata</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python ./scripts/images2prompt.py outputs/img_samples/*.png
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="m">00009</span>.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -s150 -S <span class="m">416354203</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="m">00010</span>.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -s150 -S <span class="m">1362479620</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="m">00011</span>.png: <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g -S <span class="m">2685670268</span>
 </code></pre></div>
 <p><img alt="dream-py-demo" src="../../assets/dream-py-demo.png" /></p>
 <p>The <code>dream&gt;</code> prompt's arguments are pretty much identical to those used in the Discord bot, except
 you don't need to type "!dream" (it doesn't hurt if you do). A significant change is that creation
-of individual images is now the default unless --grid (-g) is given. A full list is given in [List
-of prompt arguments] (#list-of-prompt-arguments).</p>
+of individual images is now the default unless <code>--grid</code> (<code>-g</code>) is given. A full list is given in <a href="#list-of-prompt-arguments">List
+of prompt arguments</a>.</p>
 <h2 id="arguments">Arguments<a class="headerlink" href="#arguments" title="Permanent link">#</a></h2>
 <p>The script itself also recognizes a series of command-line switches that will change important
 global defaults, such as the directory for image outputs and the location of the model weight files.</p>
-<h2 id="list-of-arguments-recognized-at-the-command-line">List of arguments recognized at the command line<a class="headerlink" href="#list-of-arguments-recognized-at-the-command-line" title="Permanent link">#</a></h2>
-<p>These command-line arguments can be passed to dream.py when you first run it from the Windows, Mac◊
+<h3 id="list-of-arguments-recognized-at-the-command-line">List of arguments recognized at the command line<a class="headerlink" href="#list-of-arguments-recognized-at-the-command-line" title="Permanent link">#</a></h3>
+<p>These command-line arguments can be passed to <code>dream.py</code> when you first run it from the Windows, Mac◊
 or Linux command line. Some set defaults that can be overridden on a per-prompt basis (see [List of
 prompt arguments] (#list-of-prompt-arguments). Others</p>
 <table>
@@ -987,7 +1018,7 @@ prompt arguments] (#list-of-prompt-arguments). Others</p>
 </tbody>
 </table>
 <p>*<code>experiments/pretrained_models/GFPGANv1.3.pth</code></p>
-<h3 id="deprecated">deprecated<a class="headerlink" href="#deprecated" title="Permanent link">#</a></h3>
+<h4 id="deprecated">deprecated<a class="headerlink" href="#deprecated" title="Permanent link">#</a></h4>
 <p>These arguments are deprecated but still work:</p>
 <table>
 <thead>
@@ -1021,13 +1052,16 @@ slashes (ick): <code>C:\\\\path\\\\to\\\\my\\\\file</code>, or use Linux/Mac sty
 <code>C:/path/to/my/file</code>.</p>
 </div>
 <h3 id="list-of-prompt-arguments">List of prompt arguments<a class="headerlink" href="#list-of-prompt-arguments" title="Permanent link">#</a></h3>
-<p>After the dream.py script initializes, it will present you with a <strong><code>dream&gt;</code></strong> prompt. Here you can
+<p>After the <code>dream.py</code> script initializes, it will present you with a <strong><code>dream&gt;</code></strong> prompt. Here you can
 enter information to generate images from text (txt2img), to embellish an existing image or sketch
 (img2img), or to selectively alter chosen regions of the image (inpainting).</p>
-<h3 id="this-is-an-example-of-txt2img">This is an example of txt2img<a class="headerlink" href="#this-is-an-example-of-txt2img" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>dream&gt; <span class="s2">&quot;waterfall and rainbow&quot;</span> -W640 -H480
+<h4 id="txt2img">txt2img<a class="headerlink" href="#txt2img" title="Permanent link">#</a></h4>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dream&gt; <span class="s2">&quot;waterfall and rainbow&quot;</span> -W640 -H480
 </code></pre></div>
 <p>This will create the requested image with the dimensions 640 (width) and 480 (height).</p>
+</div>
 <p>Those are the <code>dream</code> commands that apply to txt2img:</p>
 <table>
 <thead>
@@ -1085,7 +1119,7 @@ enter information to generate images from text (txt2img), to embellish an existi
 <td><code>--sampler &lt;sampler&gt;</code></td>
 <td><code>-A&lt;sampler&gt;</code></td>
 <td><code>k_lms</code></td>
-<td>Sampler to use. Use -h to get list of available samplers.</td>
+<td>Sampler to use. Use <code>-h</code> to get list of available samplers.</td>
 </tr>
 <tr>
 <td><code>--grid</code></td>
@@ -1097,7 +1131,7 @@ enter information to generate images from text (txt2img), to embellish an existi
 <td><code>--individual</code></td>
 <td><code>-i</code></td>
 <td><code>True</code></td>
-<td>Turn off grid mode (deprecated; leave off --grid instead)</td>
+<td>Turn off grid mode (deprecated; leave off <code>--grid</code> instead)</td>
 </tr>
 <tr>
 <td><code>--outdir &lt;path&gt;</code></td>
@@ -1160,13 +1194,16 @@ enter information to generate images from text (txt2img), to embellish an existi
 <p>The width and height of the image must be multiples of 64. You can provide different
 values, but they will be rounded down to the nearest multiple of 64.</p>
 </div>
-<h3 id="this-is-an-example-of-img2img">This is an example of img2img<a class="headerlink" href="#this-is-an-example-of-img2img" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>dream&gt; waterfall and rainbow -I./vacation-photo.png -W640 -H480 --fit
+<h4 id="img2img">img2img<a class="headerlink" href="#img2img" title="Permanent link">#</a></h4>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dream&gt; <span class="s2">&quot;waterfall and rainbow&quot;</span> -I./vacation-photo.png -W640 -H480 --fit
 </code></pre></div>
 <p>This will modify the indicated vacation photograph by making it more like the prompt. Results will
 vary greatly depending on what is in the image. We also ask to --fit the image into a box no bigger
 than 640x480. Otherwise the image size will be identical to the provided photo and you may run out
 of memory if it is large.</p>
+</div>
 <p>In addition to the command-line options recognized by txt2img, img2img accepts additional options:</p>
 <table>
 <thead>
@@ -1198,14 +1235,17 @@ of memory if it is large.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="this-is-an-example-of-inpainting">This is an example of inpainting<a class="headerlink" href="#this-is-an-example-of-inpainting" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>dream&gt; <span class="s2">&quot;waterfall and rainbow&quot;</span> -I./vacation-photo.png -M./vacation-mask.png -W640 -H480 --fit
+<h4 id="inpainting">inpainting<a class="headerlink" href="#inpainting" title="Permanent link">#</a></h4>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>dream&gt; <span class="s2">&quot;waterfall and rainbow&quot;</span> -I./vacation-photo.png -M./vacation-mask.png -W640 -H480 --fit
 </code></pre></div>
 <p>This will do the same thing as img2img, but image alterations will only occur within transparent
-areas defined by the mask file specified by -M. You may also supply just a single initial image with
+areas defined by the mask file specified by <code>-M</code>. You may also supply just a single initial image with
 the areas to overpaint made transparent, but you must be careful not to destroy the pixels
 underneath when you create the transparent areas. See <a href="../INPAINTING/">Inpainting</a> for details.</p>
-<p>inpainting accepts all the arguments used for txt2img and img2img, as well as the --mask (-M)
+</div>
+<p>inpainting accepts all the arguments used for txt2img and img2img, as well as the <code>--mask</code> (<code>-M</code>)
 argument:</p>
 <table>
 <thead>
@@ -1229,22 +1269,22 @@ argument:</p>
 <p>If you are on a Macintosh or Linux machine, the command-line offers convenient history tracking,
 editing, and command completion.</p>
 <ul>
-<li>To scroll through previous commands and potentially edit/reuse them, use the up and down cursor
+<li>To scroll through previous commands and potentially edit/reuse them, use the <span class="keys"><kbd class="key-arrow-up">Up</kbd></span> and <span class="keys"><kbd class="key-arrow-down">Down</kbd></span> cursor
   keys.</li>
-<li>To edit the current command, use the left and right cursor keys to position the cursor, and then
-  backspace, delete or insert characters.</li>
-<li>To move to the very beginning of the command, type CTRL-A (or command-A on the Mac)</li>
-<li>To move to the end of the command, type CTRL-E.</li>
+<li>To edit the current command, use the <span class="keys"><kbd class="key-arrow-left">Left</kbd></span> and <span class="keys"><kbd class="key-arrow-right">Right</kbd></span> cursor keys to position the cursor, and then
+  <span class="keys"><kbd class="key-backspace">Backspace</kbd></span>, <span class="keys"><kbd class="key-delete">Del</kbd></span> or <span class="keys"><kbd class="key-insert">Ins</kbd></span> characters.</li>
+<li>To move to the very beginning of the command, type <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-a">A</kbd></span> (or <span class="keys"><kbd class="key-command">Cmd</kbd><span>+</span><kbd class="key-a">A</kbd></span> on the Mac)</li>
+<li>To move to the end of the command, type <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-e">E</kbd></span>.</li>
 <li>To cut a section of the command, position the cursor where you want to start cutting and type
-  CTRL-K.</li>
-<li>To paste a cut section back in, position the cursor where you want to paste, and type CTRL-Y</li>
+  <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-k">K</kbd></span>.</li>
+<li>To paste a cut section back in, position the cursor where you want to paste, and type <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-y">Y</kbd></span></li>
 </ul>
-<p>Windows users can get similar, but more limited, functionality if they launch dream.py with the
+<p>Windows users can get similar, but more limited, functionality if they launch <code>dream.py</code> with the
 "winpty" program:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>winpty python scripts\dream.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>winpty python scripts\dream.py
 </code></pre></div>
-<p>On the Mac and Linux platforms, when you exit dream.py, the last 1000 lines of your command-line
-history will be saved. When you restart dream.py, you can access the saved history using the
+<p>On the Mac and Linux platforms, when you exit <code>dream.py</code>, the last 1000 lines of your command-line
+history will be saved. When you restart <code>dream.py</code>, you can access the saved history using the
 up-arrow key.</p>
 <p>In addition, limited command-line completion is installed. In various contexts, you can start typing
 your command and press tab. A list of potential completions will be presented to you. You can then
@@ -1252,9 +1292,9 @@ type a little more, hit tab again, and eventually autocomplete what you want.</p
 <p>When specifying file paths using the one-letter shortcuts, the CLI will attempt to complete
 pathnames for you. This is most handy for the -I (init image) and -M (init mask) paths. To initiate
 completion, start the path with a slash ("/") or "./". For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>dream&gt; zebra with a mustache -I./test-pictures&lt;TAB&gt;
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>-I./test-pictures/Lincoln-and-Parrot.png  -I./test-pictures/zebra.jpg        -I./test-pictures/madonna.png
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>-I./test-pictures/bad-sketch.png          -I./test-pictures/man_with_eagle/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>dream&gt; <span class="s2">&quot;zebra with a mustache&quot;</span> -I./test-pictures&lt;TAB&gt;
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>-I./test-pictures/Lincoln-and-Parrot.png  -I./test-pictures/zebra.jpg        -I./test-pictures/madonna.png
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>-I./test-pictures/bad-sketch.png          -I./test-pictures/man_with_eagle/
 </code></pre></div>
 <p>You can then type "z", hit tab again, and it will autofill to "zebra.jpg".</p>
 <p>More text completion features (such as autocompleting seeds) are on their way.</p>
@@ -1264,21 +1304,37 @@ completion, start the path with a slash ("/") or "./". For example:</p>
   <small>
     
       Last update:
-      2022-09-18
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2022</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2022</span>
+      
     
   </small>
 </div>
 
-              
-            </article>
-          </div>
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
+    
+      
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
         <a href="../CHANGELOG/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Changelog" rel="prev">
@@ -1337,10 +1393,11 @@ completion, start the path with a slash ("/") or "./". For example:</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d691e9de.min.js"></script>
       
     
   </body>
