@@ -774,16 +774,24 @@ combination of integers and floating point numbers, and they do not need to add 
 <p>Here's a prompt that depicts what it does.</p>
 <p>original prompt:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<figure>
 <p><img alt="step1" src="../../assets/negative_prompt_walkthru/step1.png" /></p>
+</figure>
 <p>That image has a woman, so if we want the horse without a rider, we can influence the image not to have a woman by putting [woman] in the prompt, like this:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<figure>
 <p><img alt="step2" src="../../assets/negative_prompt_walkthru/step2.png" /></p>
+</figure>
 <p>That's nice - but say we also don't want the image to be quite so blue. We can add "blue" to the list of negative prompts, so it's now [woman blue]:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<figure>
 <p><img alt="step3" src="../../assets/negative_prompt_walkthru/step3.png" /></p>
+</figure>
 <p>Getting close - but there's no sense in having a saddle when our horse doesn't have a rider, so we'll add one more negative prompt: [woman blue saddle].</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue saddle]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<figure>
 <p><img alt="step4" src="../../assets/negative_prompt_walkthru/step4.png" /></p>
+</figure>
 <div class="admonition notes">
 <p class="admonition-title">Notes about this feature:</p>
 <ul>
@@ -799,7 +807,7 @@ combination of integers and floating point numbers, and they do not need to add 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 20, 2022</span>
       
         <br>
         Created:
