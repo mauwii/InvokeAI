@@ -17,7 +17,7 @@
     
     
       
-        <title>SAMPLER CONVERGENCE - Stable Diffusion Toolkit Docs</title>
+        <title>Sampler Convergence - Stable Diffusion Toolkit Docs</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SAMPLER CONVERGENCE
+              Sampler Convergence
             
           </span>
         </div>
@@ -501,14 +501,16 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          SAMPLER CONVERGENCE
+          Sampler Convergence
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SAMPLER CONVERGENCE
+        Sampler Convergence
       </a>
       
         
@@ -516,6 +518,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -525,57 +529,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sampler-convergence" class="md-nav__link">
-    Sampler Convergence
-  </a>
-  
-    <nav class="md-nav" aria-label="Sampler Convergence">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#sampler-results" class="md-nav__link">
     Sampler results
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sampler-convergence_1" class="md-nav__link">
     Sampler convergence
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#batch-generation-speedup" class="md-nav__link">
     Batch generation speedup
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#topic-convergance" class="md-nav__link">
     Topic convergance
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sampler-generation-times" class="md-nav__link">
     Sampler generation times
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#three-key-points" class="md-nav__link">
     Three key points
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -643,7 +634,7 @@
   
     <li class="md-nav__item">
       <a href="../../installation/INSTALL_DOCKER/" class="md-nav__link">
-        Before you begin
+        Docker
       </a>
     </li>
   
@@ -777,6 +768,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -785,57 +778,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sampler-convergence" class="md-nav__link">
-    Sampler Convergence
-  </a>
-  
-    <nav class="md-nav" aria-label="Sampler Convergence">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#sampler-results" class="md-nav__link">
     Sampler results
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sampler-convergence_1" class="md-nav__link">
     Sampler convergence
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#batch-generation-speedup" class="md-nav__link">
     Batch generation speedup
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#topic-convergance" class="md-nav__link">
     Topic convergance
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sampler-generation-times" class="md-nav__link">
     Sampler generation times
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#three-key-points" class="md-nav__link">
     Three key points
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -859,9 +839,7 @@
   </a>
 
 
-  <h1>SAMPLER CONVERGENCE</h1>
-
-<h2 id="sampler-convergence"><em>Sampler Convergence</em><a class="headerlink" href="#sampler-convergence" title="Permanent link">#</a></h2>
+<h1 id="sampler-convergence"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 22H10v-2h12v2M2 22v-2h7v2H2m16-4v-8h4v8h-4m0-15h4v6h-4V3M2 18V3h14v15H2m7-3.44a3 3 0 0 0 3-3c0-2-3-5.37-3-5.37s-3 3.37-3 5.37a3 3 0 0 0 3 3Z"/></svg></span> <em>Sampler Convergence</em><a class="headerlink" href="#sampler-convergence" title="Permanent link">#</a></h1>
 <p>As features keep increasing, making the right choices for your needs can become increasingly difficult. What sampler to use? And for how many steps? Do you change the CFG value? Do you use prompt weighting? Do you allow variations?</p>
 <p>Even once you have a result, do you blend it with other images? Pass it through <code>img2img</code>? With what strength? Do you use inpainting to correct small details? Outpainting to extend cropped sections?</p>
 <p>The purpose of this series of documents is to help you better understand these tools, so you can make the best out of them. Feel free to contribute with your own findings!</p>
@@ -888,6 +866,7 @@
 </tr>
 </tbody>
 </table>
+<div align="center">
 <table>
 <thead>
 <tr>
@@ -930,6 +909,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <table>
 <thead>
 <tr>
@@ -1017,7 +997,7 @@ The latter technique is 3-8x as quick.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 24, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2022</span>
       
         <br>
         Created:

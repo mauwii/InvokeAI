@@ -17,7 +17,7 @@
     
     
       
-        <title>Before you begin - Stable Diffusion Toolkit Docs</title>
+        <title>Docker - Stable Diffusion Toolkit Docs</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#before-you-begin" class="md-skip">
+        <a href="#docker" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Before you begin
+              Docker
             
           </span>
         </div>
@@ -494,7 +494,7 @@
   
     <li class="md-nav__item">
       <a href="../../help/SAMPLER_CONVERGENCE/" class="md-nav__link">
-        SAMPLER CONVERGENCE
+        Sampler Convergence
       </a>
     </li>
   
@@ -566,9 +566,142 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Before you begin
+        Docker
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-containers" class="md-nav__link">
+    Why containers?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-on-a-linux-container" class="md-nav__link">
+    Installation on a Linux container
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation on a Linux container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-data-files" class="md-nav__link">
+    Get the data files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    Install Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-time-to-have-fun" class="md-nav__link">
+    Usage (time to have fun)
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage (time to have fun)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    Startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-to-image" class="md-nav__link">
+    Text to Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-to-image" class="md-nav__link">
+    Image to Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    Web Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -705,6 +838,123 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-containers" class="md-nav__link">
+    Why containers?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-on-a-linux-container" class="md-nav__link">
+    Installation on a Linux container
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation on a Linux container">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-data-files" class="md-nav__link">
+    Get the data files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    Install Docker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-time-to-have-fun" class="md-nav__link">
+    Usage (time to have fun)
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage (time to have fun)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    Startup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text-to-image" class="md-nav__link">
+    Text to Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#image-to-image" class="md-nav__link">
+    Image to Image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    Web Interface
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -723,7 +973,8 @@
   </a>
 
 
-<h1 id="before-you-begin">Before you begin<a class="headerlink" href="#before-you-begin" title="Permanent link">#</a></h1>
+<h1 id="docker"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg></span> Docker<a class="headerlink" href="#docker" title="Permanent link">#</a></h1>
+<h2 id="before-you-begin">Before you begin<a class="headerlink" href="#before-you-begin" title="Permanent link">#</a></h2>
 <ul>
 <li>For end users: Install Stable Diffusion locally using the instructions for
   your OS.</li>
@@ -731,7 +982,7 @@
   deployment to other environments (on-premises or cloud), follow these
   instructions. For general use, install locally to leverage your machine's GPU.</li>
 </ul>
-<h1 id="why-containers">Why containers?<a class="headerlink" href="#why-containers" title="Permanent link">#</a></h1>
+<h2 id="why-containers">Why containers?<a class="headerlink" href="#why-containers" title="Permanent link">#</a></h2>
 <p>They provide a flexible, reliable way to build and deploy Stable Diffusion.
 You'll also use a Docker volume to store the largest model files and image
 outputs as a first step in decoupling storage and compute. Future enhancements
@@ -747,9 +998,9 @@ and performance is reduced compared with running it directly on macOS but for
 development purposes it's fine. Once you're done with development tasks on your
 laptop you can build for the target platform and architecture and deploy to
 another environment with NVIDIA GPUs on-premises or in the cloud.</p>
-<h1 id="installation-on-a-linux-container">Installation on a Linux container<a class="headerlink" href="#installation-on-a-linux-container" title="Permanent link">#</a></h1>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
-<h3 id="get-the-data-files">Get the data files<a class="headerlink" href="#get-the-data-files" title="Permanent link">#</a></h3>
+<h2 id="installation-on-a-linux-container">Installation on a Linux container<a class="headerlink" href="#installation-on-a-linux-container" title="Permanent link">#</a></h2>
+<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
+<h4 id="get-the-data-files">Get the data files<a class="headerlink" href="#get-the-data-files" title="Permanent link">#</a></h4>
 <p>Go to
 <a href="https://huggingface.co/CompVis/stable-diffusion-v-1-4-original">Hugging Face</a>,
 and click "Access repository" to Download the model file <code>sd-v1-4.ckpt</code> (~4 GB)
@@ -758,12 +1009,12 @@ to <code>~/Downloads</code>. You'll need to create an account but it's quick and
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span> ~/Downloads
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>wget https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth
 </code></pre></div>
-<h3 id="install-docker">Install <a href="https://github.com/santisbon/guides#docker">Docker</a><a class="headerlink" href="#install-docker" title="Permanent link">#</a></h3>
+<h4 id="install-docker">Install <a href="https://github.com/santisbon/guides#docker">Docker</a><a class="headerlink" href="#install-docker" title="Permanent link">#</a></h4>
 <p>On the Docker Desktop app, go to Preferences, Resources, Advanced. Increase the
 CPUs and Memory to avoid this
 <a href="https://github.com/invoke-ai/InvokeAI/issues/342">Issue</a>. You may need to
 increase Swap and Disk image size too.</p>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h2>
+<h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h3>
 <p>Set the fork you want to use and other variables.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nv">TAG_STABLE_DIFFUSION</span><span class="o">=</span><span class="s2">&quot;santisbon/stable-diffusion&quot;</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nv">PLATFORM</span><span class="o">=</span><span class="s2">&quot;linux/arm64&quot;</span>
@@ -825,8 +1076,8 @@ Tip: Make sure you've created and populated the Docker volume (above).</p>
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>--mount <span class="nv">source</span><span class="o">=</span>my-vol,target<span class="o">=</span>/data <span class="se">\</span>
 <a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nv">$TAG_STABLE_DIFFUSION</span>
 </code></pre></div>
-<h1 id="usage-time-to-have-fun">Usage (time to have fun)<a class="headerlink" href="#usage-time-to-have-fun" title="Permanent link">#</a></h1>
-<h2 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">#</a></h2>
+<h2 id="usage-time-to-have-fun">Usage (time to have fun)<a class="headerlink" href="#usage-time-to-have-fun" title="Permanent link">#</a></h2>
+<h3 id="startup">Startup<a class="headerlink" href="#startup" title="Permanent link">#</a></h3>
 <p>If you're on a <strong>Linux container</strong> the <code>invoke</code> script is <strong>automatically
 started</strong> and the output dir set to the Docker volume you created earlier.</p>
 <p>If you're <strong>directly on macOS follow these startup instructions</strong>.<br />
@@ -842,7 +1093,7 @@ By default the images are saved in <code>outputs/img-samples/</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>invoke&gt; -h
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>invoke&gt; q
 </code></pre></div>
-<h2 id="text-to-image">Text to Image<a class="headerlink" href="#text-to-image" title="Permanent link">#</a></h2>
+<h3 id="text-to-image">Text to Image<a class="headerlink" href="#text-to-image" title="Permanent link">#</a></h3>
 <p>For quick (but bad) image results test with 5 steps (default 50) and 1 sample
 image. This will let you know that everything is set up correctly.<br />
 Then increase steps to 100 or more for good (but slower) results.<br />
@@ -863,7 +1114,7 @@ Or you can copy it from your Mac terminal. Keep in mind <code>docker cp</code> c
 volume):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker cp dummy:/data/000001.928403745.png /Users/&lt;your-user&gt;/Pictures
 </code></pre></div>
-<h2 id="image-to-image">Image to Image<a class="headerlink" href="#image-to-image" title="Permanent link">#</a></h2>
+<h3 id="image-to-image">Image to Image<a class="headerlink" href="#image-to-image" title="Permanent link">#</a></h3>
 <p>You can also do text-guided image-to-image translation. For example, turning a
 sketch into a detailed drawing.</p>
 <p><code>strength</code> is a value between 0.0 and 1.0 that controls the amount of noise that
@@ -886,14 +1137,14 @@ paths to find the image so don't use <code>~</code>.</p>
 <p>If you're on a Linux container on your Mac</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>invoke&gt; <span class="s2">&quot;A fantasy landscape, trending on artstation&quot;</span> -I /data/sketch-mountains-input.jpg --strength <span class="m">0</span>.75  --steps <span class="m">50</span> -n1
 </code></pre></div>
-<h2 id="web-interface">Web Interface<a class="headerlink" href="#web-interface" title="Permanent link">#</a></h2>
+<h3 id="web-interface">Web Interface<a class="headerlink" href="#web-interface" title="Permanent link">#</a></h3>
 <p>You can use the <code>invoke</code> script with a graphical web interface. Start the web
 server with:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>python3 scripts/invoke.py --full_precision --web
 </code></pre></div>
 <p>If it's running on your Mac point your Mac web browser to <a href="http://127.0.0.1:9090">http://127.0.0.1:9090</a></p>
 <p>Press Control-C at the command line to stop the web server.</p>
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h3>
 <p>Some text you can add at the end of the prompt to make it very pretty:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cinematic photo, highly detailed, cinematic lighting, ultra-detailed, ultrarealistic, photorealism, Octane Rendering, cyberpunk lights, Hyper Detail, 8K, HD, Unreal Engine, V-Ray, full hd, cyberpunk, abstract, 3d octane render + 4k UHD + immense detail + dramatic lighting + well lit + black, purple, blue, pink, cerulean, teal, metallic colours, + fine details, ultra photoreal, photographic, concept art, cinematic composition, rule of thirds, mysterious, eerie, photorealism, breathtaking detailed, painting art deco pattern, by hsiao, ron cheng, john james audubon, bizarre compositions, exquisite detail, extremely moody lighting, painted by greg rutkowski makoto shinkai takashi takeuchi studio ghibli, akihiko yoshida
 </code></pre></div>
@@ -908,7 +1159,7 @@ server with:</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2022</span>
       
         <br>
         Created:
