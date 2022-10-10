@@ -10,25 +10,23 @@
         <meta name="author" content="mauwii">
       
       
-        <link rel="canonical" href="https://mauwii.github.io/stable-diffusion/features/UPSCALE/">
+        <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/features/POSTPROCESS/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
     
     
       
-        <title>Upscale - Dream Script Docs</title>
+        <title>POSTPROCESS - Dream Script Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.9f9400aa.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
         
       
-      
-
     
     
     
@@ -41,11 +39,10 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
-    
     
     
   </head>
@@ -70,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#upscale" class="md-skip">
+        <a href="#title-postprocessing" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Upscale
+              POSTPROCESS
             
           </span>
         </div>
@@ -148,7 +145,7 @@
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -169,13 +166,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/lstein/stable-diffusion" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://invoke-ai.github.io/InvokeAI/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
-    lstein/stable-diffusion
+    invoke-ai/InvokeAI
   </div>
 </a>
       </div>
@@ -214,13 +211,13 @@
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/lstein/stable-diffusion" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://invoke-ai.github.io/InvokeAI/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
-    lstein/stable-diffusion
+    invoke-ai/InvokeAI
   </div>
 </a>
     </div>
@@ -248,6 +245,21 @@
 
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        **Changelog**
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -255,18 +267,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_3">
           Features
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Features" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Features
         </label>
@@ -362,22 +374,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../PROMPTS/" class="md-nav__link">
-        Prompting Features
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../TEXTUAL_INVERSION/" class="md-nav__link">
-        TEXTUAL_INVERSION
+      <a href="../OUTPAINTING/" class="md-nav__link">
+        Outpainting
       </a>
     </li>
   
@@ -396,16 +394,14 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Upscale
+          POSTPROCESS
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Upscale
+        POSTPROCESS
       </a>
       
         
@@ -413,8 +409,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -424,8 +418,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gfpgan-and-real-esrgan-support" class="md-nav__link">
-    GFPGAN and Real-ESRGAN Support
+  <a href="#title-postprocessing" class="md-nav__link">
+    title: Postprocessing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#face-fixing" class="md-nav__link">
+    Face Fixing
   </a>
   
 </li>
@@ -479,6 +487,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#other-options" class="md-nav__link">
+    Other Options:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixing-previously-generated-images" class="md-nav__link">
+    Fixing Previously-Generated Images
+  </a>
+  
+    <nav class="md-nav" aria-label="Fixing Previously-Generated Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disabling" class="md-nav__link">
+    Disabling:
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -488,6 +523,34 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PROMPTS/" class="md-nav__link">
+        Prompting Features
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TEXTUAL_INVERSION/" class="md-nav__link">
+        TEXTUAL_INVERSION
+      </a>
     </li>
   
 
@@ -514,7 +577,7 @@
   
     <li class="md-nav__item">
       <a href="../WEB/" class="md-nav__link">
-        Barebones Web Server
+        InvokeAI Web Server
       </a>
     </li>
   
@@ -538,22 +601,36 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_4">
           Help
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Help" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Help
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../help/SAMPLER_CONVERGENCE/" class="md-nav__link">
+        SAMPLER CONVERGENCE
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -586,22 +663,36 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4">
+        <label class="md-nav__link" for="__nav_5">
           Installation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Installation" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           Installation
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/INSTALL_DOCKER/" class="md-nav__link">
+        Before you begin
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -662,18 +753,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_5">
+        <label class="md-nav__link" for="__nav_6">
           Other
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Other" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Other
         </label>
@@ -730,8 +821,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -740,8 +829,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gfpgan-and-real-esrgan-support" class="md-nav__link">
-    GFPGAN and Real-ESRGAN Support
+  <a href="#title-postprocessing" class="md-nav__link">
+    title: Postprocessing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#intro" class="md-nav__link">
+    Intro
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#face-fixing" class="md-nav__link">
+    Face Fixing
   </a>
   
 </li>
@@ -795,6 +898,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#other-options" class="md-nav__link">
+    Other Options:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixing-previously-generated-images" class="md-nav__link">
+    Fixing Previously-Generated Images
+  </a>
+  
+    <nav class="md-nav" aria-label="Fixing Previously-Generated Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disabling" class="md-nav__link">
+    Disabling:
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -808,74 +938,83 @@
               </div>
             
           
-          
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
                 
-                  
-
-  <a href="https://github.com/lstein/stable-diffusion/edit/main/docs/features/UPSCALE.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 12h8v2H8v-2m2 8H6V4h7v5h5v3.1l2-2V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4v-2m-2-2h4.1l.9-.9V16H8v2m12.2-5c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+  <a href="https://invoke-ai.github.io/InvokeAI/edit/main/docs/features/POSTPROCESS.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="upscale"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15h2v2h-2v-2m0-4h2v2h-2v-2m2 8h-2v2c1 0 2-1 2-2M13 3h2v2h-2V3m8 4h2v2h-2V7m0-4v2h2c0-1-1-2-2-2M1 7h2v2H1V7m16-4h2v2h-2V3m0 16h2v2h-2v-2M3 3C2 3 1 4 1 5h2V3m6 0h2v2H9V3M5 3h2v2H5V3m-4 8v8a2 2 0 0 0 2 2h12V11H1m2 8 2.5-3.21 1.79 2.15 2.5-3.22L13 19H3Z"/></svg></span> Upscale<a class="headerlink" href="#upscale" title="Permanent link">#</a></h1>
-<h2 id="gfpgan-and-real-esrgan-support"><strong>GFPGAN and Real-ESRGAN Support</strong><a class="headerlink" href="#gfpgan-and-real-esrgan-support" title="Permanent link">#</a></h2>
-<p>The script also provides the ability to do face restoration and upscaling with the help of GFPGAN
-and Real-ESRGAN respectively.</p>
-<p>As of version 1.14, environment.yaml will install the Real-ESRGAN package into the standard install
-location for python packages, and will put GFPGAN into a subdirectory of "src" in the
-stable-diffusion directory. (The reason for this is that the standard GFPGAN distribution has a
-minor bug that adversely affects image color.) Upscaling with Real-ESRGAN should "just work" without
-further intervention. Simply pass the --upscale (-U) option on the dream&gt; command line, or indicate
-the desired scale on the popup in the Web GUI.</p>
-<p>For <strong>GFPGAN</strong> to work, there is one additional step needed. You will need to download and copy the
-GFPGAN <a href="https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth">models file</a>
-into <strong>src/gfpgan/experiments/pretrained_models</strong>. On Mac and Linux systems, here's how you'd do it
-using <strong>wget</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&gt; wget https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth src/gfpgan/experiments/pretrained_models/
+
+  <h1>POSTPROCESS</h1>
+
+<hr />
+<h2 id="title-postprocessing">title: Postprocessing<a class="headerlink" href="#title-postprocessing" title="Permanent link">#</a></h2>
+<h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">#</a></h2>
+<p>This extension provides the ability to restore faces and upscale
+images.</p>
+<p>Face restoration and upscaling can be applied at the time you generate
+the images, or at any later time against a previously-generated PNG
+file, using the <a href="#fixing-previously-generated-images">!fix</a>
+command. <a href="../OUTPAINTING/">Outpainting and outcropping</a> can only be
+applied after the fact.</p>
+<h2 id="face-fixing">Face Fixing<a class="headerlink" href="#face-fixing" title="Permanent link">#</a></h2>
+<p>The default face restoration module is GFPGAN. The default upscale is
+Real-ESRGAN. For an alternative face restoration module, see [CodeFormer
+Support] below.</p>
+<p>As of version 1.14, environment.yaml will install the Real-ESRGAN
+package into the standard install location for python packages, and
+will put GFPGAN into a subdirectory of "src" in the InvokeAI
+directory. Upscaling with Real-ESRGAN should "just work" without
+further intervention. Simply pass the --upscale (-U) option on the
+invoke&gt; command line, or indicate the desired scale on the popup in
+the Web GUI.</p>
+<p><strong>GFPGAN</strong> requires a series of downloadable model files to
+work. These are loaded when you run <code>scripts/preload_models.py</code>. If
+GFPAN is failing with an error, please run the following from the
+InvokeAI directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>python scripts/preload_models.py
 </code></pre></div>
-<p>Make sure that you're in the stable-diffusion directory when you do this.</p>
-<p>Alternatively, if you have GFPGAN installed elsewhere, or if you are using an earlier version of
-this package which asked you to install GFPGAN in a sibling directory, you may use the
-<code>--gfpgan_dir</code> argument with <code>dream.py</code> to set a custom path to your GFPGAN directory. <em>There are
-other GFPGAN related boot arguments if you wish to customize further.</em></p>
-<div class="admonition warning">
-<p class="admonition-title">Internet connection needed</p>
-<p>Users whose GPU machines are isolated from the Internet (e.g.
-on a University cluster) should be aware that the first time you run dream.py with GFPGAN and
-Real-ESRGAN turned on, it will try to download model files from the Internet. To rectify this, you
-may run <code>python3 scripts/preload_models.py</code> after you have installed GFPGAN and all its
-dependencies.</p>
-</div>
-<h2 id="usage"><strong>Usage</strong><a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
+<p>If you do not run this script in advance, the GFPGAN module will attempt
+to download the models files the first time you try to perform facial
+reconstruction. </p>
+<p>Alternatively, if you have GFPGAN installed elsewhere, or if you are
+using an earlier version of this package which asked you to install
+GFPGAN in a sibling directory, you may use the <code>--gfpgan_dir</code> argument
+with <code>invoke.py</code> to set a custom path to your GFPGAN directory. <em>There
+are other GFPGAN related boot arguments if you wish to customize
+further.</em></p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>You will now have access to two new prompt arguments.</p>
-<h3 id="upscaling"><strong>Upscaling</strong><a class="headerlink" href="#upscaling" title="Permanent link">#</a></h3>
+<h3 id="upscaling">Upscaling<a class="headerlink" href="#upscaling" title="Permanent link">#</a></h3>
 <p><code>-U : &lt;upscaling_factor&gt; &lt;upscaling_strength&gt;</code></p>
-<p>The upscaling prompt argument takes two values. The first value is a scaling factor and should be
-set to either <code>2</code> or <code>4</code> only. This will either scale the image 2x or 4x respectively using
-different models.</p>
-<p>You can set the scaling stength between <code>0</code> and <code>1.0</code> to control intensity of the of the scaling.
-This is handy because AI upscalers generally tend to smooth out texture details. If you wish to
-retain some of those for natural looking results, we recommend using values between <code>0.5 to 0.8</code>.</p>
+<p>The upscaling prompt argument takes two values. The first value is a scaling
+factor and should be set to either <code>2</code> or <code>4</code> only. This will either scale the
+image 2x or 4x respectively using different models.</p>
+<p>You can set the scaling stength between <code>0</code> and <code>1.0</code> to control intensity of
+the of the scaling. This is handy because AI upscalers generally tend to smooth
+out texture details. If you wish to retain some of those for natural looking
+results, we recommend using values between <code>0.5 to 0.8</code>.</p>
 <p>If you do not explicitly specify an upscaling_strength, it will default to 0.75.</p>
-<h3 id="face-restoration"><strong>Face Restoration</strong><a class="headerlink" href="#face-restoration" title="Permanent link">#</a></h3>
+<h3 id="face-restoration">Face Restoration<a class="headerlink" href="#face-restoration" title="Permanent link">#</a></h3>
 <p><code>-G : &lt;gfpgan_strength&gt;</code></p>
-<p>This prompt argument controls the strength of the face restoration that is being applied. Similar to
-upscaling, values between <code>0.5 to 0.8</code> are recommended.</p>
-<p>You can use either one or both without any conflicts. In cases where you use both, the image will be
-first upscaled and then the face restoration process will be executed to ensure you get the highest
-quality facial features.</p>
+<p>This prompt argument controls the strength of the face restoration that is being
+applied. Similar to upscaling, values between <code>0.5 to 0.8</code> are recommended.</p>
+<p>You can use either one or both without any conflicts. In cases where you use
+both, the image will be first upscaled and then the face restoration process
+will be executed to ensure you get the highest quality facial features.</p>
 <p><code>--save_orig</code></p>
-<p>When you use either <code>-U</code> or <code>-G</code>, the final result you get is upscaled or face modified. If you want
-to save the original Stable Diffusion generation, you can use the <code>-save_orig</code> prompt argument to
-save the original unaffected version too.</p>
-<h3 id="example-usage"><strong>Example Usage</strong><a class="headerlink" href="#example-usage" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dream&gt; superman dancing with a panda bear -U <span class="m">2</span> <span class="m">0</span>.6 -G <span class="m">0</span>.4
+<p>When you use either <code>-U</code> or <code>-G</code>, the final result you get is upscaled or face
+modified. If you want to save the original Stable Diffusion generation, you can
+use the <code>-save_orig</code> prompt argument to save the original unaffected version
+too.</p>
+<h3 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>invoke&gt; superman dancing with a panda bear -U <span class="m">2</span> <span class="m">0</span>.6 -G <span class="m">0</span>.4
 </code></pre></div>
 <p>This also works with img2img:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dream&gt; a man wearing a pineapple hat -I path/to/your/file.png -U <span class="m">2</span> <span class="m">0</span>.5 -G <span class="m">0</span>.6
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>invoke&gt; a man wearing a pineapple hat -I path/to/your/file.png -U <span class="m">2</span> <span class="m">0</span>.5 -G <span class="m">0</span>.6
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -887,41 +1026,61 @@ iterations, the images will first be generated and then upscaled and face restor
 process is complete. While the image generation is taking place, you will still be able to preview
 the base images.</p>
 </div>
-<p>If you wish to stop during the image generation but want to upscale or face restore a particular
-generated image, pass it again with the same prompt and generated seed along with the <code>-U</code> and <code>-G</code>
-prompt arguments to perform those actions.</p>
+<p>If you wish to stop during the image generation but want to upscale or face
+restore a particular generated image, pass it again with the same prompt and
+generated seed along with the <code>-U</code> and <code>-G</code> prompt arguments to perform those
+actions.</p>
 <h2 id="codeformer-support">CodeFormer Support<a class="headerlink" href="#codeformer-support" title="Permanent link">#</a></h2>
 <p>This repo also allows you to perform face restoration using
 <a href="https://github.com/sczhou/CodeFormer">CodeFormer</a>.</p>
-<p>In order to setup CodeFormer to work, you need to download the models like with GFPGAN. You can do
-this either by running <code>preload_models.py</code> or by manually downloading the
-<a href="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth">model file</a> and
-saving it to <code>ldm/restoration/codeformer/weights</code> folder.</p>
-<p>You can use <code>-ft</code> prompt argument to swap between CodeFormer and the default GFPGAN. The above
-mentioned <code>-G</code> prompt argument will allow you to control the strength of the restoration effect.</p>
-<h3 id="usage_1"><strong>Usage:</strong><a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
-<p>The following command will perform face restoration with CodeFormer instead of the default gfpgan.</p>
+<p>In order to setup CodeFormer to work, you need to download the models
+like with GFPGAN. You can do this either by running
+<code>preload_models.py</code> or by manually downloading the <a href="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth">model
+file</a>
+and saving it to <code>ldm/restoration/codeformer/weights</code> folder.</p>
+<p>You can use <code>-ft</code> prompt argument to swap between CodeFormer and the
+default GFPGAN. The above mentioned <code>-G</code> prompt argument will allow
+you to control the strength of the restoration effect.</p>
+<h3 id="usage_1">Usage:<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
+<p>The following command will perform face restoration with CodeFormer instead of
+the default gfpgan.</p>
 <p><code>&lt;prompt&gt; -G 0.8 -ft codeformer</code></p>
-<p><strong>Other Options:</strong></p>
+<h3 id="other-options">Other Options:<a class="headerlink" href="#other-options" title="Permanent link">#</a></h3>
 <ul>
-<li><code>-cf</code> - cf or CodeFormer Fidelity takes values between <code>0</code> and <code>1</code>. 0 produces high quality
-  results but low accuracy and 1 produces lower quality results but higher accuacy to your original
-  face.</li>
+<li><code>-cf</code> - cf or CodeFormer Fidelity takes values between <code>0</code> and <code>1</code>. 0 produces
+  high quality results but low accuracy and 1 produces lower quality results but
+  higher accuacy to your original face.</li>
 </ul>
-<p>The following command will perform face restoration with CodeFormer. CodeFormer will output a result
-that is closely matching to the input face.</p>
+<p>The following command will perform face restoration with CodeFormer. CodeFormer
+will output a result that is closely matching to the input face.</p>
 <p><code>&lt;prompt&gt; -G 1.0 -ft codeformer -cf 0.9</code></p>
-<p>The following command will perform face restoration with CodeFormer. CodeFormer will output a result
-that is the best restoration possible. This may deviate slightly from the original face. This is an
-excellent option to use in situations when there is very little facial data to work with.</p>
+<p>The following command will perform face restoration with CodeFormer. CodeFormer
+will output a result that is the best restoration possible. This may deviate
+slightly from the original face. This is an excellent option to use in
+situations when there is very little facial data to work with.</p>
 <p><code>&lt;prompt&gt; -G 1.0 -ft codeformer -cf 0.1</code></p>
+<h2 id="fixing-previously-generated-images">Fixing Previously-Generated Images<a class="headerlink" href="#fixing-previously-generated-images" title="Permanent link">#</a></h2>
+<p>It is easy to apply face restoration and/or upscaling to any
+previously-generated file. Just use the syntax <code>!fix path/to/file.png
+&lt;options&gt;</code>. For example, to apply GFPGAN at strength 0.8 and upscale
+2X for a file named <code>./outputs/img-samples/000044.2945021133.png</code>,
+just run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>invoke&gt; !fix ./outputs/img-samples/000044.2945021133.png -G 0.8 -U 2
+</code></pre></div>
+<p>A new file named <code>000044.2945021133.fixed.png</code> will be created in the output
+directory. Note that the <code>!fix</code> command does not replace the original file,
+unlike the behavior at generate time.</p>
+<h3 id="disabling">Disabling:<a class="headerlink" href="#disabling" title="Permanent link">#</a></h3>
+<p>If, for some reason, you do not wish to load the GFPGAN and/or ESRGAN libraries,
+you can disable them on the invoke.py command line with the <code>--no_restore</code> and
+<code>--no_upscale</code> options, respectively.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 18, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 9, 2022</span>
       
         <br>
         Created:
@@ -931,26 +1090,19 @@ excellent option to use in situations when there is very little facial data to w
   </small>
 </div>
 
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+              
+            </article>
+          </div>
         </div>
         
       </main>
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../TEXTUAL_INVERSION/" class="md-footer__link md-footer__link--prev" aria-label="Previous: TEXTUAL_INVERSION" rel="prev">
+        <a href="../OUTPAINTING/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Outpainting" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -959,20 +1111,20 @@ excellent option to use in situations when there is very little facial data to w
               <span class="md-footer__direction">
                 Previous
               </span>
-              TEXTUAL_INVERSION
+              Outpainting
             </div>
           </div>
         </a>
       
       
         
-        <a href="../VARIATIONS/" class="md-footer__link md-footer__link--next" aria-label="Next: Variations" rel="next">
+        <a href="../PROMPTS/" class="md-footer__link md-footer__link--next" aria-label="Next: Prompting Features" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Variations
+              Prompting Features
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1006,11 +1158,10 @@ excellent option to use in situations when there is very little facial data to w
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
-    
-      <script src="../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
       
     
   </body>
