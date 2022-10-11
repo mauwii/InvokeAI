@@ -806,40 +806,37 @@ current anaconda environment - <code>(base)</code>.</p>
 </li>
 <li>
 <p>Copy the InvokeAI source code from GitHub:</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>(base) ~$ git clone https://github.com/invoke-ai/InvokeAI.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">(</span>base<span class="o">)</span> ~$ git clone https://github.com/invoke-ai/InvokeAI.git
 </code></pre></div>
 <p>This will create InvokeAI folder where you will follow the rest of the steps.</p>
-<ol>
-<li>Enter the newly-created InvokeAI folder. From this step forward make sure that you are working in the InvokeAI directory!</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>(base) ~$ cd InvokeAI
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>(base) ~/InvokeAI$
+</li>
+<li>
+<p>Enter the newly-created InvokeAI folder. From this step forward make sure that you are working in the InvokeAI directory!</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">(</span>base<span class="o">)</span> ~$ <span class="nb">cd</span> InvokeAI
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">(</span>base<span class="o">)</span> ~/InvokeAI$
 </code></pre></div>
-<ol>
-<li>Use anaconda to copy necessary python packages, create a new python
-   environment named <code>invokeai</code> and activate the environment.</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>(base) ~/InvokeAI$ conda env create
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>(base) ~/InvokeAI$ conda activate invokeai
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>(invokeai) ~/InvokeAI$
+</li>
+<li>
+<p>Use anaconda to copy necessary python packages, create a new python
+   environment named <code>invokeai</code> and activate the environment.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">(</span>base<span class="o">)</span> ~/InvokeAI$ conda env create
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">(</span>base<span class="o">)</span> ~/InvokeAI$ conda activate invokeai
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>After these steps, your command prompt will be prefixed by `(invokeai)` as shown
-above.
+<p>After these steps, your command prompt will be prefixed by <code>(invokeai)</code> as shown
+above.</p>
+</li>
+<li>
+<p>Load a couple of small machine-learning models required by stable diffusion:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ python3 scripts/preload_models.py
 </code></pre></div>
-<ol>
-<li>Load a couple of small machine-learning models required by stable diffusion:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>(invokeai) ~/InvokeAI$ python3 scripts/preload_models.py
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>!!! note
-
-    This step is necessary because I modified the original just-in-time
-    model loading scheme to allow the script to work on GPU machines that are not
-    internet connected. See [Preload Models](../features/OTHER.md#preload-models)
-</code></pre></div>
-<ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step is necessary because I modified the original just-in-time
+model loading scheme to allow the script to work on GPU machines that are not
+internet connected. See <a href="../../features/OTHER/#preload-models">Preload Models</a></p>
+</div>
+</li>
 <li>
 <p>Now you need to install the weights for the stable diffusion model.</p>
 <ul>
@@ -854,30 +851,30 @@ above.
 <p>Now run the following commands from within the stable-diffusion directory.
   This will create a symbolic link from the stable-diffusion model.ckpt file, to
   the true location of the <code>sd-v1-4.ckpt</code> file.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ mkdir -p models/ldm/stable-diffusion-v1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ ln -sf /path/to/sd-v1-4.ckpt models/ldm/stable-diffusion-v1/model.ckpt
+</code></pre></div>
 </li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>(invokeai) ~/InvokeAI$ mkdir -p models/ldm/stable-diffusion-v1
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>(invokeai) ~/InvokeAI$ ln -sf /path/to/sd-v1-4.ckpt models/ldm/stable-diffusion-v1/model.ckpt
-</code></pre></div>
-<ol>
-<li>Start generating images!</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a># for the pre-release weights use the -l or --liaon400m switch
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>(invokeai) ~/InvokeAI$ python3 scripts/invoke.py -l
+<li>
+<p>Start generating images!</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># for the pre-release weights use the -l or --liaon400m switch</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ python3 scripts/invoke.py -l
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a># for the post-release weights do not use the switch
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>(invokeai) ~/InvokeAI$ python3 scripts/invoke.py
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># for the post-release weights do not use the switch</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ python3 scripts/invoke.py
 <a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a># for additional configuration switches and arguments, use -h or --help
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>(invokeai) ~/InvokeAI$ python3 scripts/invoke.py -h
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="c1"># for additional configuration switches and arguments, use -h or --help</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ python3 scripts/invoke.py -h
 </code></pre></div>
-<ol>
-<li>Subsequently, to relaunch the script, be sure to run "conda activate invokeai" (step 5, second command), enter the <code>InvokeAI</code> directory, and then launch the invoke script (step 8). If you forget to activate the 'invokeai' environment, the script will fail with multiple <code>ModuleNotFound</code> errors.</li>
+</li>
+<li>
+<p>Subsequently, to relaunch the script, be sure to run "conda activate invokeai" (step 5, second command), enter the <code>InvokeAI</code> directory, and then launch the invoke script (step 8). If you forget to activate the 'invokeai' environment, the script will fail with multiple <code>ModuleNotFound</code> errors.</p>
+</li>
 </ol>
 <h2 id="updating-to-newer-versions-of-the-script">Updating to newer versions of the script<a class="headerlink" href="#updating-to-newer-versions-of-the-script" title="Permanent link">#</a></h2>
 <p>This distribution is changing rapidly. If you used the <code>git clone</code> method (step 5) to download the InvokeAI directory, then to update to the latest and greatest version, launch the Anaconda window, enter <code>InvokeAI</code> and type:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>(invokeai) ~/InvokeAI$ git pull
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>(invokeai) ~/InvokeAI$ conda env update -f environment.yml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ git pull
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/InvokeAI$ conda env update -f environment.yml
 </code></pre></div>
 <p>This will bring your local copy into sync with the remote one.</p>
 
@@ -886,7 +883,7 @@ above.
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2022</span>
       
         <br>
         Created:
