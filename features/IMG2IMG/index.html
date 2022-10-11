@@ -833,11 +833,11 @@ the <code>--init_img</code> option as shown here:</p>
 </code></pre></div>
 <p>This will take the original image shown here:</p>
 <div align="center">
-<p><img alt="original image" src="https://user-images.githubusercontent.com/50542132/193946000-c42a96d8-5a74-4f8a-b4c3-5213e6cadcce.png" width="350" /></p>
+<p><img src="https://user-images.githubusercontent.com/50542132/193946000-c42a96d8-5a74-4f8a-b4c3-5213e6cadcce.png" width=350></p>
 </div>
 <p>and generate a new image based on it as shown here:</p>
 <div align="center">
-<p><img alt="generated result" src="https://user-images.githubusercontent.com/111189/194135515-53d4c060-e994-4016-8121-7c685e281ac9.png" width="350" /></p>
+<p><img src="https://user-images.githubusercontent.com/111189/194135515-53d4c060-e994-4016-8121-7c685e281ac9.png" width=350></p>
 </div>
 <p>The <code>--init_img (-I)</code> option gives the path to the seed picture. <code>--strength (-f)</code> controls how much
 the original will be modified, ranging from <code>0.0</code> (keep the original intact), to <code>1.0</code> (ignore the
@@ -873,9 +873,9 @@ by width x height:</p>
 </code></pre></div>
 </div>
 <h2 id="how-does-it-actually-work-though">How does it actually work, though?<a class="headerlink" href="#how-does-it-actually-work-though" title="Permanent link">#</a></h2>
-<p>The main difference between <code>img2img</code> and <code>prompt2img</code> is the starting point. While <code>prompt2img</code> always starts with pure 
-gaussian noise and progressively refines it over the requested number of steps, <code>img2img</code> skips some of these earlier steps 
-(how many it skips is indirectly controlled by the <code>--strength</code> parameter), and uses instead your initial image mixed with gaussian noise as the starting image. </p>
+<p>The main difference between <code>img2img</code> and <code>prompt2img</code> is the starting point. While <code>prompt2img</code> always starts with pure
+gaussian noise and progressively refines it over the requested number of steps, <code>img2img</code> skips some of these earlier steps
+(how many it skips is indirectly controlled by the <code>--strength</code> parameter), and uses instead your initial image mixed with gaussian noise as the starting image.</p>
 <p><strong>Let's start</strong> by thinking about vanilla <code>prompt2img</code>, just generating an image from a prompt. If the step count is 10, then the "latent space" (Stable Diffusion's internal representation of the image) for the prompt "fire" with seed <code>1592514025</code> develops something like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s10 -W384 -H384 -S1592514025
 </code></pre></div>
