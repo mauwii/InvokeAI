@@ -862,26 +862,24 @@ the steps.</p>
 </li>
 <li>
 <p>Enter the newly-created InvokeAI folder. From this step forward make sure that you are working in the InvokeAI directory!</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">cd</span> InvokeAI
+</code></pre></div>
 </li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd InvokeAI
+<li>
+<p>Run the following two commands:</p>
+<div class="highlight"><span class="filename">step 6a</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>conda env create
 </code></pre></div>
-<ol>
-<li>Run the following two commands:</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>conda env create       (step 6a)
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>conda activate invokeai     (step 6b)
+<div class="highlight"><span class="filename">step 6b</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>conda activate invokeai
 </code></pre></div>
-    This will install all python requirements and activate the "invokeai" environment
-    which sets PATH and other environment variables properly.</p>
-<div class="highlight"><pre><span></span><code>Note that the long form of the first command is `conda env create -f environment.yml`. If the
-environment file isn&#39;t specified, conda will default to `environment.yml`. You will need
-to provide the `-f` option if you wish to load a different environment file at any point.
-</code></pre></div>
-<ol>
+<p>This will install all python requirements and activate the "invokeai" environment
+which sets PATH and other environment variables properly.</p>
+<p>Note that the long form of the first command is <code>conda env create -f environment.yml</code>. If the
+environment file isn't specified, conda will default to <code>environment.yml</code>. You will need
+to provide the <code>-f</code> option if you wish to load a different environment file at any point.</p>
+</li>
 <li>
 <p>Run the command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python scripts<span class="se">\p</span>reload_models.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python scripts\preload_models.py
 </code></pre></div>
 <p>This installs several machine learning models that stable diffusion requires.</p>
 <p>Note: This step is required. This was done because some users may might be
@@ -890,49 +888,46 @@ be downloaded just-in-time.</p>
 </li>
 <li>
 <p>Now you need to install the weights for the big stable diffusion model.</p>
-</li>
-<li>
-<p>For running with the released weights, you will first need to set up an acount with Hugging Face (<a href="https://huggingface.co">https://huggingface.co</a>).</p>
-</li>
+<ol>
+<li>For running with the released weights, you will first need to set up an acount with Hugging Face (<a href="https://huggingface.co">https://huggingface.co</a>).</li>
 <li>Use your credentials to log in, and then point your browser at <a href="https://huggingface.co/CompVis/stable-diffusion-v-1-4-original">https://huggingface.co/CompVis/stable-diffusion-v-1-4-original</a>.</li>
 <li>You may be asked to sign a license agreement at this point.</li>
 <li>Click on "Files and versions" near the top of the page, and then click on the file named <code>sd-v1-4.ckpt</code>. You'll be taken to a page that
-  prompts you to click the "download" link. Now save the file somewhere safe on your local machine.</li>
+    prompts you to click the "download" link. Now save the file somewhere safe on your local machine.</li>
 <li>The weight file is &gt;4 GB in size, so
-  downloading may take a while.</li>
+    downloading may take a while.</li>
 </ol>
 <p>Now run the following commands from <strong>within the InvokeAI directory</strong> to copy the weights file to the right place:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir -p models\ldm\stable-diffusion-v1
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>copy C:\path\to\sd-v1-4.ckpt models\ldm\stable-diffusion-v1\model.ckpt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">mkdir</span> -p models\ldm\stable-diffusion-v1
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">copy</span> C:\path\to\sd-v1-4.ckpt models\ldm\stable-diffusion-v1\model.ckpt
 </code></pre></div>
 <p>Please replace <code>C:\path\to\sd-v1.4.ckpt</code> with the correct path to wherever you stashed this file. If you prefer not to copy or move the .ckpt file,
 you may instead create a shortcut to it from within <code>models\ldm\stable-diffusion-v1\</code>.</p>
-<ol>
+</li>
 <li>
 <p>Start generating images!</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># for the pre-release weights</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>python scripts<span class="se">\i</span>nvoke.py -l
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1"># for the post-release weights</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>python scripts<span class="se">\i</span>nvoke.py
+<div class="highlight"><span class="filename">for the pre-release weights</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>python scripts\invoke.py -l
+</code></pre></div>
+<div class="highlight"><span class="filename">for the post-release weights</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>python scripts\invoke.py
 </code></pre></div>
 </li>
 <li>
 <p>Subsequently, to relaunch the script, first activate the Anaconda command window (step 3),enter the InvokeAI directory (step 5, <code>cd \path\to\InvokeAI</code>), run <code>conda activate invokeai</code> (step 6b), and then launch the invoke script (step 9).</p>
-<p><strong>Note:</strong> Tildebyte has written an alternative
-<a href="https://github.com/invoke-ai/InvokeAI/wiki/Easy-peasy-Windows-install">"Easy peasy Windows install"</a>
-which uses the Windows Powershell and pew. If you are having trouble with
-Anaconda on Windows, give this a try (or try it first!)</p>
 </li>
 </ol>
+<div class="admonition tip">
+<p class="admonition-title">Tildebyte has written an alternative</p>
+<p><a href="https://github.com/invoke-ai/InvokeAI/wiki/Easy-peasy-Windows-install">"Easy peasy Windows install"</a>
+which uses the Windows Powershell and pew. If you are having trouble with
+Anaconda on Windows, give this a try (or try it first!)</p>
+</div>
 <hr />
-<p>This distribution is changing rapidly. If you used the <code>git clone</code> method (step 5) to download the InvokeAI directory, then to update to the latest and greatest version, launch the Anaconda window, enter <code>InvokeAI</code>, and type:</p>
 <p>This distribution is changing rapidly. If you used the <code>git clone</code> method
 (step 5) to download the stable-diffusion directory, then to update to the
 latest and greatest version, launch the Anaconda window, enter
 <code>stable-diffusion</code>, and type:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>git pull
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>conda env update
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>git pull
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>conda env update
 </code></pre></div>
 <p>This will bring your local copy into sync with the remote one.</p>
 
@@ -941,7 +936,7 @@ latest and greatest version, launch the Anaconda window, enter
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2022</span>
       
         <br>
         Created:
