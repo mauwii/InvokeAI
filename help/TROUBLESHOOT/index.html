@@ -120,7 +120,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -192,6 +192,8 @@
         <div class="md-main__inner md-grid">
           
             
+              
+                
               
               <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
@@ -817,7 +819,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -996,7 +1000,7 @@ function is being passed incorrect parameters.</p>
 <code>pip install -e .</code></p>
 <hr />
 <h3 id="question_2"><strong>QUESTION</strong><a class="headerlink" href="#question_2" title="Permanent link">#</a></h3>
-<p><code>invoke.py</code> dies, complaining of various missing modules, none of which starts with `ldm``.</p>
+<p><code>invoke.py</code> dies, complaining of various missing modules, none of which starts with <code>ldm</code>.</p>
 <h3 id="solution_1"><strong>SOLUTION</strong><a class="headerlink" href="#solution_1" title="Permanent link">#</a></h3>
 <p>From within the <code>InvokeAI</code> directory, run <code>conda env update</code> This is also frequently the solution to
 complaints about an unknown function in a module.</p>
@@ -1010,8 +1014,7 @@ complaints about an unknown function in a module.</p>
 <p>Usually this will be sufficient, but if you start to see errors about
 missing or incorrect modules, use the command <code>pip install -e .</code>
 and/or <code>conda env update</code> (These commands won't break anything.)</p>
-<p><code>pip install -e .</code> and/or</p>
-<p><code>conda env update -f environment.yaml</code></p>
+<p><code>pip install -e .</code> and/or <code>conda env update -f environment.yaml</code></p>
 <p>(These commands won't break anything.)</p>
 <h4 id="sub-branch"><strong>Sub Branch</strong><a class="headerlink" href="#sub-branch" title="Permanent link">#</a></h4>
 <p>If the feature/fix is on a branch (e.g. "<em>foo-bugfix</em>"), the recipe is similar, but do a
@@ -1039,7 +1042,7 @@ dependencies are already loaded.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2022</span>
       
         <br>
         Created:

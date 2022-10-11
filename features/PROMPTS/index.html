@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#octicons-command-palette-24-prompting-features" class="md-skip">
+        <a href="#octicons-command-palette-16-prompting-features" class="md-skip">
           Skip to content
         </a>
       
@@ -120,7 +120,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -438,14 +438,6 @@
         <li class="md-nav__item">
   <a href="#reading-prompts-from-a-file" class="md-nav__link">
     Reading Prompts from a File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ldm-stable-diffusion-echo-a-beautiful-day-python3-scriptsinvokepy-from_file-" class="md-nav__link">
-    (ldm) ~/stable-diffusion$ echo &quot;a beautiful day&quot; | python3 scripts/invoke.py --from_file -
-
   </a>
   
 </li>
@@ -810,14 +802,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ldm-stable-diffusion-echo-a-beautiful-day-python3-scriptsinvokepy-from_file-" class="md-nav__link">
-    (ldm) ~/stable-diffusion$ echo &quot;a beautiful day&quot; | python3 scripts/invoke.py --from_file -
-
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#negative-and-unconditioned-prompts" class="md-nav__link">
     Negative and Unconditioned Prompts
   </a>
@@ -890,7 +874,7 @@
 
 
 
-<h1 id="octicons-command-palette-24-prompting-features">:octicons-command-palette-24: Prompting Features<a class="headerlink" href="#octicons-command-palette-24-prompting-features" title="Permanent link">#</a></h1>
+<h1 id="octicons-command-palette-16-prompting-features">:octicons-command-palette-16: Prompting Features<a class="headerlink" href="#octicons-command-palette-16-prompting-features" title="Permanent link">#</a></h1>
 <h2 id="reading-prompts-from-a-file"><strong>Reading Prompts from a File</strong><a class="headerlink" href="#reading-prompts-from-a-file" title="Permanent link">#</a></h2>
 <p>You can automate <code>invoke.py</code> by providing a text file with the prompts you want to run, one line per
 prompt. The text file must be composed with a text editor (e.g. Notepad) and not a word processor.
@@ -900,30 +884,39 @@ Each line should look like what you would type at the invoke&gt; prompt:</p>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>innovative packaging <span class="k">for</span> a squid<span class="err">&#39;</span>s dinner           -S137038382
 </code></pre></div>
 <p>Then pass this file's name to <code>invoke.py</code> when you invoke it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python3 scripts/invoke.py --from_file <span class="s2">&quot;path/to/prompts.txt&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/stable-diffusion$ python3 scripts/invoke.py --from_file <span class="s2">&quot;path/to/prompts.txt&quot;</span>
 </code></pre></div>
 <p>You may read a series of prompts from standard input by providing a filename of <code>-</code>:</p>
-<h2 id="ldm-stable-diffusion-echo-a-beautiful-day-python3-scriptsinvokepy-from_file-"><div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ <span class="nb">echo</span> <span class="s2">&quot;a beautiful day&quot;</span> <span class="p">|</span> python3 scripts/invoke.py --from_file -
-</code></pre></div><a class="headerlink" href="#ldm-stable-diffusion-echo-a-beautiful-day-python3-scriptsinvokepy-from_file-" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/stable-diffusion$ <span class="nb">echo</span> <span class="s2">&quot;a beautiful day&quot;</span> <span class="p">|</span> python3 scripts/invoke.py --from_file -
+</code></pre></div>
+<hr />
 <h2 id="negative-and-unconditioned-prompts"><strong>Negative and Unconditioned Prompts</strong><a class="headerlink" href="#negative-and-unconditioned-prompts" title="Permanent link">#</a></h2>
 <p>Any words between a pair of square brackets will instruct Stable
 Diffusion to attempt to ban the concept from the generated image.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>this is a <span class="nb">test</span> prompt <span class="o">[</span>not really<span class="o">]</span> to make you understand <span class="o">[</span>cool<span class="o">]</span> how this works.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>this is a test prompt [not really] to make you understand [cool] how this works.
 </code></pre></div>
 <p>In the above statement, the words 'not really cool` will be ignored by Stable Diffusion.</p>
 <p>Here's a prompt that depicts what it does.</p>
 <p>original prompt:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<div align="center">
 <p><img alt="step1" src="../../assets/negative_prompt_walkthru/step1.png" /></p>
+</div>
 <p>That image has a woman, so if we want the horse without a rider, we can influence the image not to have a woman by putting [woman] in the prompt, like this:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<div align="center">
 <p><img alt="step2" src="../../assets/negative_prompt_walkthru/step2.png" /></p>
+</div>
 <p>That's nice - but say we also don't want the image to be quite so blue. We can add "blue" to the list of negative prompts, so it's now [woman blue]:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<div align="center">
 <p><img alt="step3" src="../../assets/negative_prompt_walkthru/step3.png" /></p>
+</div>
 <p>Getting close - but there's no sense in having a saddle when our horse doesn't have a rider, so we'll add one more negative prompt: [woman blue saddle].</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue saddle]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
+<div align="center">
 <p><img alt="step4" src="../../assets/negative_prompt_walkthru/step4.png" /></p>
+</div>
 <div class="admonition notes">
 <p class="admonition-title">Notes about this feature:</p>
 <ul>
@@ -952,30 +945,43 @@ two concepts may not match yours, leading to surprising effects. To
 illustrate, here are three images generated using various combinations
 of blend weights. As usual, unless you fix the seed, the prompts will give you
 different results each time you run them.</p>
+<hr />
+<div align="center">
 <h3 id="blue-sphere-red-cube-hybrid">"blue sphere, red cube, hybrid"<a class="headerlink" href="#blue-sphere-red-cube-hybrid" title="Permanent link">#</a></h3>
+</div>
 <p>This example doesn't use melding at all and represents the default way
 of mixing concepts.</p>
-<p><img src="../assets/prompt-blending/blue-sphere-red-cube-hybrid.png" width=256></p>
+<div align="center">
+<p><img alt="blue-sphere-red-cube-hyprid" src="../../assets/prompt-blending/blue-sphere-red-cube-hybrid.png" /></p>
+</div>
 <p>It's interesting to see how the AI expressed the concept of "cube" as
 the four quadrants of the enclosing frame. If you look closely, there
 is depth there, so the enclosing frame is actually a cube.</p>
+<div align="center">
 <h3 id="blue-sphere025-red-cube075-hybrid">"blue sphere:0.25 red cube:0.75 hybrid"<a class="headerlink" href="#blue-sphere025-red-cube075-hybrid" title="Permanent link">#</a></h3>
-<p><img src="../assets/prompt-blending/blue-sphere-0.25-red-cube-0.75-hybrid.png" width=256></p>
+<p><img alt="blue-sphere-25-red-cube-75" src="../../assets/prompt-blending/blue-sphere-0.25-red-cube-0.75-hybrid.png" /></p>
+</div>
 <p>Now that's interesting. We get neither a blue sphere nor a red cube,
 but a red sphere embedded in a brick wall, which represents a melding
 of concepts within the AI's "latent space" of semantic
 representations. Where is Ludwig Wittgenstein when you need him?</p>
+<div align="center">
 <h3 id="blue-sphere075-red-cube025-hybrid">"blue sphere:0.75 red cube:0.25 hybrid"<a class="headerlink" href="#blue-sphere075-red-cube025-hybrid" title="Permanent link">#</a></h3>
-<p><img src="../assets/prompt-blending/blue-sphere-0.75-red-cube-0.25-hybrid.png" width=256></p>
+<p><img alt="blue-sphere-75-red-cube-25" src="../../assets/prompt-blending/blue-sphere-0.75-red-cube-0.25-hybrid.png" /></p>
+</div>
 <p>Definitely more blue-spherey. The cube is gone entirely, but it's
 really cool abstract art.</p>
+<div align="center">
 <h3 id="blue-sphere05-red-cube05-hybrid">"blue sphere:0.5 red cube:0.5 hybrid"<a class="headerlink" href="#blue-sphere05-red-cube05-hybrid" title="Permanent link">#</a></h3>
-<p><img src="../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5-hybrid.png" width=256></p>
+<p><img alt="blue-sphere-5-red-cube-5-hybrid" src="../../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5-hybrid.png" /></p>
+</div>
 <p>Whoa...! I see blue and red, but no spheres or cubes. Is the word
 "hybrid" summoning up the concept of some sort of scifi creature?
 Let's find out.</p>
+<div align="center">
 <h3 id="blue-sphere05-red-cube05">"blue sphere:0.5 red cube:0.5"<a class="headerlink" href="#blue-sphere05-red-cube05" title="Permanent link">#</a></h3>
-<p><img src="../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5.png" width=256></p>
+<p><img alt="blue-sphere-5-red-cube-5" src="../../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5.png" /></p>
+</div>
 <p>Indeed, removing the word "hybrid" produces an image that is more like
 what we'd expect.</p>
 <p>In conclusion, prompt blending is great for exploring creative space,
@@ -987,7 +993,7 @@ feature more deterministic prompt weighting.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2022</span>
       
         <br>
         Created:

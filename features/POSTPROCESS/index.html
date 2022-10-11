@@ -120,7 +120,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -479,14 +479,14 @@
         
           <li class="md-nav__item">
   <a href="#usage_1" class="md-nav__link">
-    Usage:
+    Usage
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#other-options" class="md-nav__link">
-    Other Options:
+    Other Options
   </a>
   
 </li>
@@ -506,7 +506,7 @@
         
           <li class="md-nav__item">
   <a href="#disabling" class="md-nav__link">
-    Disabling:
+    Disabling
   </a>
   
 </li>
@@ -885,14 +885,14 @@
         
           <li class="md-nav__item">
   <a href="#usage_1" class="md-nav__link">
-    Usage:
+    Usage
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#other-options" class="md-nav__link">
-    Other Options:
+    Other Options
   </a>
   
 </li>
@@ -912,7 +912,7 @@
         
           <li class="md-nav__item">
   <a href="#disabling" class="md-nav__link">
-    Disabling:
+    Disabling
   </a>
   
 </li>
@@ -968,7 +968,7 @@ InvokeAI directory:</p>
 </code></pre></div>
 <p>If you do not run this script in advance, the GFPGAN module will attempt
 to download the models files the first time you try to perform facial
-reconstruction. </p>
+reconstruction.</p>
 <p>Alternatively, if you have GFPGAN installed elsewhere, or if you are
 using an earlier version of this package which asked you to install
 GFPGAN in a sibling directory, you may use the <code>--gfpgan_dir</code> argument
@@ -1000,10 +1000,10 @@ modified. If you want to save the original Stable Diffusion generation, you can
 use the <code>-save_orig</code> prompt argument to save the original unaffected version
 too.</p>
 <h3 id="example-usage">Example Usage<a class="headerlink" href="#example-usage" title="Permanent link">#</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>invoke&gt; superman dancing with a panda bear -U <span class="m">2</span> <span class="m">0</span>.6 -G <span class="m">0</span>.4
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>invoke&gt; <span class="s2">&quot;superman dancing with a panda bear&quot;</span> -U <span class="m">2</span> <span class="m">0</span>.6 -G <span class="m">0</span>.4
 </code></pre></div>
 <p>This also works with img2img:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>invoke&gt; a man wearing a pineapple hat -I path/to/your/file.png -U <span class="m">2</span> <span class="m">0</span>.5 -G <span class="m">0</span>.6
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>invoke&gt; <span class="s2">&quot;a man wearing a pineapple hat&quot;</span> -I path/to/your/file.png -U <span class="m">2</span> <span class="m">0</span>.5 -G <span class="m">0</span>.6
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1030,11 +1030,11 @@ and saving it to <code>ldm/invoke/restoration/codeformer/weights</code> folder.<
 <p>You can use <code>-ft</code> prompt argument to swap between CodeFormer and the
 default GFPGAN. The above mentioned <code>-G</code> prompt argument will allow
 you to control the strength of the restoration effect.</p>
-<h3 id="usage_1">Usage:<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
+<h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
 <p>The following command will perform face restoration with CodeFormer instead of
 the default gfpgan.</p>
 <p><code>&lt;prompt&gt; -G 0.8 -ft codeformer</code></p>
-<h3 id="other-options">Other Options:<a class="headerlink" href="#other-options" title="Permanent link">#</a></h3>
+<h3 id="other-options">Other Options<a class="headerlink" href="#other-options" title="Permanent link">#</a></h3>
 <ul>
 <li><code>-cf</code> - cf or CodeFormer Fidelity takes values between <code>0</code> and <code>1</code>. 0 produces
   high quality results but low accuracy and 1 produces lower quality results but
@@ -1054,12 +1054,12 @@ previously-generated file. Just use the syntax <code>!fix path/to/file.png
 &lt;options&gt;</code>. For example, to apply GFPGAN at strength 0.8 and upscale
 2X for a file named <code>./outputs/img-samples/000044.2945021133.png</code>,
 just run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>invoke&gt; !fix ./outputs/img-samples/000044.2945021133.png -G 0.8 -U 2
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>invoke&gt; !fix ./outputs/img-samples/000044.2945021133.png -G <span class="m">0</span>.8 -U <span class="m">2</span>
 </code></pre></div>
 <p>A new file named <code>000044.2945021133.fixed.png</code> will be created in the output
 directory. Note that the <code>!fix</code> command does not replace the original file,
 unlike the behavior at generate time.</p>
-<h3 id="disabling">Disabling:<a class="headerlink" href="#disabling" title="Permanent link">#</a></h3>
+<h3 id="disabling">Disabling<a class="headerlink" href="#disabling" title="Permanent link">#</a></h3>
 <p>If, for some reason, you do not wish to load the GFPGAN and/or ESRGAN libraries,
 you can disable them on the invoke.py command line with the <code>--no_restore</code> and
 <code>--no_upscale</code> options, respectively.</p>

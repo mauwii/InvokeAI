@@ -120,7 +120,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -851,9 +851,9 @@
 variations to create the desired image of Xena, Warrior Princess.</p>
 <hr />
 <h2 id="step-1-find-a-base-image-that-you-like">Step 1 -- Find a base image that you like<a class="headerlink" href="#step-1-find-a-base-image-that-you-like" title="Permanent link">#</a></h2>
-<p>The prompt we will use throughout is
-<code>lucy lawless as xena, warrior princess, character portrait, high resolution.</code></p>
-<p>This will be indicated as <code>prompt</code> in the examples below.</p>
+<p>The prompt we will use throughout is:</p>
+<p><code class="highlight"><span class="s2">&quot;lucy lawless as xena, warrior princess, character portrait, high resolution.&quot;</span></code></p>
+<p>This will be indicated as <code class="highlight"><span class="s2">&quot;prompt&quot;</span></code> in the examples below.</p>
 <p>First we let SD create a series of images in the usual way, in this case
 requesting six iterations:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>invoke&gt; lucy lawless as xena, warrior princess, character portrait, high resolution -n6
@@ -866,7 +866,10 @@ requesting six iterations:</p>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>./outputs/Xena/000001.465250761.png: <span class="s2">&quot;prompt&quot;</span> -s50 -W512 -H512 -C7.5 -Ak_lms -S465250761
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a>./outputs/Xena/000001.3357757885.png: <span class="s2">&quot;prompt&quot;</span> -s50 -W512 -H512 -C7.5 -Ak_lms -S3357757885
 </code></pre></div>
+<figure>
 <p><img alt="var1" src="../../assets/variation_walkthru/000001.3357757885.png" /></p>
+<figcaption> Seed 3357757885 looks nice </figcaption>
+</figure>
 <hr />
 <h2 id="step-2-generating-variations">Step 2 - Generating Variations<a class="headerlink" href="#step-2-generating-variations" title="Permanent link">#</a></h2>
 <p>Let's try to generate some variations. Using the same seed, we pass the argument
@@ -889,8 +892,14 @@ subseed" for that image, consisting of a seed followed by the variation amount
 used to generate it.</p>
 <p>This gives us a series of closely-related variations, including the two shown
 here.</p>
+<figure>
 <p><img alt="var2" src="../../assets/variation_walkthru/000002.3647897225.png" /></p>
+<figcaption>subseed 3647897225</figcaption>
+</figure>
+<figure>
 <p><img alt="var3" src="../../assets/variation_walkthru/000002.1614299449.png" /></p>
+<figcaption>subseed 1614299449</figcaption>
+</figure>
 <p>I like the expression on Xena's face in the first one (subseed 3647897225), and
 the armor on her shoulder in the second one (subseed 1614299449). Can we combine
 them to get the best of both worlds?</p>
@@ -902,7 +911,10 @@ provide the seed for the originally-chosen image in order for this to work.</p>
 </code></pre></div>
 <p>Here we are providing equal weights (0.1 and 0.1) for both the subseeds. The
 resulting image is close, but not exactly what I wanted:</p>
+<figure>
 <p><img alt="var4" src="../../assets/variation_walkthru/000003.1614299449.png" /></p>
+<figcaption> subseed 1614299449 </figcaption>
+</figure>
 <p>We could either try combining the images with different weights, or we can
 generate more variations around the almost-but-not-quite image. We do the
 latter, using both the <code>-V</code> (combining) and <code>-v</code> (variation strength) options.
@@ -918,7 +930,10 @@ Note that we use <code>-n6</code> to generate 6 variations:</p>
 </code></pre></div>
 <p>This produces six images, all slight variations on the combination of the chosen
 two images. Here's the one I like best:</p>
+<figure>
 <p><img alt="var5" src="../../assets/variation_walkthru/000004.3747154981.png" /></p>
+<figcaption> subseed 3747154981 </figcaption>
+</figure>
 <p>As you can see, this is a very powerful tool, which when combined with subprompt
 weighting, gives you great control over the content and quality of your
 generated images.</p>
@@ -937,7 +952,7 @@ image generation requests.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 10, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2022</span>
       
         <br>
         Created:

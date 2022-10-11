@@ -120,7 +120,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1008,7 +1008,7 @@ metadata where it can be retrieved using <code>scripts/images2prompt.py</code></
 <p>This script runs from the command-line or can be used as a Web application. The Web GUI is
 currently rudimentary, but a much better replacement is on its way.</p>
 </div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python3 ./scripts/invoke.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/stable-diffusion$ python3 ./scripts/invoke.py
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>* Initializing, be patient...
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>Loading model from models/ldm/text2img-large/model.ckpt
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="o">(</span>...more initialization messages...<span class="o">)</span>
@@ -1025,7 +1025,7 @@ currently rudimentary, but a much better replacement is on its way.</p>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a>invoke&gt; q
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># this shows how to retrieve the prompt stored in the saved image&#39;s metadata</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="o">(</span>ldm<span class="o">)</span> ~/stable-diffusion$ python ./scripts/images2prompt.py outputs/img_samples/*.png
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="o">(</span>invokeai<span class="o">)</span> ~/stable-diffusion$ python ./scripts/images2prompt.py outputs/img_samples/*.png
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="m">00009</span>.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -s150 -S <span class="m">416354203</span>
 <a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="m">00010</span>.png: <span class="s2">&quot;ashley judd riding a camel&quot;</span> -s150 -S <span class="m">1362479620</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="m">00011</span>.png: <span class="s2">&quot;there&#39;s a fly in my soup&quot;</span> -n6 -g -S <span class="m">2685670268</span>

@@ -120,7 +120,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -840,27 +840,15 @@
 <p>The purpose of this series of documents is to help you better understand these tools, so you can make the best out of them. Feel free to contribute with your own findings!</p>
 <p>In this document, we will talk about sampler convergence.</p>
 <p>Looking for a short version? Here's a TL;DR in 3 tables.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Remember</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Results converge as steps (<code>-s</code>) are increased (except for <code>K_DPM_2_A</code> and <code>K_EULER_A</code>). Often at ≥ <code>-s100</code>, but may require ≥ <code>-s700</code>).</td>
-</tr>
-<tr>
-<td align="left">Producing a batch of candidate images at low (<code>-s8</code> to <code>-s30</code>) step counts can save you hours of computation.</td>
-</tr>
-<tr>
-<td align="left"><code>K_HEUN</code> and <code>K_DPM_2</code>  converge in less steps (but are slower).</td>
-</tr>
-<tr>
-<td align="left"><code>K_DPM_2_A</code> and <code>K_EULER_A</code> incorporate a lot of creativity/variability.</td>
-</tr>
-</tbody>
-</table>
+<div class="admonition note">
+<p class="admonition-title">Remember</p>
+<ul>
+<li>Results converge as steps (<code>-s</code>) are increased (except for <code>K_DPM_2_A</code> and <code>K_EULER_A</code>). Often at ≥ <code>-s100</code>, but may require ≥ <code>-s700</code>).</li>
+<li>Producing a batch of candidate images at low (<code>-s8</code> to <code>-s30</code>) step counts can save you hours of computation.</li>
+<li><code>K_HEUN</code> and <code>K_DPM_2</code>  converge in less steps (but are slower).</li>
+<li><code>K_DPM_2_A</code> and <code>K_EULER_A</code> incorporate a lot of creativity/variability.</li>
+</ul>
+</div>
 <div align="center">
 <table>
 <thead>
@@ -905,21 +893,11 @@
 </tbody>
 </table>
 </div>
-<table>
-<thead>
-<tr>
-<th align="left">Suggestions</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">For most use cases, <code>K_LMS</code>, <code>K_HEUN</code> and <code>K_DPM_2</code> are the best choices (the latter 2 run 0.5x as quick, but tend to converge 2x as quick as <code>K_LMS</code>). At very low steps (≤ <code>-s8</code>), <code>K_HEUN</code> and <code>K_DPM_2</code> are not recommended. Use <code>K_LMS</code> instead.</td>
-</tr>
-<tr>
-<td align="left">For variability, use <code>K_EULER_A</code> (runs 2x as quick as <code>K_DPM_2_A</code>).</td>
-</tr>
-</tbody>
-</table>
+<div class="admonition tip">
+<p class="admonition-title">suggestions</p>
+<p>For most use cases, <code>K_LMS</code>, <code>K_HEUN</code> and <code>K_DPM_2</code> are the best choices (the latter 2 run 0.5x as quick, but tend to converge 2x as quick as <code>K_LMS</code>). At very low steps (≤ <code>-s8</code>), <code>K_HEUN</code> and <code>K_DPM_2</code> are not recommended. Use <code>K_LMS</code> instead.</p>
+<p>For variability, use <code>K_EULER_A</code> (runs 2x as quick as <code>K_DPM_2_A</code>).</p>
+</div>
 <hr />
 <h3 id="sampler-results"><em>Sampler results</em><a class="headerlink" href="#sampler-results" title="Permanent link">#</a></h3>
 <p>Let's start by choosing a prompt and using it with each of our 8 samplers, running it for 10, 20, 30, 40, 50 and 100 steps.</p>
@@ -933,11 +911,13 @@ Among K-samplers, <code>K_HEUN</code> and <code>K_DPM_2</code> seem to require t
 <p>This realization is very useful because it means you don't need to create a batch of 100 images (<code>-n100</code>) at <code>-s100</code> to choose your favorite 2 or 3 images.
 You can produce the same 100 images at <code>-s10</code> to <code>-s30</code> using a K-sampler (since they converge faster), get a rough idea of the final result, choose your 2 or 3 favorite ones, and then run <code>-s100</code> on those images to polish some details.
 The latter technique is 3-8x as quick.</p>
-<p>Example:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
 <p>At 60s per 100 steps.</p>
-<p>(Option A) 60s * 100 images = 6000s (100 images at <code>-s100</code>, manually picking 3 favorites)</p>
-<p>(Option B) 6s * 100 images + 60s * 3 images = 780s (100 images at <code>-s10</code>, manually picking 3 favorites, and running those 3 at <code>-s100</code> to polish details)</p>
-<p>The result is 1 hour and 40 minutes (Option A) vs 13 minutes (Option B).</p>
+<p>A) 60s * 100 images = 6000s (100 images at <code>-s100</code>, manually picking 3 favorites)</p>
+<p>B) 6s <em>100 images + 60s</em> 3 images = 780s (100 images at <code>-s10</code>, manually picking 3 favorites, and running those 3 at <code>-s100</code> to polish details)</p>
+<p>The result is <strong>1 hour and 40 minutes</strong> for Variant A, vs <strong>13 minutes</strong> for Variant B.</p>
+</div>
 <h3 id="topic-convergance"><em>Topic convergance</em><a class="headerlink" href="#topic-convergance" title="Permanent link">#</a></h3>
 <p>Now, these results seem interesting, but do they hold for other topics? How about nature? Food? People? Animals? Let's try!</p>
 <p>Nature. <code>"valley landscape wallpaper, d&amp;d art, fantasy, painted, 4k, high detail, sharp focus, washed colors, elaborate excellent painted illustration" -W512 -H512 -C7.5 -S1458228930</code></p>
@@ -958,20 +938,54 @@ The latter technique is 3-8x as quick.</p>
 <p>Note also the point of convergence may not be the most desirable state (e.g. I prefer an earlier version of the face, more rounded), but it will probably be the most coherent arms/hands/face attributes-wise. You can always merge different images with a photo editing tool and pass it through <code>img2img</code> to smoothen the composition.</p>
 <h3 id="sampler-generation-times"><em>Sampler generation times</em><a class="headerlink" href="#sampler-generation-times" title="Permanent link">#</a></h3>
 <p>Once we understand the concept of sampler convergence, we must look into the performance of each sampler in terms of steps (iterations) per second, as not all samplers run at the same speed.</p>
-<p>On my M1 Max with 64GB of RAM, for a 512x512 image:
-| Sampler   | (3 sample average) it/s |
-|---|---|
-|  <code>DDIM</code> | 1.89  |
-|  <code>PLMS</code> | 1.86  |
-|  <code>K_EULER</code> | 1.86  |
-|  <code>K_LMS</code> | 1.91  |
-|  <code>K_HEUN</code> | 0.95 (slower)  |
-|  <code>K_DPM_2</code> | 0.95 (slower)  |
-|  <code>K_DPM_2_A</code> | 0.95 (slower)  |
-|  <code>K_EULER_A</code> | 1.86  |</p>
+<div align="center">
+<p>On my M1 Max with 64GB of RAM, for a 512x512 image</p>
+<table>
+<thead>
+<tr>
+<th align="left">Sampler</th>
+<th align="left">(3 sample average) it/s</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>DDIM</code></td>
+<td align="left">1.89</td>
+</tr>
+<tr>
+<td align="left"><code>PLMS</code></td>
+<td align="left">1.86</td>
+</tr>
+<tr>
+<td align="left"><code>K_EULER</code></td>
+<td align="left">1.86</td>
+</tr>
+<tr>
+<td align="left"><code>K_LMS</code></td>
+<td align="left">1.91</td>
+</tr>
+<tr>
+<td align="left"><code>K_HEUN</code></td>
+<td align="left">0.95 (slower)</td>
+</tr>
+<tr>
+<td align="left"><code>K_DPM_2</code></td>
+<td align="left">0.95 (slower)</td>
+</tr>
+<tr>
+<td align="left"><code>K_DPM_2_A</code></td>
+<td align="left">0.95 (slower)</td>
+</tr>
+<tr>
+<td align="left"><code>K_EULER_A</code></td>
+<td align="left">1.86</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>Combining our results with the steps per second of each sampler, three choices come out on top: <code>K_LMS</code>, <code>K_HEUN</code> and <code>K_DPM_2</code> (where the latter two run 0.5x as quick but tend to converge 2x as quick as <code>K_LMS</code>). For creativity and a lot of variation between iterations, <code>K_EULER_A</code> can be a good choice (which runs 2x as quick as <code>K_DPM_2_A</code>).</p>
 <p>Additionally, image generation at very low steps (≤ <code>-s8</code>) is not recommended for <code>K_HEUN</code> and <code>K_DPM_2</code>. Use <code>K_LMS</code> instead.</p>
-<p><img width="397" alt="192044949-67d5d441-a0d5-4d5a-be30-5dda4fc28a00-min" src="https://user-images.githubusercontent.com/50542132/192046823-2714cb29-bbf3-4eb1-9213-e27a0963905c.png"></p>
+<p><img alt="K-compare" src="https://user-images.githubusercontent.com/50542132/192046823-2714cb29-bbf3-4eb1-9213-e27a0963905c.png" width="600" /></p>
 <h3 id="three-key-points"><em>Three key points</em><a class="headerlink" href="#three-key-points" title="Permanent link">#</a></h3>
 <p>Finally, it is relevant to mention that, in general, there are 3 important moments in the process of image formation as steps increase:</p>
 <ul>
