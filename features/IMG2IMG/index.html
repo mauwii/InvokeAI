@@ -839,7 +839,7 @@ the <code>--init_img</code> option as shown here:</p>
 <div align="center">
 <p><img src="https://user-images.githubusercontent.com/111189/194135515-53d4c060-e994-4016-8121-7c685e281ac9.png" width=350></p>
 </div>
-<p>The <code>--init_img (-I)</code> option gives the path to the seed picture. <code>--strength (-f)</code> controls how much
+<p>The <code>--init_img</code> (<code>-I</code>) option gives the path to the seed picture. <code>--strength</code> (<code>-f</code>) controls how much
 the original will be modified, ranging from <code>0.0</code> (keep the original intact), to <code>1.0</code> (ignore the
 original completely). The default is <code>0.75</code>, and ranges from <code>0.25-0.90</code> give interesting results. 
 Other relevant options include <code>-C</code> (classification free guidance scale), and <code>-s</code> (steps). Unlike <code>txt2img</code>, 
@@ -849,7 +849,8 @@ the original image. This is done by passing the first generated image
 back into img2img the requested number of times. It generates
 interesting variants.</p>
 <p>Note that the prompt makes a big difference. For example, this slight variation on the prompt produces
-a very different image: <code>photograph of a tree on a hill with a river</code></p>
+a very different image:</p>
+<p><code>photograph of a tree on a hill with a river</code></p>
 <div align="center">
 <p><img src="https://user-images.githubusercontent.com/111189/194135220-16b62181-b60c-4248-8989-4834a8fd7fbd.png" width=350></p>
 </div>
@@ -869,7 +870,7 @@ image to at least 512x512 before using it. Larger images are not a problem, but 
 GPU card.</p>
 <p>To fix this, use the <code>--fit</code> option, which downscales the initial image to fit within the box specified
 by width x height:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tree on a hill with a river, national geographic -I./test-pictures/big-sketch.png -H512 -W512 --fit
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>invoke&gt; <span class="s2">&quot;tree on a hill with a river, national geographic&quot;</span> -I./test-pictures/big-sketch.png -H512 -W512 --fit
 </code></pre></div>
 </div>
 <h2 id="how-does-it-actually-work-though">How does it actually work, though?<a class="headerlink" href="#how-does-it-actually-work-though" title="Permanent link">#</a></h2>
@@ -909,8 +910,8 @@ gaussian noise and progressively refines it over the requested number of steps, 
 <tbody>
 <tr>
 <td>initial image that SD sees</td>
-<td align="center"><img alt="" src="../../assets/img2img/000032.step-0.png" /></td>
-<td align="center"><img alt="" src="../../assets/img2img/000030.step-0.png" /></td>
+<td align="center"><img alt="step-0-32" src="../../assets/img2img/000032.step-0.png" /></td>
+<td align="center"><img alt="step-0-30" src="../../assets/img2img/000030.step-0.png" /></td>
 </tr>
 <tr>
 <td>steps argument to <code>dream&gt;</code></td>
@@ -924,13 +925,13 @@ gaussian noise and progressively refines it over the requested number of steps, 
 </tr>
 <tr>
 <td>latent space at each step</td>
-<td align="center"><img alt="" src="../../assets/img2img/000032.steps.gravity.png" /></td>
-<td align="center"><img alt="" src="../../assets/img2img/000030.steps.gravity.png" /></td>
+<td align="center"><img alt="gravity32" src="../../assets/img2img/000032.steps.gravity.png" /></td>
+<td align="center"><img alt="gravity30" src="../../assets/img2img/000030.steps.gravity.png" /></td>
 </tr>
 <tr>
 <td>output</td>
-<td align="center"><img alt="" src="../../assets/img2img/000032.1592514025.png" /></td>
-<td align="center"><img alt="" src="../../assets/img2img/000030.1592514025.png" /></td>
+<td align="center"><img alt="000032.1592514025" src="../../assets/img2img/000032.1592514025.png" /></td>
+<td align="center"><img alt="000030.1592514025" src="../../assets/img2img/000030.1592514025.png" /></td>
 </tr>
 </tbody>
 </table>
@@ -942,7 +943,7 @@ gaussian noise and progressively refines it over the requested number of steps, 
 <h3 id="compensating-for-the-reduced-step-count">Compensating for the reduced step count<a class="headerlink" href="#compensating-for-the-reduced-step-count" title="Permanent link">#</a></h3>
 <p>After putting this guide together I was curious to see how the difference would be if I increased the step count to compensate, so that SD could have the same amount of steps to develop the image regardless of the strength. So I ran the generation again using the same seed, but this time adapting the step count to give each generation 20 steps.</p>
 <p>Here's strength <code>0.4</code> (note step count <code>50</code>, which is <code>20 ÷ 0.4</code> to make sure SD does <code>20</code> steps from my image):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>invoke&gt; &quot;fire&quot; -s50 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png -f 0.4
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s50 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png -f <span class="m">0</span>.4
 </code></pre></div>
 <div align="center">
 <p><img alt="000035.1592514025" src="../../assets/img2img/000035.1592514025.png" /></p>
