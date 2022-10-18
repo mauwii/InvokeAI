@@ -290,20 +290,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../CHANGELOG/" class="md-nav__link">
-        Changelog
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../CLI/" class="md-nav__link">
         CLI
       </a>
@@ -899,24 +885,24 @@ Diffusion to attempt to ban the concept from the generated image.</p>
 <p>Here's a prompt that depicts what it does.</p>
 <p>original prompt:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
-<div align="center">
+<figure>
 <p><img alt="step1" src="../../assets/negative_prompt_walkthru/step1.png" /></p>
-</div>
+</figure>
 <p>That image has a woman, so if we want the horse without a rider, we can influence the image not to have a woman by putting [woman] in the prompt, like this:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
-<div align="center">
+<figure>
 <p><img alt="step2" src="../../assets/negative_prompt_walkthru/step2.png" /></p>
-</div>
+</figure>
 <p>That's nice - but say we also don't want the image to be quite so blue. We can add "blue" to the list of negative prompts, so it's now [woman blue]:</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
-<div align="center">
+<figure>
 <p><img alt="step3" src="../../assets/negative_prompt_walkthru/step3.png" /></p>
-</div>
+</figure>
 <p>Getting close - but there's no sense in having a saddle when our horse doesn't have a rider, so we'll add one more negative prompt: [woman blue saddle].</p>
 <p><code class="highlight"><span class="s2">&quot;A fantastical translucent poney made of water and foam, ethereal, radiant, hyperalism, scottish folklore, digital painting, artstation, concept art, smooth, 8 k frostbite 3 engine, ultra detailed, art by artgerm and greg rutkowski and magali villeneuve [woman blue saddle]&quot;</span> -s <span class="m">20</span> -W <span class="m">512</span> -H <span class="m">768</span> -C <span class="m">7</span>.5 -A k_euler_a -S <span class="m">1654590180</span></code></p>
-<div align="center">
+<figure>
 <p><img alt="step4" src="../../assets/negative_prompt_walkthru/step4.png" /></p>
-</div>
+</figure>
 <div class="admonition notes">
 <p class="admonition-title">Notes about this feature:</p>
 <ul>
@@ -946,42 +932,42 @@ illustrate, here are three images generated using various combinations
 of blend weights. As usual, unless you fix the seed, the prompts will give you
 different results each time you run them.</p>
 <hr />
-<div align="center">
+<figure>
 <h3 id="blue-sphere-red-cube-hybrid">"blue sphere, red cube, hybrid"<a class="headerlink" href="#blue-sphere-red-cube-hybrid" title="Permanent link">#</a></h3>
-</div>
+</figure>
 <p>This example doesn't use melding at all and represents the default way
 of mixing concepts.</p>
-<div align="center">
+<figure>
 <p><img alt="blue-sphere-red-cube-hyprid" src="../../assets/prompt-blending/blue-sphere-red-cube-hybrid.png" /></p>
-</div>
+</figure>
 <p>It's interesting to see how the AI expressed the concept of "cube" as
 the four quadrants of the enclosing frame. If you look closely, there
 is depth there, so the enclosing frame is actually a cube.</p>
-<div align="center">
+<figure>
 <h3 id="blue-sphere025-red-cube075-hybrid">"blue sphere:0.25 red cube:0.75 hybrid"<a class="headerlink" href="#blue-sphere025-red-cube075-hybrid" title="Permanent link">#</a></h3>
 <p><img alt="blue-sphere-25-red-cube-75" src="../../assets/prompt-blending/blue-sphere-0.25-red-cube-0.75-hybrid.png" /></p>
-</div>
+</figure>
 <p>Now that's interesting. We get neither a blue sphere nor a red cube,
 but a red sphere embedded in a brick wall, which represents a melding
 of concepts within the AI's "latent space" of semantic
 representations. Where is Ludwig Wittgenstein when you need him?</p>
-<div align="center">
+<figure>
 <h3 id="blue-sphere075-red-cube025-hybrid">"blue sphere:0.75 red cube:0.25 hybrid"<a class="headerlink" href="#blue-sphere075-red-cube025-hybrid" title="Permanent link">#</a></h3>
 <p><img alt="blue-sphere-75-red-cube-25" src="../../assets/prompt-blending/blue-sphere-0.75-red-cube-0.25-hybrid.png" /></p>
-</div>
+</figure>
 <p>Definitely more blue-spherey. The cube is gone entirely, but it's
 really cool abstract art.</p>
-<div align="center">
+<figure>
 <h3 id="blue-sphere05-red-cube05-hybrid">"blue sphere:0.5 red cube:0.5 hybrid"<a class="headerlink" href="#blue-sphere05-red-cube05-hybrid" title="Permanent link">#</a></h3>
 <p><img alt="blue-sphere-5-red-cube-5-hybrid" src="../../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5-hybrid.png" /></p>
-</div>
+</figure>
 <p>Whoa...! I see blue and red, but no spheres or cubes. Is the word
 "hybrid" summoning up the concept of some sort of scifi creature?
 Let's find out.</p>
-<div align="center">
+<figure>
 <h3 id="blue-sphere05-red-cube05">"blue sphere:0.5 red cube:0.5"<a class="headerlink" href="#blue-sphere05-red-cube05" title="Permanent link">#</a></h3>
 <p><img alt="blue-sphere-5-red-cube-5" src="../../assets/prompt-blending/blue-sphere-0.5-red-cube-0.5.png" /></p>
-</div>
+</figure>
 <p>Indeed, removing the word "hybrid" produces an image that is more like
 what we'd expect.</p>
 <p>In conclusion, prompt blending is great for exploring creative space,
@@ -993,7 +979,7 @@ feature more deterministic prompt weighting.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2022</span>
       
         <br>
         Created:

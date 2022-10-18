@@ -290,20 +290,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../CHANGELOG/" class="md-nav__link">
-        Changelog
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../CLI/" class="md-nav__link">
         CLI
       </a>
@@ -827,13 +813,13 @@ the <code>--init_img</code> option as shown here:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>tree on a hill with a river, nature photograph, national geographic -I./test-pictures/tree-and-river-sketch.png -f 0.85
 </code></pre></div>
 <p>This will take the original image shown here:</p>
-<div align="center">
+<figure>
 <p><img src="https://user-images.githubusercontent.com/50542132/193946000-c42a96d8-5a74-4f8a-b4c3-5213e6cadcce.png" width=350></p>
-</div>
+</figure>
 <p>and generate a new image based on it as shown here:</p>
-<div align="center">
+<figure>
 <p><img src="https://user-images.githubusercontent.com/111189/194135515-53d4c060-e994-4016-8121-7c685e281ac9.png" width=350></p>
-</div>
+</figure>
 <p>The <code>--init_img</code> (<code>-I</code>) option gives the path to the seed picture. <code>--strength</code> (<code>-f</code>) controls how much
 the original will be modified, ranging from <code>0.0</code> (keep the original intact), to <code>1.0</code> (ignore the
 original completely). The default is <code>0.75</code>, and ranges from <code>0.25-0.90</code> give interesting results. 
@@ -845,10 +831,10 @@ back into img2img the requested number of times. It generates
 interesting variants.</p>
 <p>Note that the prompt makes a big difference. For example, this slight variation on the prompt produces
 a very different image:</p>
-<p><code>photograph of a tree on a hill with a river</code></p>
-<div align="center">
-<p><img src="https://user-images.githubusercontent.com/111189/194135220-16b62181-b60c-4248-8989-4834a8fd7fbd.png" width=350></p>
-</div>
+<figure>
+<p><img src="https://user-images.githubusercontent.com/111189/194135220-16b62181-b60c-4248-8989-4834a8fd7fbd.png" width=350>
+<caption markdown>photograph of a tree on a hill with a river</caption></p>
+</figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>When designing prompts, think about how the images scraped from the internet were captioned. Very few photographs will
@@ -875,24 +861,24 @@ gaussian noise and progressively refines it over the requested number of steps, 
 <p><strong>Let's start</strong> by thinking about vanilla <code>prompt2img</code>, just generating an image from a prompt. If the step count is 10, then the "latent space" (Stable Diffusion's internal representation of the image) for the prompt "fire" with seed <code>1592514025</code> develops something like this:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s10 -W384 -H384 -S1592514025
 </code></pre></div>
-<div align="center">
+<figure>
 <p><img alt="latent steps" src="../../assets/img2img/000019.steps.png" /></p>
-</div>
+</figure>
 <p>Put simply: starting from a frame of fuzz/static, SD finds details in each frame that it thinks look like "fire" and brings them a little bit more into focus, gradually scrubbing out the fuzz until a clear image remains.</p>
 <p><strong>When you use <code>img2img</code></strong> some of the earlier steps are cut, and instead an initial image of your choice is used. But because of how the maths behind Stable Diffusion works, this image needs to be mixed with just the right amount of noise (fuzz/static) for where it is being inserted. This is where the strength parameter comes in. Depending on the set strength, your image will be inserted into the sequence at the appropriate point, with just the right amount of noise.</p>
 <h3 id="a-concrete-example">A concrete example<a class="headerlink" href="#a-concrete-example" title="Permanent link">#</a></h3>
 <p>I want SD to draw a fire based on this hand-drawn image:</p>
-<div align="center">
+<figure>
 <p><img alt="drawing of a fireplace" src="../../assets/img2img/fire-drawing.png" /></p>
-</div>
+</figure>
 <p>Let's only do 10 steps, to make it easier to see what's happening. If strength is <code>0.7</code>, this is what the internal steps the algorithm has to take will look like:</p>
-<div align="center">
+<figure>
 <p><img alt="gravity32" src="../../assets/img2img/000032.steps.gravity.png" /></p>
-</div>
+</figure>
 <p>With strength <code>0.4</code>, the steps look more like this:</p>
-<div align="center">
+<figure>
 <p><img alt="gravity30" src="../../assets/img2img/000030.steps.gravity.png" /></p>
-</div>
+</figure>
 <p>Notice how much more fuzzy the starting image is for strength <code>0.7</code> compared to <code>0.4</code>, and notice also how much longer the sequence is with <code>0.7</code>:</p>
 <table>
 <thead>
@@ -940,27 +926,35 @@ gaussian noise and progressively refines it over the requested number of steps, 
 <p>Here's strength <code>0.4</code> (note step count <code>50</code>, which is <code>20 ÷ 0.4</code> to make sure SD does <code>20</code> steps from my image):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s50 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png -f <span class="m">0</span>.4
 </code></pre></div>
-<div align="center">
+<figure>
 <p><img alt="000035.1592514025" src="../../assets/img2img/000035.1592514025.png" /></p>
-</div>
+</figure>
 <p>and here is strength <code>0.7</code> (note step count <code>30</code>, which is roughly <code>20 ÷ 0.7</code> to make sure SD does <code>20</code> steps from my image):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s30 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png -f <span class="m">0</span>.7
 </code></pre></div>
-<div align="center">
+<figure>
 <p><img alt="000046.1592514025" src="../../assets/img2img/000046.1592514025.png" /></p>
-</div>
+</figure>
 <p>In both cases the image is nice and clean and "finished", but because at strength <code>0.7</code> Stable Diffusion has been give so much more freedom to improve on my badly-drawn flames, they've come out looking much better. You can really see the difference when looking at the latent steps. There's more noise on the first image with strength <code>0.7</code>:</p>
+<figure>
 <p><img alt="gravity46" src="../../assets/img2img/000046.steps.gravity.png" /></p>
+</figure>
 <p>than there is for strength <code>0.4</code>:</p>
+<figure>
 <p><img alt="gravity35" src="../../assets/img2img/000035.steps.gravity.png" /></p>
+</figure>
 <p>and that extra noise gives the algorithm more choices when it is evaluating how to denoise any particular pixel in the image.</p>
 <p>Unfortunately, it seems that <code>img2img</code> is very sensitive to the step count. Here's strength <code>0.7</code> with a step count of <code>29</code> (SD did 19 steps from my image):</p>
-<div align="center">
+<figure>
 <p><img alt="gravity45" src="../../assets/img2img/000045.1592514025.png" /></p>
-</div>
+</figure>
 <p>By comparing the latents we can sort of see that something got interpreted differently enough on the third or fourth step to lead to a rather different interpretation of the flames.</p>
-<p><img alt="gravity46" src="../../assets/img2img/000046.steps.gravity.png" />
-<img alt="gravity45" src="../../assets/img2img/000045.steps.gravity.png" /></p>
+<figure>
+<p><img alt="gravity46" src="../../assets/img2img/000046.steps.gravity.png" /></p>
+</figure>
+<figure>
+<p><img alt="gravity45" src="../../assets/img2img/000045.steps.gravity.png" /></p>
+</figure>
 <p>This is the result of a difference in the de-noising "schedule" - basically the noise has to be cleaned by a certain degree each step or the model won't "converge" on the image properly (see <a href="https://huggingface.co/blog/stable_diffusion">stable diffusion blog</a> for more about that). A different step count means a different schedule, which means things get interpreted slightly differently at every step.</p>
 
   <hr>
@@ -968,7 +962,7 @@ gaussian noise and progressively refines it over the requested number of steps, 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 11, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 17, 2022</span>
       
         <br>
         Created:
