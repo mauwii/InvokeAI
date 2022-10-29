@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
       - 'development'
-      - 'use-bearer-token-to-download-model-debug'
+      - 'integrate-models-into-test-matrix'
   pull_request_target:
     branches:
       - 'main'
