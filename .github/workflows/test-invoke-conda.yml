@@ -4,7 +4,7 @@ on:
     branches:
       - 'main'
       - 'development'
-      - 'integrate-models-into-test-matrix'
+      - 'integrate-models-into-test-matrix-debug'
   pull_request_target:
     branches:
       - 'main'
