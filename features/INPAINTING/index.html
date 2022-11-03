@@ -986,7 +986,7 @@
 <p>Inpainting is really cool. To do it, you start with an initial image
 and use a photoeditor to make one or more regions transparent
 (i.e. they have a "hole" in them). You then provide the path to this
-image at the invoke&gt; command line using the <code>-I</code> switch. Stable
+image at the dream&gt; command line using the <code>-I</code> switch. Stable
 Diffusion will only paint within the transparent region.</p>
 <p>There's a catch. In the current implementation, you have to prepare
 the initial image correctly so that the underlying colors are
@@ -999,7 +999,7 @@ transparency, such as any value between 1 and 99%</p>
 color information is preserved. There is often an option in the export
 dialog that lets you specify this.</p>
 <p>If your photoeditor is erasing the underlying color information,
-<code>invoke.py</code> will give you a big fat warning. If you can't find a way to
+<code>dream.py</code> will give you a big fat warning. If you can't find a way to
 coax your photoeditor to retain color values under transparent areas,
 then you can combine the <code>-I</code> and <code>-M</code> switches to provide both the
 original unedited image and the masked (partially transparent) image:</p>
