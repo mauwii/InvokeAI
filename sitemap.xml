@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/assets/preflight-checks/outputs/invoke_log/</loc>
+         <lastmod>2022-11-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/features/CLI/</loc>
          <lastmod>2022-11-06</lastmod>
          <changefreq>daily</changefreq>
