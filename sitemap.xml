@@ -11,11 +11,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/assets/preflight-checks/outputs/invoke_log/</loc>
-         <lastmod>2022-11-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/features/CLI/</loc>
          <lastmod>2022-11-10</lastmod>
          <changefreq>daily</changefreq>
@@ -86,6 +81,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL/</loc>
+         <lastmod>2022-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALLING_MODELS/</loc>
          <lastmod>2022-11-10</lastmod>
          <changefreq>daily</changefreq>
@@ -96,17 +96,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_LINUX/</loc>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_MANUAL/</loc>
          <lastmod>2022-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_MAC/</loc>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/older_docs_to_be_removed/INSTALL_LINUX/</loc>
          <lastmod>2022-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://invoke-ai.github.io/InvokeAI/installation/INSTALL_WINDOWS/</loc>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/older_docs_to_be_removed/INSTALL_MAC/</loc>
+         <lastmod>2022-11-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/older_docs_to_be_removed/INSTALL_WINDOWS/</loc>
          <lastmod>2022-11-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
