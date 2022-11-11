@@ -17,7 +17,7 @@
     
     
       
-        <title>The InvokeAI Source Installer - Stable Diffusion Toolkit Docs</title>
+        <title>Source Installer - Stable Diffusion Toolkit Docs</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introduction" class="md-skip">
+        <a href="#the-invokeai-source-installer" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The InvokeAI Source Installer
+              Source Installer
             
           </span>
         </div>
@@ -265,7 +265,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../INSTALL/" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Installation
       </a>
     </li>
@@ -664,8 +664,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../INSTALL/" class="md-nav__link">
-        Installation Overview
+      <a href="../" class="md-nav__link">
+        Overview
       </a>
     </li>
   
@@ -768,14 +768,16 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          The InvokeAI Source Installer
+          Source Installer
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        The InvokeAI Source Installer
+        Source Installer
       </a>
       
         
@@ -783,6 +785,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1011,160 +1015,142 @@
   </a>
 
 
-  <h1>The InvokeAI Source Installer</h1>
-
+<h1 id="the-invokeai-source-installer">The InvokeAI Source Installer<a class="headerlink" href="#the-invokeai-source-installer" title="Permanent link">#</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">#</a></h2>
-<p>The source installer is a shell script that attempts to automate every
-step needed to install and run InvokeAI on a stock computer running
-recent versions of Linux, MacOSX or Windows. It will leave you with a
-version that runs a stable version of InvokeAI with the option to
-upgrade to experimental versions later. It is not as foolproof as the
-<a href="../INSTALL_INVOKE/">InvokeAI installer</a></p>
-<p>Before you begin, make sure that you meet the <a href="index.md#Hardware_Requirements">hardware
-requirements</a> and has the appropriate
-GPU drivers installed. In particular, if you are a Linux user with an
-AMD GPU installed, you may need to install the <a href="https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html">ROCm
-driver</a>.</p>
-<p>Installation requires roughly 18G of free disk space to load the
-libraries and recommended model weights files.</p>
+<p>The source installer is a shell script that attempts to automate every step
+needed to install and run InvokeAI on a stock computer running recent versions
+of Linux, MacOS or Windows. It will leave you with a version that runs a stable
+version of InvokeAI with the option to upgrade to experimental versions later.
+It is not as foolproof as the <a href="../INSTALL_INVOKE/">InvokeAI installer</a></p>
+<p>Before you begin, make sure that you meet the
+<a href="../#Hardware_Requirements">hardware requirements</a> and has the appropriate
+GPU drivers installed. In particular, if you are a Linux user with an AMD GPU
+installed, you may need to install the
+<a href="https://rocmdocs.amd.com/en/latest/Installation_Guide/Installation-Guide.html">ROCm driver</a>.</p>
+<p>Installation requires roughly 18G of free disk space to load the libraries and
+recommended model weights files.</p>
 <h2 id="walk-through">Walk through<a class="headerlink" href="#walk-through" title="Permanent link">#</a></h2>
-<p>Though there are multiple steps, there really is only one click
-involved to kick off the process.</p>
+<p>Though there are multiple steps, there really is only one click involved to kick
+off the process.</p>
 <ol>
 <li>
-<p>The source installer is distributed in ZIP files. Go to the <a href="https://github.com/invoke-ai/InvokeAI/releases/latest">latest
-   release</a>, and
-   look for a series of files named:</p>
-</li>
-<li>
-<p>invokeAI-src-installer-mac.zip</p>
-</li>
+<p>The source installer is distributed in ZIP files. Go to the
+    <a href="https://github.com/invoke-ai/InvokeAI/releases/latest">latest release</a>, and
+    look for a series of files named:</p>
+<ul>
+<li>invokeAI-src-installer-mac.zip</li>
 <li>invokeAI-src-installer-windows.zip</li>
 <li>invokeAI-src-installer-linux.zip</li>
-</ol>
+</ul>
 <p>Download the one that is appropriate for your operating system.</p>
-<ol>
-<li>Unpack the zip file into a directory that has at least 18G of free
-   space. Do <em>not</em> unpack into a directory that has an earlier version of
-   InvokeAI.</li>
-</ol>
-<p>This will create a new directory named "InvokeAI". This example
-   shows how this would look using the <code>unzip</code> command-line tool,
-   but you may use any graphical or command-line Zip extractor:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>C:<span class="se">\D</span>ocuments<span class="se">\L</span>inco&gt; unzip invokeAI-windows.zip
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Archive:  C: <span class="se">\L</span>inco<span class="se">\D</span>ownloads<span class="se">\i</span>nvokeAI-linux.zip
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>creating: invokeAI<span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>inflating: invokeAI<span class="se">\i</span>nstall.bat
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>inflating: invokeAI<span class="se">\r</span>eadme.txt     
-</code></pre></div>
-<ol>
-<li>
-<p>If you are using a desktop GUI, double-click the installer file.
-   It will be named <code>install.bat</code> on Windows systems and <code>install.sh</code>
-   on Linux and Macintosh systems.</p>
 </li>
 <li>
-<p>Alternatively, form the command line, run the shell script or .bat
-   file:</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>C:<span class="se">\D</span>ocuments<span class="se">\L</span>inco&gt; <span class="nb">cd</span> invokeAI
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>C:<span class="se">\D</span>ocuments<span class="se">\L</span>inco&gt; install.bat
+<p>Unpack the zip file into a directory that has at least 18G of free space. Do
+    <em>not</em> unpack into a directory that has an earlier version of InvokeAI.</p>
+<p>This will create a new directory named "InvokeAI". This example shows how
+this would look using the <code>unzip</code> command-line tool, but you may use any
+graphical or command-line Zip extractor:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>C:\Documents\Linco&gt; unzip invokeAI-windows.zip
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Archive:  C: \Linco\Downloads\invokeAI-linux.zip
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>creating: invokeAI\
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>inflating: invokeAI\install.bat
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>inflating: invokeAI\readme.txt
 </code></pre></div>
-<ol>
-<li>
-<p>Sit back and let the install script work. It will install various
-   binary requirements including Conda, Git and Python, then download
-   the current InvokeAI code and install it along with its
-   dependencies.</p>
 </li>
 <li>
-<p>After installation completes, the installer will launch a script
-   called <code>preload_models.py</code>, which will guide you through the
-   first-time process of selecting one or more Stable Diffusion model
-   weights files, downloading and configuring them.</p>
+<p>If you are using a desktop GUI, double-click the installer file. It will be
+    named <code>install.bat</code> on Windows systems and <code>install.sh</code> on Linux and
+    Macintosh systems.</p>
+</li>
+<li>
+<p>Alternatively, form the command line, run the shell script or .bat file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>C:\Documents\Linco&gt; cd invokeAI
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>C:\Documents\Linco\invokeAI&gt; install.bat
+</code></pre></div>
+</li>
+<li>
+<p>Sit back and let the install script work. It will install various binary
+    requirements including Conda, Git and Python, then download the current
+    InvokeAI code and install it along with its dependencies.</p>
+</li>
+<li>
+<p>After installation completes, the installer will launch a script called
+    <code>preload_models.py</code>, which will guide you through the first-time process of
+    selecting one or more Stable Diffusion model weights files, downloading and
+    configuring them.</p>
+<p>Note that the main Stable Diffusion weights file is protected by a license
+agreement that you must agree to in order to use. The script will list the
+steps you need to take to create an account on the official site that hosts
+the weights files, accept the agreement, and provide an access token that
+allows InvokeAI to legally download and install the weights files.</p>
+<p>If you have already downloaded the weights file(s) for another Stable
+Diffusion distribution, you may skip this step (by selecting "skip" when
+prompted) and configure InvokeAI to use the previously-downloaded files. The
+process for this is described in <a href="../INSTALLING_MODELS/">Installing Models</a>.</p>
+</li>
+<li>
+<p>The script will now exit and you'll be ready to generate some images. The
+    invokeAI directory will contain numerous files. Look for a shell script
+    named <code>invoke.sh</code> (Linux/Mac) or <code>invoke.bat</code> (Windows). Launch the script
+    by double-clicking it or typing its name at the command-line:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>C:\Documents\Linco&gt; cd invokeAI
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>C:\Documents\Linco\invokeAI&gt; invoke.bat
+</code></pre></div>
 </li>
 </ol>
-<p>Note that the main Stable Diffusion weights file is protected by a
-   license agreement that you must agree to in order to use. The
-   script will list the steps you need to take to create an account on
-   the official site that hosts the weights files, accept the
-   agreement, and provide an access token that allows InvokeAI to
-   legally download and install the weights files.</p>
-<p>If you have already downloaded the weights file(s) for another
-   Stable Diffusion distribution, you may skip this step (by selecting
-   "skip" when prompted) and configure InvokeAI to use the
-   previously-downloaded files. The process for this is described in
-   [INSTALLING_MODELS.md].</p>
-<ol>
-<li>The script will now exit and you'll be ready to generate some
-    images. The invokeAI directory will contain numerous files. Look
-    for a shell script named <code>invoke.sh</code> (Linux/Mac) or <code>invoke.bat</code>
-    (Windows). Launch the script by double-clicking it or typing
-    its name at the command-line:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>C:<span class="se">\D</span>ocuments<span class="se">\L</span>inco<span class="se">\i</span>nvokeAI&gt; <span class="nb">cd</span> invokeAI
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>C:<span class="se">\D</span>ocuments<span class="se">\L</span>inco<span class="se">\i</span>nvokeAI&gt; invoke.bat
+<p>The <code>invoke.bat</code> (<code>invoke.sh</code>) script will give you the choice of starting (1)
+the command-line interface, or (2) the web GUI. If you start the latter, you can
+load the user interface by pointing your browser at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
+<p>The <code>invoke</code> script also offers you a third option labeled "open the developer
+console". If you choose this option, you will be dropped into a command-line
+interface in which you can run python commands directly, access developer tools,
+and launch InvokeAI with customized options. To do the latter, you would launch
+the script <code>scripts/invoke.py</code> as shown in this example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python scripts/invoke.py --web --max_load_models=3 \
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    --model=waifu-1.3 --steps=30 --outdir=C:/Documents/AIPhotos
 </code></pre></div>
-<p>The <code>invoke.bat</code> (<code>invoke.sh</code>) script will give you the choice of
-   starting (1) the command-line interface, or (2) the web GUI. If you
-   start the latter, you can load the user interface by pointing your
-   browser at <a href="http://localhost:9090">http://localhost:9090</a>.</p>
-<p>The <code>invoke</code> script also offers you a third option labeled "open
-   the developer console". If you choose this option, you will be
-   dropped into a command-line interface in which you can run python
-   commands directly, access developer tools, and launch InvokeAI
-   with customized options. To do the latter, you would launch the
-   script <code>scripts/invoke.py</code> as shown in this example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>python scripts<span class="se">\i</span>nvoke.py --web --max_load_models<span class="o">=</span><span class="m">3</span> <span class="se">\</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    --model<span class="o">=</span>waifu-1.3 --steps<span class="o">=</span><span class="m">30</span> --outdir<span class="o">=</span>C:/Documents/AIPhotos
-</code></pre></div>
-<p>These options are described in detail in the <a href="../../features/CLI/">Command-Line
-   Interface</a> documentation.</p>
+<p>These options are described in detail in the
+<a href="../../features/CLI/">Command-Line Interface</a> documentation.</p>
 <h2 id="updating-to-newer-versions">Updating to newer versions<a class="headerlink" href="#updating-to-newer-versions" title="Permanent link">#</a></h2>
-<p>This section describes how to update InvokeAI to new versions of the
-software.</p>
+<p>This section describes how to update InvokeAI to new versions of the software.</p>
 <h3 id="updating-the-stable-version">Updating the stable version<a class="headerlink" href="#updating-the-stable-version" title="Permanent link">#</a></h3>
-<p>This distribution is changing rapidly, and we add new features on a
-daily basis. To update to the latest released version (recommended),
-run the <code>update.sh</code> (Linux/Mac) or <code>update.bat</code> (Windows)
-scripts. This will fetch the latest release and re-run the
-<code>preload_models</code> script to download any updated models files that may
-be needed. You can also use this to add additional models that you did
-not select at installation time.</p>
+<p>This distribution is changing rapidly, and we add new features on a daily basis.
+To update to the latest released version (recommended), run the <code>update.sh</code>
+(Linux/Mac) or <code>update.bat</code> (Windows) scripts. This will fetch the latest
+release and re-run the <code>preload_models</code> script to download any updated models
+files that may be needed. You can also use this to add additional models that
+you did not select at installation time.</p>
 <h3 id="updating-to-the-development-version">Updating to the development version<a class="headerlink" href="#updating-to-the-development-version" title="Permanent link">#</a></h3>
-<p>There may be times that there is a feature in the <code>development</code> branch
-of InvokeAI that you'd like to take advantage of. Or perhaps there is
-a branch that corrects an annoying bug. To do this, you will use the
-developer's console.</p>
-<p>From within the invokeAI directory, run the command <code>invoke.sh</code>
-(Linux/Mac) or <code>invoke.bat</code> (Windows) and selection option (3) to open
-the developers console. Then run the following command to get the
-<code>development branch</code>:</p>
+<p>There may be times that there is a feature in the <code>development</code> branch of
+InvokeAI that you'd like to take advantage of. Or perhaps there is a branch that
+corrects an annoying bug. To do this, you will use the developer's console.</p>
+<p>From within the invokeAI directory, run the command <code>invoke.sh</code> (Linux/Mac) or
+<code>invoke.bat</code> (Windows) and selection option (3) to open the developers console.
+Then run the following command to get the <code>development branch</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>git checkout development
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git pull
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>conda env update
 </code></pre></div>
-<p>You can now close the developer console and run <code>invoke</code> as before.
-If you get complaints about missing models, then you may need to do
-the additional step of running <code>preload_models.py</code>. This happens
-relatively infrequently. To do this, simply open up the developer's
-console again and type <code>python scripts/preload_models.py</code>.</p>
+<p>You can now close the developer console and run <code>invoke</code> as before. If you get
+complaints about missing models, then you may need to do the additional step of
+running <code>preload_models.py</code>. This happens relatively infrequently. To do this,
+simply open up the developer's console again and type
+<code>python scripts/preload_models.py</code>.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h2>
-<p>If you run into problems during or after installation, the InvokeAI
-team is available to help you. Either create an
-<a href="https://github.com/invoke-ai/InvokeAI/issues">Issue</a> at our GitHub
-site, or make a request for help on the "bugs-and-support" channel of
-our <a href="https://discord.gg/ZmtBAhwWhy">Discord server</a>. We are a 100%
-volunteer organization, but typically somebody will be available to
-help you within 24 hours, and often much sooner.</p>
+<p>If you run into problems during or after installation, the InvokeAI team is
+available to help you. Either create an
+<a href="https://github.com/invoke-ai/InvokeAI/issues">Issue</a> at our GitHub site, or
+make a request for help on the "bugs-and-support" channel of our
+<a href="https://discord.gg/ZmtBAhwWhy">Discord server</a>. We are a 100% volunteer
+organization, but typically somebody will be available to help you within 24
+hours, and often much sooner.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2022</span>
       
         <br>
         Created:

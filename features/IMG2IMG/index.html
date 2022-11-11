@@ -265,7 +265,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/INSTALL/" class="md-tabs__link">
+      <a href="../../installation/" class="md-tabs__link">
         Installation
       </a>
     </li>
@@ -732,8 +732,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/INSTALL/" class="md-nav__link">
-        Installation Overview
+      <a href="../../installation/" class="md-nav__link">
+        Overview
       </a>
     </li>
   
@@ -831,7 +831,7 @@
   
     <li class="md-nav__item">
       <a href="../../installation/INSTALL_SOURCE/" class="md-nav__link">
-        The InvokeAI Source Installer
+        Source Installer
       </a>
     </li>
   
@@ -1012,11 +1012,11 @@ option as shown here:</p>
 </code></pre></div>
 <p>This will take the original image shown here:</p>
 <figure>
-<p><img alt="" src="https://user-images.githubusercontent.com/50542132/193946000-c42a96d8-5a74-4f8a-b4c3-5213e6cadcce.png" /></p>
+<p><img alt="original-image" src="https://user-images.githubusercontent.com/50542132/193946000-c42a96d8-5a74-4f8a-b4c3-5213e6cadcce.png" width="320" /></p>
 </figure>
 <p>and generate a new image based on it as shown here:</p>
 <figure>
-<p><img alt="" src="https://user-images.githubusercontent.com/111189/194135515-53d4c060-e994-4016-8121-7c685e281ac9.png" /></p>
+<p><img alt="generated-image" src="https://user-images.githubusercontent.com/111189/194135515-53d4c060-e994-4016-8121-7c685e281ac9.png" width="320" /></p>
 </figure>
 <p>The <code>--init_img</code> (<code>-I</code>) option gives the path to the seed picture. <code>--strength</code>
 (<code>-f</code>) controls how much the original will be modified, ranging from <code>0.0</code> (keep
@@ -1032,14 +1032,15 @@ interesting variants.</p>
 <p>Note that the prompt makes a big difference. For example, this slight variation
 on the prompt produces a very different image:</p>
 <figure>
-<p><img alt="" src="https://user-images.githubusercontent.com/111189/194135220-16b62181-b60c-4248-8989-4834a8fd7fbd.png" />
+<p><img alt="" src="https://user-images.githubusercontent.com/111189/194135220-16b62181-b60c-4248-8989-4834a8fd7fbd.png" width="320" />
 <caption markdown>photograph of a tree on a hill with a river</caption></p>
 </figure>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>When designing prompts, think about how the images scraped from the internet were captioned. Very few photographs will
-be labeled "photograph" or "photorealistic." They will, however, be captioned with the publication, photographer, camera
-model, or film settings.</p>
+<p>When designing prompts, think about how the images scraped from the internet were
+captioned. Very few photographs will be labeled "photograph" or "photorealistic."
+They will, however, be captioned with the publication, photographer, camera model,
+or film settings.</p>
 </div>
 <p>If the initial image contains transparent regions, then Stable Diffusion will
 only draw within the transparent regions, a process called
@@ -1047,15 +1048,15 @@ only draw within the transparent regions, a process called
 However, for this to work correctly, the color information underneath the
 transparent needs to be preserved, not erased.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-</div>
-<p><strong>IMPORTANT ISSUE</strong> <code>img2img</code> does not work properly on initial images smaller
+<p class="admonition-title"><strong>IMPORTANT ISSUE</strong> </p>
+<p><code>img2img</code> does not work properly on initial images smaller
 than 512x512. Please scale your image to at least 512x512 before using it.
 Larger images are not a problem, but may run out of VRAM on your GPU card. To
 fix this, use the --fit option, which downscales the initial image to fit within
 the box specified by width x height:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>tree on a hill with a river, national geographic -I./test-pictures/big-sketch.png -H512 -W512 --fit
 </code></pre></div>
+</div>
 <h2 id="how-does-it-actually-work-though">How does it actually work, though?<a class="headerlink" href="#how-does-it-actually-work-though" title="Permanent link">#</a></h2>
 <p>The main difference between <code>img2img</code> and <code>prompt2img</code> is the starting point.
 While <code>prompt2img</code> always starts with pure gaussian noise and progressively
@@ -1067,7 +1068,7 @@ starting image.</p>
 from a prompt. If the step count is 10, then the "latent space" (Stable
 Diffusion's internal representation of the image) for the prompt "fire" with
 seed <code>1592514025</code> develops something like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>invoke&gt; &quot;fire&quot; -s10 -W384 -H384 -S1592514025
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s10 -W384 -H384 -S1592514025
 </code></pre></div>
 <figure>
 <p><img alt="latent steps" src="../../assets/img2img/000019.steps.png" /></p>
@@ -1109,8 +1110,8 @@ like:</p>
 <tbody>
 <tr>
 <td>initial image that SD sees</td>
-<td><img alt="" src="../../assets/img2img/000032.step-0.png" /></td>
-<td><img alt="" src="../../assets/img2img/000030.step-0.png" /></td>
+<td><img alt="step-0" src="../../assets/img2img/000032.step-0.png" /></td>
+<td><img alt="step-0" src="../../assets/img2img/000030.step-0.png" /></td>
 </tr>
 <tr>
 <td>steps argument to <code>invoke&gt;</code></td>
@@ -1119,8 +1120,8 @@ like:</p>
 </tr>
 <tr>
 <td>steps actually taken</td>
-<td>7</td>
-<td>4</td>
+<td><code>7</code></td>
+<td><code>4</code></td>
 </tr>
 <tr>
 <td>latent space at each step</td>
@@ -1143,7 +1144,7 @@ the problems of my bad drawing.</p>
 <p>If you want to try this out yourself, all of these are using a seed of
 <code>1592514025</code> with a width/height of <code>384</code>, step count <code>10</code>, the default sampler
 (<code>k_lms</code>), and the single-word prompt <code>"fire"</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>invoke&gt; &quot;fire&quot; -s10 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png --strength 0.7
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s10 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png --strength <span class="m">0</span>.7
 </code></pre></div>
 <p>The code for rendering intermediates is on my (damian0815's) branch
 <a href="https://github.com/damian0815/InvokeAI/tree/document-img2img">document-img2img</a> -
@@ -1157,7 +1158,7 @@ generation again using the same seed, but this time adapting the step count to
 give each generation 20 steps.</p>
 <p>Here's strength <code>0.4</code> (note step count <code>50</code>, which is <code>20 ÷ 0.4</code> to make sure SD
 does <code>20</code> steps from my image):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>invoke&gt; &quot;fire&quot; -s50 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png -f 0.4
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>invoke&gt; <span class="s2">&quot;fire&quot;</span> -s50 -W384 -H384 -S1592514025 -I /tmp/fire-drawing.png -f <span class="m">0</span>.4
 </code></pre></div>
 <figure>
 <p><img alt="000035.1592514025" src="../../assets/img2img/000035.1592514025.png" /></p>
@@ -1209,7 +1210,7 @@ things get interpreted slightly differently at every step.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2022</span>
       
         <br>
         Created:
