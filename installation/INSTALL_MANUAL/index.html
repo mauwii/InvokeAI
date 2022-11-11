@@ -1153,9 +1153,7 @@ following command from the repository-root:</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Replace <code>xxx</code> and <code>yyy</code> with the appropriate OS and GPU codes as seen in the
-table above</p>
+<p class="admonition-title">Replace <code>xxx</code> and <code>yyy</code> with the appropriate OS and GPU codes as seen in the table above</p>
 </div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ln -sf environments-and-requirements/environment-xxx-yyy.yml environment.yml
 </code></pre></div>
@@ -1166,8 +1164,9 @@ the InvokeAI root directory and that it points to the correct file in the
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Since it requires admin privileges to create links, we will use the copy (cp)
-command to create your <code>environment.yml</code></p>
+<div class="admonition todo">
+<p class="admonition-title"> Since it requires admin privileges to create links, we will use the copy (cp) command to create your <code>environment.yml</code></p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cp environments-and-requirements\environment-win-cuda.yml environment.yml
 </code></pre></div>
 <p>Afterwards verify that the file <code>environment.yml</code> has been created, either via the
@@ -1245,7 +1244,7 @@ the <code>invokeai</code> environment is active and if not, repeat step 5.</p>
 </li>
 <li>
 <p>Render away!</p>
-<p>Browse the <a href="../features">features</a> section to learn about all the things you
+<p>Browse the <a href="../../features/CLI/">features</a> section to learn about all the things you
 can do with InvokeAI.</p>
 <p>Note that some GPUs are slow to warm up. In particular, when using an AMD
 card with the ROCm driver, you may have to wait for over a minute the first
