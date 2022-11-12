@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/installation/INSTALL_MANUAL/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     
@@ -115,7 +115,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -125,7 +125,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1165,9 +1165,9 @@ the InvokeAI root directory and that it points to the correct file in the
 </div>
 <div class="tabbed-block">
 <div class="admonition todo">
-<p class="admonition-title"> Since it requires admin privileges to create links, we will use the copy (cp) command to create your <code>environment.yml</code></p>
+<p class="admonition-title"> Since it requires admin privileges to create links, we will use the copy command to create your <code>environment.yml</code></p>
 </div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cp environments-and-requirements\environment-win-cuda.yml environment.yml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>copy environments-and-requirements\environment-win-cuda.yml environment.yml
 </code></pre></div>
 <p>Afterwards verify that the file <code>environment.yml</code> has been created, either via the
 explorer or by using the command <code>dir</code> from the terminal</p>
@@ -1176,6 +1176,9 @@ explorer or by using the command <code>dir</code> from the terminal</p>
 </div>
 </div>
 </div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Do not try to run conda on directly on the subdirectory environments file. This won't work. Instead, copy or link it to the top-level directory as shown.</p>
 </div>
 </li>
 <li>
@@ -1345,19 +1348,21 @@ this from the top-level directory is:</p>
 </div>
 <div class="tabbed-block">
 <div class="admonition info">
-<p class="admonition-title">since admin privileges are required to make links, so we use the copy (<code>cp</code>) command instead</p>
+<p class="admonition-title">on Windows, admin privileges are required to make links, so we use the copy command instead</p>
 </div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cp environments-and-requirements\requirements-lin-win-colab-cuda.txt requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>copy environments-and-requirements\requirements-lin-win-colab-cuda.txt requirements.txt
 </code></pre></div>
 </div>
 </div>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Please do not link or copy <code>environments-and-requirements/requirements.txt</code>.
+<p>Please do not link or copy <code>environments-and-requirements/requirements-base.txt</code>.
 This is a base requirements file that does not have the platform-specific
-libraries.</p>
+libraries. Also, be sure to link or copy the platform-specific file to</p>
 </div>
+<p>a top-level file named <code>requirements.txt</code> as shown here. Running pip on
+a requirements file in a subdirectory will not work as expected.</p>
 </div>
 <p>When this is done, confirm that a file named <code>requirements.txt</code> has been
 created in the InvokeAI root directory and that it points to the correct
@@ -1451,7 +1456,7 @@ the magic incantations for Conda and PIP.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 11, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 12, 2022</span>
       
         <br>
         Created:

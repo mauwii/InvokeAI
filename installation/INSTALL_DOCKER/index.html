@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://invoke-ai.github.io/InvokeAI/installation/INSTALL_DOCKER/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.472b142f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.08040f6c.min.css">
@@ -58,7 +58,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     
@@ -115,7 +115,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -125,7 +125,7 @@
           
           
           
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1120,14 +1120,16 @@ another environment with NVIDIA GPUs on-premises or in the cloud.</p>
 <h2 id="installation-on-a-linux-container">Installation on a Linux container<a class="headerlink" href="#installation-on-a-linux-container" title="Permanent link">#</a></h2>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h3>
 <h4 id="install-docker">Install <a href="https://github.com/santisbon/guides#docker">Docker</a><a class="headerlink" href="#install-docker" title="Permanent link">#</a></h4>
-<p>On the Docker Desktop app, go to Preferences, Resources, Advanced. Increase the
-CPUs and Memory to avoid this
+<p>On the <a href="https://docs.docker.com/get-docker/">Docker Desktop app</a>, go to
+Preferences, Resources, Advanced. Increase the CPUs and Memory to avoid this
 <a href="https://github.com/invoke-ai/InvokeAI/issues/342">Issue</a>. You may need to
 increase Swap and Disk image size too.</p>
 <h4 id="get-a-huggingface-token">Get a Huggingface-Token<a class="headerlink" href="#get-a-huggingface-token" title="Permanent link">#</a></h4>
-<p>Go to <a href="https://huggingface.co/settings/tokens">Hugging Face</a>, create a token and
-temporary place it somewhere like a open texteditor window (but dont save it!,
-only keep it open, we need it in the next step)</p>
+<p>Besides the Docker Agent you will need an Account on
+<a href="https://huggingface.co/join">huggingface.co</a>.</p>
+<p>After you succesfully registered your account, go to
+<a href="https://huggingface.co/settings/tokens">huggingface.co/settings/tokens</a>, create
+a token and copy it, since you will need in for the next step.</p>
 <h3 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h3>
 <p>Set the fork you want to use and other variables.</p>
 <div class="admonition tip">
@@ -1197,10 +1199,10 @@ volume if not existing yet, or if empty it will just download the models.</p>
 you the link to open it. But if you want to use some other parameters you can
 also do so.</p>
 <div class="admonition example">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker-build/run.sh --from_file tests/validate_pr_prompt.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./docker-build/run.sh --from_file tests/validate_pr_prompt.txt
 </code></pre></div>
 <p>The output folder is located on the volume which is also used to store the model.</p>
-<p>Find out more about available CLI-Parameter at <a href="../../features/CLI/">features/CLI.md</a></p>
+<p>Find out more about available CLI-Parameters at <a href="../features/CLI.md/#arguments">features/CLI.md</a></p>
 </div>
 <hr />
 <div class="admonition warning">
