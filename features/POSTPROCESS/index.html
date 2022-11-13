@@ -1064,39 +1064,30 @@
 
 <h1 id="postprocessing"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.7 14.3-1 1-2-2 1-1c.1-.1.2-.2.4-.2.1 0 .3.1.4.2l1.3 1.3c.1.2.1.5-.1.7M13 19.9V22h2.1l6.1-6.1-2-2-6.2 6M21 5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h6v-1.9l1.1-1.1H5l3.5-4.5 2.5 3 3.5-4.5 1.6 2.1 4.9-5V5Z"/></svg></span> Postprocessing<a class="headerlink" href="#postprocessing" title="Permanent link">#</a></h1>
 <h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">#</a></h2>
-<p>This extension provides the ability to restore faces and upscale
-images.</p>
-<p>Face restoration and upscaling can be applied at the time you generate
-the images, or at any later time against a previously-generated PNG
-file, using the <a href="#fixing-previously-generated-images">!fix</a>
-command. <a href="../OUTPAINTING/">Outpainting and outcropping</a> can only be
-applied after the fact.</p>
+<p>This extension provides the ability to restore faces and upscale images.</p>
+<p>Face restoration and upscaling can be applied at the time you generate the
+images, or at any later time against a previously-generated PNG file, using the
+<a href="#fixing-previously-generated-images">!fix</a> command.
+<a href="../OUTPAINTING/">Outpainting and outcropping</a> can only be applied after the
+fact.</p>
 <h2 id="face-fixing">Face Fixing<a class="headerlink" href="#face-fixing" title="Permanent link">#</a></h2>
 <p>The default face restoration module is GFPGAN. The default upscale is
-Real-ESRGAN. For an alternative face restoration module, see <a href="#codeformer-support">CodeFormer
-Support</a> below.</p>
-<p>As of version 1.14, environment.yaml will install the Real-ESRGAN
-package into the standard install location for python packages, and
-will put GFPGAN into a subdirectory of "src" in the InvokeAI
-directory. Upscaling with Real-ESRGAN should "just work" without
-further intervention. Simply pass the <code>--upscale</code> (<code>-U</code>) option on the
-<code>invoke&gt;</code> command line, or indicate the desired scale on the popup in
-the Web GUI.</p>
-<p><strong>GFPGAN</strong> requires a series of downloadable model files to
-work. These are loaded when you run <code>scripts/preload_models.py</code>. If
-GFPAN is failing with an error, please run the following from the
-InvokeAI directory:</p>
+Real-ESRGAN. For an alternative face restoration module, see
+<a href="#codeformer-support">CodeFormer Support</a> below.</p>
+<p>As of version 1.14, environment.yaml will install the Real-ESRGAN package into
+the standard install location for python packages, and will put GFPGAN into a
+subdirectory of "src" in the InvokeAI directory. Upscaling with Real-ESRGAN
+should "just work" without further intervention. Simply pass the <code>--upscale</code>
+(<code>-U</code>) option on the <code>invoke&gt;</code> command line, or indicate the desired scale on
+the popup in the Web GUI.</p>
+<p><strong>GFPGAN</strong> requires a series of downloadable model files to work. These are
+loaded when you run <code>scripts/preload_models.py</code>. If GFPAN is failing with an
+error, please run the following from the InvokeAI directory:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>python scripts/preload_models.py
 </code></pre></div>
-<p>If you do not run this script in advance, the GFPGAN module will attempt
-to download the models files the first time you try to perform facial
+<p>If you do not run this script in advance, the GFPGAN module will attempt to
+download the models files the first time you try to perform facial
 reconstruction.</p>
-<p>Alternatively, if you have GFPGAN installed elsewhere, or if you are
-using an earlier version of this package which asked you to install
-GFPGAN in a sibling directory, you may use the <code>--gfpgan_dir</code> argument
-with <code>invoke.py</code> to set a custom path to your GFPGAN directory. <em>There
-are other GFPGAN related boot arguments if you wish to customize
-further.</em></p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">#</a></h2>
 <p>You will now have access to two new prompt arguments.</p>
 <h3 id="upscaling">Upscaling<a class="headerlink" href="#upscaling" title="Permanent link">#</a></h3>
@@ -1144,14 +1135,14 @@ actions.</p>
 <h2 id="codeformer-support">CodeFormer Support<a class="headerlink" href="#codeformer-support" title="Permanent link">#</a></h2>
 <p>This repo also allows you to perform face restoration using
 <a href="https://github.com/sczhou/CodeFormer">CodeFormer</a>.</p>
-<p>In order to setup CodeFormer to work, you need to download the models
-like with GFPGAN. You can do this either by running
-<code>preload_models.py</code> or by manually downloading the <a href="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth">model
-file</a>
+<p>In order to setup CodeFormer to work, you need to download the models like with
+GFPGAN. You can do this either by running <code>preload_models.py</code> or by manually
+downloading the
+<a href="https://github.com/sczhou/CodeFormer/releases/download/v0.1.0/codeformer.pth">model file</a>
 and saving it to <code>ldm/invoke/restoration/codeformer/weights</code> folder.</p>
-<p>You can use <code>-ft</code> prompt argument to swap between CodeFormer and the
-default GFPGAN. The above mentioned <code>-G</code> prompt argument will allow
-you to control the strength of the restoration effect.</p>
+<p>You can use <code>-ft</code> prompt argument to swap between CodeFormer and the default
+GFPGAN. The above mentioned <code>-G</code> prompt argument will allow you to control the
+strength of the restoration effect.</p>
 <h3 id="usage_1">Usage<a class="headerlink" href="#usage_1" title="Permanent link">#</a></h3>
 <p>The following command will perform face restoration with CodeFormer instead of
 the default gfpgan.</p>
@@ -1172,9 +1163,9 @@ situations when there is very little facial data to work with.</p>
 <p><code>&lt;prompt&gt; -G 1.0 -ft codeformer -cf 0.1</code></p>
 <h2 id="fixing-previously-generated-images">Fixing Previously-Generated Images<a class="headerlink" href="#fixing-previously-generated-images" title="Permanent link">#</a></h2>
 <p>It is easy to apply face restoration and/or upscaling to any
-previously-generated file. Just use the syntax <code>!fix path/to/file.png
-&lt;options&gt;</code>. For example, to apply GFPGAN at strength 0.8 and upscale
-2X for a file named <code>./outputs/img-samples/000044.2945021133.png</code>,
+previously-generated file. Just use the syntax
+<code>!fix path/to/file.png &lt;options&gt;</code>. For example, to apply GFPGAN at strength 0.8
+and upscale 2X for a file named <code>./outputs/img-samples/000044.2945021133.png</code>,
 just run:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>invoke&gt; !fix ./outputs/img-samples/000044.2945021133.png -G <span class="m">0</span>.8 -U <span class="m">2</span>
 </code></pre></div>
@@ -1191,7 +1182,7 @@ you can disable them on the invoke.py command line with the <code>--no_restore</
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 5, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 10, 2022</span>
       
         <br>
         Created:
