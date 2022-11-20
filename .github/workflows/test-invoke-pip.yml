@@ -72,11 +72,14 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
 
+      - name: install dependencies
+        run: ${{ env.pythonLocation }}/bin/pip install --upgrade pip setuptools wheel
+
       - name: install requirements
         run: ${{ env.pythonLocation }}/bin/pip install --prefer-binary -r requirements.txt
 
-      - name: install base requirements
-        run: ${{ env.pythonLocation }}/bin/pip install --prefer-binary -r environments-and-requirements/requirements-base.txt
+      # - name: install base requirements
+      #   run: ${{ env.pythonLocation }}/bin/pip install --prefer-binary -r environments-and-requirements/requirements-base.txt
 
       - name: Use Cached Stable Diffusion Model
         id: cache-sd-model
