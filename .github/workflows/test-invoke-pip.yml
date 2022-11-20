@@ -63,6 +63,9 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/development' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> $GITHUB_ENV
 
+      - name: create requirements.txt
+        run: cp environments-and-requirements/${{ matrix.requirements-file }} requirements.txt
+
       - name: setup python
         uses: actions/setup-python@v4
         with:
@@ -70,9 +73,7 @@ jobs:
           cache: 'pip'
 
       - name: install requirements
-        run: |
-          cp environments-and-requirements/${{ matrix.requirements-file }} requirements.txt
-          python3 -m pip install --prefer-binary -r requirements.txt
+        run: python3 -m pip install --prefer-binary -r requirements.txt
 
       - name: Use Cached Stable Diffusion Model
         id: cache-sd-model
