@@ -113,5 +113,5 @@ jobs:
         id: archive-results
         uses: actions/upload-artifact@v3
         with:
-          name: results_${{ matrix.os }}_${{ matrix.requirements-file }}
+          name: results_${{ matrix.requirements-file }}_${{ matrix.python-version }}
           path: outputs/img-samples
