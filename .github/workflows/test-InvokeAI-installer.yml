@@ -39,4 +39,5 @@ jobs:
         run: unzip installer.zip
 
       - name: run installer
-        run: InvokeAI/${{ matrix.installer }}
+        run: ${{ matrix.installer }}
+        working-directory: InvokeAI
