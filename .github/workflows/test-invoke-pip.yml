@@ -21,6 +21,10 @@ jobs:
           - requirements-lin-cuda.txt
           - requirements-lin-amd.txt
           - requirements-mac-mps-cpu.txt
+        python-verison:
+          - '3.9'
+          - '3.10'
+          - '3.11'
         include:
           - requirements-file: requirements-lin-cuda.txt
             os: ubuntu-latest
@@ -34,7 +38,7 @@ jobs:
           - stable-diffusion-model: stable-diffusion-1.5
             stable-diffusion-model-url: https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt
             stable-diffusion-model-dl-path: models/ldm/stable-diffusion-v1/v1-5-pruned-emaonly.ckpt
-    name: ${{ matrix.os }} with ${{ matrix.requirements-file }}
+    name: ${{ matrix.requirements-file }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     env:
       CONDA_ENV_NAME: invokeai
@@ -64,7 +68,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: ${{ matrix.python-version }}
           cache: 'pip'
 
       - name: install requirements
