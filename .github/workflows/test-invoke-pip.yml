@@ -73,7 +73,7 @@ jobs:
           cache: 'pip'
 
       - name: install requirements
-        run: python3 -m pip install --prefer-binary -r requirements.txt
+        run: ${{ env.pythonLocation }}/bin/pip install --prefer-binary -r requirements.txt
 
       - name: Use Cached Stable Diffusion Model
         id: cache-sd-model
@@ -98,13 +98,13 @@ jobs:
       - name: run preload_models.py
         id: run-preload-models
         run: |
-          python3 scripts/preload_models.py \
+          ${{ env.pythonLocation }}/bin/python scripts/preload_models.py \
             --no-interactive
 
       - name: Run the tests
         id: run-tests
         run: |
-          time python3 scripts/invoke.py \
+          time ${{ env.pythonLocation }}/bin/python scripts/invoke.py \
             --model ${{ matrix.stable-diffusion-model }} \
             --from_file ${{ env.TEST_PROMPTS }}
 
