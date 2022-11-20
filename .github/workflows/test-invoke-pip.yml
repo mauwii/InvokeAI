@@ -21,7 +21,7 @@ jobs:
           - requirements-lin-cuda.txt
           - requirements-lin-amd.txt
           - requirements-mac-mps-cpu.txt
-        python-verison:
+        python-version:
           - '3.9'
           - '3.10'
           - '3.11'
