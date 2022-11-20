@@ -16,23 +16,24 @@ jobs:
       fail-fast: false
       matrix:
         stable-diffusion-model:
-          - 'https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt'
-        os:
-          - ubuntu-latest
-          - macOS-12
+          - stable-diffusion-1.5
+        requirements-file:
+          - requirements-lin-cuda.txt
+          - requirements-lin-amd.txt
+          - requirements-mac-mps-cpu.txt
         include:
-          - os: ubuntu-latest
-            requirements-file: requirements-lin-cuda.txt
+          - requirements-file: requirements-lin-cuda.txt
+            os: ubuntu-latest
             default-shell: bash -l {0}
-          - os: ubuntu-latest
-            requirements-file: requirements-lin-amd.txt
+          - requirements-file: requirements-lin-amd.txt
+            os: ubuntu-latest
             default-shell: bash -l {0}
-          - os: macOS-12
-            requirements-file: requirements-mac-mps-cpu.txt
+          - requirements-file: requirements-mac-mps-cpu.txt
+            os: macOS-12
             default-shell: bash -l {0}
-          - stable-diffusion-model: https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt
+          - stable-diffusion-model: stable-diffusion-1.5
+            stable-diffusion-model-url: https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt
             stable-diffusion-model-dl-path: models/ldm/stable-diffusion-v1/v1-5-pruned-emaonly.ckpt
-            stable-diffusion-model-switch: stable-diffusion-1.5
     name: ${{ matrix.os }} with ${{ matrix.requirements-file }}
     runs-on: ${{ matrix.os }}
     env:
@@ -74,12 +75,12 @@ jobs:
         id: cache-sd-model
         uses: actions/cache@v3
         env:
-          cache-name: cache-${{ matrix.stable-diffusion-model-switch }}
+          cache-name: cache-${{ matrix.stable-diffusion-model }}
         with:
           path: ${{ matrix.stable-diffusion-model-dl-path }}
           key: ${{ env.cache-name }}
 
-      - name: Download ${{ matrix.stable-diffusion-model-switch }}
+      - name: Download ${{ matrix.stable-diffusion-model }}
         id: download-stable-diffusion-model
         if: ${{ steps.cache-sd-model.outputs.cache-hit != 'true' }}
         run: |
@@ -88,7 +89,7 @@ jobs:
           curl \
             -H "Authorization: Bearer ${{ secrets.HUGGINGFACE_TOKEN }}" \
             -o ${{ matrix.stable-diffusion-model-dl-path }} \
-            -L ${{ matrix.stable-diffusion-model }}
+            -L ${{ matrix.stable-diffusion-model-url }}
 
       - name: run preload_models.py
         id: run-preload-models
@@ -100,7 +101,7 @@ jobs:
         id: run-tests
         run: |
           time python scripts/invoke.py \
-            --model ${{ matrix.stable-diffusion-model-switch }} \
+            --model ${{ matrix.stable-diffusion-model }} \
             --from_file ${{ env.TEST_PROMPTS }}
 
       - name: Archive results
