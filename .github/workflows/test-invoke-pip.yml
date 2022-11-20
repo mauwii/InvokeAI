@@ -75,6 +75,9 @@ jobs:
       - name: install requirements
         run: ${{ env.pythonLocation }}/bin/pip install --prefer-binary -r requirements.txt
 
+      - name: install invoke-ai
+        run: ${{ env.pythonLocation }}/bin/pip install -e .
+
       - name: Use Cached Stable Diffusion Model
         id: cache-sd-model
         uses: actions/cache@v3
