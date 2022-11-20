@@ -33,7 +33,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: download installer
-        run: curl -o installer.zip -L https://github.com/invoke-ai/InvokeAI/releases/latest/download/${{ matrix.installer }}
+        run: curl -o installer.zip -L https://github.com/invoke-ai/InvokeAI/releases/latest/download/${{ matrix.installer-zip }}
 
       - name: unpack installer
         run: unzip installer.zip
