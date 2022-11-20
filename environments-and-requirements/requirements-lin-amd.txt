@@ -1,7 +1,9 @@
--r environments-and-requirements/requirements-base.txt
-
-# Get hardware-appropriate torch/torchvision 
+# Get hardware-appropriate torch/torchvision
 --extra-index-url https://download.pytorch.org/whl/rocm5.1.1 --trusted-host https://download.pytorch.org
 torch
 torchvision
+
+# install base requirements
+-r environments-and-requirements/requirements-base.txt
+
 -e .
