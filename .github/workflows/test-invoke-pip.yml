@@ -40,8 +40,6 @@ jobs:
             stable-diffusion-model-dl-path: models/ldm/stable-diffusion-v1/v1-5-pruned-emaonly.ckpt
     name: ${{ matrix.requirements-file }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
-    env:
-      CONDA_ENV_NAME: invokeai
     defaults:
       run:
         shell: ${{ matrix.default-shell }}
