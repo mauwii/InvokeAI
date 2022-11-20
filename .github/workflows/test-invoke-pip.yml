@@ -22,9 +22,10 @@ jobs:
           - macOS-12
         include:
           - os: ubuntu-latest
-            requirements-file:
-              - requirements-lin-cuda.txt
-              - requirements-lin-amd.txt
+            requirements-file: requirements-lin-cuda.txt
+            default-shell: bash -l {0}
+          - os: ubuntu-latest
+            requirements-file: requirements-lin-amd.txt
             default-shell: bash -l {0}
           - os: macOS-12
             requirements-file: requirements-mac-mps-cpu.txt
