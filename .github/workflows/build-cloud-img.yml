@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-    # - main
+    - main
     - ebr-test-docker-push ### This is a "fake main"
     # tags:
     #   - v*
