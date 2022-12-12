@@ -16,7 +16,7 @@ jobs:
         flavor:
           - amd
           - cuda
-          - cloud
+          # - cloud
         include:
           - flavor: amd
             pip-requirements: requirements-lin-amd.txt
@@ -26,10 +26,10 @@ jobs:
             pip-requirements: requirements-lin-cuda.txt
             dockerfile: docker-build/Dockerfile
             platforms: linux/amd64,linux/arm64
-          - flavor: cloud
-            pip-requirements: requirements-lin-cuda.txt
-            dockerfile: docker-build/Dockerfile.cloud
-            platforms: linux/amd64
+          # - flavor: cloud
+          #   pip-requirements: requirements-lin-cuda.txt
+          #   dockerfile: docker-build/Dockerfile.cloud
+          #   platforms: linux/amd64
     runs-on: ubuntu-latest
     name: ${{ matrix.flavor }}
     steps:
