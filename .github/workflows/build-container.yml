@@ -1,5 +1,3 @@
-# Building the Image without pushing to confirm it is still buildable
-# confirum functionality would unfortunately need way more resources
 name: build container image
 on:
   push:
