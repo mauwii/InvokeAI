@@ -14,16 +14,23 @@ jobs:
       matrix:
         registry:
           - ghcr.io
-        pip-requirements:
-          - requirements-lin-amd.txt
-          - requirements-lin-cuda.txt
+        flavor:
+          - amd
+          - cuda
+          - cloud
         include:
-          - pip-requirements: requirements-lin-amd.txt
-            flavor: amd
+          - flavor: amd
+            pip-requirements: requirements-lin-amd.txt
+            dockerfile: docker-build/Dockerfile
             platforms: linux/amd64,linux/arm64
-          - pip-requirements: requirements-lin-cuda.txt
-            flavor: cuda
+          - flavor: cuda
+            pip-requirements: requirements-lin-cuda.txt
+            dockerfile: docker-build/Dockerfile
             platforms: linux/amd64,linux/arm64
+          - flavor: cloud
+            pip-requirements: requirements-lin-cuda.txt
+            dockerfile: docker-build/Dockerfile.cloud
+            platforms: linux/amd64
     runs-on: ubuntu-latest
     name: ${{ matrix.flavor }}
     steps:
@@ -62,7 +69,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: docker-build/Dockerfile
+          file: ${{ matrix.dockerfile }}
           platforms: ${{ matrix.platforms }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
