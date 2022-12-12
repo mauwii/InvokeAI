@@ -24,6 +24,7 @@ COPY . ./environments-and-requirements/${PIP_REQUIREMENTS} ./
 RUN python3 -m venv .venv \
   && pip install \
     --no-cache-dir \
+    wheel \
     -r ${PIP_REQUIREMENTS}
 
 FROM python:3.10-slim AS runtime
