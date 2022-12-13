@@ -1,12 +1,12 @@
 name: Build and push cloud image
 on:
   workflow_dispatch:
-  push:
-    branches:
-    - main
-    tags:
-      - v*
-  # we will NOT push the image on pull requests, only test buildability.
+  # push:
+  #   branches:
+  #   - main
+  #   tags:
+  #     - v*
+  # # we will NOT push the image on pull requests, only test buildability.
   pull_request:
     branches:
     - main
