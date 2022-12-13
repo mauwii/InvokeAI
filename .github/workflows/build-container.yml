@@ -1,8 +1,11 @@
 name: build container image
 on:
-  push:
+  # push:
+  #   branches:
+  #     - 'main'
+  pull_request:
     branches:
-      - 'main'
+      - main
 
 jobs:
   docker:
