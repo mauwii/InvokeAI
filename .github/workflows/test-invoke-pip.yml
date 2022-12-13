@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - 'main'
-      - 'development'
 
 concurrency:
    group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
