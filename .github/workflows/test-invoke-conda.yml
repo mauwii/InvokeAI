@@ -1,9 +1,9 @@
 name: Test invoke.py
 on:
-  push:
-    branches:
-      - 'main'
-      - 'development'
+  # push:
+  #   branches:
+  #     - 'main'
+  #     - 'development'
   pull_request:
     branches:
       - 'main'
