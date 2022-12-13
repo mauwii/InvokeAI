@@ -3,11 +3,9 @@ on:
   push:
     branches:
       - 'main'
-      - 'development'
   pull_request:
     branches:
       - 'main'
-      - 'development'
 
 concurrency:
    group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -37,7 +35,7 @@ jobs:
             curl-command: curl
             github-env: $GITHUB_ENV
           - requirements-file: requirements-mac-mps-cpu.txt
-            os: macOS-12
+            os: macOS-11
             curl-command: curl
             github-env: $GITHUB_ENV
           - requirements-file: requirements-win-colab-cuda.txt
