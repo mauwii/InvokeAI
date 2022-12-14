@@ -36,7 +36,7 @@ jobs:
             curl-command: curl
             github-env: $GITHUB_ENV
           - requirements-file: requirements-mac-mps-cpu.txt
-            os: macOS-11
+            os: macOS-12
             curl-command: curl
             github-env: $GITHUB_ENV
           - requirements-file: requirements-win-colab-cuda.txt

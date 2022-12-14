@@ -35,7 +35,7 @@ jobs:
             github-env: $GITHUB_ENV
             default-shell: bash -l {0}
           - environment-yaml: environment-mac.yml
-            os: macos-11
+            os: macos-12
             curl-command: curl
             github-env: $GITHUB_ENV
             default-shell: bash -l {0}
