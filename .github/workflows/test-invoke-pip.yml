@@ -66,10 +66,10 @@ jobs:
           echo "INVOKEAI_ROOT=${{ github.workspace }}/invokeai" >> ${{ matrix.github-env }}
           echo "INVOKEAI_OUTDIR=${{ github.workspace }}/invokeai/outputs" >> ${{ matrix.github-env }}
 
-      - name: create models.yaml from example
-        run: |
-          mkdir -p ${{ env.INVOKEAI_ROOT }}/configs
-          cp configs/models.yaml.example ${{ env.INVOKEAI_ROOT }}/configs/models.yaml
+      # - name: create models.yaml from example
+      #   run: |
+      #     mkdir -p ${{ env.INVOKEAI_ROOT }}/configs
+      #     cp configs/models.yaml.example ${{ env.INVOKEAI_ROOT }}/configs/models.yaml
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
