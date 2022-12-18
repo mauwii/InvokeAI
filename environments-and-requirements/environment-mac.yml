@@ -7,7 +7,6 @@ dependencies:
   - pip>=22.2
   - pytorch=1.12.1
   - torchvision=0.13.1
-  - torchaudio=0.12.1
 
   # I suggest to keep the other deps sorted for convenience.
   # To determine what the latest versions should be, run:
@@ -18,9 +17,9 @@ dependencies:
   # ```
 
   - eventlet
-  - flask=2.1.*
-  - flask-cors==3.0.10
-  - flask-socketio==5.3.1
+  - flask==2.1.*
+  - flask-cors==3.0.*
+  - flask-socketio==5.3.*
   - grpcio
   - huggingface_hub
   - imageio
@@ -36,7 +35,7 @@ dependencies:
   - streamlit
   - sympy=1.10
   - send2trash=1.8
-  - transformers=4.24
+  - transformers=4.*
   - pip:
       - albumentations
       - diffusers==0.10.*
