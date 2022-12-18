@@ -17,9 +17,6 @@ dependencies:
   # ```
 
   - eventlet
-  - flask
-  - flask-cors
-  - flask-socketio
   - grpcio
   - huggingface_hub
   - imageio
@@ -27,7 +24,6 @@ dependencies:
   - mpmath=1.2
   - numpy
   - protobuf=3.*
-  - opencv
   - requests==2.*
   - scikit-image
   - scipy
@@ -40,6 +36,9 @@ dependencies:
       - diffusers==0.10.*
       - einops
       - facexlib
+      - flask==2.1.3
+      - flask-cors==3.0.10
+      - flask-socketio==5.3.0
       - flaskwebgui==1.0.3
       - getpass_asterisk
       - kornia
@@ -48,7 +47,7 @@ dependencies:
       - pudb
       - pytorch-lightning==1.7.7
       - realesrgan
-      - test-tube==0.7.5
+      - test-tube>=0.7.5
       - torchmetrics
       - torch-fidelity
       - https://github.com/openai/CLIP/archive/eaa22acb90a5876642d0507623e859909230a52d.zip#egg=clip
