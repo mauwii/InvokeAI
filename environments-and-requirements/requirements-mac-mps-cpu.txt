@@ -1,5 +1,7 @@
 -r environments-and-requirements/requirements-base.txt
-grpcio<1.51.0
+grpcio
 protobuf==3.19.6
---pre torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/nightly/cpu
+torch==1.12.1
+torchvision==0.13.1
+torchaudio==0.12.1
 -e .
