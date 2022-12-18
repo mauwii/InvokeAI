@@ -19,7 +19,7 @@ dependencies:
   - eventlet
   - flask
   - flask-cors
-  - flask-socketio==5.3.*
+  - flask-socketio
   - grpcio
   - huggingface_hub
   - imageio
@@ -29,12 +29,12 @@ dependencies:
   - protobuf=3.*
   - opencv
   - requests==2.*
-  - scikit-image>=0.19
-  - scipy=1.9
+  - scikit-image
+  - scipy
   - streamlit
-  - sympy=1.10
-  - send2trash=1.8
-  - transformers=4.*
+  - sympy
+  - send2trash
+  - transformers
   - pip:
       - albumentations
       - diffusers==0.10.*
