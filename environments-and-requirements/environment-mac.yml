@@ -1,16 +1,16 @@
 name: invokeai
 channels:
-  - pytorch
+  - pytorch-nightly
   - conda-forge
   - defaults
 dependencies:
   - python=3.10
   - pip>=22.2
-  - pytorch=1.12
-  - pytorch-lightning=1.7
-  - torchvision=0.13
-  - torchmetrics=0.10
-  - torch-fidelity=0.3
+  - pytorch
+  - pytorch-lightning
+  - torchvision
+  - torchmetrics
+  - torch-fidelity
 
   # I suggest to keep the other deps sorted for convenience.
   # To determine what the latest versions should be, run:
