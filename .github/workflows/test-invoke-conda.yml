@@ -81,12 +81,12 @@ jobs:
       - name: create environment.yml
         run: cp "environments-and-requirements/${{ matrix.environment-yaml }}" environment.yml
 
-      - name: Use cached conda packages
-        id: use-cached-conda-packages
-        uses: actions/cache@v3
-        with:
-          path: ~/conda_pkgs_dir
-          key: conda-pkgs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles(matrix.environment-yaml) }}
+      # - name: Use cached conda packages
+      #   id: use-cached-conda-packages
+      #   uses: actions/cache@v3
+      #   with:
+      #     path: ~/conda_pkgs_dir
+      #     key: conda-pkgs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles(matrix.environment-yaml) }}
 
       - name: Activate Conda Env
         id: activate-conda-env
@@ -94,7 +94,9 @@ jobs:
         with:
           activate-environment: ${{ env.CONDA_ENV_NAME }}
           environment-file: environment.yml
-          miniconda-version: latest
+          miniforge-variant: Mambaforge
+          miniforge-version: latest
+          # miniconda-version: latest
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
