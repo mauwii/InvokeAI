@@ -19,7 +19,6 @@ omegaconf
 opencv-python
 picklescan
 pillow
-pip>=22
 pudb
 pyreadline3
 pytorch-lightning==1.7.7

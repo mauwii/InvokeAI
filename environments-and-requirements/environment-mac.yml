@@ -4,7 +4,7 @@ channels:
   - conda-forge
   - nodefaults
 dependencies:
-  - python=3.10
+  - python=3.10.*
   - pip>=22.2
   - pytorch=1.12.1
   - torchvision=0.13.1
@@ -49,5 +49,3 @@ dependencies:
       - -e .
 variables:
   PYTORCH_ENABLE_MPS_FALLBACK: 1
-  # LDFLAGS: $(pkg-config --libs opencv4)
-  # CFLAGS: $(pkg-config --include opencv4)
