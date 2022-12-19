@@ -8,6 +8,7 @@ dependencies:
   - pip>=22.2
   - pytorch=1.12.*
   - torchvision=0.13.*
+  - torchmetrics=0.10.*
   - albumentations=1.2.*
   - diffusers
   - eventlet
@@ -15,13 +16,13 @@ dependencies:
   - flask=2.1.*
   - flask-socketio=5.3.*
   - flask-cors=3.0.*
-  - grpcio=1.47.*
-  - huggingface_hub=0.10.*
+  - grpcio
+  # - huggingface_hub=0.10.*
   - imageio=2.22.*
   - imageio-ffmpeg=0.4.*
   - kornia=0.6.*
   - numpy=1.23.*
-  - omegaconf=2.3.*
+  - omegaconf=2.1.*
   - pudb=2019.*
   - py-opencv=4.6.*
   - pytorch-lightning=1.7.*
