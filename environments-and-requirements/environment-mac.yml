@@ -9,6 +9,7 @@ dependencies:
   - pytorch=1.12.*
   - torchvision=0.13.*
   - torchmetrics=0.10.*
+
   - albumentations=1.2.*
   - diffusers
   - eventlet
@@ -21,6 +22,7 @@ dependencies:
   - imageio=2.22.*
   - imageio-ffmpeg=0.4.*
   - kornia=0.6.*
+  - nomkl
   - numpy=1.23.*
   - omegaconf=2.1.*
   - pudb=2019.*
