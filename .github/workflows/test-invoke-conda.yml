@@ -108,26 +108,26 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/development' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
-      - name: Use Cached Stable Diffusion Model
-        id: cache-sd-model
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-${{ matrix.stable-diffusion-model }}
-        with:
-          path: ${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}
-          key: ${{ env.cache-name }}
+      # - name: Use Cached Stable Diffusion Model
+      #   id: cache-sd-model
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: cache-${{ matrix.stable-diffusion-model }}
+      #   with:
+      #     path: ${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}
+      #     key: ${{ env.cache-name }}
 
-      - name: Download ${{ matrix.stable-diffusion-model }}
-        id: download-stable-diffusion-model
-        if: ${{ steps.cache-sd-model.outputs.cache-hit != 'true' }}
-        run: |
-          mkdir -p "${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}"
-          ${{ matrix.curl-command }} -H "Authorization: Bearer ${{ secrets.HUGGINGFACE_TOKEN }}" -o "${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}/${{ matrix.stable-diffusion-model-dl-name }}" -L ${{ matrix.stable-diffusion-model-url }}
+      # - name: Download ${{ matrix.stable-diffusion-model }}
+      #   id: download-stable-diffusion-model
+      #   if: ${{ steps.cache-sd-model.outputs.cache-hit != 'true' }}
+      #   run: |
+      #     mkdir -p "${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}"
+      #     ${{ matrix.curl-command }} -H "Authorization: Bearer ${{ secrets.HUGGINGFACE_TOKEN }}" -o "${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}/${{ matrix.stable-diffusion-model-dl-name }}" -L ${{ matrix.stable-diffusion-model-url }}
 
       - name: run configure_invokeai.py
         id: run-preload-models
         run: |
-          python scripts/configure_invokeai.py --skip-sd-weights --yes
+          python scripts/configure_invokeai.py --yes
 
       - name: cat invokeai.init
         id: cat-invokeai
