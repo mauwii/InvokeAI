@@ -28,8 +28,6 @@ jobs:
     if: github.event.pull_request.draft == false
     strategy:
       matrix:
-        stable-diffusion-model:
-          - 'stable-diffusion-1.5'
         environment-yaml:
           - environment-lin-amd.yml
           - environment-lin-cuda.yml
@@ -56,10 +54,6 @@ jobs:
             curl-command: curl.exe
             github-env: $env:GITHUB_ENV
             default-shell: pwsh
-          - stable-diffusion-model: stable-diffusion-1.5
-            stable-diffusion-model-url: https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt
-            stable-diffusion-model-dl-path: models/ldm/stable-diffusion-v1
-            stable-diffusion-model-dl-name: v1-5-pruned-emaonly.ckpt
     name: ${{ matrix.environment-yaml }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     env:
@@ -81,13 +75,6 @@ jobs:
       - name: create environment.yml
         run: cp "environments-and-requirements/${{ matrix.environment-yaml }}" environment.yml
 
-      # - name: Use cached conda packages
-      #   id: use-cached-conda-packages
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: ~/conda_pkgs_dir
-      #     key: conda-pkgs-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles(matrix.environment-yaml) }}
-
       - name: Activate Conda Env
         id: activate-conda-env
         uses: conda-incubator/setup-miniconda@v2
@@ -108,22 +95,6 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/development' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
-      # - name: Use Cached Stable Diffusion Model
-      #   id: cache-sd-model
-      #   uses: actions/cache@v3
-      #   env:
-      #     cache-name: cache-${{ matrix.stable-diffusion-model }}
-      #   with:
-      #     path: ${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}
-      #     key: ${{ env.cache-name }}
-
-      # - name: Download ${{ matrix.stable-diffusion-model }}
-      #   id: download-stable-diffusion-model
-      #   if: ${{ steps.cache-sd-model.outputs.cache-hit != 'true' }}
-      #   run: |
-      #     mkdir -p "${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}"
-      #     ${{ matrix.curl-command }} -H "Authorization: Bearer ${{ secrets.HUGGINGFACE_TOKEN }}" -o "${{ env.INVOKEAI_ROOT }}/${{ matrix.stable-diffusion-model-dl-path }}/${{ matrix.stable-diffusion-model-dl-name }}" -L ${{ matrix.stable-diffusion-model-url }}
-
       - name: run configure_invokeai.py
         id: run-preload-models
         run: |
@@ -141,9 +112,7 @@ jobs:
             --no-patchmatch \
             --no-nsfw_checker \
             --model ${{ matrix.stable-diffusion-model }} \
-            --from_file ${{ env.TEST_PROMPTS }} \
-            --root="${{ env.INVOKEAI_ROOT }}" \
-            --outdir="${{ env.INVOKEAI_ROOT }}/outputs"
+            --from_file ${{ env.TEST_PROMPTS }}
 
       - name: export conda env
         id: export-conda-env
