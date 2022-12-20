@@ -67,10 +67,10 @@ jobs:
         id: checkout-sources
         uses: actions/checkout@v3
 
-      - name: create models.yaml from example
-        run: |
-          mkdir -p ${{ env.INVOKEAI_ROOT }}/configs
-          cp configs/models.yaml.example ${{ env.INVOKEAI_ROOT }}/configs/models.yaml
+      # - name: create models.yaml from example
+      #   run: |
+      #     mkdir -p ${{ env.INVOKEAI_ROOT }}/configs
+      #     cp configs/models.yaml.example ${{ env.INVOKEAI_ROOT }}/configs/models.yaml
 
       - name: create environment.yml
         run: cp "environments-and-requirements/${{ matrix.environment-yaml }}" environment.yml
@@ -111,7 +111,6 @@ jobs:
           time python scripts/invoke.py \
             --no-patchmatch \
             --no-nsfw_checker \
-            --model ${{ matrix.stable-diffusion-model }} \
             --from_file ${{ env.TEST_PROMPTS }}
 
       - name: export conda env
