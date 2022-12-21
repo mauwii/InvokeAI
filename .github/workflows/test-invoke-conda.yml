@@ -88,19 +88,19 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/development' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
-      - name: InvokeAI model cache
-        id: cache-sd-model
-        uses: actions/cache@v3
-        env:
-          cache-name: invokeai-models
-        with:
-          path: ${{ env.INVOKEAI_ROOT }}/models
-          key: ${{ env.cache-name }}
+      # - name: InvokeAI model cache
+      #   id: cache-sd-model
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: invokeai-models
+      #   with:
+      #     path: ${{ env.INVOKEAI_ROOT }}/models
+      #     key: ${{ env.cache-name }}
 
       - name: run configure_invokeai.py
         id: run-preload-models
         run: |
-          python scripts/configure_invokeai.py --yes
+          python3 scripts/configure_invokeai.py --yes
 
       - name: cat invokeai.init
         id: cat-invokeai
@@ -110,7 +110,7 @@ jobs:
         id: run-tests
         if: matrix.os != 'windows-2022'
         run: |
-          time python scripts/invoke.py \
+          python3 scripts/invoke.py \
             --no-patchmatch \
             --no-nsfw_checker \
             --from_file ${{ env.TEST_PROMPTS }}

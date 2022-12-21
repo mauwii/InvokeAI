@@ -87,14 +87,14 @@ jobs:
       - name: install requirements
         run: pip3 install -r '${{ matrix.requirements-file }}'
 
-      - name: InvokeAI model cache
-        id: cache-sd-model
-        uses: actions/cache@v3
-        env:
-          cache-name: invokeai-models
-        with:
-          path: ${{ env.INVOKEAI_ROOT }}/models
-          key: ${{ env.cache-name }}
+      # - name: InvokeAI model cache
+      #   id: cache-sd-model
+      #   uses: actions/cache@v3
+      #   env:
+      #     cache-name: invokeai-models
+      #   with:
+      #     path: ${{ env.INVOKEAI_ROOT }}/models
+      #     key: ${{ env.cache-name }}
 
       - name: run configure_invokeai.py
         id: run-preload-models
