@@ -38,19 +38,15 @@ jobs:
         include:
           - requirements-file: requirements-lin-cuda.txt
             os: ubuntu-22.04
-            curl-command: curl
             github-env: $GITHUB_ENV
           - requirements-file: requirements-lin-amd.txt
             os: ubuntu-22.04
-            curl-command: curl
             github-env: $GITHUB_ENV
           - requirements-file: requirements-mac-mps-cpu.txt
             os: macOS-12
-            curl-command: curl
             github-env: $GITHUB_ENV
           - requirements-file: requirements-win-colab-cuda.txt
             os: windows-2022
-            curl-command: curl.exe
             github-env: $env:GITHUB_ENV
     name: ${{ matrix.requirements-file }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
@@ -62,11 +58,6 @@ jobs:
       - name: Checkout sources
         id: checkout-sources
         uses: actions/checkout@v3
-
-      # - name: create models.yaml from example
-      #   run: |
-      #     mkdir -p ${{ env.INVOKEAI_ROOT }}/configs
-      #     cp configs/models.yaml.example ${{ env.INVOKEAI_ROOT }}/configs/models.yaml
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}

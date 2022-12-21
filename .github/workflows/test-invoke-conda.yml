@@ -36,22 +36,18 @@ jobs:
         include:
           - environment-yaml: environment-lin-amd.yml
             os: ubuntu-22.04
-            curl-command: curl
             github-env: $GITHUB_ENV
-            default-shell: bash -l {0}
+            default-shell: bash -el {0}
           - environment-yaml: environment-lin-cuda.yml
             os: ubuntu-22.04
-            curl-command: curl
             github-env: $GITHUB_ENV
-            default-shell: bash -l {0}
+            default-shell: bash -el {0}
           - environment-yaml: environment-mac.yml
             os: macos-12
-            curl-command: curl
             github-env: $GITHUB_ENV
-            default-shell: bash -l {0}
+            default-shell: bash -el {0}
           - environment-yaml: environment-win-cuda.yml
             os: windows-2022
-            curl-command: curl.exe
             github-env: $env:GITHUB_ENV
             default-shell: pwsh
     name: ${{ matrix.environment-yaml }} on ${{ matrix.os }}
@@ -68,11 +64,6 @@ jobs:
       - name: Checkout sources
         id: checkout-sources
         uses: actions/checkout@v3
-
-      # - name: create models.yaml from example
-      #   run: |
-      #     mkdir -p ${{ env.INVOKEAI_ROOT }}/configs
-      #     cp configs/models.yaml.example ${{ env.INVOKEAI_ROOT }}/configs/models.yaml
 
       - name: create environment.yml
         run: cp "environments-and-requirements/${{ matrix.environment-yaml }}" environment.yml
