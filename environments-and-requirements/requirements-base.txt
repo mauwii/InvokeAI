@@ -27,6 +27,7 @@ requests>=2.25, <2.26
 scikit-image>=0.19, <0.20
 send2trash
 streamlit
+taming-transformers-rom1504
 test-tube>=0.7.5
 torch-fidelity
 torchmetrics
