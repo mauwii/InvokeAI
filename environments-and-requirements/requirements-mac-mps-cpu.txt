@@ -1,7 +1,8 @@
--r environments-and-requirements/requirements-base.txt
 grpcio<1.51.0
 protobuf<3.20
-torch==1.12.1
-torchvision==0.13.1
-torchaudio==0.12.1
+torch==1.13.1
+torchvision==0.14.1
+
+# Install base requirements
+-r environments-and-requirements/requirements-base.txt
 -e .
