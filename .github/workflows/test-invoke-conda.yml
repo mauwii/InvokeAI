@@ -120,12 +120,12 @@ jobs:
         if: matrix.os != 'windows-2022'
         run: |
           mkdir -p outputs/img-samples
-          conda env export --name ${{ env.CONDA_ENV_NAME }} > ${{ env.INVOKEAI_ROOT }}/outputs/environment-${{ runner.os }}-${{ runner.arch }}.yml
+          conda env export --name ${{ env.CONDA_ENV_NAME }} > ${{ env.INVOKEAI_ROOT }}/outputs/${{ matrix.environment-yaml }}
 
       - name: Archive results
         if: matrix.os != 'windows-2022'
         id: archive-results
         uses: actions/upload-artifact@v3
         with:
-          name: results_${{ matrix.requirements-file }}_${{ matrix.python-version }}
+          name: results_${{ matrix.environment-yaml }}
           path: ${{ env.INVOKEAI_ROOT }}/outputs
