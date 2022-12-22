@@ -1,9 +1,7 @@
 -r environments-and-requirements/requirements-base.txt
-grpcio
-protobuf
-# MPS acceleration is available on MacOS 12.3+
---extra-index-url https://download.pytorch.org/whl/cpu
-torch
-torchvision
-torchaudio
+grpcio<1.51.0
+protobuf<3.20
+torch==1.12.1
+torchvision==0.13.1
+torchaudio==0.12.1
 -e .
