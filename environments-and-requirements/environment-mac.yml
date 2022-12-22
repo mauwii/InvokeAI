@@ -4,47 +4,49 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.10.*
-  - pip>=22.2
-  - pytorch=1.12.*
-  - torchvision=0.13.*
-  - torchmetrics=0.10.*
+  - python>=3.9,<3.11
+  - pip>=22.2.2
+  - pytorch=1.12.1
+  - torchaudio=0.12.1
+  - torchvision=0.13.1
 
-  - albumentations=1.2.*
-  - diffusers=0.6
-  - einops=0.3.*
+  - albumentations
+  - diffusers
+  - einops
   - eventlet
-  - flask=2.1.*
-  - flask-socketio=5.3.*
-  - flask-cors=3.0.*
-  - grpcio=1.46
-  # - huggingface_hub=0.10.*
-  - imgaug=0.4
+  - flask=2.1.3
+  - flask-socketio=5.3.0
+  - flask-cors=3.0.10
+  - grpcio=1.46.*
+  - huggingface_hub
+  - humanfriendly=10.*
   - imageio=2.21.*
   - imageio-ffmpeg=0.4.*
+  - imgaug=0.4.*
   - kornia=0.6.*
+  - mpmath=1.2
   - nomkl=3
-  - numpy=1.23.*
-  - omegaconf=2.1.*
-  - pudb=2019.*
-  - py-opencv=4.6.*
-  - pytorch-lightning=1.7.*
+  - numpy=1.23.3
+  - omegaconf=2.2.3
+  - openh264=2.3
+  - onnx=1.12.*
+  - onnxruntime=1.12.*
+  - pudb=2019.2
   - protobuf=3.20.*
-  # - readline=8.1.*
-  - requests=2.28.*
+  - py-opencv=4.6.*
+  - pytorch-lightning=1.7.7
+  - requests=2.25.*
   - scipy=1.9.*
   - send2trash=1.8.*
   - streamlit=1.12.*
-  - sympy=1.11.*
-  - torch-fidelity=0.3.*
-  - transformers=4.23
+  - sympy
+  - tensorboard
+  - torch-fidelity=0.3.0
+  - torchmetrics=0.7.0
+  - transformers=4.23.*
   - pip:
-      - facexlib
-      - flaskwebgui==1.0.*
       - getpass_asterisk
-      - gfpgan==1.3.*
       - picklescan
-      - realesrgan
       - test-tube>=0.7.5
       - https://github.com/Birch-san/k-diffusion/archive/refs/tags/v0.0.10.zip#egg=k-diffusion
       - https://github.com/invoke-ai/clipseg/archive/relaxed-python-requirement.zip#egg=clipseg
