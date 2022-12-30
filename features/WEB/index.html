@@ -1036,6 +1036,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/Developers_documentation/PYTHON_TOOLS/" class="md-nav__link">
+        Python Tools
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1278,7 +1292,9 @@ example:</p>
 <h2 id="quick-guided-walkthrough-of-the-webguis-features">Quick guided walkthrough of the WebGUI's features<a class="headerlink" href="#quick-guided-walkthrough-of-the-webguis-features" title="Permanent link">#</a></h2>
 <p>While most of the WebGUI's features are intuitive, here is a guided walkthrough
 through its various components.</p>
+<figure>
 <p><img alt="Invoke Web Server - Major Components" src="../../assets/invoke-web-server-1.png" width="640px" /></p>
+</figure>
 <p>The screenshot above shows the Text to Image tab of the WebGUI. There are three
 main sections:</p>
 <ol>
@@ -1438,8 +1454,12 @@ using either the GFPGAN or CodeFormer libraries. For more information see
     (highlighted in the first screenshot below). A dialog box will appear. Leave
     <em>Strength</em> at 0.8 and press *Restore Faces". If all goes well, the eyes and
     other aspects of the face will be improved (see the second screenshot)</p>
+<figure markdown>
 <p><img alt="Invoke Web Server - Original Image" src="../../assets/invoke-web-server-3.png" /></p>
+</figure>
+<figure markdown>
 <p><img alt="Invoke Web Server - Retouched Image" src="../../assets/invoke-web-server-4.png" /></p>
+</figure>
 <p>The facial reconstruction <em>Strength</em> field adjusts how aggressively the face
 library will try to alter the face. It can be as high as 1.0, but be aware
 that this often softens the face airbrush style, losing some details. The
@@ -1472,13 +1492,13 @@ walkthrough.</p>
 <li>
 <p>Click on the <em>Image to Image</em> tab icon, which is the second icon from the
     top on the left-hand side of the screen:</p>
-<p><figure markdown>
-<img alt="Invoke Web Server - Image to Image Icon" src="../../assets/invoke-web-server-5.png" />
-</figure></p>
+<figure markdown>
+<p><img alt="Invoke Web Server - Image to Image Icon" src="../../assets/invoke-web-server-5.png" /></p>
+</figure>
 <p>This will bring you to a screen similar to the one shown here:</p>
-<p><figure markdown>
-<img alt="Invoke Web Server - Image to Image Tab" src="../../assets/invoke-web-server-6.png" width="640px" />
-</figure></p>
+<figure markdown>
+<p><img alt="Invoke Web Server - Image to Image Tab" src="../../assets/invoke-web-server-6.png" width="640px" /></p>
+</figure>
 </li>
 <li>
 <p>Drag-and-drop the Lincoln-and-Parrot image into the Image panel, or click
@@ -1490,7 +1510,9 @@ walkthrough.</p>
 <li>
 <p>Go to the prompt box and type <em>old sea captain with raven on shoulder</em> and
     press Invoke. A derived image will appear to the right of the original one:</p>
+<figure markdown>
 <p><img alt="Invoke Web Server - Image to Image example" src="../../assets/invoke-web-server-7.png" width="640px" /></p>
+</figure>
 </li>
 <li>
 <p>Experiment with the different settings. The most influential one in Image to
@@ -1517,9 +1539,9 @@ been replaced with transparency. Click on the "x" in the upper right of the
 Initial Image and upload the transparent version. Using the same prompt "old
 sea captain with raven on shoulder" try Invoking an image. This time, only
 the parrot will be replaced, leaving the rest of the original image intact:</p>
-<p><figure markdown>
-<img alt="Invoke Web Server - Inpainting" src="../../assets/invoke-web-server-8.png" width="640px" />
-</figure></p>
+<figure markdown>
+<p><img alt="Invoke Web Server - Inpainting" src="../../assets/invoke-web-server-8.png" width="640px" /></p>
+</figure>
 </li>
 <li>
 <p>Would you like to modify a previously-generated image using the Image to
@@ -1532,7 +1554,9 @@ the parrot will be replaced, leaving the rest of the original image intact:</p>
 <p>You can do the same from the Text to Image tab by clicking on the picture icon
 above the central image panel. The screenshot below shows where the "use as
 initial image" icons are located.</p>
+<figure>
 <p><img alt="Invoke Web Server - Use as Image Links" src="../../assets/invoke-web-server-9.png" width="640px" /></p>
+</figure>
 <h2 id="parting-remarks">Parting remarks<a class="headerlink" href="#parting-remarks" title="Permanent link">#</a></h2>
 <p>This concludes the walkthrough, but there are several more features that you can
 explore. Please check out the <a href="../CLI/">Command Line Interface</a> documentation for
@@ -1638,7 +1662,7 @@ cheerleader and added tooltips/docs.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 30, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 30, 2022</span>
       
         <br>
         Created:

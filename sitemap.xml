@@ -146,6 +146,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/installation/Developers_documentation/PYTHON_TOOLS/</loc>
+         <lastmod>2022-12-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/installation/deprecated_documentation/INSTALL_BINARY/</loc>
          <lastmod>2022-12-30</lastmod>
          <changefreq>daily</changefreq>
