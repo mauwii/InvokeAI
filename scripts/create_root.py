@@ -37,10 +37,10 @@ def copy_from_venv(folders) -> None:
         try:
             # print(f"trying to copy {src_folder} to {dest_folder}")
             copytree(src_folder, dest_folder)
-            done = done + 1
+            done += 1
         except FileExistsError as error:
             print(error)
-            done = done + 1
+            done += 1
         except FileNotFoundError as error:
             print(error)
         except RuntimeError as error:
