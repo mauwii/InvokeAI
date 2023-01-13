@@ -106,18 +106,18 @@ jobs:
           # cache: 'pip'
           # cache-dependency-path: ${{ matrix.requirements-file }}
 
-      - name: install dependencies
-        run: pip3 install --upgrade pip setuptools wheel
+      - name: install InvokeAI
+        run: pip3 install --use-pep517 ".[test]"
 
-      - name: install requirements
-        run: pip3 install -r '${{ matrix.requirements-file }}'
+      - name: run Unit-tests
+        run: pytest
 
       - name: run configure_invokeai.py
         id: run-preload-models
         env:
           HUGGING_FACE_HUB_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
         run: >
-          configure_invokeai.py
+          configure_invokeai
           --yes
           --full-precision  # can't use fp16 weights without a GPU
 
@@ -130,7 +130,7 @@ jobs:
           HF_DATASETS_OFFLINE: 1
           TRANSFORMERS_OFFLINE: 1
         run: >
-          python3 scripts/invoke.py
+          invoke
           --no-patchmatch
           --no-nsfw_checker
           --model ${{ matrix.stable-diffusion-model }}
