@@ -1104,20 +1104,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../installation/Developers_documentation/PYTHON_TOOLS/" class="md-nav__link">
-        Python Tools
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1504,12 +1490,6 @@ overridden on a per-prompt basis (see
 <td>Height of generated image</td>
 </tr>
 <tr>
-<td><code>--steps &lt;int&gt;</code></td>
-<td><code>-s&lt;int&gt;</code></td>
-<td><code>50</code></td>
-<td>How many steps of refinement to apply</td>
-</tr>
-<tr>
 <td><code>--strength &lt;float&gt;</code></td>
 <td><code>-s&lt;float&gt;</code></td>
 <td><code>0.75</code></td>
@@ -1565,16 +1545,8 @@ overridden on a per-prompt basis (see
 </tr>
 </tbody>
 </table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>On Windows systems, you may run into
-  problems when passing the invoke script standard backslashed path
-  names because the Python interpreter treats "\" as an escape.
-  You can either double your slashes (ick): <code>C:\\path\\to\\my\\file</code>, or
-  use Linux/Mac style forward slashes (better): <code>C:/path/to/my/file</code>.</p>
-</div>
-<details class="warning">
-<summary>These arguments are deprecated but still work (click to show commands)</summary>
+<div class="admonition warning">
+<p class="admonition-title">These arguments are deprecated but still work</p>
 <div align="center" markdown>
 <table>
 <thead>
@@ -1601,13 +1573,21 @@ overridden on a per-prompt basis (see
 </tbody>
 </table>
 </div>
-</details>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>On Windows systems, you may run into
+  problems when passing the invoke script standard backslashed path
+  names because the Python interpreter treats "\" as an escape.
+  You can either double your slashes (ick): <code>C:\\path\\to\\my\\file</code>, or
+  use Linux/Mac style forward slashes (better): <code>C:/path/to/my/file</code>.</p>
+</div>
 <h2 id="the-invokeai-initialization-file">The .invokeai initialization file<a class="headerlink" href="#the-invokeai-initialization-file" title="Permanent link">#</a></h2>
-<p>To start up invoke.py with your preferred settings, place your desired startup
-options in a file in your home directory named <code>.invokeai</code> The file should
-contain the startup options as you would type them on the command line
-(<code>--steps=10 --grid</code>), one argument per line, or a mixture of both using any of
-the accepted command switch formats:</p>
+<p>To start up invoke.py with your preferred settings, place your desired
+startup options in a file in your home directory named <code>.invokeai</code> The
+file should contain the startup options as you would type them on the
+command line (<code>--steps=10 --grid</code>), one argument per line, or a
+mixture of both using any of the accepted command switch formats:</p>
 <div class="admonition example">
 <p class="admonition-title">my unmodified initialization file</p>
 <div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">~/.invokeai</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
@@ -1943,9 +1923,9 @@ value, we are insisting on a more stringent classification.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>invoke&gt;<span class="w"> </span>a<span class="w"> </span>piece<span class="w"> </span>of<span class="w"> </span>cake<span class="w"> </span>-I<span class="w"> </span>/path/to/breakfast.png<span class="w"> </span>-tm<span class="w"> </span>bagel<span class="w"> </span><span class="m">0</span>.6
 </code></pre></div>
 <h3 id="custom-styles-and-subjects">Custom Styles and Subjects<a class="headerlink" href="#custom-styles-and-subjects" title="Permanent link">#</a></h3>
-<p>You can load and use hundreds of community-contributed Textual Inversion models
-just by typing the appropriate trigger phrase. Please see
-<a href="../CONCEPTS/">Concepts Library</a> for more details.</p>
+<p>You can load and use hundreds of community-contributed Textual
+Inversion models just by typing the appropriate trigger phrase. Please
+see <a href="../CONCEPTS/">Concepts Library</a> for more details.</p>
 <h2 id="other-commands">Other Commands<a class="headerlink" href="#other-commands" title="Permanent link">#</a></h2>
 <p>The CLI offers a number of commands that begin with "!".</p>
 <h3 id="postprocessing-images">Postprocessing images<a class="headerlink" href="#postprocessing-images" title="Permanent link">#</a></h3>
@@ -1964,9 +1944,7 @@ full or partial path to the desired file.</p>
 </code></pre></div>
 </div>
 <div class="admonition example">
-<p class="admonition-title">Use GFPGAN to fix faces and scale up with <code>--embiggen</code></p>
-<p>Use the GFPGAN algorithm to fix faces, then upscale
-to 3X using --embiggen</p>
+<p class="admonition-title">Use the GFPGAN algorithm to fix faces, then upscale to 3X using --embiggen</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>invoke&gt;<span class="w"> </span>!fix<span class="w"> </span><span class="m">0000045</span>.4829112.png<span class="w"> </span>-G0.8<span class="w"> </span>-ft<span class="w"> </span>gfpgan
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>&gt;&gt;<span class="w"> </span>fixing<span class="w"> </span>outputs/img-samples/0000045.4829112.png
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&gt;&gt;<span class="w"> </span>retrieved<span class="w"> </span>seed<span class="w"> </span><span class="m">4829112</span><span class="w"> </span>and<span class="w"> </span>prompt<span class="w"> </span><span class="s2">&quot;boy enjoying a banana split&quot;</span>
@@ -2155,9 +2133,7 @@ processing.</p>
 </code></pre></div>
 </div>
 <div class="admonition example">
-<p class="admonition-title">fetch generation commands for more files</p>
-<p>fetch the generation commands from a batch of files and store them
-into <code>selected.txt</code></p>
+<p class="admonition-title">fetch the generation commands from a batch of files and store them into <code>selected.txt</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>invoke&gt;<span class="w"> </span>!fetch<span class="w"> </span>outputs<span class="se">\s</span>elected-imgs<span class="se">\*</span>.png<span class="w"> </span>selected.txt
 </code></pre></div>
 </div>
@@ -2226,7 +2202,7 @@ to complete pathnames for you. This is most handy for the <code>-I</code> (init 
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 4, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">December 23, 2022</span>
       
         <br>
         Created:
