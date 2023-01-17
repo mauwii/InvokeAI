@@ -72,16 +72,13 @@ jobs:
           mkdir C:\InvokeAI
           echo "INVOKEAI_ROOT=C:\InvokeAI" >> ${{ matrix.github-env }}
 
-      - name: Use Cached diffusers-1.5
+      - name: Use Cached models
         id: cache-sd-model
         uses: actions/cache@v3
         env:
-          cache-name: huggingface-${{ matrix.stable-diffusion-model }}
+          cache-name: huggingface-models
         with:
-          path: |
-            ${{ env.INVOKEAI_ROOT }}/models/runwayml
-            ${{ env.INVOKEAI_ROOT }}/models/stabilityai
-            ${{ env.INVOKEAI_ROOT }}/models/CompVis
+          path: ${{ env.INVOKEAI_ROOT }}/models
           key: ${{ env.cache-name }}
 
       - name: set test prompt to main branch validation
