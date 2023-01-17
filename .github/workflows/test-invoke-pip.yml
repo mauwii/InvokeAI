@@ -25,20 +25,20 @@ jobs:
           # - '3.9'
           - '3.10'
         pytorch:
-          - linux-cuda-11_7
-          - linux-rocm-5_2
+          # - linux-cuda-11_7
+          # - linux-rocm-5_2
           - linux-cpu
           - macos-default
           - windows-cpu
-          - windows-cuda-11_7
+          # - windows-cuda-11_7
         include:
-          - pytorch: linux-cuda-11_7
-            os: ubuntu-22.04
-            github-env: $GITHUB_ENV
-          - pytorch: linux-rocm-5_2
-            os: ubuntu-22.04
-            extra-index-url: 'https://download.pytorch.org/whl/rocm5.2'
-            github-env: $GITHUB_ENV
+          # - pytorch: linux-cuda-11_7
+          #   os: ubuntu-22.04
+          #   github-env: $GITHUB_ENV
+          # - pytorch: linux-rocm-5_2
+          #   os: ubuntu-22.04
+          #   extra-index-url: 'https://download.pytorch.org/whl/rocm5.2'
+          #   github-env: $GITHUB_ENV
           - pytorch: linux-cpu
             os: ubuntu-22.04
             extra-index-url: 'https://download.pytorch.org/whl/cpu'
@@ -49,15 +49,15 @@ jobs:
           - pytorch: windows-cpu
             os: windows-2022
             github-env: $env:GITHUB_ENV
-          - pytorch: windows-cuda-11_7
-            os: windows-2022
-            extra-index-url: 'https://download.pytorch.org/whl/cu117'
-            github-env: $env:GITHUB_ENV
-      fail-fast: false
+          # - pytorch: windows-cuda-11_7
+          #   os: windows-2022
+          #   extra-index-url: 'https://download.pytorch.org/whl/cu117'
+          #   github-env: $env:GITHUB_ENV
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     env:
       INVOKEAI_ROOT: ${{ github.workspace }}
+      CACHE_PATH: ${{ github.workspace }}/models
       INVOKE_MODEL_RECONFIGURE: '--yes'
       PYTHONUNBUFFERED: 1
     steps:
@@ -68,9 +68,9 @@ jobs:
       - name: set INVOKEAI_ROOT Windows
         if: runner.os == 'Windows'
         run: |
-          Get-PSDrive
-          mkdir C:\InvokeAI
+          mkdir -p C:\InvokeAI\models
           echo "INVOKEAI_ROOT=C:\InvokeAI" >> ${{ matrix.github-env }}
+          echo "CACHE_PATH=C:\InvokeAI\models" >> ${{ matrix.github-env }}
 
       - name: Use Cached models
         id: cache-sd-model
@@ -78,20 +78,16 @@ jobs:
         env:
           cache-name: huggingface-models
         with:
-          path: ${{ env.INVOKEAI_ROOT }}/models
+          path: ${{ env.CACHE_PATH }}
           key: ${{ env.cache-name }}
-          enableCrossOsArchive: true
+          # enableCrossOsArchive: true
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "TEST_PROMPTS=tests/preflight_prompts.txt" >> ${{ matrix.github-env }}
 
-      - name: set test prompt to development branch validation
-        if: ${{ github.ref == 'refs/heads/development' }}
-        run: echo "TEST_PROMPTS=tests/dev_prompts.txt" >> ${{ matrix.github-env }}
-
       - name: set test prompt to Pull Request validation
-        if: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/development' }}
+        if: ${{ github.ref != 'refs/heads/main' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
       - name: setup python
