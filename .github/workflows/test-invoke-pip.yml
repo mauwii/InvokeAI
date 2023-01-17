@@ -80,6 +80,7 @@ jobs:
         with:
           path: ${{ env.INVOKEAI_ROOT }}/models
           key: ${{ env.cache-name }}
+          enableCrossOsArchive: true
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
