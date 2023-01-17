@@ -109,7 +109,6 @@ jobs:
           PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
 
       - name: run configure_invokeai
-        if: runner.os != 'Windows'
         id: run-preload-models
         env:
           HUGGING_FACE_HUB_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
