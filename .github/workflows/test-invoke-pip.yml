@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'debug/dev/pyproject-toml'
   pull_request:
     types:
       - 'ready_for_review'
@@ -54,22 +55,21 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       INVOKE_MODEL_RECONFIGURE: '--yes'
-      INVOKEAI_ROOT: '${{ github.workspace }}/invokeai'
       PYTHONUNBUFFERED: 1
-      HAVE_SECRETS: ${{ secrets.HUGGINGFACE_TOKEN != '' }}
     steps:
       - name: Checkout sources
         id: checkout-sources
         uses: actions/checkout@v3
 
       - name: set INVOKEAI_ROOT Windows
-        if: matrix.os == 'windows-2022'
+        if: runner.os == 'Windows'
         run: |
-          echo "INVOKEAI_ROOT=${{ github.workspace }}\invokeai" >> ${{ matrix.github-env }}
-          echo "INVOKEAI_OUTDIR=${{ github.workspace }}\invokeai\outputs" >> ${{ matrix.github-env }}
+          mkdir C:/${{ github.repository }}
+          echo "INVOKEAI_ROOT=C:/${{ github.repository }}/invokeai" >> ${{ matrix.github-env }}
+          echo "INVOKEAI_OUTDIR=C:/${{ github.repository }}/invokeai/outputs" >> ${{ matrix.github-env }}
 
       - name: set INVOKEAI_ROOT others
-        if: matrix.os != 'windows-2022'
+        if: runner.os != 'Windows'
         run: |
           echo "INVOKEAI_ROOT=${{ github.workspace }}/invokeai" >> ${{ matrix.github-env }}
           echo "INVOKEAI_OUTDIR=${{ github.workspace }}/invokeai/outputs" >> ${{ matrix.github-env }}
@@ -109,6 +109,7 @@ jobs:
           PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
 
       - name: run configure_invokeai
+        if: runner.os != 'Windows'
         id: run-preload-models
         env:
           HUGGING_FACE_HUB_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
@@ -120,7 +121,7 @@ jobs:
 
       - name: Run the tests
         id: run-tests
-        if: matrix.os != 'windows-2022'
+        if: runner.os != 'Windows'
         env:
           # Set offline mode to make sure configure preloaded successfully.
           HF_HUB_OFFLINE: 1
@@ -137,7 +138,7 @@ jobs:
 
       - name: Archive results
         id: archive-results
-        if: matrix.os != 'windows-2022'
+        if: runner.os != 'Windows'
         uses: actions/upload-artifact@v3
         with:
           name: results_${{ matrix.pytorch }}_${{ matrix.python-version }}
