@@ -56,8 +56,7 @@ jobs:
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     env:
-      INVOKEAI_ROOT: ${{ github.workspace }}/invokeai
-      INVOKEAI_OUTDIR: ${{ github.workspace }}/invokeai/outputs
+      INVOKEAI_ROOT: ${{ github.workspace }}
       INVOKE_MODEL_RECONFIGURE: '--yes'
       PYTHONUNBUFFERED: 1
     steps:
@@ -128,7 +127,6 @@ jobs:
           --model ${{ matrix.stable-diffusion-model }}
           --from_file ${{ env.TEST_PROMPTS }}
           --root="${{ env.INVOKEAI_ROOT }}"
-          --outdir="${{ env.INVOKEAI_OUTDIR }}"
 
       - name: Archive results
         id: archive-results
