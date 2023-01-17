@@ -54,27 +54,18 @@ jobs:
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     env:
+      INVOKEAI_ROOT: ${{ github.workspace }}/invokeai
+      INVOKEAI_OUTDIR: ${{ github.workspace }}/invokeai/outputs
       INVOKE_MODEL_RECONFIGURE: '--yes'
       PYTHONUNBUFFERED: 1
     steps:
-      - name: set INVOKEAI_ROOT Windows
-        if: runner.os == 'Windows'
-        run: |
-          Get-PSDrive
-          mkdir C:/${{ github.repository }}
-          echo "GITHUB_WORKSPACE=C:/${{ github.repository }}" >> ${{ matrix.github-env }}
-          echo "INVOKEAI_ROOT=C:/${{ github.repository }}/invokeai" >> ${{ matrix.github-env }}
-          echo "INVOKEAI_OUTDIR=C:/${{ github.repository }}/invokeai/outputs" >> ${{ matrix.github-env }}
-
-      - name: set INVOKEAI_ROOT others
-        if: runner.os != 'Windows'
-        run: |
-          echo "INVOKEAI_ROOT=${{ github.workspace }}/invokeai" >> ${{ matrix.github-env }}
-          echo "INVOKEAI_OUTDIR=${{ github.workspace }}/invokeai/outputs" >> ${{ matrix.github-env }}
-
       - name: Checkout sources
         id: checkout-sources
         uses: actions/checkout@v3
+
+      - name: set INVOKEAI_ROOT Windows
+        if: runner.os == 'Windows'
+        run: Get-PSDrive
 
       - name: Use Cached diffusers-1.5
         id: cache-sd-model
