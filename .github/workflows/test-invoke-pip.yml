@@ -60,6 +60,7 @@ jobs:
       - name: set INVOKEAI_ROOT Windows
         if: runner.os == 'Windows'
         run: |
+          Get-PSDrive
           mkdir C:/${{ github.repository }}
           echo "GITHUB_WORKSPACE=C:/${{ github.repository }}" >> ${{ matrix.github-env }}
           echo "INVOKEAI_ROOT=C:/${{ github.repository }}/invokeai" >> ${{ matrix.github-env }}
