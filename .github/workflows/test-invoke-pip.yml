@@ -75,7 +75,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Set Cache-Directory Windows
-        if: runner.os != 'Windows'
+        if: runner.os == 'Windows'
         id: set-cache-dir-windows
         run: echo "CACHE_DIR=$HOME\invokeai\models" >> ${{ matrix.github-env }}
 
