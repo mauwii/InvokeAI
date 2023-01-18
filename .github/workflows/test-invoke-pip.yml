@@ -76,7 +76,7 @@ jobs:
 
       - name: Set Cache-Directory Windows
         if: runner.os != 'Windows'
-        id: set-cache-dir-others
+        id: set-cache-dir-windows
         run: echo "CACHE_DIR=$HOME\invokeai\models" >> ${{ matrix.github-env }}
 
       - name: Set Cache-Directory others
