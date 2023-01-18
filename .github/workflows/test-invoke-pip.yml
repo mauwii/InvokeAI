@@ -68,9 +68,7 @@ jobs:
 
       - name: Set Cache-Directory
         id: set-cache-dir
-        run: python3 -c 'import os; CACHE_DIR=os.path.join(os.environ["HOMEDIR"],"invokeai","models"); print(f"CACHE_DIR={CACHE_DIR}")' >> ${{ matrix.github-env }}
-        env:
-          HOMEDIR: ${{ env.HOME }}
+        run: echo "CACHE_DIR=$HOME/invokeai/models" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
