@@ -19,19 +19,23 @@ jobs:
     if: github.event.pull_request.draft == false
     strategy:
       matrix:
-        stable-diffusion-model:
-          - stable-diffusion-1.5
         python-version:
           # - '3.9'
           - '3.10'
         pytorch:
+          - linux-cuda-11_6
           - linux-cuda-11_7
           - linux-rocm-5_2
           - linux-cpu
           - macos-default
           - windows-cpu
+          - windows-cuda-11_6
           - windows-cuda-11_7
         include:
+          - pytorch: linux-cuda-11_6
+            os: ubuntu-22.04
+            extra-index-url: 'https://download.pytorch.org/whl/cu116'
+            github-env: $GITHUB_ENV
           - pytorch: linux-cuda-11_7
             os: ubuntu-22.04
             github-env: $GITHUB_ENV
@@ -48,6 +52,10 @@ jobs:
             github-env: $GITHUB_ENV
           - pytorch: windows-cpu
             os: windows-2022
+            github-env: $env:GITHUB_ENV
+          - pytorch: windows-cuda-11_6
+            os: windows-2022
+            extra-index-url: 'https://download.pytorch.org/whl/cu116'
             github-env: $env:GITHUB_ENV
           - pytorch: windows-cuda-11_7
             os: windows-2022
@@ -66,8 +74,14 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Set Cache-Directory
-        id: set-cache-dir
+      - name: Set Cache-Directory Windows
+        if: runner.os != 'Windows'
+        id: set-cache-dir-others
+        run: echo "CACHE_DIR=$HOME\invokeai\models" >> ${{ matrix.github-env }}
+
+      - name: Set Cache-Directory others
+        if: runner.os != 'Windows'
+        id: set-cache-dir-others
         run: echo "CACHE_DIR=$HOME/invokeai/models" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
@@ -78,6 +92,11 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
+      - name: install invokeai
+        run: pip3 install --use-pep517 .
+        env:
+          PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
+
       - name: Use Cached models
         id: cache-sd-model
         uses: actions/cache@v3
@@ -87,11 +106,6 @@ jobs:
           path: ${{ env.CACHE_DIR }}
           key: ${{ env.cache-name }}
           enableCrossOsArchive: true
-
-      - name: install invokeai
-        run: pip3 install --use-pep517 .
-        env:
-          PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
 
       - name: run configure_invokeai
         id: run-preload-models
