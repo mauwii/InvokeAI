@@ -57,7 +57,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       INVOKEAI_ROOT: ${{ github.workspace }}
-      CACHE_PATH: ${{ github.workspace }}/models
       INVOKE_MODEL_RECONFIGURE: '--yes'
       PYTHONUNBUFFERED: 1
     steps:
@@ -65,20 +64,13 @@ jobs:
         id: checkout-sources
         uses: actions/checkout@v3
 
-      - name: set INVOKEAI_ROOT Windows
-        if: runner.os == 'Windows'
-        run: |
-          mkdir -p C:\InvokeAI\models
-          echo "INVOKEAI_ROOT=C:\InvokeAI" >> ${{ matrix.github-env }}
-          echo "CACHE_PATH=C:\InvokeAI\models" >> ${{ matrix.github-env }}
-
       - name: Use Cached models
         id: cache-sd-model
         uses: actions/cache@v3
         env:
           cache-name: huggingface-models
         with:
-          path: ${{ env.CACHE_PATH }}
+          path: ${{ env.INVOKEAI_ROOT }}/models
           key: ${{ env.cache-name }}
           # enableCrossOsArchive: true
 
@@ -108,6 +100,7 @@ jobs:
           configure_invokeai
           --yes
           --default_only
+          --root="${{ env.INVOKEAI_ROOT }}"
           --full-precision  # can't use fp16 weights without a GPU
 
       - name: Run the tests
