@@ -55,10 +55,6 @@ jobs:
           #   github-env: $env:GITHUB_ENV
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
-    env:
-      INVOKEAI_ROOT: ${{ github.workspace }}
-      INVOKE_MODEL_RECONFIGURE: '--yes'
-      PYTHONUNBUFFERED: 1
     steps:
       - name: Checkout sources
         id: checkout-sources
@@ -68,11 +64,11 @@ jobs:
         id: cache-sd-model
         uses: actions/cache@v3
         env:
-          cache-name: huggingface-models
+          cache-name: models
         with:
-          path: ${{ env.INVOKEAI_ROOT }}/models
+          path: models
           key: ${{ env.cache-name }}
-          # enableCrossOsArchive: true
+          enableCrossOsArchive: true
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -100,8 +96,8 @@ jobs:
           configure_invokeai
           --yes
           --default_only
-          --root="${{ env.INVOKEAI_ROOT }}"
-          --full-precision  # can't use fp16 weights without a GPU
+          --full-precision
+        # can't use fp16 weights without a GPU
 
       - name: Run the tests
         id: run-tests
@@ -114,9 +110,7 @@ jobs:
           invoke
           --no-patchmatch
           --no-nsfw_checker
-          --model ${{ matrix.stable-diffusion-model }}
           --from_file ${{ env.TEST_PROMPTS }}
-          --root="${{ env.INVOKEAI_ROOT }}"
 
       - name: Archive results
         id: archive-results
