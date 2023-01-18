@@ -61,9 +61,22 @@ jobs:
         id: checkout-sources
         uses: actions/checkout@v3
 
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
       - name: Set Cache-Directory
         id: set-cache-dir
-        run: python -c "import os; CACHE_DIR=os.path.join(os.environ['HOME'],'invokeai','models'); print(f'CACHE_DIR={CACHE_DIR}')" >> ${{ matrix.github-env }}
+        run: python3 -c 'import os; CACHE_DIR=os.path.join(os.environ["HOME"],"invokeai","models"); print(f"CACHE_DIR={CACHE_DIR}")' >> ${{ matrix.github-env }}
+
+      - name: set test prompt to main branch validation
+        if: ${{ github.ref == 'refs/heads/main' }}
+        run: echo "TEST_PROMPTS=tests/preflight_prompts.txt" >> ${{ matrix.github-env }}
+
+      - name: set test prompt to Pull Request validation
+        if: ${{ github.ref != 'refs/heads/main' }}
+        run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
       - name: Use Cached models
         id: cache-sd-model
@@ -74,19 +87,6 @@ jobs:
           path: ${{ env.CACHE_DIR }}
           key: ${{ env.cache-name }}
           enableCrossOsArchive: true
-
-      - name: set test prompt to main branch validation
-        if: ${{ github.ref == 'refs/heads/main' }}
-        run: echo "TEST_PROMPTS=tests/preflight_prompts.txt" >> ${{ matrix.github-env }}
-
-      - name: set test prompt to Pull Request validation
-        if: ${{ github.ref != 'refs/heads/main' }}
-        run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
-
-      - name: setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
 
       - name: install invokeai
         run: pip3 install --use-pep517 .
