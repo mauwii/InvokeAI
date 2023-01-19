@@ -129,11 +129,11 @@ jobs:
 
       - name: Run the tests
         id: run-tests
-        env:
-          # Set offline mode to make sure configure preloaded successfully.
-          HF_HUB_OFFLINE: 1
-          HF_DATASETS_OFFLINE: 1
-          TRANSFORMERS_OFFLINE: 1
+        # env:
+        #   # Set offline mode to make sure configure preloaded successfully.
+        #   HF_HUB_OFFLINE: 1
+        #   HF_DATASETS_OFFLINE: 1
+        #   TRANSFORMERS_OFFLINE: 1
         run: >
           invoke
           --no-patchmatch
