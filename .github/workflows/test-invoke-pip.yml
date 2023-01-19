@@ -78,7 +78,6 @@ jobs:
         if: runner.os == 'Windows'
         id: set-cache-dir-windows
         run: |
-          echo ("INVOKEAI_ROOT=$HOME\runneradmin\invokeai").replace('\','\\') >> ${{ matrix.github-env }}
           echo "CACHE_DIR=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
@@ -87,7 +86,6 @@ jobs:
         if: runner.os != 'Windows'
         id: set-cache-dir-others
         run: |
-          echo "INVOKEAI_ROOT=$HOME/invokeai" >> ${{ matrix.github-env }}
           echo "CACHE_DIR=$HOME/invokeai/models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
 
