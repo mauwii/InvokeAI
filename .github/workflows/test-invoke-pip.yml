@@ -11,8 +11,8 @@ on:
       - 'synchronize'
 
 concurrency:
-   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
-   cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   matrix:
@@ -78,13 +78,18 @@ jobs:
         if: runner.os == 'Windows'
         id: set-cache-dir-windows
         run: |
+          echo ("INVOKEAI_ROOT=$HOME\runneradmin\invokeai").replace('\','\\') >> ${{ matrix.github-env }}
           echo "CACHE_DIR=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
+          echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
 
       - name: Set Cache-Directory others
         if: runner.os != 'Windows'
         id: set-cache-dir-others
-        run: echo "CACHE_DIR=$HOME/invokeai/models" >> ${{ matrix.github-env }}
+        run: |
+          echo "INVOKEAI_ROOT=$HOME/invokeai" >> ${{ matrix.github-env }}
+          echo "CACHE_DIR=$HOME/invokeai/models" >> ${{ matrix.github-env }}
+          echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -138,4 +143,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: results_${{ matrix.pytorch }}_${{ matrix.python-version }}
-          path: ${{ env.INVOKEAI_ROOT }}/outputs
+          path: ${{ env.RESULTS }}
