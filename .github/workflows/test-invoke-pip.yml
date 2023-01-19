@@ -98,9 +98,13 @@ jobs:
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
       - name: install invokeai
-        run: pip3 install --use-pep517 -e .
+        run: pip3 install --use-pep517 -e ".[test]"
         env:
           PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
+
+      - name: run unit-tests
+        id: unit-tests
+        run: pytest
 
       - name: Use Cached models
         id: cache-sd-model
