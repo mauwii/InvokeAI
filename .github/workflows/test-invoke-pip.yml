@@ -81,6 +81,7 @@ jobs:
         id: set-cache-dir-windows
         run: |
           echo "HF_HOME=$HOME\.cache\huggingface" >> ${{ matrix.github-env }}
+          echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
 
@@ -89,6 +90,7 @@ jobs:
         id: set-cache-dir-others
         run: |
           echo "HF_HOME=$HOME/.cache/huggingface" >> ${{ matrix.github-env }}
+          echo "INVOKE_MODELS=$HOME/invokeai/models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
@@ -108,13 +110,23 @@ jobs:
         id: unit-tests
         run: pytest
 
-      - name: Use Cached models
-        id: cache-sd-model
+      - name: huggingface cache
+        id: cache-hf-home
         uses: actions/cache@v3
         env:
           cache-name: HF_HOME
         with:
           path: ${{ env.HF_HOME }}
+          key: ${{ env.cache-name }}
+          enableCrossOsArchive: true
+
+      - name: models cache
+        id: cache-invoke-models
+        uses: actions/cache@v3
+        env:
+          cache-name: INVOKE_MODELS
+        with:
+          path: ${{ env.INVOKE_MODELS }}
           key: ${{ env.cache-name }}
           enableCrossOsArchive: true
 
@@ -131,11 +143,11 @@ jobs:
 
       - name: Run the tests
         id: run-tests
-        # env:
-        #   # Set offline mode to make sure configure preloaded successfully.
-        #   HF_HUB_OFFLINE: 1
-        #   HF_DATASETS_OFFLINE: 1
-        #   TRANSFORMERS_OFFLINE: 1
+        env:
+          # Set offline mode to make sure configure preloaded successfully.
+          HF_HUB_OFFLINE: 1
+          HF_DATASETS_OFFLINE: 1
+          TRANSFORMERS_OFFLINE: 1
         run: >
           invoke
           --no-patchmatch
