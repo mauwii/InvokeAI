@@ -52,6 +52,10 @@ Dataset_path = './configs/INITIAL_MODELS.yaml'
 Default_config_file = './configs/models.yaml'
 SD_Configs = './configs/stable-diffusion'
 
+if not os.path.exists(Dataset_path):
+    import configs
+    Dataset_path = os.path.join(configs.__path__[0], 'INITIAL_MODELS.yaml')
+
 assert os.path.exists(Dataset_path),"The configs directory cannot be found. Please run this script from within the invokeai runtime directory."
 
 Datasets = OmegaConf.load(Dataset_path)
@@ -719,7 +723,6 @@ def select_outputs(root:str,yes_to_all:bool=False):
 
 #-------------------------------------
 def initialize_rootdir(root:str,yes_to_all:bool=False):
-    assert os.path.exists('./configs'),'Run this script from within the InvokeAI source code directory, "InvokeAI" or the runtime directory "invokeai".'
 
     print(f'** INITIALIZING INVOKEAI RUNTIME DIRECTORY **')
     root_selected = False

@@ -108,14 +108,21 @@ version = { attr = "ldm.invoke.__version__" }
 
 [tool.setuptools.packages.find]
 "where" = ["."]
-"include" = ["assets", "backend*", "clipseg.models", "configs*", "frontend.dist*", "ldm*"]
-"exclude" = ["scripts*","tests*"]
+"include" = [
+  "assets",
+  "backend*",
+  "clipseg.models",
+  "configs*",
+  "frontend*",
+  "ldm*",
+]
+"exclude" = ["scripts*", "tests*"]
 
 [tool.setuptools.package-data]
 "assets" = ["caution.png"]
 "backend" = ["**/*.png"]
 "configs" = ["*.example", "**/*.yaml", "*.txt"]
-"frontend" = ["dist/**"]
+"frontend.dist" = ["**"]
 
 [tool.setuptools.exclude-package-data]
 configs = ["models.yaml"]
