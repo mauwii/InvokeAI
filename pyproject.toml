@@ -36,8 +36,7 @@ classifiers = [
 dependencies = [
   "accelerate",
   "albumentations",
-  "clip_anytorch",                                                                         # replaceing "clip @ https://github.com/openai/CLIP/archive/eaa22acb90a5876642d0507623e859909230a52d.zip",
-  "clipseg @ https://github.com/invoke-ai/clipseg/archive/relaxed-python-requirement.zip", # is this still necesarry with diffusers?
+  "clip_anytorch",                         # replaceing "clip @ https://github.com/openai/CLIP/archive/eaa22acb90a5876642d0507623e859909230a52d.zip",
   "datasets",
   "diffusers[torch]~=0.11",
   "dnspython==2.2.1",
@@ -53,7 +52,7 @@ dependencies = [
   "huggingface-hub>=0.11.1",
   "imageio",
   "imageio-ffmpeg",
-  "k-diffusion",                                                                           # replaceing "k-diffusion @ https://github.com/Birch-san/k-diffusion/archive/refs/heads/mps.zip",
+  "k-diffusion",                           # replaceing "k-diffusion @ https://github.com/Birch-san/k-diffusion/archive/refs/heads/mps.zip",
   "kornia",
   "npyscreen",
   "numpy<1.24,>=1.23",
@@ -82,11 +81,11 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-"dist" = ["pip-tools", "pipdeptree", "twine"]
+"dist" = ["build", "pip-tools", "pipdeptree", "twine"]
 "docs" = [
   "mkdocs-material<9.0",
   "mkdocs-git-revision-date-localized-plugin",
-  "mkdocs-redirects==1.2.0",
+  "mkdocs-redirects",
 ]
 test = ["pytest>6.0.0", "pytest-cov"]
 
@@ -94,9 +93,7 @@ test = ["pytest>6.0.0", "pytest-cov"]
 "configure_invokeai" = "ldm.invoke.configure_invokeai:main"
 "dream" = "ldm.invoke:CLI.main"
 "invoke" = "ldm.invoke:CLI.main"
-"legacy_api" = "scripts:legacy_api.main"
-"load_models" = "scripts:configure_invokeai.main"
-"merge_embeddings" = "scripts:merge_embeddings.main"
+"load_models" = "ldm.invoke.configure_invokeai:main"
 "preload_models" = "ldm.invoke.configure_invokeai:main"
 
 [project.urls]
@@ -111,16 +108,18 @@ version = { attr = "ldm.invoke.__version__" }
 
 [tool.setuptools.packages.find]
 "where" = ["."]
-"include" = ["assets", "backend*", "configs*", "frontend.dist*", "ldm*"]
+"include" = ["assets", "backend*", "clipseg.models", "configs*", "frontend.dist*", "ldm*"]
+"exclude" = ["scripts*","tests*"]
 
 [tool.setuptools.package-data]
 "assets" = ["caution.png"]
-"backend" = ["**.png"]
+"backend" = ["**/*.png"]
 "configs" = ["*.example", "**/*.yaml", "*.txt"]
-"frontend.dist" = ["**"]
+"frontend" = ["dist/**"]
 
 [tool.setuptools.exclude-package-data]
 configs = ["models.yaml"]
+scripts = ["**"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
