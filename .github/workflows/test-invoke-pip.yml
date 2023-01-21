@@ -29,7 +29,7 @@ jobs:
           - linux-cpu
           - macos-default
           - windows-cpu
-          - windows-cuda-11_6
+          # - windows-cuda-11_6
           - windows-cuda-11_7
         include:
           - pytorch: linux-cuda-11_6
@@ -53,10 +53,10 @@ jobs:
           - pytorch: windows-cpu
             os: windows-2022
             github-env: $env:GITHUB_ENV
-          - pytorch: windows-cuda-11_6
-            os: windows-2022
-            extra-index-url: 'https://download.pytorch.org/whl/cu116'
-            github-env: $env:GITHUB_ENV
+          # - pytorch: windows-cuda-11_6
+          #   os: windows-2022
+          #   extra-index-url: 'https://download.pytorch.org/whl/cu116'
+          #   github-env: $env:GITHUB_ENV
           - pytorch: windows-cuda-11_7
             os: windows-2022
             extra-index-url: 'https://download.pytorch.org/whl/cu117'
