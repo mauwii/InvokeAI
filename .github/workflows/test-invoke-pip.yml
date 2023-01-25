@@ -144,6 +144,7 @@ jobs:
           HF_HUB_OFFLINE: 1
           HF_DATASETS_OFFLINE: 1
           TRANSFORMERS_OFFLINE: 1
+          INVOKE_MODEL_RECONFIGURE: '--yes --default_only'
         run: >
           invoke
           --no-patchmatch
