@@ -574,7 +574,7 @@ def import_model(model_path:str, gen, opt, completer):
     if model_path.startswith(('http:','https:','ftp:')):
         model_name = import_ckpt_model(model_path, gen, opt, completer)
     elif os.path.exists(model_path) and model_path.endswith(('.ckpt','.safetensors')) and os.path.isfile(model_path):
-        model_name = import_ckpt_model(model_path, gen, opt, completer)        
+        model_name = import_ckpt_model(model_path, gen, opt, completer)
     elif re.match('^[\w.+-]+/[\w.+-]+$',model_path):
         model_name = import_diffuser_model(model_path, gen, opt, completer)
     elif os.path.isdir(model_path):
@@ -743,7 +743,7 @@ def del_config(model_name:str, gen, opt, completer):
 
     if input(f'Remove {model_name} from the list of models known to InvokeAI? [y] ').strip().startswith(('n','N')):
         return
-    
+
     delete_completely = input('Completely remove the model file or directory from disk? [n] ').startswith(('y','Y'))
     gen.model_manager.del_model(model_name,delete_files=delete_completely)
     gen.model_manager.commit(opt.conf)
@@ -1098,11 +1098,12 @@ def write_commands(opt, file_path:str, outfilepath:str):
         print(f'>> File {outfilepath} with commands created')
 
 def report_model_error(opt:Namespace, e:Exception):
-    print(f'** An error occurred while attempting to initialize the model: "{str(e)}"')
-    print('** This can be caused by a missing or corrupted models file, and can sometimes be fixed by (re)installing the models.')
-    response = input('Do you want to run configure_invokeai.py to select and/or reinstall models? [y] ')
-    if response.startswith(('n','N')):
-        return
+    if not os.environ.get('INVOKE_MODEL_RECONFIGURE'):
+        print(f'** An error occurred while attempting to initialize the model: "{str(e)}"')
+        print('** This can be caused by a missing or corrupted models file, and can sometimes be fixed by (re)installing the models.')
+        response = input('Do you want to run configure_invokeai.py to select and/or reinstall models? [y] ')
+        if response.startswith(('n','N')):
+            return
 
     print('configure_invokeai is launching....\n')
 
