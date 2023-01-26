@@ -78,7 +78,7 @@ jobs:
         if: runner.os == 'Windows'
         id: set-cache-dir-windows
         run: |
-          echo "HF_HOME=$HOME\.cache\huggingface" >> ${{ matrix.github-env }}
+          # echo "HF_HOME=$HOME\.cache\huggingface" >> ${{ matrix.github-env }}
           echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME\invokeai\outputs\${{ matrix.python-version }}\${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
@@ -87,7 +87,7 @@ jobs:
         if: runner.os != 'Windows'
         id: set-cache-dir-others
         run: |
-          echo "HF_HOME=$HOME/.cache/huggingface" >> ${{ matrix.github-env }}
+          # echo "HF_HOME=$HOME/.cache/huggingface" >> ${{ matrix.github-env }}
           echo "INVOKE_MODELS=$HOME/invokeai/models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME/invokeai/outputs/${{ matrix.python-version }}/${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
