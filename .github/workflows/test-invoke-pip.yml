@@ -110,9 +110,9 @@ jobs:
         id: unit-tests
         run: pytest
 
-      - name: models cache
-        id: cache-invoke-models
-        uses: actions/cache@v3
+      - name: restore model cache
+        id: restore-model-cache
+        uses: actions/cache/restore@v3
         with:
           path: ${{ env.INVOKE_MODELS }}
           key: huggingface-models
@@ -127,6 +127,14 @@ jobs:
           configure_invokeai
           --yes
           --default_only
+
+      - name: save model cache
+        if: matrix.pytorch == 'linux-cpu'
+        uses: actions/cache/save@v3
+        with:
+          path: ${{ env.INVOKE_MODELS }}
+          key: ${{ steps.restore-model-cache.outputs.key }}
+          enableCrossOsArchive: true
 
       - name: run invoke
         id: run-invoke
