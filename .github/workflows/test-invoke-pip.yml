@@ -80,7 +80,7 @@ jobs:
         run: |
           # echo "HF_HOME=$HOME\.cache\huggingface" >> ${{ matrix.github-env }}
           echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
-          echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
+          # echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME\invokeai\outputs\${{ matrix.python-version }}\${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
@@ -89,7 +89,7 @@ jobs:
         id: set-cache-dir-others
         run: |
           # echo "HF_HOME=$HOME/.cache/huggingface" >> ${{ matrix.github-env }}
-          echo "INVOKE_MODELS=$HOME/invokeai/models" >> ${{ matrix.github-env }}
+          # echo "INVOKE_MODELS=$HOME/invokeai/models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME/invokeai/outputs/${{ matrix.python-version }}/${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
@@ -114,7 +114,7 @@ jobs:
         id: restore-model-cache
         uses: actions/cache/restore@v3
         with:
-          path: ${{ env.INVOKE_MODELS }}
+          path: ~/invokeai/models
           key: huggingface-models
           restore-keys: huggingface-models
           enableCrossOsArchive: true
@@ -132,7 +132,7 @@ jobs:
         if: matrix.pytorch == 'linux-cpu' && steps.restore-model-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v3
         with:
-          path: ${{ env.INVOKE_MODELS }}
+          path: ~/invokeai/models
           key: huggingface-models
           enableCrossOsArchive: true
 
