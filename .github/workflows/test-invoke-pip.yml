@@ -79,6 +79,7 @@ jobs:
         id: set-cache-dir-windows
         run: |
           # echo "HF_HOME=$HOME\.cache\huggingface" >> ${{ matrix.github-env }}
+          echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
           echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME\invokeai\outputs\${{ matrix.python-version }}\${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
