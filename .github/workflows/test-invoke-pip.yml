@@ -138,7 +138,7 @@ jobs:
           --default_only
 
       - name: run invoke
-        if: matrix.pytorch != "windows-cuda-11_6"
+        if: matrix.pytorch != 'windows-cuda-11_6'
         id: run-invoke
         env:
           # Set offline mode to make sure configure preloaded successfully.
