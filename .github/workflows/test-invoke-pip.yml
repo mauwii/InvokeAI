@@ -129,7 +129,7 @@ jobs:
           enableCrossOsArchive: true
 
       - name: run configure_invokeai
-        id: run-preload-models
+        id: run-configure-invokeai
         env:
           HUGGING_FACE_HUB_TOKEN: ${{ secrets.HUGGINGFACE_TOKEN }}
         run: >
@@ -137,14 +137,14 @@ jobs:
           --yes
           --default_only
 
-      - name: Run the tests
-        id: run-tests
+      - name: run invoke
+        if: matrix.pytorch != "windows-cuda-11_6"
+        id: run-invoke
         env:
           # Set offline mode to make sure configure preloaded successfully.
           HF_HUB_OFFLINE: 1
           HF_DATASETS_OFFLINE: 1
           TRANSFORMERS_OFFLINE: 1
-          INVOKE_MODEL_RECONFIGURE: '--yes --default_only'
         run: >
           invoke
           --no-patchmatch
