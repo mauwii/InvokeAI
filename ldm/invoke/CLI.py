@@ -1098,9 +1098,9 @@ def write_commands(opt, file_path:str, outfilepath:str):
         print(f'>> File {outfilepath} with commands created')
 
 def report_model_error(opt:Namespace, e:Exception):
+    print(f'** An error occurred while attempting to initialize the model: "{str(e)}"')
+    print('** This can be caused by a missing or corrupted models file, and can sometimes be fixed by (re)installing the models.')
     if not os.environ.get('INVOKE_MODEL_RECONFIGURE'):
-        print(f'** An error occurred while attempting to initialize the model: "{str(e)}"')
-        print('** This can be caused by a missing or corrupted models file, and can sometimes be fixed by (re)installing the models.')
         response = input('Do you want to run configure_invokeai.py to select and/or reinstall models? [y] ')
         if response.startswith(('n','N')):
             return
@@ -1117,7 +1117,8 @@ def report_model_error(opt:Namespace, e:Exception):
     sys.argv.extend(root_dir)
     sys.argv.extend(config)
     if yes_to_all is not None:
-        sys.argv.append(yes_to_all)
+        for arg in yes_to_all.split():
+            sys.argv.append(arg)
 
     import ldm.invoke.configure_invokeai as configure_invokeai
     configure_invokeai.main()
