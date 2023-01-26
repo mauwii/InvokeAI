@@ -29,7 +29,7 @@ jobs:
           - linux-cpu
           - macos-default
           - windows-cpu
-          - windows-cuda-11_6
+          # - windows-cuda-11_6
           - windows-cuda-11_7
         include:
           - pytorch: linux-cuda-11_6
@@ -53,10 +53,10 @@ jobs:
           - pytorch: windows-cpu
             os: windows-2022
             github-env: $env:GITHUB_ENV
-          - pytorch: windows-cuda-11_6
-            os: windows-2022
-            extra-index-url: 'https://download.pytorch.org/whl/cu116'
-            github-env: $env:GITHUB_ENV
+          # - pytorch: windows-cuda-11_6
+          #   os: windows-2022
+          #   extra-index-url: 'https://download.pytorch.org/whl/cu116'
+          #   github-env: $env:GITHUB_ENV
           - pytorch: windows-cuda-11_7
             os: windows-2022
             extra-index-url: 'https://download.pytorch.org/whl/cu117'
@@ -110,24 +110,15 @@ jobs:
         id: unit-tests
         run: pytest
 
-      - name: huggingface cache
-        id: cache-hf-home
-        uses: actions/cache@v3
-        env:
-          cache-name: HF_HOME
-        with:
-          path: ${{ env.HF_HOME }}
-          key: ${{ env.cache-name }}
-          enableCrossOsArchive: true
-
       - name: models cache
         id: cache-invoke-models
         uses: actions/cache@v3
-        env:
-          cache-name: INVOKE_MODELS
         with:
-          path: ${{ env.INVOKE_MODELS }}
-          key: ${{ env.cache-name }}
+          path: |
+            ${{ env.INVOKE_MODELS }}
+            ${{ env.HF_HOME }}
+          key: models-${{ hashFiles('configs/INITIAL_MODELS.yaml') }}
+          restore-keys: models
           enableCrossOsArchive: true
 
       - name: run configure_invokeai
@@ -140,7 +131,6 @@ jobs:
           --default_only
 
       - name: run invoke
-        if: matrix.pytorch != 'windows-cuda-11_6'
         id: run-invoke
         env:
           # Set offline mode to make sure configure preloaded successfully.
@@ -155,7 +145,6 @@ jobs:
           --outdir ${{ env.OUTDIR }}
 
       - name: Archive results
-        if: matrix.pytorch != 'windows-cuda-11_6'
         id: archive-results
         uses: actions/upload-artifact@v3
         with:
