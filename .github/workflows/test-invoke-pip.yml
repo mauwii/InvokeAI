@@ -100,17 +100,6 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
-      - name: get pip cache dir
-        id: pip-cache
-        run: echo "CACHE_PIP=$(pip cache dir)" >> ${{ matrix.github-env }}
-
-      - name: pip cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.CACHE_PIP }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('pyproject.toml') }}
-          restore-keys: ${{ runner.os }}-pip-
-
       - name: install invokeai
         run: pip3 install --use-pep517 -e ".[test]"
         env:
