@@ -116,6 +116,7 @@ jobs:
         with:
           path: ${{ env.INVOKE_MODELS }}
           key: huggingface-models
+          restore-keys: huggingface-models
           enableCrossOsArchive: true
 
       - name: run configure_invokeai
