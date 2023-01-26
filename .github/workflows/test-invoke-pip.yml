@@ -129,7 +129,7 @@ jobs:
           --default_only
 
       - name: save model cache
-        if: matrix.pytorch == 'linux-cpu' && steps.restore-model-cache.outputs.cache-hit != 'true'
+        if: matrix.pytorch == 'windows-cpu' && steps.restore-model-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v3
         with:
           path: ~/invokeai/models
