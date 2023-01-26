@@ -116,7 +116,6 @@ jobs:
         with:
           path: ${{ env.INVOKE_MODELS }}
           key: huggingface-models
-          restore-keys: huggingface-models
           enableCrossOsArchive: true
 
       - name: run configure_invokeai
@@ -133,7 +132,7 @@ jobs:
         uses: actions/cache/save@v3
         with:
           path: ${{ env.INVOKE_MODELS }}
-          key: ${{ steps.restore-model-cache.outputs.key }}
+          key: huggingface-models
           enableCrossOsArchive: true
 
       - name: run invoke
