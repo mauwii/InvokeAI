@@ -80,7 +80,6 @@ jobs:
         run: |
           echo "HF_HOME=$HOME\.cache\huggingface" >> ${{ matrix.github-env }}
           echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
-          echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME\invokeai\outputs\${{ matrix.python-version }}\${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
@@ -101,6 +100,17 @@ jobs:
         if: ${{ github.ref != 'refs/heads/main' }}
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
+      - name: get pip cache dir
+        id: pip-cache
+        run: echo "dir=$(pip cache dir)" >> $GITHUB_OUTPUT
+
+      - name: pip cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.pip-cache.outputs.dir }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('pyproject.toml') }}
+          restore-keys: ${{ runner.os }}-pip-
+
       - name: install invokeai
         run: pip3 install --use-pep517 -e ".[test]"
         env:
@@ -114,11 +124,9 @@ jobs:
         id: cache-invoke-models
         uses: actions/cache@v3
         with:
-          path: |
-            ${{ env.INVOKE_MODELS }}
-            ${{ env.HF_HOME }}
+          path: ${{ env.INVOKE_MODELS }}
           key: models-${{ hashFiles('configs/INITIAL_MODELS.yaml') }}
-          restore-keys: models
+          restore-keys: models-
           enableCrossOsArchive: true
 
       - name: run configure_invokeai
