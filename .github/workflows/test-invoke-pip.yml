@@ -82,6 +82,7 @@ jobs:
           echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
+          echo "OUTDIR=$HOME\invokeai\outputs\${{ matrix.python-version }}\${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
       - name: Set Cache-Directory others
         if: runner.os != 'Windows'
@@ -90,6 +91,7 @@ jobs:
           echo "HF_HOME=$HOME/.cache/huggingface" >> ${{ matrix.github-env }}
           echo "INVOKE_MODELS=$HOME/invokeai/models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
+          echo "OUTDIR=$HOME/invokeai/outputs/${{ matrix.python-version }}/${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -150,10 +152,12 @@ jobs:
           --no-patchmatch
           --no-nsfw_checker
           --from_file ${{ env.TEST_PROMPTS }}
+          --outdir ${{ env.OUTDIR }}
 
       - name: Archive results
+        if: matrix.pytorch != 'windows-cuda-11_6'
         id: archive-results
         uses: actions/upload-artifact@v3
         with:
-          name: results_${{ matrix.pytorch }}_${{ matrix.python-version }}
+          name: results
           path: ${{ env.RESULTS }}
