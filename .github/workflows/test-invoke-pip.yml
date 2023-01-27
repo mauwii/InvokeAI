@@ -78,9 +78,7 @@ jobs:
         if: runner.os == 'Windows'
         id: set-cache-dir-windows
         run: |
-          # echo "HF_HOME=$HOME\.cache\huggingface" >> ${{ matrix.github-env }}
           echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
-          # echo "INVOKE_MODELS=$HOME\invokeai\models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME\invokeai\outputs\${{ matrix.python-version }}\${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
@@ -88,8 +86,6 @@ jobs:
         if: runner.os != 'Windows'
         id: set-cache-dir-others
         run: |
-          # echo "HF_HOME=$HOME/.cache/huggingface" >> ${{ matrix.github-env }}
-          # echo "INVOKE_MODELS=$HOME/invokeai/models" >> ${{ matrix.github-env }}
           echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
           echo "OUTDIR=$HOME/invokeai/outputs/${{ matrix.python-version }}/${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
@@ -110,9 +106,9 @@ jobs:
         id: unit-tests
         run: pytest
 
-      - name: restore model cache
-        id: restore-model-cache
-        uses: actions/cache/restore@v3
+      - name: model cache
+        id: model-cache
+        uses: actions/cache@v3
         with:
           path: ~/invokeai/models
           key: huggingface-models
@@ -128,16 +124,8 @@ jobs:
           --yes
           --default_only
 
-      - name: save model cache
-        if: matrix.pytorch == 'windows-cpu' && steps.restore-model-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v3
-        with:
-          path: ~/invokeai/models
-          key: huggingface-models
-          enableCrossOsArchive: true
-
       - name: run invoke
-        if: runner.os != 'windows' || steps.restore-model-cache.outputs.cache-hit == 'true'
+        if: runner.os != 'windows' || steps.model-cache.outputs.cache-hit == 'true'
         id: run-invoke
         env:
           # Set offline mode to make sure configure preloaded successfully.
