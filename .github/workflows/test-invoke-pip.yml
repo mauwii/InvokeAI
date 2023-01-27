@@ -103,15 +103,22 @@ jobs:
         id: unit-tests
         run: pytest
 
+      - name: huggingface cache
+        id: model-cache
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.HF_HOME }}
+          key: huggingface-models
+          restore-keys: huggingface-models
+          enableCrossOsArchive: true
+
       - name: model cache
         id: model-cache
         uses: actions/cache@v3
         with:
-          path: |
-            ${{ env.INVOKEAI_ROOT }}/models
-            ${{ env.HF_HOME }}
-          key: huggingface-models
-          restore-keys: huggingface-models
+          path: ~/invokeai/models
+          key: other-models
+          restore-keys: other-models
           enableCrossOsArchive: true
 
       - name: run configure_invokeai
