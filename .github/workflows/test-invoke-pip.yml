@@ -64,6 +64,11 @@ jobs:
       fail-fast: false
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
+    env:
+      PIP_NO_CACHE_DIR: '1'
+      RESULTS_DIR: '~/invokeai/outputs'
+      OUT_DIR: '${{ env.RESULTS_DIR }}/${{ matrix.python-version }}/${{ matrix.pytorch }}'
+
     steps:
       - name: Checkout sources
         id: checkout-sources
@@ -73,21 +78,6 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-
-      - name: Set Windows directories
-        if: runner.os == 'Windows'
-        id: set-cache-dir-windows
-        run: |
-          echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
-          echo "RESULTS=$HOME\invokeai\outputs" >> ${{ matrix.github-env }}
-          echo "OUTDIR=$HOME\invokeai\outputs\${{ matrix.python-version }}\${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
-
-      - name: Set nix-based directories
-        if: runner.os != 'Windows'
-        id: set-cache-dir-others
-        run: |
-          echo "RESULTS=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
-          echo "OUTDIR=$HOME/invokeai/outputs/${{ matrix.python-version }}/${{ matrix.pytorch }}" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -137,11 +127,11 @@ jobs:
           --no-patchmatch
           --no-nsfw_checker
           --from_file ${{ env.TEST_PROMPTS }}
-          --outdir ${{ env.OUTDIR }}
+          --outdir ${{ env.OUT_DIR }}
 
       - name: Archive results
         id: archive-results
         uses: actions/upload-artifact@v3
         with:
           name: results
-          path: ${{ env.RESULTS }}
+          path: ${{ env.RESULTS_DIR }}
