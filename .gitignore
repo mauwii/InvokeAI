@@ -8,6 +8,7 @@ models/ldm/stable-diffusion-v1/model.ckpt
 configs/models.user.yaml
 config/models.user.yml
 invokeai.init
+configs/models.yaml.orig
 
 # ignore the Anaconda/Miniconda installer used while building Docker image
 anaconda.sh
@@ -72,6 +73,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+test-result*.xml
 
 # Translations
 *.mo
@@ -182,7 +184,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 
-src
 **/__pycache__/
 outputs
 
