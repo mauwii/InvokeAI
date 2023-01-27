@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  HF_HOME: ~/.cache/hugging_face
+  HF_HOME: ~/.cache/huggingface
   PIP_NO_CACHE_DIR: 1
   RESULTS_DIR: ~/invokeai/outputs
 
