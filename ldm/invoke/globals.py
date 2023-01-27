@@ -21,7 +21,7 @@ Globals = Namespace()
 
 # This is usually overwritten by the command line and/or environment variables
 if os.environ.get('INVOKEAI_ROOT'):
-    Globals.root = osp.abspath(os.environ.get('INVOKEAI_ROOT'))
+    Globals.root = osp.abspath(os.path.expanduser(os.environ.get('INVOKEAI_ROOT')))
 elif os.environ.get('VIRTUAL_ENV'):
     Globals.root = osp.abspath(osp.join(os.environ.get('VIRTUAL_ENV'), '..'))
 else:
