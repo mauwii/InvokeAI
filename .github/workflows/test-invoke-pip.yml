@@ -65,8 +65,9 @@ jobs:
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
     env:
-      PIP_NO_CACHE_DIR: '1'
-      RESULTS_DIR: '~/invokeai/outputs'
+      HF_HOME: ~/.cache/hugging_face
+      PIP_NO_CACHE_DIR: 1
+      RESULTS_DIR: ~/invokeai/outputs
 
     steps:
       - name: Checkout sources
@@ -99,7 +100,9 @@ jobs:
         id: model-cache
         uses: actions/cache@v3
         with:
-          path: ~/invokeai/models
+          path: |
+            ~/invokeai/models
+            ${{ env.HF_HOME }}
           key: huggingface-models
           restore-keys: huggingface-models
           enableCrossOsArchive: true
