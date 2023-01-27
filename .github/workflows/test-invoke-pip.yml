@@ -131,7 +131,7 @@ jobs:
           --default_only
 
       - name: run invoke
-        if: ${{ runner.os != 'windows' }} || ${{ steps.huggingface-cache.outputs.cache-hit == 'true' && steps.model-cache.outputs.cache-hit == 'true' }}
+        if: runner.os != 'windows' || steps.huggingface-cache.outputs.cache-hit == 'true'
         id: run-invoke
         env:
           # Set offline mode to make sure configure preloaded successfully.
