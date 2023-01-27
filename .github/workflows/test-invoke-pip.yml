@@ -14,6 +14,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+env:
+  HF_HOME: ~/.cache/hugging_face
+  PIP_NO_CACHE_DIR: 1
+  RESULTS_DIR: ~/invokeai/outputs
+
 jobs:
   matrix:
     if: github.event.pull_request.draft == false
@@ -64,12 +69,6 @@ jobs:
       fail-fast: false
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
-    env:
-      HF_HOME: "~/.cache/hugging_face"
-      INVOKEAI_ROOT: "~/invokeai"
-      PIP_NO_CACHE_DIR: 1
-      RESULTS_DIR: "$INVOKEAI_ROOT/invokeai/outputs"
-
     steps:
       - name: Checkout sources
         id: checkout-sources
