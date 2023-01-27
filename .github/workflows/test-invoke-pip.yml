@@ -66,6 +66,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       HF_HOME: ~/.cache/hugging_face
+      INVOKEAI_ROOT: ~/invokeai
       PIP_NO_CACHE_DIR: 1
       RESULTS_DIR: ~/invokeai/outputs
 
@@ -88,9 +89,11 @@ jobs:
         run: echo "TEST_PROMPTS=tests/validate_pr_prompt.txt" >> ${{ matrix.github-env }}
 
       - name: install invokeai
-        run: pip3 install --use-pep517 -e ".[test]"
         env:
           PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
+        run: |
+           pip3 install --use-pep517 -e ".[test]"
+           pip3 cache purge
 
       - name: run unit-tests
         id: unit-tests
@@ -101,7 +104,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/invokeai/models
+            ${{ env.INVOKEAI_ROOT }}/models
             ${{ env.HF_HOME }}
           key: huggingface-models
           restore-keys: huggingface-models
