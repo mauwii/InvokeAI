@@ -93,7 +93,6 @@ jobs:
           PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
         run: |
            pip3 install --use-pep517 -e ".[test]"
-           pip3 cache purge
 
       - name: run unit-tests
         id: unit-tests
