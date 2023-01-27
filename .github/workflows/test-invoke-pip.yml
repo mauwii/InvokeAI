@@ -104,7 +104,7 @@ jobs:
         run: pytest
 
       - name: huggingface cache
-        id: model-cache
+        id: huggingface-cache
         uses: actions/cache@v3
         with:
           path: ${{ env.HF_HOME }}
@@ -131,7 +131,7 @@ jobs:
           --default_only
 
       - name: run invoke
-        if: runner.os != 'windows' || steps.model-cache.outputs.cache-hit == 'true'
+        if: ${{ runner.os != 'windows' }} || ${{ steps.huggingface-cache.outputs.cache-hit == 'true' && steps.model-cache.outputs.cache-hit == 'true' }}
         id: run-invoke
         env:
           # Set offline mode to make sure configure preloaded successfully.
