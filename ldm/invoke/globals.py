@@ -81,7 +81,7 @@ def global_cache_dir(subdir:Union[str,Path]='')->Path:
     into the "hub" subdirectory as well, so this will need to be revisited
     from time to time.
     '''
-    home: str = os.getenv('HF_HOME')
+    home: str | None = os.getenv('HF_HOME')
 
     if home is None:
         home = os.getenv('XDG_CACHE_HOME')
@@ -92,6 +92,6 @@ def global_cache_dir(subdir:Union[str,Path]='')->Path:
             home += os.sep + 'huggingface'
 
     if home is not None:
-        return Path(home,subdir)
+        return Path(os.path.expanduser(home),subdir)
     else:
         return Path(Globals.root,'models',subdir)
