@@ -33,6 +33,7 @@ jobs:
           - linux-rocm-5_2
           - linux-cpu
           - macos-default
+          - macos-nightly
           - windows-cpu
           # - windows-cuda-11_6
           - windows-cuda-11_7
@@ -55,6 +56,11 @@ jobs:
           - pytorch: macos-default
             os: macOS-12
             github-env: $GITHUB_ENV
+          - pytorch: macos-default
+            os: macOS-12
+            github-env: $GITHUB_ENV
+            extra-index-url: 'https://download.pytorch.org/whl/nightly/cpu'
+            extra-argument: '--pre'
           - pytorch: windows-cpu
             os: windows-2022
             github-env: $env:GITHUB_ENV
@@ -91,7 +97,7 @@ jobs:
         env:
           PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
         run: |
-           pip3 install --use-pep517 -e ".[test]"
+           pip3 install --use-pep517 -e ".[test]" ${{ matrix.extra-argument }}
 
       - name: run unit-tests
         id: unit-tests
