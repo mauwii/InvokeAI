@@ -68,7 +68,7 @@ jobs:
       HF_HOME: "~/.cache/hugging_face"
       INVOKEAI_ROOT: "~/invokeai"
       PIP_NO_CACHE_DIR: 1
-      RESULTS_DIR: "~/invokeai/outputs"
+      RESULTS_DIR: "$INVOKEAI_ROOT/invokeai/outputs"
 
     steps:
       - name: Checkout sources
