@@ -3,10 +3,6 @@ trigger:
     include:
       - dev/ci/*
 
-variables:
-  - name: PYTHON_VERSION
-    value: '3.10'
-
 pool:
   vmImage: ubuntu-latest
 
