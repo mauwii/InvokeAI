@@ -110,7 +110,7 @@ jobs:
       - name: set INVOKEAI_OUTDIR
         run: >
           python3 -c
-          'from pathlib import Path;from ldm.invoke.globals import Globals;outputs=str("outputs");print(f"INVOKEAI_OUTDIR={Path(Globals.root,outputs)}")'
+          'import os;from ldm.invoke.globals import Globals;OUTDIR=os.path.join(Globals.root,"outputs");print(f"INVOKEAI_OUTDIR={OUTDIR}")'
           >> ${{ matrix.github-env }}
 
       - name: set huggingface-cache dir
