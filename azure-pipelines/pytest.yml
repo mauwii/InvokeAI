@@ -28,13 +28,13 @@ steps:
     displayName: 'run pytest'
 
   - task: PublishTestResults@1
-    condition: always()
+    condition: succeededOrFailed()
     inputs:
       testRunner: 'JUnit'
       testResultsFiles: '$(Build.SourcesDirectory)/**/test-*.xml'
 
   - task: PublishCodeCoverageResults@1
-    condition: always()
+    condition: succeededOrFailed()
     inputs:
       codeCoverageTool: Cobertura
       summaryFileLocation: '$(Build.SourcesDirectory)/coverage.xml'
