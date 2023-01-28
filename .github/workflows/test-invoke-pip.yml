@@ -94,6 +94,10 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
+          cache-dependency-path: |
+            **/pyproject.toml
+
+      - name: create requirements
 
       - name: install invokeai
         env:
