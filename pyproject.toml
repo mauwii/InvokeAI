@@ -81,7 +81,13 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-"dist" = ["pip-tools", "pipdeptree", "twine"]
+"dist" = [
+  "pip-tools",
+  "pipdeptree",
+  "twine",
+  "keyring",
+  "artifacts-keyring"
+]
 "docs" = [
   "mkdocs-material<9.0",
   "mkdocs-git-revision-date-localized-plugin",
