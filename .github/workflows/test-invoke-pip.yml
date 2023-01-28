@@ -85,6 +85,7 @@ jobs:
           echo "HF_HOME=${{ github.workspace }}/models" >> ${{ matrix.github-env }}
           echo "INVOKEAI_ROOT=${{ github.workspace }}" >> ${{ matrix.github-env }}
           echo "INVOKEAI_OUTDIR=${{ github.workspace }}/outputs" >> ${{ matrix.github-env }}
+          echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
