@@ -77,8 +77,8 @@ jobs:
 
       - name: set environment variables
         run: |
-          # echo "INVOKEAI_ROOT=${{ github.workspace }}" >> ${{ matrix.github-env }}
-          echo "INVOKEAI_OUTDIR=${{ github.workspace }}/outputs" >> ${{ matrix.github-env }}
+          echo "INVOKEAI_ROOT=$HOME/invokeai" >> ${{ matrix.github-env }}
+          echo "INVOKEAI_OUTDIR=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
           # echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
@@ -113,7 +113,7 @@ jobs:
         id: huggingface-cache
         uses: actions/cache@v3
         with:
-          path: models
+          path: ${{ env.INVOKEAI_ROOT }}/models
           key: huggingface-models
           restore-keys: huggingface-models
           enableCrossOsArchive: true
