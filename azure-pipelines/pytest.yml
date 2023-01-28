@@ -32,6 +32,7 @@ steps:
     inputs:
       testRunner: 'JUnit'
       testResultsFiles: '$(Build.SourcesDirectory)/**/test-*.xml'
+      testRunTitle: Python-$(python.version) on $(Build.SourceBranchName)
 
   - task: PublishCodeCoverageResults@1
     condition: succeededOrFailed()
