@@ -33,7 +33,7 @@ jobs:
           - macos-nightly
           - windows-cpu
           # - windows-cuda-11_6
-          - windows-cuda-11_7
+          # - windows-cuda-11_7
         include:
           - pytorch: linux-cuda-11_6
             os: ubuntu-22.04
@@ -65,10 +65,10 @@ jobs:
           #   os: windows-2022
           #   extra-index-url: 'https://download.pytorch.org/whl/cu116'
           #   github-env: $env:GITHUB_ENV
-          - pytorch: windows-cuda-11_7
-            os: windows-2022
-            extra-index-url: 'https://download.pytorch.org/whl/cu117'
-            github-env: $env:GITHUB_ENV
+          # - pytorch: windows-cuda-11_7
+          #   os: windows-2022
+          #   extra-index-url: 'https://download.pytorch.org/whl/cu117'
+          #   github-env: $env:GITHUB_ENV
       fail-fast: false
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
@@ -110,7 +110,7 @@ jobs:
       - name: set INVOKEAI_OUTDIR
         run: >
           python3 -c
-          'import os;from ldm.invoke.globals import Globals;OUTDIR=os.path.join(Globals.root,"outputs");print(f"INVOKEAI_OUTDIR={OUTDIR}")'
+          'import os;from ldm.invoke.globals import Globals;OUTDIR=os.path.join(Globals.root,str("outputs"));print(f"INVOKEAI_OUTDIR={OUTDIR}")'
           >> ${{ matrix.github-env }}
 
       - name: set huggingface-cache dir
