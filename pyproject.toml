@@ -55,7 +55,7 @@ dependencies = [
   "k-diffusion",              # replacing "k-diffusion @ https://github.com/Birch-san/k-diffusion/archive/refs/heads/mps.zip",
   "kornia",
   "npyscreen",
-  "numpy~=1.23",
+  "numpy==1.23.*",
   "omegaconf",
   "opencv-python",
   "picklescan",
