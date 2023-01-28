@@ -120,7 +120,7 @@ configs = ["models.yaml"]
 
 [tool.pytest.ini_options]
 minversion = "6.0"
-addopts = "-p pytest_cov --junitxml=junit/test-results.xml --cov=./ldm/ --cov=./backend --cov-branch"
+addopts = "-p pytest_cov --junitxml=junit/test-results.xml --cov=./ldm/ --cov=./backend --cov-branch --cov-report=html:./htmlcov"
 python_files = ["test_*.py"]
 pythonpath = [".venv/lib/python3.9", ".venv/lib/python3.10"]
 testpaths = ["tests"]
