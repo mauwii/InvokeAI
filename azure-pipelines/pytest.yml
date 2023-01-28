@@ -21,10 +21,28 @@ steps:
       versionSpec: '$(python.version)'
     displayName: 'Use Python $(python.version)'
 
-  - script: pip install  --use-pep517 --editable=".[test]"
+  - script: |
+      PYTHON_VERSION=$(python -VV)
+      echo "##vso[task.setvariable variable=PYTHON_VERSION;]$PYTHON_VERSION"
+    displayName: detect python version
+
+  - task: Cache@2
+    inputs:
+      cacheHitVar: CACHE_RESTORED
+      key: '"venv" | "$(Agent.OS)" | "$(PYTHON_VERSION)" | pyproject.toml'
+      path: $(Build.SourcesDirectory)/.venv
+    displayName: cache venv
+
+  - script: python -m venv .venv
+    condition: ne(variables.CACHE_RESTORED, 'true')
+    displayName: create venv
+
+  - script: .venv/bin/pip install --upgrade --editable=".[test]"
+    env:
+      PIP_USE_PEP517: 1
     displayName: 'Install InvokeAI'
 
-  - script: pytest --junitxml=junit/test-results-$(python.version).xml
+  - script: .venv/bin/pytest
     displayName: 'run pytest'
 
   - task: PublishTestResults@1
