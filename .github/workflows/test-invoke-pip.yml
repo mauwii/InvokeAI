@@ -82,7 +82,6 @@ jobs:
 
       - name: set environment variables
         run: |
-          echo "HF_HOME=${{ github.workspace }}/models" >> ${{ matrix.github-env }}
           echo "INVOKEAI_ROOT=${{ github.workspace }}" >> ${{ matrix.github-env }}
           echo "INVOKEAI_OUTDIR=${{ github.workspace }}/outputs" >> ${{ matrix.github-env }}
           echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
@@ -109,7 +108,7 @@ jobs:
         id: huggingface-cache
         uses: actions/cache@v3
         with:
-          path: ${{ env.HF_HOME }}
+          path: models
           key: huggingface-models
           restore-keys: huggingface-models
           enableCrossOsArchive: true
