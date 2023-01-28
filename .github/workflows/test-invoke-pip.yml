@@ -72,16 +72,13 @@ jobs:
       fail-fast: false
     name: ${{ matrix.pytorch }} on ${{ matrix.python-version }}
     runs-on: ${{ matrix.os }}
+    env:
+      PIP_USE_PEP517: '1'
+      # PIP_NO_CACHE_DIR: '1'
     steps:
       - name: Checkout sources
         id: checkout-sources
         uses: actions/checkout@v3
-
-      - name: set environment variables
-        run: |
-          echo "INVOKEAI_ROOT=$HOME/invokeai" >> ${{ matrix.github-env }}
-          echo "INVOKEAI_OUTDIR=$HOME/invokeai/outputs" >> ${{ matrix.github-env }}
-          # echo "PIP_NO_CACHE_DIR=1" >> ${{ matrix.github-env }}
 
       - name: set test prompt to main branch validation
         if: ${{ github.ref == 'refs/heads/main' }}
@@ -103,7 +100,6 @@ jobs:
           PIP_EXTRA_INDEX_URL: ${{ matrix.extra-index-url }}
         run: >
            pip3 install
-           --use-pep517
            -e ".[test]"
            ${{ matrix.extra-argument }}
 
@@ -111,11 +107,23 @@ jobs:
         id: unit-tests
         run: pytest
 
+      - name: set INVOKEAI_OUTDIR
+        run: >
+          python3 -c
+          'from pathlib import Path;from ldm.invoke.globals import Globals;outputs=str("outputs");print(f"INVOKEAI_OUTDIR={Path(Globals.root,outputs)}")'
+          >> ${{ matrix.github-env }}
+
+      - name: set huggingface-cache dir
+        run: >
+          python3 -c
+          'from ldm.invoke.globals import global_models_dir;print(f"MODELS_CACHE_DIR={global_models_dir()}")'
+          >> ${{ matrix.github-env }}
+
       - name: huggingface cache
         id: huggingface-cache
         uses: actions/cache@v3
         with:
-          path: ${{ env.INVOKEAI_ROOT }}/models
+          path: ${{ env.MODELS_CACHE_DIR }}
           key: huggingface-models
           restore-keys: huggingface-models
           enableCrossOsArchive: true
@@ -130,7 +138,6 @@ jobs:
           --default_only
 
       - name: run invoke
-        if: runner.os != 'windows' || steps.huggingface-cache.outputs.cache-hit == 'true'
         id: run-invoke
         env:
           # Set offline mode to make sure configure preloaded successfully.
