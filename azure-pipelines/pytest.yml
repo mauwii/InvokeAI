@@ -34,10 +34,10 @@ steps:
   - task: PublishTestResults@1
     inputs:
       testRunner: 'JUnit'
-      testResultsFiles: '**/test-*.xml'
+      testResultsFiles: '$(Build.SourcesDirectory)/**/test-*.xml'
 
   - task: PublishCodeCoverageResults@1
     inputs:
       codeCoverageTool: Cobertura
-      summaryFileLocation: '$(Build.SourcesDirectory)/.coverage'
+      summaryFileLocation: '$(Build.SourcesDirectory)/coverage.xml'
       reportDirectory: $(Build.SourcesDirectory)/htmlcov
