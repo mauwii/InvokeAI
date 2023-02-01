@@ -89,7 +89,7 @@ requires-python=">=3.9, <3.11"
   "mkdocs-redirects==1.2.0",
 ]
 "test"=["pytest-cov", "pytest>6.0.0"]
-"xformers"=["xformers"]
+"xformers"=["xformers; sys_platform!='darwin'"]
 
 [project.scripts]
 "configure_invokeai"="ldm.invoke.configure_invokeai:main"
