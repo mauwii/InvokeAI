@@ -50,7 +50,7 @@ jobs:
             type=sha
           flavor: |
             latest=auto
-            suffix=${{ matrix.flavor }}
+            suffix='-${{ matrix.flavor }}'
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
