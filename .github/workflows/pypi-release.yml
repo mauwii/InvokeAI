@@ -26,6 +26,15 @@ jobs:
       - name: check distribution
         run: twine check dist/*
 
-      - name: upload package
+      - name: check PyPI versions
         if: github.ref == 'refs/heads/main'
+        run: |
+          pip install --upgrade requests
+          python -c "\
+          import scripts.pypi_helper; \
+          EXISTS=scripts.pypi_helper.local_on_pypi(); \
+          print(f'PACKAGE_EXISTS={EXISTS}')" >> $GITHUB_ENV
+
+      - name: upload package
+        if: env.PACKAGE_EXISTS == 'False'
         run: twine upload dist/*
