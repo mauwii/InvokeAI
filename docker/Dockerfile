@@ -32,7 +32,7 @@ FROM node:lts as frontend-builder
 # Copy Sources
 ARG APPDIR=/usr/src
 WORKDIR ${APPDIR}
-COPY --link . .
+COPY . .
 
 # install dependencies and build frontend
 WORKDIR ${APPDIR}/frontend
@@ -65,8 +65,7 @@ RUN python3 -m venv "${APPNAME}" \
   --upgrade-deps
 
 # copy sources
-COPY --link . .
-# COPY --from=frontend-builder ${APPDIR} .
+COPY --from=frontend-builder ${APPDIR} .
 
 # install pyproject.toml
 ARG PIP_EXTRA_INDEX_URL
@@ -82,7 +81,7 @@ RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
 FROM python-base AS runtime
 
 # setup environment
-COPY --link --from=pyproject-builder ${APPDIR}/${APPNAME} ${APPDIR}/${APPNAME}
+COPY --from=pyproject-builder ${APPDIR}/${APPNAME} ${APPDIR}/${APPNAME}
 ENV INVOKEAI_ROOT=/data
 ENV INVOKE_MODEL_RECONFIGURE="--yes --default_only"
 

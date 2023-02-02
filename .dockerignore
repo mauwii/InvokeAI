@@ -21,4 +21,5 @@ frontend/node_modules
 
 # ignore python cache
 **/__pycache__
-**/*.py[co]
+**/*.py[cod]
+**/*.egg-info

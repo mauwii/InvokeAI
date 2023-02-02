@@ -10,7 +10,7 @@ source ./env.sh
 
 echo -e "You are using these values:\n"
 echo -e "Volumename:\t${VOLUMENAME}"
-echo -e "Invokeai_tag:\t${INVOKEAI_TAG}"
+echo -e "Invokeai_tag:\t${CONTAINER_IMAGE}"
 echo -e "local Models:\t${MODELSPATH:-unset}\n"
 
 docker run \
@@ -27,4 +27,4 @@ docker run \
   --publish=9090:9090 \
   --cap-add=sys_nice \
   ${GPU_FLAGS:+--gpus=${GPU_FLAGS}} \
-  "$INVOKEAI_TAG" ${1:+$@}
+  "$CONTAINER_IMAGE" ${1:+$@}
