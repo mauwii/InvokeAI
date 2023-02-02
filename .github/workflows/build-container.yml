@@ -40,6 +40,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           images: ghcr.io/${{ github.repository }}
           tags: |
             type=ref,event=branch
@@ -49,8 +50,8 @@ jobs:
             type=semver,pattern={{major}}
             type=sha
           flavor: |
-            latest=auto
-            suffix='-${{ matrix.flavor }}'
+            latest=${{ matrix.flavor == 'cuda' && ( github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master' ) }}
+            suffix=${{ matrix.flavor }},onlatest=false
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -78,3 +79,13 @@ jobs:
           build-args: PIP_EXTRA_INDEX_URL=${{ matrix.pip-extra-index-url }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Output image, digest and metadata to summary
+        run: |
+          {
+          echo imageid: "${{ steps.docker_build.outputs.imageid }}"
+          echo digest: "${{ steps.docker_build.outputs.digest }}"
+          echo labels: "${{ steps.meta.outputs.labels }}"
+          echo tags: "${{ steps.meta.outputs.tags }}"
+          echo version: "${{ steps.meta.outputs.version }}"
+          } >> "$GITHUB_STEP_SUMMARY"
