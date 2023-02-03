@@ -1,7 +1,7 @@
 # use this file as a whitelist
 *
-!assets/caution.png
 !backend
+!invokeai
 !ldm
 !pyproject.toml
 !README.md
@@ -10,14 +10,8 @@
 # Guard against pulling in any models that might exist in the directory tree
 **/*.pt*
 
-# whitelist configs, but ignore models.yaml[.orig]
-!configs
-configs/models.yaml
-configs/models.yaml.orig
-
 # whitelist frontend, but ignore node_modules
-!frontend
-frontend/node_modules
+invokeai/frontend/node_modules
 
 # ignore python cache
 **/__pycache__

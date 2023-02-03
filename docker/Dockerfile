@@ -35,8 +35,10 @@ WORKDIR ${APPDIR}
 COPY . .
 
 # install dependencies and build frontend
-WORKDIR ${APPDIR}/frontend
-RUN yarn install \
+WORKDIR ${APPDIR}/invokeai/frontend
+RUN \
+  --mount=type=cache,target=/root/.yarn \
+  yarn install \
   --prefer-offline \
   --frozen-lockfile \
   --non-interactive \
@@ -102,6 +104,6 @@ RUN \
   && rm -rf /var/lib/apt/lists/*
 
 # set Entrypoint and default CMD
-ENTRYPOINT [ "invoke" ]
+ENTRYPOINT [ "invokeai" ]
 CMD [ "--web", "--host=0.0.0.0" ]
 VOLUME [ "/data" ]
