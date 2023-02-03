@@ -7,6 +7,9 @@ on:
     tags:
       - 'v*.*.*'
 
+env:
+  Dockerfile: docker/Dockerfile
+
 jobs:
   docker:
     if: github.event.pull_request.draft == false
@@ -20,15 +23,12 @@ jobs:
         include:
           - flavor: amd
             pip-extra-index-url: 'https://download.pytorch.org/whl/rocm5.2'
-            dockerfile: docker/Dockerfile
             platforms: linux/amd64,linux/arm64
           - flavor: cuda
             pip-extra-index-url: ''
-            dockerfile: docker/Dockerfile
             platforms: linux/amd64,linux/arm64
           - flavor: cpu
             pip-extra-index-url: 'https://download.pytorch.org/whl/cpu'
-            dockerfile: docker/Dockerfile
             platforms: linux/amd64,linux/arm64
     runs-on: ubuntu-latest
     name: ${{ matrix.flavor }}
@@ -71,7 +71,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ${{ matrix.dockerfile }}
+          file: ${{ env.Dockerfile }}
           platforms: ${{ matrix.platforms }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
