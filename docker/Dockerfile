@@ -72,9 +72,9 @@ COPY --from=frontend-builder ${APPDIR} .
 # install pyproject.toml
 ARG PIP_EXTRA_INDEX_URL
 ENV PIP_EXTRA_INDEX_URL ${PIP_EXTRA_INDEX_URL}
-RUN --mount=type=cache,target=/root/.cache/pip,sharing=locked \
-  "${APPDIR}/${APPNAME}/bin/pip" install \
+RUN pip install \
   --use-pep517 \
+  --no-cache-dir \
   .
 
 #####################
