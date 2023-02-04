@@ -44,7 +44,6 @@ WORKDIR ${APPDIR}/invokeai/frontend
 RUN \
   --mount=type=cache,target=/usr/local/share/.cache/yarn,sharing=locked \
   yarn install \
-  --prefer-offline \
   --frozen-lockfile \
   --non-interactive \
   && yarn build
