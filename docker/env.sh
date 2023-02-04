@@ -16,9 +16,9 @@ if [[ -z "$PIP_EXTRA_INDEX_URL" ]]; then
   fi
   # Set PIP_EXTRA_INDEX_URL based on container flavor
   if [[ "$CONTAINER_FLAVOR" == "rocm" ]]; then
-    PIP_EXTRA_INDEX_URL="${PIP_EXTRA_INDEX_URL-"https://download.pytorch.org/whl/rocm"}"
-  elif CONTAINER_FLAVOR=cpu; then
-    PIP_EXTRA_INDEX_URL="${PIP_EXTRA_INDEX_URL-"https://download.pytorch.org/whl/cpu"}"
+    PIP_EXTRA_INDEX_URL="https://download.pytorch.org/whl/rocm"
+  elif [[ "$CONTAINER_FLAVOR" == "cpu" ]]; then
+    PIP_EXTRA_INDEX_URL="https://download.pytorch.org/whl/cpu"
   fi
 fi
 
