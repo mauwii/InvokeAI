@@ -13,7 +13,6 @@ jobs:
       TWINE_USERNAME: __token__
       TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       TWINE_NON_INTERACTIVE: 1
-    if: env.GITHUB_REPOSITORY == 'invoke-ai/InvokeAI'
     steps:
       - name: checkout sources
         uses: actions/checkout@v3
@@ -28,6 +27,7 @@ jobs:
         run: twine check dist/*
 
       - name: check PyPI versions
+        if: github.repository == 'invoke-ai/InvokeAI' && env.TWINE_PASSWORD != ''
         run: |
           pip install --upgrade requests
           python -c "\
@@ -39,5 +39,5 @@ jobs:
         run: printenv
 
       - name: upload package
-        if: env.PACKAGE_EXISTS == 'False' && github.ref == 'refs/heads/main' && env.TWINE_PASSWORD != ''
+        if: env.PACKAGE_EXISTS == 'False' && github.ref == 'refs/heads/main'
         run: twine upload dist/*
