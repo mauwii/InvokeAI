@@ -7,7 +7,7 @@ if [[ -z "$PIP_EXTRA_INDEX_URL" ]]; then
     CUDA_AVAILABLE=$(python -c "import torch;print(torch.cuda.is_available())")
     ROCM_AVAILABLE=$(python -c "import torch;print(torch.version.hip is not None)")
     if  [[ "$(uname -s)" != "Darwin" && "${CUDA_AVAILABLE}" == "True" ]]; then
-      CONTAINER_FLAVOR=cuda
+      CONTAINER_FLAVOR="cuda"
     elif [[ "$(uname -s)" != "Darwin" && "${ROCM_AVAILABLE}" == "True" ]]; then
       CONTAINER_FLAVOR="rocm"
     else
