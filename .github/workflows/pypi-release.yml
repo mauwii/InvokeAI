@@ -8,6 +8,7 @@ on:
 
 jobs:
   release:
+    if: github.repository == 'invoke-ai/InvokeAI'
     runs-on: ubuntu-22.04
     env:
       TWINE_USERNAME: __token__
@@ -27,7 +28,7 @@ jobs:
         run: twine check dist/*
 
       - name: check PyPI versions
-        if: github.repository == 'invoke-ai/InvokeAI' && env.TWINE_PASSWORD != ''
+        if: env.TWINE_PASSWORD != ''
         run: |
           pip install --upgrade requests
           python -c "\
