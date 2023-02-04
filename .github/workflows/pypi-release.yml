@@ -13,6 +13,7 @@ jobs:
       TWINE_USERNAME: __token__
       TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       TWINE_NON_INTERACTIVE: 1
+    if: env.GITHUB_REPOSITORY == 'invoke-ai/InvokeAI'
     steps:
       - name: checkout sources
         uses: actions/checkout@v3
