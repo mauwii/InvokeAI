@@ -111,6 +111,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://invoke-ai.github.io/InvokeAI/help/contribute/020_ISSUES/</loc>
+         <lastmod>2023-02-19</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://invoke-ai.github.io/InvokeAI/help/deprecated/TROUBLESHOOT/</loc>
          <lastmod>2023-02-19</lastmod>
          <changefreq>daily</changefreq>
