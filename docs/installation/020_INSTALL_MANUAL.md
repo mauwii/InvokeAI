@@ -253,14 +253,12 @@ please follow these steps:
 
 10. Render away!
 
-
     Browse the [features](../features/CLI.md) section to learn about all the
     things you can do with InvokeAI.
 
 11. Subsequently, to relaunch the script, activate the virtual environment, and
     then launch `invokeai` command. If you forget to activate the virtual
     environment you will most likeley receive a `command not found` error.
-
 
     !!! warning
 
