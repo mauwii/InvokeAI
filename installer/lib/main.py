@@ -4,6 +4,7 @@ InvokeAI Installer
 
 import argparse
 from pathlib import Path
+
 from installer import Installer
 
 if __name__ == "__main__":
@@ -41,7 +42,7 @@ if __name__ == "__main__":
         type=Path,
         default=None,
     )
-    
+
     args = parser.parse_args()
 
     inst = Installer()

@@ -20,8 +20,13 @@ from diffusers import logging as dlogging
 from npyscreen import widget
 from omegaconf import OmegaConf
 
-from ldm.invoke.globals import (Globals, global_cache_dir, global_config_file,
-                                global_models_dir, global_set_root)
+from ldm.invoke.globals import (
+    Globals,
+    global_cache_dir,
+    global_config_file,
+    global_models_dir,
+    global_set_root,
+)
 from ldm.invoke.model_manager import ModelManager
 
 DEST_MERGED_MODEL_DIR = "merged_models"
@@ -322,7 +327,7 @@ class mergeModelsForm(npyscreen.FormMultiPageAction):
         self.merged_model_name.value = merged_model_name
 
         if selected_model3 > 0:
-            self.merge_method.values = ['add_difference ( A+(B-C) )']
+            self.merge_method.values = ["add_difference ( A+(B-C) )"]
             self.merged_model_name.value += f"+{models[selected_model3]}"
         else:
             self.merge_method.values = self.interpolations
@@ -348,9 +353,9 @@ class mergeModelsForm(npyscreen.FormMultiPageAction):
         ]
         if self.model3.value[0] > 0:
             models.append(model_names[self.model3.value[0] - 1])
-            interp='add_difference'
+            interp = "add_difference"
         else:
-            interp=self.interpolations[self.merge_method.value[0]]
+            interp = self.interpolations[self.merge_method.value[0]]
 
         args = dict(
             models=models,
@@ -465,7 +470,9 @@ def main():
                 "** You need to have at least two diffusers models defined in models.yaml in order to merge"
             )
         else:
-            print(f"** Not enough room for the user interface. Try making this window larger.")
+            print(
+                f"** Not enough room for the user interface. Try making this window larger."
+            )
         sys.exit(-1)
     except Exception as e:
         print(">> An error occurred:")

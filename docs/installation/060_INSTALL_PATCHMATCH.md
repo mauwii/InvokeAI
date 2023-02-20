@@ -24,7 +24,8 @@ You need to have opencv installed so that pypatchmatch can be built:
 brew install opencv
 ```
 
-The next time you start `invoke`, after sucesfully installing opencv, pypatchmatch will be built.
+The next time you start `invoke`, after sucesfully installing opencv,
+pypatchmatch will be built.
 
 ## Linux
 

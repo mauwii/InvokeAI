@@ -83,21 +83,22 @@ permissive license that also incorporates ethical considerations.\***
 We currently provide three checkpoints, `sd-v1-1.ckpt`, `sd-v1-2.ckpt` and
 `sd-v1-3.ckpt`, which were trained as follows,
 
-- `sd-v1-1.ckpt`: 237k steps at resolution `256x256` on
-  [laion2B-en](https://huggingface.co/datasets/laion/laion2B-en). 194k steps at
-  resolution `512x512` on
-  [laion-high-resolution](https://huggingface.co/datasets/laion/laion-high-resolution)
-  (170M examples from LAION-5B with resolution `>= 1024x1024`).
-- `sd-v1-2.ckpt`: Resumed from `sd-v1-1.ckpt`. 515k steps at resolution
-  `512x512` on "laion-improved-aesthetics" (a subset of laion2B-en, filtered to
-  images with an original size `>= 512x512`, estimated aesthetics score `> 5.0`,
-  and an estimated watermark probability `< 0.5`. The watermark estimate is from
-  the LAION-5B metadata, the aesthetics score is estimated using an
-  [improved aesthetics estimator](https://github.com/christophschuhmann/improved-aesthetic-predictor)).
-- `sd-v1-3.ckpt`: Resumed from `sd-v1-2.ckpt`. 195k steps at resolution
-  `512x512` on "laion-improved-aesthetics" and 10\% dropping of the
-  text-conditioning to improve
-  [classifier-free guidance sampling](https://arxiv.org/abs/2207.12598).
+-   `sd-v1-1.ckpt`: 237k steps at resolution `256x256` on
+    [laion2B-en](https://huggingface.co/datasets/laion/laion2B-en). 194k steps
+    at resolution `512x512` on
+    [laion-high-resolution](https://huggingface.co/datasets/laion/laion-high-resolution)
+    (170M examples from LAION-5B with resolution `>= 1024x1024`).
+-   `sd-v1-2.ckpt`: Resumed from `sd-v1-1.ckpt`. 515k steps at resolution
+    `512x512` on "laion-improved-aesthetics" (a subset of laion2B-en, filtered
+    to images with an original size `>= 512x512`, estimated aesthetics score
+    `> 5.0`, and an estimated watermark probability `< 0.5`. The watermark
+    estimate is from the LAION-5B metadata, the aesthetics score is estimated
+    using an
+    [improved aesthetics estimator](https://github.com/christophschuhmann/improved-aesthetic-predictor)).
+-   `sd-v1-3.ckpt`: Resumed from `sd-v1-2.ckpt`. 195k steps at resolution
+    `512x512` on "laion-improved-aesthetics" and 10\% dropping of the
+    text-conditioning to improve
+    [classifier-free guidance sampling](https://arxiv.org/abs/2207.12598).
 
 Evaluations with different classifier-free guidance scales (1.5, 2.0, 3.0, 4.0,
 5.0, 6.0, 7.0, 8.0) and 50 PLMS sampling steps show the relative improvements of
@@ -231,14 +232,14 @@ model.
 
 ## Comments
 
-- Our codebase for the diffusion models builds heavily on
-  [OpenAI's ADM codebase](https://github.com/openai/guided-diffusion) and
-  [https://github.com/lucidrains/denoising-diffusion-pytorch](https://github.com/lucidrains/denoising-diffusion-pytorch).
-  Thanks for open-sourcing!
+-   Our codebase for the diffusion models builds heavily on
+    [OpenAI's ADM codebase](https://github.com/openai/guided-diffusion) and
+    [https://github.com/lucidrains/denoising-diffusion-pytorch](https://github.com/lucidrains/denoising-diffusion-pytorch).
+    Thanks for open-sourcing!
 
-- The implementation of the transformer encoder is from
-  [x-transformers](https://github.com/lucidrains/x-transformers) by
-  [lucidrains](https://github.com/lucidrains?tab=repositories).
+-   The implementation of the transformer encoder is from
+    [x-transformers](https://github.com/lucidrains/x-transformers) by
+    [lucidrains](https://github.com/lucidrains?tab=repositories).
 
 ## BibTeX
 

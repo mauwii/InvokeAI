@@ -107,28 +107,29 @@ these methods as the "initial image" in the below guide.
 
 From there, you can consider the following techniques to augment your image:
 
-- **New Images**: Move the bounding box to an empty area of the Canvas, type in
-  your prompt, and Invoke, to generate a new image using the Text to Image
-  function.
-- **Image Correction**: Use the color picker and brush tool to paint corrections
-  on the image, switch to the Mask layer, and brush a mask over your painted
-  area to use **Inpainting**. You can also use the **ImageToImage** generation
-  method to invoke new interpretations of the image.
-- **Image Expansion**: Move the bounding box to include a portion of your
-  initial image, and a portion of transparent/empty pixels, then Invoke using a
-  prompt that describes what you'd like to see in that area. This will Outpaint
-  the image. You'll typically find more coherent results if you keep about
-  50-60% of the original image in the bounding box. Make sure that the Image To
-  Image Strength slider is set to a high value - you may need to set it higher
-  than you are used to.
-- **New Content on Existing Images**: If you want to add new details or objects
-  into your image, use the brush tool to paint a sketch of what you'd like to
-  see on the image, switch to the Mask layer, and brush a mask over your painted
-  area to use **Inpainting**. If the masked area is small, consider using a
-  smaller bounding box to take advantage of Invoke's automatic Scaling features,
-  which can help to produce better details.
-- **And more**: There are a number of creative ways to use the Canvas, and the
-  above are just starting points. We're excited to see what you come up with!
+-   **New Images**: Move the bounding box to an empty area of the Canvas, type
+    in your prompt, and Invoke, to generate a new image using the Text to Image
+    function.
+-   **Image Correction**: Use the color picker and brush tool to paint
+    corrections on the image, switch to the Mask layer, and brush a mask over
+    your painted area to use **Inpainting**. You can also use the
+    **ImageToImage** generation method to invoke new interpretations of the
+    image.
+-   **Image Expansion**: Move the bounding box to include a portion of your
+    initial image, and a portion of transparent/empty pixels, then Invoke using
+    a prompt that describes what you'd like to see in that area. This will
+    Outpaint the image. You'll typically find more coherent results if you keep
+    about 50-60% of the original image in the bounding box. Make sure that the
+    Image To Image Strength slider is set to a high value - you may need to set
+    it higher than you are used to.
+-   **New Content on Existing Images**: If you want to add new details or
+    objects into your image, use the brush tool to paint a sketch of what you'd
+    like to see on the image, switch to the Mask layer, and brush a mask over
+    your painted area to use **Inpainting**. If the masked area is small,
+    consider using a smaller bounding box to take advantage of Invoke's
+    automatic Scaling features, which can help to produce better details.
+-   **And more**: There are a number of creative ways to use the Canvas, and the
+    above are just starting points. We're excited to see what you come up with!
 
 ## <a name="generation-methods"></a> Generation Methods
 
@@ -193,41 +194,43 @@ clarity on the intent and common use cases we expect for utilizing them.
 
 #### Mask Options
 
-- **Enable Mask** - This flag can be used to Enable or Disable the currently
-  painted mask. If you have painted a mask, but you don't want it affect the
-  next invocation, but you _also_ don't want to delete it, then you can set this
-  option to Disable. When you want the mask back, set this back to Enable.
-- **Preserve Masked Area** - When enabled, Preserve Masked Area inverts the
-  effect of the Mask on the Inpainting process. Pixels in masked areas will be
-  kept unchanged, and unmasked areas will be regenerated.
+-   **Enable Mask** - This flag can be used to Enable or Disable the currently
+    painted mask. If you have painted a mask, but you don't want it affect the
+    next invocation, but you _also_ don't want to delete it, then you can set
+    this option to Disable. When you want the mask back, set this back to
+    Enable.
+-   **Preserve Masked Area** - When enabled, Preserve Masked Area inverts the
+    effect of the Mask on the Inpainting process. Pixels in masked areas will be
+    kept unchanged, and unmasked areas will be regenerated.
 
 #### Creative Tools
 
-- **Brush - Base/Mask Modes** - The Brush tool switches automatically between
-  different modes of operation for the Base and Mask layers respectively.
-    - On the Base layer, the brush will directly paint on the Canvas using the
-      color selected on the Brush Options menu.
-    - On the Mask layer, the brush will create a new mask. If you're finding the
-      mask difficult to see over the existing content of the Unified Canvas, you
-      can change the color it is drawn with using the color selector on the Mask
-      Options dropdown.
-- **Erase Bounding Box** - On the Base layer, erases all pixels within the
-  Bounding Box.
-- **Fill Bounding Box** - On the Base layer, fills all pixels within the
-  Bounding Box with the currently selected color.
+-   **Brush - Base/Mask Modes** - The Brush tool switches automatically between
+    different modes of operation for the Base and Mask layers respectively.
+    -   On the Base layer, the brush will directly paint on the Canvas using the
+        color selected on the Brush Options menu.
+    -   On the Mask layer, the brush will create a new mask. If you're finding
+        the mask difficult to see over the existing content of the Unified
+        Canvas, you can change the color it is drawn with using the color
+        selector on the Mask Options dropdown.
+-   **Erase Bounding Box** - On the Base layer, erases all pixels within the
+    Bounding Box.
+-   **Fill Bounding Box** - On the Base layer, fills all pixels within the
+    Bounding Box with the currently selected color.
 
 #### Canvas Tools
 
-- **Move Tool** - Allows for manipulation of the Canvas view (by dragging on the
-  Canvas, outside the bounding box), the Bounding Box (by dragging the edges of
-  the box), or the Width/Height of the Bounding Box (by dragging one of the 9
-  directional handles).
-- **Reset View** - Click to re-orients the view to the center of the Bounding
-  Box.
-- **Merge Visible** - If your browser is having performance problems drawing the
-  image in the Unified Canvas, click this to consolidate all of the information
-  currently being rendered by your browser into a merged copy of the image. This
-  lowers the resource requirements and should improve performance.
+-   **Move Tool** - Allows for manipulation of the Canvas view (by dragging on
+    the Canvas, outside the bounding box), the Bounding Box (by dragging the
+    edges of the box), or the Width/Height of the Bounding Box (by dragging one
+    of the 9 directional handles).
+-   **Reset View** - Click to re-orients the view to the center of the Bounding
+    Box.
+-   **Merge Visible** - If your browser is having performance problems drawing
+    the image in the Unified Canvas, click this to consolidate all of the
+    information currently being rendered by your browser into a merged copy of
+    the image. This lowers the resource requirements and should improve
+    performance.
 
 ### Seam Correction
 
@@ -244,38 +247,38 @@ a blur setting of about 1/3 of the seam have been noted as producing
 consistently strong results (e.g. 96 wide and 16 blur - adds up to 32 blur with
 both sides). Seam strength of 0.7 is best for reducing hard seams.
 
-- **Seam Size** - The size of the seam masked area. Set higher to make a larger
-  mask around the seam.
-- **Seam Blur** - The size of the blur that is applied on _each_ side of the
-  masked area.
-- **Seam Strength** - The Image To Image Strength parameter used for the
-  Inpainting generation that is applied to the seam area.
-- **Seam Steps** - The number of generation steps that should be used to Inpaint
-  the seam.
+-   **Seam Size** - The size of the seam masked area. Set higher to make a
+    larger mask around the seam.
+-   **Seam Blur** - The size of the blur that is applied on _each_ side of the
+    masked area.
+-   **Seam Strength** - The Image To Image Strength parameter used for the
+    Inpainting generation that is applied to the seam area.
+-   **Seam Steps** - The number of generation steps that should be used to
+    Inpaint the seam.
 
 ### Infill & Scaling
 
-- **Scale Before Processing & W/H**: When generating images with a bounding box
-  smaller than the optimized W/H of the model (e.g., 512x512 for SD1.5), this
-  feature first generates at a larger size with the same aspect ratio, and then
-  scales that image down to fill the selected area. This is particularly useful
-  when inpainting very small details. Scaling is optional but is enabled by
-  default.
-- **Inpaint Replace**: When Inpainting, the default method is to utilize the
-  existing RGB values of the Base layer to inform the generation process. If
-  Inpaint Replace is enabled, noise is generated and blended with the existing
-  pixels (completely replacing the original RGB values at an Inpaint Replace
-  value of 1). This can help generate more variation from the pixels on the Base
-  layers.
-    - When using Inpaint Replace you should use a higher Image To Image Strength
-      value, especially at higher Inpaint Replace values
-- **Infill Method**: Invoke currently supports two methods for producing RGB
-  values for use in the Outpainting process: Patchmatch and Tile. We believe
-  that Patchmatch is the superior method, however we provide support for Tile in
-  case Patchmatch cannot be installed or is unavailable on your computer.
-- **Tile Size**: The Tile method for Outpainting sources small portions of the
-  original image and randomly place these into the areas being Outpainted. This
-  value sets the size of those tiles.
+-   **Scale Before Processing & W/H**: When generating images with a bounding
+    box smaller than the optimized W/H of the model (e.g., 512x512 for SD1.5),
+    this feature first generates at a larger size with the same aspect ratio,
+    and then scales that image down to fill the selected area. This is
+    particularly useful when inpainting very small details. Scaling is optional
+    but is enabled by default.
+-   **Inpaint Replace**: When Inpainting, the default method is to utilize the
+    existing RGB values of the Base layer to inform the generation process. If
+    Inpaint Replace is enabled, noise is generated and blended with the existing
+    pixels (completely replacing the original RGB values at an Inpaint Replace
+    value of 1). This can help generate more variation from the pixels on the
+    Base layers.
+    -   When using Inpaint Replace you should use a higher Image To Image
+        Strength value, especially at higher Inpaint Replace values
+-   **Infill Method**: Invoke currently supports two methods for producing RGB
+    values for use in the Outpainting process: Patchmatch and Tile. We believe
+    that Patchmatch is the superior method, however we provide support for Tile
+    in case Patchmatch cannot be installed or is unavailable on your computer.
+-   **Tile Size**: The Tile method for Outpainting sources small portions of the
+    original image and randomly place these into the areas being Outpainted.
+    This value sets the size of those tiles.
 
 ## Hot Keys
 

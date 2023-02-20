@@ -31,12 +31,19 @@ from omegaconf.dictconfig import DictConfig
 from picklescan.scanner import scan_file_path
 
 from ldm.invoke.devices import CPU_DEVICE
-from ldm.invoke.generator.diffusers_pipeline import \
-    StableDiffusionGeneratorPipeline
-from ldm.invoke.globals import (Globals, global_autoscan_dir, global_cache_dir,
-                                global_models_dir)
-from ldm.util import (ask_user, download_with_resume,
-                      url_attachment_name, instantiate_from_config)
+from ldm.invoke.generator.diffusers_pipeline import StableDiffusionGeneratorPipeline
+from ldm.invoke.globals import (
+    Globals,
+    global_autoscan_dir,
+    global_cache_dir,
+    global_models_dir,
+)
+from ldm.util import (
+    ask_user,
+    download_with_resume,
+    instantiate_from_config,
+    url_attachment_name,
+)
 
 DEFAULT_MAX_MODELS = 2
 VAE_TO_REPO_ID = {  # hack, see note in convert_and_import()
@@ -51,7 +58,7 @@ class ModelManager(object):
         device_type: torch.device = CPU_DEVICE,
         precision: str = "float16",
         max_loaded_models=DEFAULT_MAX_MODELS,
-        sequential_offload = False
+        sequential_offload=False,
     ):
         """
         Initialize with the path to the models.yaml config file,
@@ -375,8 +382,9 @@ class ModelManager(object):
             print(
                 f">> Converting legacy checkpoint {model_name} into a diffusers model..."
             )
-            from ldm.invoke.ckpt_to_diffuser import \
-                load_pipeline_from_original_stable_diffusion_ckpt
+            from ldm.invoke.ckpt_to_diffuser import (
+                load_pipeline_from_original_stable_diffusion_ckpt,
+            )
 
             if vae_config := self._choose_diffusers_vae(model_name):
                 vae = self._load_vae(vae_config)
@@ -678,14 +686,16 @@ class ModelManager(object):
             model_name = model_name or url_attachment_name(weights)
 
         weights_path = self._resolve_path(weights, "models/ldm/stable-diffusion-v1")
-        config_path  = self._resolve_path(config, "configs/stable-diffusion")
+        config_path = self._resolve_path(config, "configs/stable-diffusion")
 
         if weights_path is None or not weights_path.exists():
             return False
         if config_path is None or not config_path.exists():
             return False
 
-        model_name = model_name or Path(weights).stem  # note this gives ugly pathnames if used on a URL without a Content-Disposition header
+        model_name = (
+            model_name or Path(weights).stem
+        )  # note this gives ugly pathnames if used on a URL without a Content-Disposition header
         model_description = (
             model_description or f"imported stable diffusion weights file {model_name}"
         )
@@ -795,7 +805,9 @@ class ModelManager(object):
             print(">> Conversion succeeded")
         except Exception as e:
             print(f"** Conversion failed: {str(e)}")
-            print("** If you are trying to convert an inpainting or 2.X model, please indicate the correct config file (e.g. v1-inpainting-inference.yaml)")
+            print(
+                "** If you are trying to convert an inpainting or 2.X model, please indicate the correct config file (e.g. v1-inpainting-inference.yaml)"
+            )
 
         return new_config
 
@@ -812,10 +824,11 @@ class ModelManager(object):
         found_models = []
         for file in files:
             location = str(file.resolve()).replace("\\", "/")
-            if 'model.safetensors' not in location and 'diffusion_pytorch_model.safetensors' not in location:
-                found_models.append(
-                    {"name": file.stem, "location": location}
-                )
+            if (
+                "model.safetensors" not in location
+                and "diffusion_pytorch_model.safetensors" not in location
+            ):
+                found_models.append({"name": file.stem, "location": location})
 
         return search_folder, found_models
 
@@ -975,7 +988,7 @@ class ModelManager(object):
         print("** Migration is done. Continuing...")
 
     def _resolve_path(
-            self, source: Union[str, Path], dest_directory: str
+        self, source: Union[str, Path], dest_directory: str
     ) -> Optional[Path]:
         resolved_path = None
         if str(source).startswith(("http:", "https:", "ftp:")):

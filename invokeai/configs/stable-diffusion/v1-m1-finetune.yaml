@@ -11,7 +11,7 @@ model:
     cond_stage_key: caption
     image_size: 64
     channels: 4
-    cond_stage_trainable: true   # Note: different from the one we trained before
+    cond_stage_trainable: true # Note: different from the one we trained before
     conditioning_key: crossattn
     monitor: val/loss_simple_ema
     scale_factor: 0.18215
@@ -21,7 +21,7 @@ model:
     personalization_config:
       target: ldm.modules.embedding_manager.EmbeddingManager
       params:
-        placeholder_strings: ["*"]
+        placeholder_strings: ['*']
         initializer_words: ['sculpture']
         per_image_tokens: false
         num_vectors_per_token: 6
@@ -34,9 +34,9 @@ model:
         in_channels: 4
         out_channels: 4
         model_channels: 320
-        attention_resolutions: [ 4, 2, 1 ]
+        attention_resolutions: [4, 2, 1]
         num_res_blocks: 2
-        channel_mult: [ 1, 2, 4, 4 ]
+        channel_mult: [1, 2, 4, 4]
         num_heads: 8
         use_spatial_transformer: True
         transformer_depth: 1
@@ -57,10 +57,10 @@ model:
           out_ch: 3
           ch: 128
           ch_mult:
-          - 1
-          - 2
-          - 4
-          - 4
+            - 1
+            - 2
+            - 4
+            - 4
           num_res_blocks: 2
           attn_resolutions: []
           dropout: 0.0
@@ -107,4 +107,3 @@ lightning:
     benchmark: False
     max_steps: 6200
 #    max_steps: 4000
-

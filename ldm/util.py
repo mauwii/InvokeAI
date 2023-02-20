@@ -298,27 +298,29 @@ def debug_image(
 
 # -------------------------------------
 def download_with_resume(url: str, dest: Path, access_token: str = None) -> Path:
-    '''
+    """
     Download a model file.
     :param url:  https, http or ftp URL
     :param dest: A Path object. If path exists and is a directory, then we try to derive the filename
                  from the URL's Content-Disposition header and copy the URL contents into
                  dest/filename
     :param access_token: Access token to access this resource
-    '''
+    """
     resp = requests.get(url, stream=True)
     total = int(resp.headers.get("content-length", 0))
 
     if dest.is_dir():
         try:
-            file_name = re.search('filename="(.+)"', resp.headers.get("Content-Disposition")).group(1)
+            file_name = re.search(
+                'filename="(.+)"', resp.headers.get("Content-Disposition")
+            ).group(1)
         except:
             file_name = os.path.basename(url)
         dest = dest / file_name
     else:
         dest.parent.mkdir(parents=True, exist_ok=True)
 
-    print(f'DEBUG: after many manipulations, dest={dest}')
+    print(f"DEBUG: after many manipulations, dest={dest}")
 
     header = {"Authorization": f"Bearer {access_token}"} if access_token else {}
     open_mode = "wb"

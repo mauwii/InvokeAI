@@ -11,4 +11,3 @@ a coyote, deep palette knife oil painting, red roses, plants, desert landscape, 
 a coyote, deep palette knife oil painting, red roses, plants, desert landscape, award winning -s 50 -S 1234554321 -W 512 -H 512 -C 7.5 -I tests/inpainting/coyote-input.webp -A k_lms -M tests/inpainting/coyote-mask.webp -f 0.6
 a coyote, deep palette knife oil painting, red roses, plants, desert landscape, award winning -s 50 -S 1234554321 -W 512 -H 512 -C 7.5 -I tests/inpainting/coyote-input.webp -A k_lms -M tests/inpainting/coyote-mask.webp -f 0.8
 a coyote, deep palette knife oil painting, red roses, plants, desert landscape, award winning -s 50 -S 1234554321 -W 512 -H 512 -C 7.5 -I tests/inpainting/coyote-input.webp -A k_lms -M tests/inpainting/coyote-mask.webp -f 0.99
-

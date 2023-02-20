@@ -58,7 +58,6 @@ You can also combine styles and concepts:
     in your local cache. Check for a hidden `.huggingface` directory in your home folder. If it
     contains a `token` file, then you are all set.
 
-
 Hugging Face TI concepts are downloaded and installed automatically as you
 require them. This requires your machine to be connected to the Internet. To
 find out what each concept is for, you can browse the

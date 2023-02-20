@@ -384,23 +384,23 @@ Error generating stack: `+o.message+`
     margin-right: `).concat(s,"px ").concat(r,`;
     `),n==="padding"&&"padding-right: ".concat(s,"px ").concat(r,";")].filter(Boolean).join(""),`
   }
-  
+
   .`).concat(tS,` {
     right: `).concat(s,"px ").concat(r,`;
   }
-  
+
   .`).concat(nS,` {
     margin-right: `).concat(s,"px ").concat(r,`;
   }
-  
+
   .`).concat(tS," .").concat(tS,` {
     right: 0 `).concat(r,`;
   }
-  
+
   .`).concat(nS," .").concat(nS,` {
     margin-right: 0 `).concat(r,`;
   }
-  
+
   body {
     `).concat(Mye,": ").concat(s,`px;
   }

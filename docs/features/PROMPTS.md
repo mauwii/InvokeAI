@@ -23,9 +23,9 @@ Then pass this file's name to `invoke.py` when you invoke it:
 python scripts/invoke.py --from_file "/path/to/prompts.txt"
 ```
 
-You may also read a series of prompts from standard input by providing
-a filename of `-`. For example, here is a python script that creates a
-matrix of prompts, each one varying slightly:
+You may also read a series of prompts from standard input by providing a
+filename of `-`. For example, here is a python script that creates a matrix of
+prompts, each one varying slightly:
 
 ```bash
 #!/usr/bin/env python
@@ -59,15 +59,14 @@ To feed it to invoke.py, pass the filename of "-"
 python matrix.py | python scripts/invoke.py --from_file -
 ```
 
-When the script is finished, each of the 27 combinations
-of adjective, sampler and CFG will be executed.
+When the script is finished, each of the 27 combinations of adjective, sampler
+and CFG will be executed.
 
-The command-line interface provides `!fetch` and `!replay` commands
-which allow you to read the prompts from a single previously-generated
-image or a whole directory of them, write the prompts to a file, and
-then replay them. Or you can create your own file of prompts and feed
-them to the command-line client from within an interactive session.
-See [Command-Line Interface](CLI.md) for details.
+The command-line interface provides `!fetch` and `!replay` commands which allow
+you to read the prompts from a single previously-generated image or a whole
+directory of them, write the prompts to a file, and then replay them. Or you can
+create your own file of prompts and feed them to the command-line client from
+within an interactive session. See [Command-Line Interface](CLI.md) for details.
 
 ---
 
@@ -151,20 +150,21 @@ term).
 
 The following syntax is recognised:
 
-- single words without parentheses: `a tall thin man picking apricots+`
-- single or multiple words with parentheses:
-  `a tall thin man picking (apricots)+` `a tall thin man picking (apricots)-`
-  `a tall thin man (picking apricots)+` `a tall thin man (picking apricots)-`
-- more effect with more symbols `a tall thin man (picking apricots)++`
-- nesting `a tall thin man (picking apricots+)++` (`apricots` effectively gets
-  `+++`)
-- all of the above with explicit numbers `a tall thin man picking (apricots)1.1`
-  `a tall thin man (picking (apricots)1.3)1.1`. (`+` is equivalent to 1.1, `++`
-  is pow(1.1,2), `+++` is pow(1.1,3), etc; `-` means 0.9, `--` means pow(0.9,2),
-  etc.)
-- attention also applies to `[unconditioning]` so
-  `a tall thin man picking apricots [(ladder)0.01]` will _very gently_ nudge SD
-  away from trying to draw the man on a ladder
+-   single words without parentheses: `a tall thin man picking apricots+`
+-   single or multiple words with parentheses:
+    `a tall thin man picking (apricots)+` `a tall thin man picking (apricots)-`
+    `a tall thin man (picking apricots)+` `a tall thin man (picking apricots)-`
+-   more effect with more symbols `a tall thin man (picking apricots)++`
+-   nesting `a tall thin man (picking apricots+)++` (`apricots` effectively gets
+    `+++`)
+-   all of the above with explicit numbers
+    `a tall thin man picking (apricots)1.1`
+    `a tall thin man (picking (apricots)1.3)1.1`. (`+` is equivalent to 1.1,
+    `++` is pow(1.1,2), `+++` is pow(1.1,3), etc; `-` means 0.9, `--` means
+    pow(0.9,2), etc.)
+-   attention also applies to `[unconditioning]` so
+    `a tall thin man picking apricots [(ladder)0.01]` will _very gently_ nudge
+    SD away from trying to draw the man on a ladder
 
 You can use this to increase or decrease the amount of something. Starting from
 this prompt of `a man picking apricots from a tree`, let's see what happens if
@@ -212,18 +212,19 @@ Or, alternatively, with more man:
 
 ### Blending between prompts
 
-- `("a tall thin man picking apricots", "a tall thin man picking pears").blend(1,1)`
-- The existing prompt blending using `:<weight>` will continue to be supported -
-  `("a tall thin man picking apricots", "a tall thin man picking pears").blend(1,1)`
-  is equivalent to
-  `a tall thin man picking apricots:1 a tall thin man picking pears:1` in the
-  old syntax.
-- Attention weights can be nested inside blends.
-- Non-normalized blends are supported by passing `no_normalize` as an additional
-  argument to the blend weights, eg
-  `("a tall thin man picking apricots", "a tall thin man picking pears").blend(1,-1,no_normalize)`.
-  very fun to explore local maxima in the feature space, but also easy to
-  produce garbage output.
+-   `("a tall thin man picking apricots", "a tall thin man picking pears").blend(1,1)`
+-   The existing prompt blending using `:<weight>` will continue to be
+    supported -
+    `("a tall thin man picking apricots", "a tall thin man picking pears").blend(1,1)`
+    is equivalent to
+    `a tall thin man picking apricots:1 a tall thin man picking pears:1` in the
+    old syntax.
+-   Attention weights can be nested inside blends.
+-   Non-normalized blends are supported by passing `no_normalize` as an
+    additional argument to the blend weights, eg
+    `("a tall thin man picking apricots", "a tall thin man picking pears").blend(1,-1,no_normalize)`.
+    very fun to explore local maxima in the feature space, but also easy to
+    produce garbage output.
 
 See the section below on "Prompt Blending" for more information about how this
 works.
@@ -239,24 +240,50 @@ Generate an image with a given prompt, record the seed of the image, and then
 use the `prompt2prompt` syntax to substitute words in the original prompt for
 words in a new prompt. This works for `img2img` as well.
 
-For example, consider the prompt `a cat.swap(dog) playing with a ball in the forest`. Normally, because of the word words interact with each other when doing a stable diffusion image generation, these two prompts would generate different compositions:
-  - `a cat playing with a ball in the forest`
-  - `a dog playing with a ball in the forest`
+For example, consider the prompt
+`a cat.swap(dog) playing with a ball in the forest`. Normally, because of the
+word words interact with each other when doing a stable diffusion image
+generation, these two prompts would generate different compositions:
+
+-   `a cat playing with a ball in the forest`
+-   `a dog playing with a ball in the forest`
 
 | `a cat playing with a ball in the forest` | `a dog playing with a ball in the forest` |
-| --- | --- |
-| img | img |
-
+| ----------------------------------------- | ----------------------------------------- |
+| img                                       | img                                       |
 
       - For multiple word swaps, use parentheses: `a (fluffy cat).swap(barking dog) playing with a ball in the forest`.
       - To swap a comma, use quotes: `a ("fluffy, grey cat").swap("big, barking dog") playing with a ball in the forest`.
-- Supports options `t_start` and `t_end` (each 0-1) loosely corresponding to bloc97's `prompt_edit_tokens_start/_end` but with the math swapped to make it easier to
-  intuitively understand. `t_start` and `t_end` are used to control on which steps cross-attention control should run. With the default values `t_start=0` and `t_end=1`, cross-attention control is active on every step of image generation. Other values can be used to turn cross-attention control off for part of the image generation process.
-    - For example, if doing a diffusion with 10 steps for the prompt is `a cat.swap(dog, t_start=0.3, t_end=1.0) playing with a ball in the forest`, the first 3 steps will be run as `a cat playing with a ball in the forest`, while the last 7 steps will run as `a dog playing with a ball in the forest`, but the pixels that represent `dog` will be locked to the pixels that would have represented `cat` if the `cat` prompt had been used instead.
-    - Conversely, for `a cat.swap(dog, t_start=0, t_end=0.7) playing with a ball in the forest`, the first 7 steps will run as `a dog playing with a ball in the forest` with the pixels that represent `dog` locked to the same pixels that would have represented `cat` if the `cat` prompt was being used instead. The final 3 steps will just run `a cat playing with a ball in the forest`.
-    > For img2img, the step sequence does not start at 0 but instead at `(1.0-strength)` - so if the img2img `strength` is `0.7`, `t_start` and `t_end` must both be greater than `0.3` (`1.0-0.7`) to have any effect.
 
-Prompt2prompt `.swap()` is not compatible with xformers, which will be temporarily disabled when doing a `.swap()` - so you should expect to use more VRAM and run slower that with xformers enabled.
+-   Supports options `t_start` and `t_end` (each 0-1) loosely corresponding to
+    bloc97's `prompt_edit_tokens_start/_end` but with the math swapped to make
+    it easier to intuitively understand. `t_start` and `t_end` are used to
+    control on which steps cross-attention control should run. With the default
+    values `t_start=0` and `t_end=1`, cross-attention control is active on every
+    step of image generation. Other values can be used to turn cross-attention
+    control off for part of the image generation process.
+    -   For example, if doing a diffusion with 10 steps for the prompt is
+        `a cat.swap(dog, t_start=0.3, t_end=1.0) playing with a ball in the forest`,
+        the first 3 steps will be run as
+        `a cat playing with a ball in the forest`, while the last 7 steps will
+        run as `a dog playing with a ball in the forest`, but the pixels that
+        represent `dog` will be locked to the pixels that would have represented
+        `cat` if the `cat` prompt had been used instead.
+    -   Conversely, for
+        `a cat.swap(dog, t_start=0, t_end=0.7) playing with a ball in the forest`,
+        the first 7 steps will run as `a dog playing with a ball in the forest`
+        with the pixels that represent `dog` locked to the same pixels that
+        would have represented `cat` if the `cat` prompt was being used instead.
+        The final 3 steps will just run
+        `a cat playing with a ball in the forest`.
+        > For img2img, the step sequence does not start at 0 but instead at
+        > `(1.0-strength)` - so if the img2img `strength` is `0.7`, `t_start`
+        > and `t_end` must both be greater than `0.3` (`1.0-0.7`) to have any
+        > effect.
+
+Prompt2prompt `.swap()` is not compatible with xformers, which will be
+temporarily disabled when doing a `.swap()` - so you should expect to use more
+VRAM and run slower that with xformers enabled.
 
 The `prompt2prompt` code is based off
 [bloc97's colab](https://github.com/bloc97/CrossAttentionControl).

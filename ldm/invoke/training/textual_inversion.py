@@ -449,9 +449,9 @@ def main():
             print(
                 "** You need to have at least one diffusers models defined in models.yaml in order to train"
             )
-        elif str(e).startswith('addwstr'):
+        elif str(e).startswith("addwstr"):
             print(
-                '** Not enough window space for the interface. Please make your window larger and try again.'
+                "** Not enough window space for the interface. Please make your window larger and try again."
             )
         else:
             print(f"** A layout error has occurred: {str(e)}")

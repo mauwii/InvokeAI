@@ -13,14 +13,14 @@ index 8b43b9a..184faab 100644
 @@ -28,30 +29,37 @@ export default function createPersistoid(config) {
    var timeIterator = null;
    var writePromise = null;
- 
+
 -  var update = function update(state) {
 -    // add any changed keys to the queue
 -    Object.keys(state).forEach(function (key) {
 -      if (!passWhitelistBlacklist(key)) return; // is keyspace ignored? noop
 +  // Timer for debounced `update()`
 +  let timer = 0;
- 
+
 -      if (lastState[key] === state[key]) return; // value unchanged? noop
 +  function update(state) {
 +    // Debounce the update
@@ -29,15 +29,15 @@ index 8b43b9a..184faab 100644
 +      // add any changed keys to the queue
 +      Object.keys(state).forEach(function (key) {
 +        if (!passWhitelistBlacklist(key)) return; // is keyspace ignored? noop
- 
+
 -      if (keysToProcess.indexOf(key) !== -1) return; // is key already queued? noop
 +        if (lastState[key] === state[key]) return; // value unchanged? noop
- 
+
 -      keysToProcess.push(key); // add key to queue
 -    }); //if any key is missing in the new state which was present in the lastState,
 -    //add it for processing too
 +        if (keysToProcess.indexOf(key) !== -1) return; // is key already queued? noop
- 
+
 -    Object.keys(lastState).forEach(function (key) {
 -      if (state[key] === undefined && passWhitelistBlacklist(key) && keysToProcess.indexOf(key) === -1 && lastState[key] !== undefined) {
 -        keysToProcess.push(key);
@@ -46,7 +46,7 @@ index 8b43b9a..184faab 100644
 +        keysToProcess.push(key); // add key to queue
 +      }); //if any key is missing in the new state which was present in the lastState,
 +      //add it for processing too
- 
+
 -    if (timeIterator === null) {
 -      timeIterator = setInterval(processNextKey, throttle);
 -    }
@@ -59,12 +59,12 @@ index 8b43b9a..184faab 100644
 +      if (timeIterator === null) {
 +        timeIterator = setInterval(processNextKey, throttle);
 +      }
- 
+
 -    lastState = state;
 +      lastState = state;
 +    }, debounce)
    };
- 
+
    function processNextKey() {
 diff --git a/node_modules/redux-persist/es/types.js.flow b/node_modules/redux-persist/es/types.js.flow
 index c50d3cd..39d8be2 100644

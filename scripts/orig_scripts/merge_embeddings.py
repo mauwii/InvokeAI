@@ -7,20 +7,29 @@ from functools import partial
 
 import torch
 
-def get_placeholder_loop(placeholder_string, embedder, use_bert):
 
-    new_placeholder   = None
+def get_placeholder_loop(placeholder_string, embedder, use_bert):
+    new_placeholder = None
 
     while True:
         if new_placeholder is None:
-            new_placeholder = input(f"Placeholder string {placeholder_string} was already used. Please enter a replacement string: ")
+            new_placeholder = input(
+                f"Placeholder string {placeholder_string} was already used. Please enter a replacement string: "
+            )
         else:
-            new_placeholder = input(f"Placeholder string '{new_placeholder}' maps to more than a single token. Please enter another string: ")
+            new_placeholder = input(
+                f"Placeholder string '{new_placeholder}' maps to more than a single token. Please enter another string: "
+            )
 
-        token = get_bert_token_for_string(embedder.tknz_fn, new_placeholder) if use_bert else get_clip_token_for_string(embedder.tokenizer, new_placeholder)
+        token = (
+            get_bert_token_for_string(embedder.tknz_fn, new_placeholder)
+            if use_bert
+            else get_clip_token_for_string(embedder.tokenizer, new_placeholder)
+        )
 
         if token is not None:
             return new_placeholder, token
+
 
 def get_clip_token_for_string(tokenizer, string):
     batch_encoding = tokenizer(
@@ -30,7 +39,7 @@ def get_clip_token_for_string(tokenizer, string):
         return_length=True,
         return_overflowing_tokens=False,
         padding="max_length",
-        return_tensors="pt"
+        return_tensors="pt",
     )
 
     tokens = batch_encoding["input_ids"]
@@ -39,6 +48,7 @@ def get_clip_token_for_string(tokenizer, string):
         return tokens[0, 1]
 
     return None
+
 
 def get_bert_token_for_string(tokenizer, string):
     token = tokenizer(string)
@@ -49,14 +59,13 @@ def get_bert_token_for_string(tokenizer, string):
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser()
 
     parser.add_argument(
         "--root_dir",
         type=str,
-        default='.',
-        help="Path to the InvokeAI install directory containing 'models', 'outputs' and 'configs'."
+        default=".",
+        help="Path to the InvokeAI install directory containing 'models', 'outputs' and 'configs'.",
     )
 
     parser.add_argument(
@@ -64,7 +73,7 @@ if __name__ == "__main__":
         type=str,
         nargs="+",
         required=True,
-        help="Paths to a set of embedding managers to be merged."
+        help="Paths to a set of embedding managers to be merged.",
     )
 
     parser.add_argument(
@@ -75,13 +84,14 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "-sd", "--use_bert",
+        "-sd",
+        "--use_bert",
         action="store_true",
-        help="Flag to denote that we are not merging stable diffusion embeddings"
+        help="Flag to denote that we are not merging stable diffusion embeddings",
     )
 
     args = parser.parse_args()
-    Globals.root=args.root_dir
+    Globals.root = args.root_dir
 
     if args.use_bert:
         embedder = BERTEmbedder(n_embed=1280, n_layer=32).cuda()
@@ -103,14 +113,22 @@ if __name__ == "__main__":
 
         for placeholder_string in manager.string_to_token_dict:
             if not placeholder_string in string_to_token_dict:
-                string_to_token_dict[placeholder_string] = manager.string_to_token_dict[placeholder_string]
-                string_to_param_dict[placeholder_string] = manager.string_to_param_dict[placeholder_string]
+                string_to_token_dict[placeholder_string] = manager.string_to_token_dict[
+                    placeholder_string
+                ]
+                string_to_param_dict[placeholder_string] = manager.string_to_param_dict[
+                    placeholder_string
+                ]
 
                 placeholder_to_src[placeholder_string] = manager_ckpt
             else:
-                new_placeholder, new_token = get_placeholder_loop(placeholder_string, embedder, use_bert=args.use_bert)
+                new_placeholder, new_token = get_placeholder_loop(
+                    placeholder_string, embedder, use_bert=args.use_bert
+                )
                 string_to_token_dict[new_placeholder] = new_token
-                string_to_param_dict[new_placeholder] = manager.string_to_param_dict[placeholder_string]
+                string_to_param_dict[new_placeholder] = manager.string_to_param_dict[
+                    placeholder_string
+                ]
 
                 placeholder_to_src[new_placeholder] = manager_ckpt
 

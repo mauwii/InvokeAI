@@ -7,9 +7,9 @@ title: InvokeAI Web Server
 As of version 2.0.0, this distribution comes with a full-featured web server
 (see screenshot).
 
-To use it, launch the `invoke.sh`/`invoke.bat` script and select
-option (2). Alternatively, with the InvokeAI environment active, run
-the `invokeai` script by adding the `--web` option:
+To use it, launch the `invoke.sh`/`invoke.bat` script and select option (2).
+Alternatively, with the InvokeAI environment active, run the `invokeai` script
+by adding the `--web` option:
 
 ```bash
 invokeai --web
@@ -72,14 +72,14 @@ From top to bottom, these are:
 1. Text to Image - generate images from text
 2. Image to Image - from an uploaded starting image (drawing or photograph)
    generate a new one, modified by the text prompt
-3. Unified Canvas - Interactively combine multiple images, extend them
-   with outpainting,and modify interior portions of the image with
-   inpainting, erase portions of a starting image and have the AI fill in
-   the erased region from a text prompt.
-4. Workflow Management (not yet implemented) - this panel will allow you to create
-   pipelines of common operations and combine them into workflows.
-5. Training (not yet implemented) - this panel will provide an interface to [textual
-   inversion training](TEXTUAL_INVERSION.md) and fine tuning.
+3. Unified Canvas - Interactively combine multiple images, extend them with
+   outpainting,and modify interior portions of the image with inpainting, erase
+   portions of a starting image and have the AI fill in the erased region from a
+   text prompt.
+4. Workflow Management (not yet implemented) - this panel will allow you to
+   create pipelines of common operations and combine them into workflows.
+5. Training (not yet implemented) - this panel will provide an interface to
+   [textual inversion training](TEXTUAL_INVERSION.md) and fine tuning.
 
 The inpainting, outpainting and postprocessing tabs are currently in
 development. However, limited versions of their features can already be accessed
@@ -98,8 +98,8 @@ feature set.
    `--host 0.0.0.0` to the launch command line and connect to the machine
    hosting the web server using its IP address or domain name.
 
-2. If all goes well, the WebUI should come up and you'll see a green
-   `connected` message on the upper right.
+2. If all goes well, the WebUI should come up and you'll see a green `connected`
+   message on the upper right.
 
 #### Basics
 
@@ -349,12 +349,12 @@ the settings configured in the toolbar.
 
 See below for additional documentation related to each feature:
 
-- [Core Prompt Settings](./CLI.md)
-- [Variations](./VARIATIONS.md)
-- [Upscaling](./POSTPROCESS.md#upscaling)
-- [Image to Image](./IMG2IMG.md)
-- [Inpainting](./INPAINTING.md)
-- [Other](./OTHER.md)
+-   [Core Prompt Settings](./CLI.md)
+-   [Variations](./VARIATIONS.md)
+-   [Upscaling](./POSTPROCESS.md#upscaling)
+-   [Image to Image](./IMG2IMG.md)
+-   [Inpainting](./INPAINTING.md)
+-   [Other](./OTHER.md)
 
 #### Invocation Gallery
 
@@ -370,11 +370,11 @@ When an image from the Invocation Gallery is selected, or is generated, the
 image will be displayed within the center of the interface. A quickbar of common
 image interactions are displayed along the top of the image, including:
 
-- Use image in the `Image to Image` workflow
-- Initialize Face Restoration on the selected file
-- Initialize Upscaling on the selected file
-- View File metadata and details
-- Delete the file
+-   Use image in the `Image to Image` workflow
+-   Initialize Face Restoration on the selected file
+-   Initialize Upscaling on the selected file
+-   View File metadata and details
+-   Delete the file
 
 ## Acknowledgements
 

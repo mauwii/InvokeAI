@@ -4,24 +4,23 @@ title: Image-to-Image
 
 # :material-image-multiple: Image-to-Image
 
-Both the Web and command-line interfaces provide an "img2img" feature
-that lets you seed your creations with an initial drawing or
-photo. This is a really cool feature that tells stable diffusion to
-build the prompt on top of the image you provide, preserving the
-original's basic shape and layout.
+Both the Web and command-line interfaces provide an "img2img" feature that lets
+you seed your creations with an initial drawing or photo. This is a really cool
+feature that tells stable diffusion to build the prompt on top of the image you
+provide, preserving the original's basic shape and layout.
 
-See the [WebUI Guide](WEB.md) for a walkthrough of the img2img feature
-in the InvokeAI web server. This document describes how to use img2img
-in the command-line tool.
+See the [WebUI Guide](WEB.md) for a walkthrough of the img2img feature in the
+InvokeAI web server. This document describes how to use img2img in the
+command-line tool.
 
 ## Basic Usage
 
-Launch the command-line client by launching `invoke.sh`/`invoke.bat`
-and choosing option (1). Alternative, activate the InvokeAI
-environment and issue the command `invokeai`.
+Launch the command-line client by launching `invoke.sh`/`invoke.bat` and
+choosing option (1). Alternative, activate the InvokeAI environment and issue
+the command `invokeai`.
 
-Once the `invoke> ` prompt appears, you can start an img2img render by
-pointing to a seed file with the `-I` option as shown here:
+Once the `invoke> ` prompt appears, you can start an img2img render by pointing
+to a seed file with the `-I` option as shown here:
 
 !!! example ""
 

@@ -219,9 +219,13 @@ class Generate:
             print(">> xformers not installed")
 
         # model caching system for fast switching
-        self.model_manager = ModelManager(mconfig, self.device, self.precision,
-                                          max_loaded_models=max_loaded_models,
-                                          sequential_offload=self.free_gpu_mem)
+        self.model_manager = ModelManager(
+            mconfig,
+            self.device,
+            self.precision,
+            max_loaded_models=max_loaded_models,
+            sequential_offload=self.free_gpu_mem,
+        )
         # don't accept invalid models
         fallback = self.model_manager.default_model() or FALLBACK_MODEL_NAME
         model = model or fallback

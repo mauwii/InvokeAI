@@ -6,24 +6,23 @@ title: Command-Line Interface
 
 ## **Interactive Command Line Interface**
 
-The InvokeAI command line interface (CLI) provides scriptable access
-to InvokeAI's features.Some advanced features are only available
-through the CLI, though they eventually find their way into the WebUI.
+The InvokeAI command line interface (CLI) provides scriptable access to
+InvokeAI's features.Some advanced features are only available through the CLI,
+though they eventually find their way into the WebUI.
 
-The CLI is accessible from the `invoke.sh`/`invoke.bat` launcher by
-selecting option (1). Alternatively, it can be launched directly from
-the command line by activating the InvokeAI environment and giving the
-command:
+The CLI is accessible from the `invoke.sh`/`invoke.bat` launcher by selecting
+option (1). Alternatively, it can be launched directly from the command line by
+activating the InvokeAI environment and giving the command:
 
 ```bash
 invokeai
 ```
 
-After some startup messages, you will be presented with the `invoke> `
-prompt. Here you can type prompts to generate images and issue other
-commands to load and manipulate generative models. The CLI has a large
-number of command-line options that control its behavior. To get a
-concise summary of the options, call `invokeai` with the `--help` argument:
+After some startup messages, you will be presented with the `invoke> ` prompt.
+Here you can type prompts to generate images and issue other commands to load
+and manipulate generative models. The CLI has a large number of command-line
+options that control its behavior. To get a concise summary of the options, call
+`invokeai` with the `--help` argument:
 
 ```bash
 invokeai --help
@@ -66,9 +65,9 @@ invoke> q
 
 ## Arguments
 
-The script recognizes a series of command-line switches that will
-change important global defaults, such as the directory for image
-outputs and the location of the model weight files.
+The script recognizes a series of command-line switches that will change
+important global defaults, such as the directory for image outputs and the
+location of the model weight files.
 
 ### List of arguments recognized at the command line
 
@@ -77,36 +76,36 @@ from the Windows, Mac or Linux command line. Some set defaults that can be
 overridden on a per-prompt basis (see
 [List of prompt arguments](#list-of-prompt-arguments). Others
 
-| Argument <img width="240" align="right"/> | Shortcut <img width="100" align="right"/> | Default <img width="320" align="right"/>       | Description                                                                                          |
-| ----------------------------------------- | ----------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `--help`                                  | `-h`                                      |                                                | Print a concise help message.                                                                        |
-| `--outdir <path>`                         | `-o<path>`                                | `outputs/img_samples`                          | Location for generated images.                                                                       |
-| `--prompt_as_dir`                         | `-p`                                      | `False`                                        | Name output directories using the prompt text.                                                       |
-| `--from_file <path>`                      |                                           | `None`                                         | Read list of prompts from a file. Use `-` to read from standard input                                |
-| `--model <modelname>`                     |                                           | `stable-diffusion-1.5`                         | Loads the initial model specified in configs/models.yaml. |
-| `--ckpt_convert `           |                                                         | `False`                                        | If provided both .ckpt and .safetensors files will be auto-converted into diffusers format in memory |
-| `--autoconvert <path>`                    |                          | `None`                                        | On startup, scan the indicated directory for new .ckpt/.safetensor files and automatically convert and import them |
-| `--precision`                             |                                           | `fp16`                                         | Provide `fp32` for full precision mode, `fp16` for half-precision. `fp32` needed for Macintoshes and some NVidia cards. |
-| `--png_compression <0-9>`                 | `-z<0-9>`                                 | `6`                                            | Select level of compression for output files, from 0 (no compression) to 9 (max compression)         |
-| `--safety-checker`                        |                                           | `False`                                        | Activate safety checker for NSFW and other potentially disturbing imagery                            |
-| `--patchmatch`, `--no-patchmatch`                 |                                   | `--patchmatch`                                        | Load/Don't load the PatchMatch inpainting extension    |
-| `--xformers`, `--no-xformers`                 |                                   | `--xformers`                                        | Load/Don't load the Xformers memory-efficient attention module (CUDA only)    |
-| `--web`                                   |                                           | `False`                                        | Start in web server mode                                                                             |
-| `--host <ip addr>`                        |                                           | `localhost`                                    | Which network interface web server should listen on. Set to 0.0.0.0 to listen on any.                |
-| `--port <port>`                           |                                           | `9090`                                         | Which port web server should listen for requests on.                                                 |
-| `--config <path>`                         |                                           | `configs/models.yaml`                          | Configuration file for models and their weights.                                                     |
-| `--iterations <int>`                      | `-n<int>`                                 | `1`                                            | How many images to generate per prompt.                                                              |
-| `--width <int>`                           | `-W<int>`                                 | `512`                                    | Width of generated image                                                                                                                                                                                                                         |
-| `--height <int>`                          | `-H<int>`                                 | `512`                                    | Height of generated image                                                                                                        | `--steps <int>`                           | `-s<int>`                                 | `50`                                     | How many steps of refinement to apply                                                                                                                                                                                                            |
-| `--strength <float>`                      | `-s<float>` | `0.75`  | For img2img: how hard to try to match the prompt to the initial image. Ranges from 0.0-0.99, with higher values replacing the initial image completely. |
-| `--fit`                                   | `-F`        | `False` | For img2img: scale the init image to fit into the specified -H and -W dimensions                                                                             |
-| `--grid`                                  | `-g`                                      | `False`                                        | Save all image series as a grid rather than individually.                                            |
-| `--sampler <sampler>`                     | `-A<sampler>`                             | `k_lms`                                        | Sampler to use. Use `-h` to get list of available samplers.                                          |
-| `--seamless`                              |                                           | `False`                                        | Create interesting effects by tiling elements of the image.                                          |
-| `--embedding_path <path>`                 |                                           | `None`                                         | Path to pre-trained embedding manager checkpoints, for custom models                                 |
-| `--gfpgan_model_path`                     |                                           | `experiments/pretrained_models/GFPGANv1.4.pth` | Path to GFPGAN model file.                                              |
-| `--free_gpu_mem`                          |                                           | `False`                                        | Free GPU memory after sampling, to allow image decoding and saving in low VRAM conditions            |
-| `--precision`                             |                                           | `auto`                                         | Set model precision, default is selected by device. Options: auto, float32, float16, autocast        |
+| Argument <img width="240" align="right"/> | Shortcut <img width="100" align="right"/> | Default <img width="320" align="right"/>       | Description                                                                                                                                             |
+| ----------------------------------------- | ----------------------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | --------- | ---- | ------------------------------------- |
+| `--help`                                  | `-h`                                      |                                                | Print a concise help message.                                                                                                                           |
+| `--outdir <path>`                         | `-o<path>`                                | `outputs/img_samples`                          | Location for generated images.                                                                                                                          |
+| `--prompt_as_dir`                         | `-p`                                      | `False`                                        | Name output directories using the prompt text.                                                                                                          |
+| `--from_file <path>`                      |                                           | `None`                                         | Read list of prompts from a file. Use `-` to read from standard input                                                                                   |
+| `--model <modelname>`                     |                                           | `stable-diffusion-1.5`                         | Loads the initial model specified in configs/models.yaml.                                                                                               |
+| `--ckpt_convert `                         |                                           | `False`                                        | If provided both .ckpt and .safetensors files will be auto-converted into diffusers format in memory                                                    |
+| `--autoconvert <path>`                    |                                           | `None`                                         | On startup, scan the indicated directory for new .ckpt/.safetensor files and automatically convert and import them                                      |
+| `--precision`                             |                                           | `fp16`                                         | Provide `fp32` for full precision mode, `fp16` for half-precision. `fp32` needed for Macintoshes and some NVidia cards.                                 |
+| `--png_compression <0-9>`                 | `-z<0-9>`                                 | `6`                                            | Select level of compression for output files, from 0 (no compression) to 9 (max compression)                                                            |
+| `--safety-checker`                        |                                           | `False`                                        | Activate safety checker for NSFW and other potentially disturbing imagery                                                                               |
+| `--patchmatch`, `--no-patchmatch`         |                                           | `--patchmatch`                                 | Load/Don't load the PatchMatch inpainting extension                                                                                                     |
+| `--xformers`, `--no-xformers`             |                                           | `--xformers`                                   | Load/Don't load the Xformers memory-efficient attention module (CUDA only)                                                                              |
+| `--web`                                   |                                           | `False`                                        | Start in web server mode                                                                                                                                |
+| `--host <ip addr>`                        |                                           | `localhost`                                    | Which network interface web server should listen on. Set to 0.0.0.0 to listen on any.                                                                   |
+| `--port <port>`                           |                                           | `9090`                                         | Which port web server should listen for requests on.                                                                                                    |
+| `--config <path>`                         |                                           | `configs/models.yaml`                          | Configuration file for models and their weights.                                                                                                        |
+| `--iterations <int>`                      | `-n<int>`                                 | `1`                                            | How many images to generate per prompt.                                                                                                                 |
+| `--width <int>`                           | `-W<int>`                                 | `512`                                          | Width of generated image                                                                                                                                |
+| `--height <int>`                          | `-H<int>`                                 | `512`                                          | Height of generated image                                                                                                                               | `--steps <int>` | `-s<int>` | `50` | How many steps of refinement to apply |
+| `--strength <float>`                      | `-s<float>`                               | `0.75`                                         | For img2img: how hard to try to match the prompt to the initial image. Ranges from 0.0-0.99, with higher values replacing the initial image completely. |
+| `--fit`                                   | `-F`                                      | `False`                                        | For img2img: scale the init image to fit into the specified -H and -W dimensions                                                                        |
+| `--grid`                                  | `-g`                                      | `False`                                        | Save all image series as a grid rather than individually.                                                                                               |
+| `--sampler <sampler>`                     | `-A<sampler>`                             | `k_lms`                                        | Sampler to use. Use `-h` to get list of available samplers.                                                                                             |
+| `--seamless`                              |                                           | `False`                                        | Create interesting effects by tiling elements of the image.                                                                                             |
+| `--embedding_path <path>`                 |                                           | `None`                                         | Path to pre-trained embedding manager checkpoints, for custom models                                                                                    |
+| `--gfpgan_model_path`                     |                                           | `experiments/pretrained_models/GFPGANv1.4.pth` | Path to GFPGAN model file.                                                                                                                              |
+| `--free_gpu_mem`                          |                                           | `False`                                        | Free GPU memory after sampling, to allow image decoding and saving in low VRAM conditions                                                               |
+| `--precision`                             |                                           | `auto`                                         | Set model precision, default is selected by device. Options: auto, float32, float16, autocast                                                           |
 
 !!! warning "These arguments are deprecated but still work"
 
@@ -130,11 +129,11 @@ overridden on a per-prompt basis (see
 
 ## The .invokeai initialization file
 
-To start up invoke.py with your preferred settings, place your desired
-startup options in a file in your home directory named `.invokeai` The
-file should contain the startup options as you would type them on the
-command line (`--steps=10 --grid`), one argument per line, or a
-mixture of both using any of the accepted command switch formats:
+To start up invoke.py with your preferred settings, place your desired startup
+options in a file in your home directory named `.invokeai` The file should
+contain the startup options as you would type them on the command line
+(`--steps=10 --grid`), one argument per line, or a mixture of both using any of
+the accepted command switch formats:
 
 !!! example "my unmodified initialization file"
 
@@ -293,9 +292,9 @@ invoke> a piece of cake -I /path/to/breakfast.png -tm bagel 0.6
 
 ### Custom Styles and Subjects
 
-You can load and use hundreds of community-contributed Textual
-Inversion models just by typing the appropriate trigger phrase. Please
-see [Concepts Library](CONCEPTS.md) for more details.
+You can load and use hundreds of community-contributed Textual Inversion models
+just by typing the appropriate trigger phrase. Please see
+[Concepts Library](CONCEPTS.md) for more details.
 
 ## Other Commands
 
@@ -322,7 +321,8 @@ Some examples:
     invoke> !fix 0000045.4829112.png -G1 -U4 -ft codeformer
     ```
 
-!!! example "Use the GFPGAN algorithm to fix faces, then upscale to 3X using --embiggen"
+!!! example "Use the GFPGAN algorithm to fix faces, then upscale to 3X using
+--embiggen"
 
     ```bash
     invoke> !fix 0000045.4829112.png -G0.8 -ft gfpgan
@@ -342,10 +342,10 @@ useful for debugging the text masking process prior to inpainting with the
 
 ### Model selection and importation
 
-The CLI allows you to add new models on the fly, as well as to switch
-among them rapidly without leaving the script. There are several
-different model formats, each described in the [Model Installation
-Guide](../installation/050_INSTALLING_MODELS.md).
+The CLI allows you to add new models on the fly, as well as to switch among them
+rapidly without leaving the script. There are several different model formats,
+each described in the
+[Model Installation Guide](../installation/050_INSTALLING_MODELS.md).
 
 #### `!models`
 
@@ -371,11 +371,10 @@ loading a cached model.
 
 #### `!import_model <hugging_face_repo_ID>`
 
-This imports and installs a `diffusers`-style model that is stored on
-the [HuggingFace Web Site](https://huggingface.co). You can look up
-any [Stable Diffusion diffusers
-model](https://huggingface.co/models?library=diffusers) and install it
-with a command like the following:
+This imports and installs a `diffusers`-style model that is stored on the
+[HuggingFace Web Site](https://huggingface.co). You can look up any
+[Stable Diffusion diffusers model](https://huggingface.co/models?library=diffusers)
+and install it with a command like the following:
 
 ```bash
 !import_model prompthero/openjourney
@@ -383,14 +382,14 @@ with a command like the following:
 
 #### `!import_model <path/to/diffusers/directory>`
 
-If you have a copy of a `diffusers`-style model saved to disk, you can
-import it by passing the path to model's top-level directory.
+If you have a copy of a `diffusers`-style model saved to disk, you can import it
+by passing the path to model's top-level directory.
 
 #### `!import_model <url>`
 
-For a `.ckpt` or `.safetensors` file, if you have a direct download
-URL for the file, you can provide it to `!import_model` and the file
-will be downloaded and installed for you.
+For a `.ckpt` or `.safetensors` file, if you have a direct download URL for the
+file, you can provide it to `!import_model` and the file will be downloaded and
+installed for you.
 
 #### `!import_model <path/to/model/weights.ckpt>`
 
@@ -414,10 +413,10 @@ automatically.
 
 #### `!import_model <path/to/directory_of_models>`
 
-If you provide the path of a directory that contains one or more
-`.ckpt` or `.safetensors` files, the CLI will scan the directory and
-interactively offer to import the models it finds there. Also see the
-`--autoconvert` command-line option.
+If you provide the path of a directory that contains one or more `.ckpt` or
+`.safetensors` files, the CLI will scan the directory and interactively offer to
+import the models it finds there. Also see the `--autoconvert` command-line
+option.
 
 #### `!edit_model <name_of_model>`
 
@@ -501,7 +500,8 @@ processing.
     invoke> a fantastic alien landscape -W 576 -H 512 -s 60 -A plms -C 7.5
     ```
 
-!!! example "fetch the generation commands from a batch of files and store them into `selected.txt`"
+!!! example "fetch the generation commands from a batch of files and store them
+into `selected.txt`"
 
     ```bash
     invoke> !fetch outputs\selected-imgs\*.png selected.txt
@@ -542,17 +542,17 @@ operation is irreversible and does not issue any warnings!
 The command-line offers convenient history tracking, editing, and command
 completion.
 
-- To scroll through previous commands and potentially edit/reuse them, use the
-  ++up++ and ++down++ keys.
-- To edit the current command, use the ++left++ and ++right++ keys to position
-  the cursor, and then ++backspace++, ++delete++ or insert characters.
-- To move to the very beginning of the command, type ++ctrl+a++ (or
-  ++command+a++ on the Mac)
-- To move to the end of the command, type ++ctrl+e++.
-- To cut a section of the command, position the cursor where you want to start
-  cutting and type ++ctrl+k++
-- To paste a cut section back in, position the cursor where you want to paste,
-  and type ++ctrl+y++
+-   To scroll through previous commands and potentially edit/reuse them, use the
+    ++up++ and ++down++ keys.
+-   To edit the current command, use the ++left++ and ++right++ keys to position
+    the cursor, and then ++backspace++, ++delete++ or insert characters.
+-   To move to the very beginning of the command, type ++ctrl+a++ (or
+    ++command+a++ on the Mac)
+-   To move to the end of the command, type ++ctrl+e++.
+-   To cut a section of the command, position the cursor where you want to start
+    cutting and type ++ctrl+k++
+-   To paste a cut section back in, position the cursor where you want to paste,
+    and type ++ctrl+y++
 
 Windows users can get similar, but more limited, functionality if they launch
 `invoke.py` with the `winpty` program and have the `pyreadline3` library

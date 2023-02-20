@@ -28,8 +28,8 @@ should "just work" without further intervention. Simply pass the `--upscale`
 the popup in the Web GUI.
 
 **GFPGAN** requires a series of downloadable model files to work. These are
-loaded when you run `invokeai-configure`. If GFPAN is failing with an
-error, please run the following from the InvokeAI directory:
+loaded when you run `invokeai-configure`. If GFPAN is failing with an error,
+please run the following from the InvokeAI directory:
 
 ```bash
 invokeai-configure
@@ -124,9 +124,9 @@ the default gfpgan.
 
 ### Other Options
 
-- `-cf` - cf or CodeFormer Fidelity takes values between `0` and `1`. 0 produces
-  high quality results but low accuracy and 1 produces lower quality results but
-  higher accuacy to your original face.
+-   `-cf` - cf or CodeFormer Fidelity takes values between `0` and `1`. 0
+    produces high quality results but low accuracy and 1 produces lower quality
+    results but higher accuacy to your original face.
 
 The following command will perform face restoration with CodeFormer. CodeFormer
 will output a result that is closely matching to the input face.

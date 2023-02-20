@@ -29,13 +29,16 @@ from huggingface_hub import login as hf_hub_login
 from omegaconf import OmegaConf
 from omegaconf.dictconfig import DictConfig
 from tqdm import tqdm
-from transformers import (AutoProcessor, CLIPSegForImageSegmentation,
-                          CLIPTextModel, CLIPTokenizer)
+from transformers import (
+    AutoProcessor,
+    CLIPSegForImageSegmentation,
+    CLIPTextModel,
+    CLIPTokenizer,
+)
 
 import invokeai.configs as configs
 from ldm.invoke.devices import choose_precision, choose_torch_device
-from ldm.invoke.generator.diffusers_pipeline import \
-    StableDiffusionGeneratorPipeline
+from ldm.invoke.generator.diffusers_pipeline import StableDiffusionGeneratorPipeline
 from ldm.invoke.globals import Globals, global_cache_dir, global_config_dir
 from ldm.invoke.readline import generic_completer
 
@@ -568,7 +571,9 @@ def update_config_file(successfully_downloaded: dict, opt: dict):
 
 
 # ---------------------------------------------
-def new_config_file_contents(successfully_downloaded: dict, config_file: Path, opt: dict) -> str:
+def new_config_file_contents(
+    successfully_downloaded: dict, config_file: Path, opt: dict
+) -> str:
     if config_file.exists():
         conf = OmegaConf.load(str(config_file.expanduser().resolve()))
     else:
@@ -576,7 +581,6 @@ def new_config_file_contents(successfully_downloaded: dict, config_file: Path, o
 
     default_selected = None
     for model in successfully_downloaded:
-
         # a bit hacky - what we are doing here is seeing whether a checkpoint
         # version of the model was previously defined, and whether the current
         # model is a diffusers (indicated with a path)
@@ -619,14 +623,17 @@ def new_config_file_contents(successfully_downloaded: dict, config_file: Path, o
 
     return OmegaConf.to_yaml(conf)
 
+
 # ---------------------------------------------
 def offer_to_delete_weights(model_name: str, conf_stanza: dict, yes_to_all: bool):
-    if not (weights := conf_stanza.get('weights')):
+    if not (weights := conf_stanza.get("weights")):
         return
-    if re.match('/VAE/',conf_stanza.get('config')):
+    if re.match("/VAE/", conf_stanza.get("config")):
         return
-    if yes_to_all or \
-       yes_or_no(f'\n** The checkpoint version of {model_name} is superseded by the diffusers version. Delete the original file {weights}?', default_yes=False):
+    if yes_to_all or yes_or_no(
+        f"\n** The checkpoint version of {model_name} is superseded by the diffusers version. Delete the original file {weights}?",
+        default_yes=False,
+    ):
         weights = Path(weights)
         if not weights.is_absolute():
             weights = Path(Globals.root) / weights
@@ -634,6 +641,7 @@ def offer_to_delete_weights(model_name: str, conf_stanza: dict, yes_to_all: bool
             weights.unlink()
         except OSError as e:
             print(str(e))
+
 
 # ---------------------------------------------
 # this will preload the Bert tokenizer fles
@@ -663,7 +671,7 @@ def download_from_hf(
         resume_download=True,
         **kwargs,
     )
-    model_name = '--'.join(('models',*model_name.split('/')))
+    model_name = "--".join(("models", *model_name.split("/")))
     return path / model_name if model else None
 
 
@@ -743,8 +751,9 @@ def download_clipseg():
 def download_safety_checker():
     print("Installing model for NSFW content detection...", file=sys.stderr)
     try:
-        from diffusers.pipelines.stable_diffusion.safety_checker import \
-            StableDiffusionSafetyChecker
+        from diffusers.pipelines.stable_diffusion.safety_checker import (
+            StableDiffusionSafetyChecker,
+        )
         from transformers import AutoFeatureExtractor
     except ModuleNotFoundError:
         print("Error installing NSFW checker model:")
@@ -761,9 +770,7 @@ def download_safety_checker():
 # -------------------------------------
 def download_weights(opt: dict) -> Union[str, None]:
     precision = (
-        "float32"
-        if opt.full_precision
-        else choose_precision(choose_torch_device())
+        "float32" if opt.full_precision else choose_precision(choose_torch_device())
     )
 
     if opt.yes_to_all:

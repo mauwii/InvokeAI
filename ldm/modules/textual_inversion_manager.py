@@ -59,7 +59,9 @@ class TextualInversionManager:
     def get_all_trigger_strings(self) -> list[str]:
         return [ti.trigger_string for ti in self.textual_inversions]
 
-    def load_textual_inversion(self, ckpt_path: Union[str,Path], defer_injecting_tokens: bool = False):
+    def load_textual_inversion(
+        self, ckpt_path: Union[str, Path], defer_injecting_tokens: bool = False
+    ):
         ckpt_path = Path(ckpt_path)
         if str(ckpt_path).endswith(".DS_Store"):
             return

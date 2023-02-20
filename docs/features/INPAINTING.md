@@ -78,13 +78,13 @@ feature. The syntax is `!mask /path/to/image.png -tm <text> <threshold>`
 
 It will generate three files:
 
-- The image with the selected area highlighted.
-  - it will be named XXXXX.<imagename>.<prompt>.selected.png
-- The image with the un-selected area highlighted.
-  - it will be named XXXXX.<imagename>.<prompt>.deselected.png
-- The image with the selected area converted into a black and white image
-  according to the threshold level
-  - it will be named XXXXX.<imagename>.<prompt>.masked.png
+-   The image with the selected area highlighted.
+    -   it will be named XXXXX.<imagename>.<prompt>.selected.png
+-   The image with the un-selected area highlighted.
+    -   it will be named XXXXX.<imagename>.<prompt>.deselected.png
+-   The image with the selected area converted into a black and white image
+    according to the threshold level
+    -   it will be named XXXXX.<imagename>.<prompt>.masked.png
 
 The `.masked.png` file can then be directly passed to the `invoke>` prompt in
 the CLI via the `-M` argument. Do not attempt this with the `selected.png` or
@@ -158,8 +158,8 @@ when filling in missing regions. It has an almost uncanny ability to blend the
 new regions with existing ones in a semantically coherent way.
 
 To install the inpainting model, follow the
-[instructions](../installation/050_INSTALLING_MODELS.md) for installing a new model.
-You may use either the CLI (`invoke.py` script) or directly edit the
+[instructions](../installation/050_INSTALLING_MODELS.md) for installing a new
+model. You may use either the CLI (`invoke.py` script) or directly edit the
 `configs/models.yaml` configuration file to do this. The main thing to watch out
 for is that the the model `config` option must be set up to use
 `v1-inpainting-inference.yaml` rather than the `v1-inference.yaml` file that is
@@ -256,16 +256,16 @@ with the surrounding unmasked regions as well.
 
 1. Open image in Photoshop
 
-    <figure markdown>
-    ![step1](../assets/step1.png)
-    </figure>
+ <figure markdown>
+ ![step1](../assets/step1.png)
+ </figure>
 
 2. Use any of the selection tools (Marquee, Lasso, or Wand) to select the area
    you desire to inpaint.
 
-    <figure markdown>
-    ![step2](../assets/step2.png)
-    </figure>
+     <figure markdown>
+     ![step2](../assets/step2.png)
+     </figure>
 
 3. Because we'll be applying a mask over the area we want to preserve, you
    should now select the inverse by using the ++shift+ctrl+i++ shortcut, or
@@ -275,32 +275,32 @@ with the surrounding unmasked regions as well.
    selection. Make sure that you don't delete any of the underlying image, or
    your inpainting results will be dramatically impacted.
 
-    <figure markdown>
-    ![step4](../assets/step4.png)
-    </figure>
+     <figure markdown>
+     ![step4](../assets/step4.png)
+     </figure>
 
 5. Make sure to hide any background layers that are present. You should see the
    mask applied to your image layer, and the image on your canvas should display
    the checkered background.
 
-    <figure markdown>
-    ![step5](../assets/step5.png)
-    </figure>
+     <figure markdown>
+     ![step5](../assets/step5.png)
+     </figure>
 
 6. Save the image as a transparent PNG by using `File`-->`Save a Copy` from the
    menu bar, or by using the keyboard shortcut ++alt+ctrl+s++
 
-    <figure markdown>
-    ![step6](../assets/step6.png)
-    </figure>
+     <figure markdown>
+     ![step6](../assets/step6.png)
+     </figure>
 
 7. After following the inpainting instructions above (either through the CLI or
    the Web UI), marvel at your newfound ability to selectively invoke. Lookin'
    good!
 
-    <figure markdown>
-   ![step7](../assets/step7.png)
-    </figure>
+     <figure markdown>
+    ![step7](../assets/step7.png)
+     </figure>
 
 8. In the export dialogue, Make sure the "Save colour values from transparent
    pixels" checkbox is selected.
