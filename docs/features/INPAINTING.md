@@ -48,7 +48,9 @@ To see how this works in practice, here's an image of a still life painting that
 I got off the web.
 
 <figure markdown>
+
 ![still life scaled](../assets/still-life-scaled.jpg)
+
 </figure>
 
 You can selectively mask out the orange and replace it with a baseball in this
@@ -59,7 +61,9 @@ invoke> a baseball -I /path/to/still_life.png -tm orange
 ```
 
 <figure markdown>
+
 ![](../assets/still-life-inpainted.png)
+
 </figure>
 
 The clipseg classifier produces a confidence score for each region it
@@ -79,12 +83,12 @@ feature. The syntax is `!mask /path/to/image.png -tm <text> <threshold>`
 It will generate three files:
 
 -   The image with the selected area highlighted.
-    -   it will be named XXXXX.<imagename>.<prompt>.selected.png
+    -   it will be named `XXXXX.<imagename>.<prompt>.selected.png`
 -   The image with the un-selected area highlighted.
-    -   it will be named XXXXX.<imagename>.<prompt>.deselected.png
+    -   it will be named `XXXXX.<imagename>.<prompt>.deselected.png`
 -   The image with the selected area converted into a black and white image
     according to the threshold level
-    -   it will be named XXXXX.<imagename>.<prompt>.masked.png
+    -   it will be named `XXXXX.<imagename>.<prompt>.masked.png`
 
 The `.masked.png` file can then be directly passed to the `invoke>` prompt in
 the CLI via the `-M` argument. Do not attempt this with the `selected.png` or
@@ -254,53 +258,65 @@ with the surrounding unmasked regions as well.
 
 ## Recipe for Adobe Photoshop
 
-1. Open image in Photoshop
+1.  Open image in Photoshop
 
- <figure markdown>
- ![step1](../assets/step1.png)
- </figure>
+    <figure markdown>
 
-2. Use any of the selection tools (Marquee, Lasso, or Wand) to select the area
-   you desire to inpaint.
+    ![step1](../assets/step1.png)
 
-       <figure markdown>
-       ![step2](../assets/step2.png)
-       </figure>
+    </figure>
 
-3. Because we'll be applying a mask over the area we want to preserve, you
-   should now select the inverse by using the ++shift+ctrl+i++ shortcut, or
-   right clicking and using the "Select Inverse" option.
+2.  Use any of the selection tools (Marquee, Lasso, or Wand) to select the area
+    you desire to inpaint.
 
-4. You'll now create a mask by selecting the image layer, and Masking the
-   selection. Make sure that you don't delete any of the underlying image, or
-   your inpainting results will be dramatically impacted.
+    <figure markdown>
 
-       <figure markdown>
-       ![step4](../assets/step4.png)
-       </figure>
+    ![step2](../assets/step2.png)
 
-5. Make sure to hide any background layers that are present. You should see the
-   mask applied to your image layer, and the image on your canvas should display
-   the checkered background.
+    </figure>
 
-       <figure markdown>
-       ![step5](../assets/step5.png)
-       </figure>
+3.  Because we'll be applying a mask over the area we want to preserve, you
+    should now select the inverse by using the ++shift+ctrl+i++ shortcut, or
+    right clicking and using the "Select Inverse" option.
 
-6. Save the image as a transparent PNG by using `File`-->`Save a Copy` from the
-   menu bar, or by using the keyboard shortcut ++alt+ctrl+s++
+4.  You'll now create a mask by selecting the image layer, and Masking the
+    selection. Make sure that you don't delete any of the underlying image, or
+    your inpainting results will be dramatically impacted.
 
-       <figure markdown>
-       ![step6](../assets/step6.png)
-       </figure>
+    <figure markdown>
 
-7. After following the inpainting instructions above (either through the CLI or
-   the Web UI), marvel at your newfound ability to selectively invoke. Lookin'
-   good!
+    ![step4](../assets/step4.png)
 
-       <figure markdown>
-      ![step7](../assets/step7.png)
-       </figure>
+    </figure>
 
-8. In the export dialogue, Make sure the "Save colour values from transparent
-   pixels" checkbox is selected.
+5.  Make sure to hide any background layers that are present. You should see the
+    mask applied to your image layer, and the image on your canvas should
+    display the checkered background.
+
+    <figure markdown>
+
+    ![step5](../assets/step5.png)
+
+    </figure>
+
+6.  Save the image as a transparent PNG by using `File`-->`Save a Copy` from the
+    menu bar, or by using the keyboard shortcut ++alt+ctrl+s++
+
+    <figure markdown>
+
+    ![step6](../assets/step6.png)
+
+    </figure>
+
+7.  After following the inpainting instructions above (either through the CLI or
+    the Web UI), marvel at your newfound ability to selectively invoke. Lookin'
+    good!
+
+    <figure markdown>
+
+    ![step7](../assets/step7.png)
+
+    </figure>
+
+8.  In the export dialogue, Make sure the "Save colour values from transparent
+    pixels" checkbox is selected.
