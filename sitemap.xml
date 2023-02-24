@@ -136,6 +136,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://mauwii.github.io/InvokeAI/help/contributing/090_NODE_TRANSFORMATION/</loc>
+         <lastmod>2023-02-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://mauwii.github.io/InvokeAI/help/deprecated/TROUBLESHOOT/</loc>
          <lastmod>2023-02-24</lastmod>
          <changefreq>daily</changefreq>
