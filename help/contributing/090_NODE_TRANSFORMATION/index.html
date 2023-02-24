@@ -1534,10 +1534,10 @@
 <pre class="mermaid"><code>flowchart TD
     web[WebUI];
     cli[CLI];
-    web -- img2img --&gt; generate;
-    web -- txt2img --&gt; generate;
-    cli -- txt2img --&gt; generate;
-    cli -- img2img --&gt; generate;
+    web --&gt; |img2img| generate(generate);
+    web --&gt; |txt2img| generate(generate);
+    cli --&gt; |txt2img| generate(generate);
+    cli --&gt; |img2img| generate(generate);
     generate --&gt; model_manager;
     generate --&gt; generators;
     generate --&gt; ti_manager[TI Manager];
@@ -1547,12 +1547,12 @@
 <pre class="mermaid"><code>flowchart TD
     web[WebUI];
     cli[CLI];
-    web -- img2img --&gt; img2img_node[Img2img node];
-    web -- txt2img --&gt; generate;
+    web --&gt; |img2img| img2img_node(Img2img node);
+    web --&gt; |txt2img| generate(generate);
     img2img_node --&gt; model_manager;
     img2img_node --&gt; generators;
-    cli -- txt2img --&gt; generate;
-    cli -- img2img --&gt; generate;
+    cli --&gt; |txt2img| generate;
+    cli --&gt; |img2img| generate;
     generate --&gt; model_manager;
     generate --&gt; generators;
     generate --&gt; ti_manager[TI Manager];
@@ -1561,12 +1561,12 @@
 <pre class="mermaid"><code>flowchart TD
     web[WebUI];
     cli[CLI];
-    web -- img2img --&gt; img2img_node[img2img node];
+    web --&gt; |img2img| img2img_node(img2img node);
     img2img_node --&gt; model_manager;
     img2img_node --&gt; generators;
-    web -- txt2img --&gt; txt2img_node;
-    cli -- txt2img --&gt; txt2img_node;
-    cli -- img2img --&gt; generate;
+    web --&gt; |txt2img| txt2img_node(txt2img node);
+    cli --&gt; |txt2img| txt2img_node;
+    cli --&gt; |img2img| generate(generate);
     generate --&gt; model_manager;
     generate --&gt; generators;
     generate --&gt; ti_manager[TI Manager];
@@ -1578,10 +1578,10 @@
 <pre class="mermaid"><code>flowchart TD
     web[WebUI];
     cli[CLI];
-    web -- img2img --&gt; img2img_node[img2img node];
-    cli -- img2img --&gt; img2img_node;
-    web -- txt2img --&gt; txt2img_node;
-    cli -- txt2img --&gt; txt2img_node;
+    web --&gt; |img2img|img2img_node(img2img node);
+    cli --&gt; |img2img|img2img_node;
+    web --&gt; |txt2img|txt2img_node(txt2img node);
+    cli --&gt; |txt2img|txt2img_node;
     img2img_node --&gt; model_manager;
     txt2img_node --&gt; model_manager;
     img2img_node --&gt; generators;
